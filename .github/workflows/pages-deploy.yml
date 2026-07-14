@@ -31,8 +31,10 @@ jobs:
         uses: actions/checkout@v7
         with:
           fetch-depth: 0
-          # submodules: true
-          # If using the 'assets' git submodule from Chirpy Starter, uncomment above
+          submodules: true
+          # ↑ .gitmodules 가 assets/lib 을 submodule 로 참조한다.
+          #   Chirpy 는 기본적으로 외부 라이브러리를 jsDelivr CDN 에서 받으므로
+          #   이게 꺼져 있어도 사이트는 뜬다. 나중에 self-host 로 전환하면 필요해진다.
           # (See: https://github.com/cotes2020/chirpy-starter/tree/main/assets)
 
       - name: Setup Pages

@@ -2,7 +2,7 @@
 title: "{조건 동작}은 천이가 실패해도 이미 실행된 뒤다"
 description: Stateflow의 조건 동작과 천이 동작은 실행 시점이 다르다. 그 사이에 경로 유효성 검증이 끼어 있고, 백트래킹이 일어나면 조건 동작만 남는다.
 date: 2026-07-14 14:10:00 +0900
-categories: [Stateflow, 실행 의미론]
+categories: [상태기계, 실행 의미론]
 tags: [stateflow, statechart, fsm, 실행순서, 백트래킹, MAB, 임베디드]
 mermaid: true
 ---
@@ -223,6 +223,16 @@ flowchart LR
 `during` 액션. **상태에 머무는 동안 계속 도는 코드**라고 생각하기 쉽지만, 아니다.
 
 유효한 outer 천이가 있으면 `during` 은 **실행조차 되지 않는다.** 차트가 깨어나서 잠들 때까지의 생명주기를 다음 글에서 정리한다.
+
+---
+
+> **📚 실행 의미론 시리즈 (2/4)** — [전체 학습 지도](/learning-map/)
+>
+> 1. [병렬(AND) 상태는 "동시"에 실행되지 않는다](/posts/stateflow-parallel-and-is-not-simultaneous/)
+> 2. **{조건 동작}은 천이가 실패해도 이미 실행된 뒤다** ← 지금 읽는 글
+> 3. `during` 은 상시 실행되지 않는다 — 차트의 생명주기 _(예정)_
+> 4. history junction 을 fault 복구에 쓰면 안 되는 이유 _(예정)_
+{: .prompt-tip }
 
 ---
 

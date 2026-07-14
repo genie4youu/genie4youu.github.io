@@ -2,7 +2,7 @@
 title: Stateflow의 병렬(AND) 상태는 "동시"에 실행되지 않는다
 description: 병렬 상태는 동시에 활성이지만 순차 실행된다. 공유 변수가 있으면 실행 순서가 결과를 바꾸고, 여러 상태가 쓰면 순서로는 풀리지 않는다.
 date: 2026-07-14 13:00:00 +0900
-categories: [Stateflow, 실행 의미론]
+categories: [상태기계, 실행 의미론]
 tags: [stateflow, statechart, fsm, 실행순서, 병렬상태, MAB, 임베디드]
 mermaid: true
 ---
@@ -232,6 +232,18 @@ flowchart TD
 조건 동작은 천이가 결국 실패해도 **이미 실행된 뒤**다. 이게 병렬 순서보다 더 까다롭다.
 
 → **[{조건 동작}은 천이가 실패해도 이미 실행된 뒤다](/posts/stateflow-condition-action-vs-transition-action/)**
+
+---
+
+> **📚 실행 의미론 시리즈 (1/4)** — [전체 학습 지도](/learning-map/)
+>
+> 1. **병렬(AND) 상태는 "동시"에 실행되지 않는다** ← 지금 읽는 글
+> 2. [{조건 동작}은 천이가 실패해도 이미 실행된 뒤다](/posts/stateflow-condition-action-vs-transition-action/)
+> 3. `during` 은 상시 실행되지 않는다 — 차트의 생명주기 _(예정)_
+> 4. history junction 을 fault 복구에 쓰면 안 되는 이유 _(예정)_
+{: .prompt-tip }
+
+이 글의 "1 스텝 지연"은 [`05-parallel-race`](https://github.com/genie4youu/statechart-examples/tree/main/05-parallel-race) 에서 **테스트로 직접 측정**해 볼 수 있다.
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Stateflow의 병렬(AND) 상태는 "동시"에 실행되지 않는다
-date: 2026-07-14 21:00:00 +0900
+date: 2026-07-14 13:00:00 +0900
 categories: [Stateflow]
 tags: [stateflow, statechart, fsm, 실행순서, 임베디드]
 ---

@@ -98,7 +98,7 @@ flowchart LR
 > 이 문제는 중요해서 따로 다룬다.
 > [병렬(AND) State는 "동시"에 실행되지 않는다](/posts/stateflow-parallel-and-is-not-simultaneous/)
 >
-> 코드로 확인하려면 [`05-parallel-race`](https://github.com/genie4youu/statechart-examples/tree/main/05-parallel-race)에서 테스트가 1 스텝 지연을 실제로 측정한다.
+> 코드로 확인하려면 [`05-parallel-race`](https://github.com/genie4youu/stateflow-examples/tree/main/05-parallel-race)에서 테스트가 1 스텝 지연을 실제로 측정한다.
 {: .prompt-danger }
 
 ## 정리

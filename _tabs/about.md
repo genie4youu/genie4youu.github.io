@@ -1,4 +1,4 @@
----
+﻿---
 # the default layout is 'page'
 icon: fas fa-info-circle
 order: 4
@@ -12,7 +12,7 @@ order: 4
 - 공부하다 막힌 부분을 정리합니다.
 - 배운 것을 예제와 프로젝트로 직접 만들어 확인하고, 그 과정을 남깁니다.
 
-예제 코드는 [statechart-examples](https://github.com/genie4youu/statechart-examples) 저장소에 있습니다. `make` 한 번으로 빌드되고 테스트가 돌아갑니다.
+예제 코드는 [stateflow-examples](https://github.com/genie4youu/stateflow-examples) 저장소에 있습니다. `make` 한 번으로 빌드되고 테스트가 돌아갑니다.
 
 ## 글 순서
 

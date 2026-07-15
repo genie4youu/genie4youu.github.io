@@ -95,7 +95,7 @@ void chart_step(void)
 > 이 지연이 까다로운 이유는 틀린 값이 아니라 늦은 값이기 때문이다. 대부분의 스텝에서 온도는 천천히 변하니 결과가 그럴듯해 보이고, 급변하는 순간에만 한 스텝 틀린다. 그런 버그는 눈에 잘 띄지 않는다.
 {: .prompt-danger }
 
-> 코드로 확인하려면 [`05-parallel-race`](https://github.com/genie4youu/statechart-examples/tree/main/05-parallel-race)를 보면 된다. 로직이 같고 두 줄의 순서만 다른 두 구현에 같은 입력을 넣어 테스트가 지연을 측정한다. 돌려보다 알게 된 건데, 지연은 대칭이다. 켤 때만 늦는 게 아니라 끌 때도 늦는다.
+> 코드로 확인하려면 [`05-parallel-race`](https://github.com/genie4youu/stateflow-examples/tree/main/05-parallel-race)를 보면 된다. 로직이 같고 두 줄의 순서만 다른 두 구현에 같은 입력을 넣어 테스트가 지연을 측정한다. 돌려보다 알게 된 건데, 지연은 대칭이다. 켤 때만 늦는 게 아니라 끌 때도 늦는다.
 {: .prompt-tip }
 
 ## 둘 다 쓰면 어떻게 되나

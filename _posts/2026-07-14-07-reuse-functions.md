@@ -1,4 +1,4 @@
-﻿---
+---
 title: Function으로 로직을 재사용하다
 description: Graphical, MATLAB, Simulink Function 세 가지. 중복된 충전 로직을 하나로 묶고 1부를 마무리한다.
 date: 2026-07-14 12:50:00 +0900

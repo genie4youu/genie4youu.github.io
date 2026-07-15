@@ -1,4 +1,4 @@
-﻿---
+---
 title: Junction으로 경로를 나누다
 description: 출력이 수요에 반응하지 않는 문제를 Junction으로 푼다. 경로 평가 규칙, Execution Order, 그리고 Inner Transition.
 date: 2026-07-14 11:40:00 +0900

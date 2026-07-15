@@ -1,4 +1,4 @@
-﻿---
+---
 title: Condition Action은 Transition이 실패해도 이미 실행된 뒤다
 description: Condition Action과 Transition Action은 실행 시점이 다르다. 그 사이에 경로 유효성 검증이 끼어 있고, Backtracking이 일어나면 부작용만 남는다.
 date: 2026-07-14 14:10:00 +0900

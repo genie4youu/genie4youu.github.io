@@ -1,4 +1,4 @@
-﻿---
+---
 title: 로깅을 켜보니 충전량이 100%를 넘고 있었다
 description: 돌아가는 Chart가 맞는 Chart는 아니다. Active State 로깅과 조건부 Breakpoint로 설계 결함을 찾아내는 과정.
 date: 2026-07-14 10:20:00 +0900

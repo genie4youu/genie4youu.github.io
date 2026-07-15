@@ -1,4 +1,4 @@
-﻿---
+---
 title: 병렬 State와 Event 브로드캐스트
 description: 두 배터리를 동시에 돌린다. Parallel(AND) 분해와 send()로 State 사이에 신호를 보내는 방법, 그리고 여기 숨은 함정.
 date: 2026-07-14 12:20:00 +0900

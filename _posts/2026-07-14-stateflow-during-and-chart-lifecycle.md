@@ -1,4 +1,4 @@
-﻿---
+---
 title: during은 상시 실행되지 않는다
 description: Chart는 항상 도는 코드가 아니다. 깨어나서 잠들 때까지 한 스텝. 그 안에서 outer, during, inner가 어떤 순서로 갈리는가.
 date: 2026-07-14 16:00:00 +0900

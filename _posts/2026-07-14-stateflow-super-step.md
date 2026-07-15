@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Super Step: 한 스텝에 Transition이 연쇄한다"
 description: 기본 Chart는 한 스텝에 Transition을 한 번만 한다. Super Step은 안정 State에 도달할 때까지 연쇄시킨다. 얻는 것과 잃는 것.
 date: 2026-07-14 16:40:00 +0900

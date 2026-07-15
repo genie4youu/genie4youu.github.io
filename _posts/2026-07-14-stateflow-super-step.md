@@ -120,7 +120,7 @@ Chart를 그렸다고 그 동작까지 아는 건 아니다. 그림은 무엇이
 
 ---
 
-> **2부 Chart 실행 순서 (4/4) 완결** — [전체 글](/about/)
+> **2부 Chart 실행 순서 (4/4) 완결**
 >
 > 1. [병렬(AND) State는 "동시"에 실행되지 않는다](/posts/stateflow-parallel-and-is-not-simultaneous/)
 > 2. [Condition Action은 Transition이 실패해도 이미 실행된 뒤다](/posts/stateflow-condition-action-vs-transition-action/)

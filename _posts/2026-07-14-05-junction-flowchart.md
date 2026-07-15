@@ -109,7 +109,7 @@ State가 어디에 있는지를 나타낸다면, Junction은 거기서 어떻게
 
 ---
 
-> **1부 Stateflow 시작하기 (5/7)** — [전체 글](/about/)
+> **1부 Stateflow 시작하기 (5/7)**
 >
 > 1. [배터리 충전 로직을 `if` 문으로 짜다가 포기한 이유](/posts/01-why-state-machine/)
 > 2. [배터리로 만드는 첫 Chart](/posts/02-first-chart/)

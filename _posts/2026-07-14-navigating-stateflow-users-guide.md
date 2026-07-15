@@ -130,7 +130,7 @@ User's Guide는 이렇게 할 수 있다를 말한다. 이렇게 해야 한다�
 
 ---
 
-> **3부 학습 자료** — [전체 글](/about/)
+> **3부 학습 자료**
 >
 > 이전: [1부 Stateflow 시작하기](/posts/01-why-state-machine/), [2부 Chart 실행 순서](/posts/stateflow-parallel-and-is-not-simultaneous/)
 {: .prompt-tip }

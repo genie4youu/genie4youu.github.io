@@ -108,7 +108,7 @@ flowchart LR
 
 ---
 
-> **1부 Stateflow 시작하기 (7/7) 완결** — [전체 글](/about/)
+> **1부 Stateflow 시작하기 (7/7) 완결**
 >
 > 1. [배터리 충전 로직을 `if` 문으로 짜다가 포기한 이유](/posts/01-why-state-machine/)
 > 2. [배터리로 만드는 첫 Chart](/posts/02-first-chart/)

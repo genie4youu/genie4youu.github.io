@@ -4,21 +4,41 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-로봇 제어 SW 엔지니어입니다.
+로봇 제어 소프트웨어를 개발합니다. 재활 로봇으로 석사를 했고, 센서와 모터 캘리브레이션, 통신, 연속 제어가 익숙한 영역입니다.
 
-**재활로봇**으로 석사를 했습니다. 센서·모터·엔코더 캘리브레이션, 통신, 그리고 임피던스/어드미턴스 기반 **연속 제어**가 익숙한 영역입니다.
+이 블로그는 **Stateflow를 공부하면서 정리하는 기록**입니다. 세 가지를 합니다.
 
-지금은 **상태기계(statechart)** 를 파고 있습니다. 연속 제어가 "어떻게 움직일 것인가"를 다룬다면, 상태기계는 **"지금 무엇을 해도 되는가"** 를 다룹니다. 안전이 중요한 시스템일수록 후자가 뼈대가 됩니다.
+- 공부한 내용을 정리합니다.
+- 공부하다 막힌 부분을 정리합니다.
+- 배운 것을 예제와 프로젝트로 직접 만들어 확인하고, 그 과정을 남깁니다.
 
-## 여기에 쓰는 것
+예제 코드는 [statechart-examples](https://github.com/genie4youu/statechart-examples) 저장소에 있습니다. `make` 한 번으로 빌드되고 테스트가 돌아갑니다.
 
-- **Stateflow / Harel statechart** — 실행 의미론, 계층·병렬 상태, 시간 연산자
-- **모델 → C 변환과 검증** — 설계한 상태기계를 임베디드 C로 옮기고, 두 구현이 정말 같은지 확인하는 방법
-- **안전 설계 패턴** — 디바운싱, 워치독, FDIR
+## 글 순서
 
-배운 걸 정리하고, 예제를 직접 만들어 돌려보고, 막힌 지점을 남깁니다.
-매끈한 결론보다 **"여기서 헤맸고 이렇게 풀었다"** 를 쓰려고 합니다.
+Stateflow 글은 세 부분으로 이어집니다.
 
-## 코드
+**1부. Stateflow 시작하기** — 충전식 배터리 예제 하나로 기본기를 다룹니다. 만들고, 로깅해서 결함을 찾고, 구조를 바꿔 고치는 과정이 반복됩니다.
 
-만든 예제와 프로젝트는 [GitHub](https://github.com/genie4youu)에 있습니다.
+1. [배터리 충전 로직을 `if` 문으로 짜다가 포기한 이유](/posts/01-why-state-machine/)
+2. [배터리로 만드는 첫 Chart](/posts/02-first-chart/)
+3. [로깅을 켜보니 충전량이 100%를 넘고 있었다](/posts/03-log-and-debug/)
+4. [계층 State로 버그를 고치다](/posts/04-hierarchy/)
+5. [Junction으로 경로를 나누다](/posts/05-junction-flowchart/)
+6. [병렬 State와 Event 브로드캐스트](/posts/06-parallel-and-events/)
+7. [Function으로 로직을 재사용하다](/posts/07-reuse-functions/)
+
+**2부. Chart 실행 순서** — 그린 Chart가 실제로 어떻게 실행되는가. 직관과 어긋나는 부분을 다룹니다.
+
+1. [병렬(AND) State는 "동시"에 실행되지 않는다](/posts/stateflow-parallel-and-is-not-simultaneous/)
+2. [Condition Action은 Transition이 실패해도 이미 실행된 뒤다](/posts/stateflow-condition-action-vs-transition-action/)
+3. [`during` 은 상시 실행되지 않는다](/posts/stateflow-during-and-chart-lifecycle/)
+4. [Super Step: 한 스텝에 Transition이 연쇄한다](/posts/stateflow-super-step/)
+
+**3부. 학습 자료**
+
+1. [1,250쪽짜리 User's Guide에서 필요한 것만 찾기](/posts/navigating-stateflow-users-guide/)
+
+## 용어
+
+Stateflow 편집기 화면에 영어로 표시되는 것은 영어 그대로 씁니다. State, Transition, Junction, Action, Event, Condition, Data, Chart, Truth Table 같은 것들입니다. 코드 키워드(`entry`, `during`, `exit`, `after()`)도 그대로 씁니다.

@@ -2,8 +2,8 @@
 title: 로깅을 켜보니 충전량이 100%를 넘고 있었다
 description: 돌아가는 Chart가 맞는 Chart는 아니다. Active State 로깅과 조건부 Breakpoint로 설계 결함을 찾아내는 과정.
 date: 2026-07-14 10:20:00 +0900
-categories: [상태 기계, Stateflow 시작하기]
-tags: [stateflow, statechart, 디버깅, breakpoint, SDI, 검증]
+categories: [Stateflow, 시작하기]
+tags: [stateflow, 디버깅, breakpoint, SDI, 검증]
 mermaid: true
 ---
 
@@ -11,7 +11,7 @@ mermaid: true
 
 그런데 요구사항을 다시 보자. 충전량은 0%에서 100% 사이를 유지해야 한다. 이 조건을 지키고 있는가? 눈으로 봐서는 알 수 없다. State 테두리가 켜지는 건 보이지만 `charge` 값이 얼마인지는 안 보인다.
 
-돌아가는 것과 맞는 것은 다르다. 확인해야 한다.
+돌아간다고 해서 요구사항을 지키는 건 아니다. 로그로 찍어봐야 안다.
 
 ## 무엇을 로깅할 것인가
 
@@ -90,7 +90,7 @@ flowchart LR
 
 ---
 
-> **1부 Stateflow 시작하기 (3/7)** — [전체 목록](/learning-map/)
+> **1부 Stateflow 시작하기 (3/7)** — [전체 글](/about/)
 >
 > 1. [배터리 충전 로직을 `if` 문으로 짜다가 포기한 이유](/posts/01-why-state-machine/)
 > 2. [배터리로 만드는 첫 Chart](/posts/02-first-chart/)

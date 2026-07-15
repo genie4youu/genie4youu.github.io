@@ -2,8 +2,8 @@
 title: 병렬 State와 Event 브로드캐스트
 description: 두 배터리를 동시에 돌린다. Parallel(AND) 분해와 send()로 State 사이에 신호를 보내는 방법, 그리고 여기 숨은 함정.
 date: 2026-07-14 12:20:00 +0900
-categories: [상태 기계, Stateflow 시작하기]
-tags: [stateflow, statechart, 병렬상태, parallel, event, broadcast]
+categories: [Stateflow, 시작하기]
+tags: [stateflow, 병렬상태, parallel, event, broadcast]
 mermaid: true
 ---
 
@@ -119,7 +119,7 @@ flowchart LR
 
 ---
 
-> **1부 Stateflow 시작하기 (6/7)** — [전체 목록](/learning-map/)
+> **1부 Stateflow 시작하기 (6/7)** — [전체 글](/about/)
 >
 > 1. [배터리 충전 로직을 `if` 문으로 짜다가 포기한 이유](/posts/01-why-state-machine/)
 > 2. [배터리로 만드는 첫 Chart](/posts/02-first-chart/)

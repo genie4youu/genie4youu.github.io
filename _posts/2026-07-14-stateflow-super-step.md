@@ -2,8 +2,8 @@
 title: "Super Step: 한 스텝에 Transition이 연쇄한다"
 description: 기본 Chart는 한 스텝에 Transition을 한 번만 한다. Super Step은 안정 State에 도달할 때까지 연쇄시킨다. 얻는 것과 잃는 것.
 date: 2026-07-14 16:40:00 +0900
-categories: [상태 기계, Chart 실행 순서]
-tags: [stateflow, statechart, super-step, 실행순서, 무한루프, 임베디드]
+categories: [Stateflow, 실행 순서]
+tags: [stateflow, super-step, 실행순서, 무한루프, 임베디드]
 mermaid: true
 ---
 
@@ -116,11 +116,11 @@ Super Step은 한 스텝 안에서 여러 번 도는 것이므로 그만큼 그 
 
 네 가지 모두 같은 이야기를 한다. 같은 그림이 다르게 실행될 수 있다는 것이다.
 
-Chart를 그렸다는 것과 동작을 안다는 것은 다르다. 그림은 무엇이 연결됐는지를 보여주지만 언제 무엇이 실행되는지는 보여주지 않는다. 안전이 중요한 시스템에서 이 간극은 그대로 위험이 된다.
+Chart를 그렸다고 그 동작까지 아는 건 아니다. 그림은 무엇이 연결됐는지를 보여주지만 언제 무엇이 실행되는지는 보여주지 않는다. 안전이 중요한 시스템이라면 이 차이를 반드시 짚고 넘어가야 한다.
 
 ---
 
-> **2부 Chart 실행 순서 (4/4) 완결** — [전체 목록](/learning-map/)
+> **2부 Chart 실행 순서 (4/4) 완결** — [전체 글](/about/)
 >
 > 1. [병렬(AND) State는 "동시"에 실행되지 않는다](/posts/stateflow-parallel-and-is-not-simultaneous/)
 > 2. [Condition Action은 Transition이 실패해도 이미 실행된 뒤다](/posts/stateflow-condition-action-vs-transition-action/)

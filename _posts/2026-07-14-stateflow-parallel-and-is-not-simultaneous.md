@@ -2,8 +2,8 @@
 title: 병렬(AND) State는 "동시"에 실행되지 않는다
 description: 병렬 State는 동시에 active이지만 순차 실행된다. 공유 Data가 있으면 실행 순서가 결과를 바꾸고, 여러 State가 쓰면 순서로는 풀리지 않는다.
 date: 2026-07-14 13:00:00 +0900
-categories: [상태 기계, Chart 실행 순서]
-tags: [stateflow, statechart, 실행순서, 병렬상태, MAB, 임베디드]
+categories: [Stateflow, 실행 순서]
+tags: [stateflow, 실행순서, 병렬상태, MAB, 임베디드]
 mermaid: true
 ---
 
@@ -146,7 +146,7 @@ flowchart LR
 
 ---
 
-> **2부 Chart 실행 순서 (1/4)** — [전체 목록](/learning-map/)
+> **2부 Chart 실행 순서 (1/4)** — [전체 글](/about/)
 >
 > 1. **병렬(AND) State는 "동시"에 실행되지 않는다** (지금 글)
 > 2. [Condition Action은 Transition이 실패해도 이미 실행된 뒤다](/posts/stateflow-condition-action-vs-transition-action/)

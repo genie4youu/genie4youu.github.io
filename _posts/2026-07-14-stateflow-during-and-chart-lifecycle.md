@@ -2,8 +2,8 @@
 title: during은 상시 실행되지 않는다
 description: Chart는 항상 도는 코드가 아니다. 깨어나서 잠들 때까지 한 스텝. 그 안에서 outer, during, inner가 어떤 순서로 갈리는가.
 date: 2026-07-14 16:00:00 +0900
-categories: [상태 기계, Chart 실행 순서]
-tags: [stateflow, statechart, during, 생명주기, inner-transition, self-loop]
+categories: [Stateflow, 실행 순서]
+tags: [stateflow, during, 생명주기, inner-transition, self-loop]
 mermaid: true
 ---
 
@@ -108,7 +108,7 @@ flowchart LR
 
 ---
 
-> **2부 Chart 실행 순서 (3/4)** — [전체 목록](/learning-map/)
+> **2부 Chart 실행 순서 (3/4)** — [전체 글](/about/)
 >
 > 1. [병렬(AND) State는 "동시"에 실행되지 않는다](/posts/stateflow-parallel-and-is-not-simultaneous/)
 > 2. [Condition Action은 Transition이 실패해도 이미 실행된 뒤다](/posts/stateflow-condition-action-vs-transition-action/)

@@ -2,8 +2,8 @@
 title: Function으로 로직을 재사용하다
 description: Graphical, MATLAB, Simulink Function 세 가지. 중복된 충전 로직을 하나로 묶고 1부를 마무리한다.
 date: 2026-07-14 12:50:00 +0900
-categories: [상태 기계, Stateflow 시작하기]
-tags: [stateflow, statechart, function, 재사용, matlab-function]
+categories: [Stateflow, 시작하기]
+tags: [stateflow, function, 재사용, matlab-function]
 mermaid: true
 ---
 
@@ -91,7 +91,7 @@ flowchart LR
 | [6편](/posts/06-parallel-and-events/) | 배터리가 둘 필요 | 병렬 State와 Event |
 | 이 글 | 로직이 중복 | Function |
 
-한 번도 `if` 문을 덧대서 풀지 않았다. 매번 구조를 바꿨다. 문제가 생기면 조건을 추가하는 게 아니라 이건 어떤 모드인가를 다시 묻는 것, 그게 상태 기계로 일한다는 것의 의미다.
+한 번도 `if` 문을 덧대서 풀지 않았다. 매번 구조를 바꿨다. 문제가 생기면 조건을 추가하는 대신, 이건 어떤 모드인가를 다시 물었다. Stateflow로 설계한다는 건 이런 식이다.
 
 ## 그런데 아직 모르는 게 있다
 
@@ -108,7 +108,7 @@ flowchart LR
 
 ---
 
-> **1부 Stateflow 시작하기 (7/7) 완결** — [전체 목록](/learning-map/)
+> **1부 Stateflow 시작하기 (7/7) 완결** — [전체 글](/about/)
 >
 > 1. [배터리 충전 로직을 `if` 문으로 짜다가 포기한 이유](/posts/01-why-state-machine/)
 > 2. [배터리로 만드는 첫 Chart](/posts/02-first-chart/)

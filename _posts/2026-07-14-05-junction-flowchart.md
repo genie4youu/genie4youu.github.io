@@ -2,8 +2,8 @@
 title: Junction으로 경로를 나누다
 description: 출력이 수요에 반응하지 않는 문제를 Junction으로 푼다. 경로 평가 규칙, Execution Order, 그리고 Inner Transition.
 date: 2026-07-14 11:40:00 +0900
-categories: [상태 기계, Stateflow 시작하기]
-tags: [stateflow, statechart, junction, 플로우차트, inner-transition]
+categories: [Stateflow, 시작하기]
+tags: [stateflow, junction, 플로우차트, inner-transition]
 mermaid: true
 ---
 
@@ -109,7 +109,7 @@ State가 어디에 있는지를 나타낸다면, Junction은 거기서 어떻게
 
 ---
 
-> **1부 Stateflow 시작하기 (5/7)** — [전체 목록](/learning-map/)
+> **1부 Stateflow 시작하기 (5/7)** — [전체 글](/about/)
 >
 > 1. [배터리 충전 로직을 `if` 문으로 짜다가 포기한 이유](/posts/01-why-state-machine/)
 > 2. [배터리로 만드는 첫 Chart](/posts/02-first-chart/)

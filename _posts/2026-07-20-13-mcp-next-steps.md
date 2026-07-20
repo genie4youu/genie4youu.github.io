@@ -14,7 +14,7 @@ sources:
 ---
 
 > **기준:** 확인일 2026-07-20
-> **시리즈:** [목차](/posts/00-mcp-series/) · 이전 → [12. 트러블슈팅](/posts/12-mcp-troubleshooting/) · 다음 → [14. 에디터 통합](/posts/14-mcp-editor-integration/)
+> **시리즈:** [목차](/posts/00-mcp-series/) · 이전 → [12. 트러블슈팅](/posts/12-mcp-troubleshooting/) · 다음 → [14. 에디터 통합 — 터미널과 확장](/posts/14-mcp-editor-integration/)
 
 ---
 
@@ -159,7 +159,7 @@ approval_mode = "prompt"
 
 ## 시리즈
 
-[목차](/posts/00-mcp-series/) · 이전 → [12. 트러블슈팅](/posts/12-mcp-troubleshooting/) · 다음 → [14. 에디터 통합](/posts/14-mcp-editor-integration/)
+[목차](/posts/00-mcp-series/) · 이전 → [12. 트러블슈팅](/posts/12-mcp-troubleshooting/) · 다음 → [14. 에디터 통합 — 터미널과 확장](/posts/14-mcp-editor-integration/)
 
 ## 참고
 

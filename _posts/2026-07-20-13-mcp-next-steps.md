@@ -1,7 +1,7 @@
 ---
 title: 13. 운영 시 검토할 것
 description: 편의 설정보다 먼저 처리할 항목, Host 이식, 작업 디렉터리 범위 설계, 남은 검증 과제를 정리한다. MCP 시리즈 13편.
-date: 2026-07-20 21:00:00 +0900
+date: 2026-07-20 06:13:00 +0900
 categories: [MCP, 실무 설정]
 tags: [mcp, 운영, 보안, 승인, 텔레메트리, vscode]
 mermaid: true

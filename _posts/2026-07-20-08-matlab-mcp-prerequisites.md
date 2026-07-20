@@ -1,7 +1,7 @@
 ---
 title: 08. 설치 — 사전 준비
 description: 층별 요구사항, PowerShell 실행 정책 우회, SELF_SIGNED_CERT_IN_CHAIN 처리를 정리한다. strict-ssl false를 쓰지 않는 이유 포함. MCP 시리즈 8편.
-date: 2026-07-20 16:00:00 +0900
+date: 2026-07-20 06:08:00 +0900
 categories: [MCP, 실무 설정]
 tags: [mcp, matlab, nodejs, npm, tls, 인증서, powershell]
 mermaid: true

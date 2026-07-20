@@ -1,7 +1,7 @@
 ---
 title: 12. 트러블슈팅
 description: 증상별 원인 분기, 겪은 문제와 해결, 공식 문서의 불일치 항목을 정리한다. MCP 시리즈 12편.
-date: 2026-07-20 20:00:00 +0900
+date: 2026-07-20 06:12:00 +0900
 categories: [MCP, 실무 설정]
 tags: [mcp, 트러블슈팅, matlab, simulink, stdio, 진단]
 mermaid: true

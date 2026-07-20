@@ -1,7 +1,7 @@
 ---
 title: 11. 첫 실습 — 빈 Chart 생성과 검증
 description: 연결 검증을 최소 범위로 잡는 이유와, model_check 통과가 보장하는 범위를 정리한다. MCP 시리즈 11편.
-date: 2026-07-20 19:00:00 +0900
+date: 2026-07-20 06:11:00 +0900
 categories: [MCP, 실무 설정]
 tags: [mcp, stateflow, simulink, 검증, model-check]
 mermaid: true

@@ -1,7 +1,7 @@
 ---
 title: 09. 설치 — MCP 서버 등록
 description: MCP 서버를 Host에 등록하는 설정 필드 전체와, 도구별 승인 모드·샌드박스 설정을 정리한다. MCP 시리즈 9편.
-date: 2026-07-20 17:00:00 +0900
+date: 2026-07-20 06:09:00 +0900
 categories: [MCP, 실무 설정]
 tags: [mcp, 설정, toml, 승인, 샌드박스, matlab]
 mermaid: true

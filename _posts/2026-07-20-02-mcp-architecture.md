@@ -1,7 +1,7 @@
 ---
 title: 02. 아키텍처 — Host / Client / Server
 description: MCP의 3층 구조와 1:1 세션, 서버 격리 원칙을 정리한다. MCP 시리즈 2편.
-date: 2026-07-20 10:00:00 +0900
+date: 2026-07-20 06:02:00 +0900
 categories: [MCP, 프로토콜 이론]
 tags: [mcp, 아키텍처, host, client, server, supervisory]
 mermaid: true

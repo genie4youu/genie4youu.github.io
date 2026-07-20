@@ -1,7 +1,7 @@
 ---
 title: 03. 트랜스포트 — stdio와 Streamable HTTP
 description: MCP의 두 트랜스포트를 비교하고, 로컬 stdio 서버에 인증이 없는 이유를 정리한다. MCP 시리즈 3편.
-date: 2026-07-20 11:00:00 +0900
+date: 2026-07-20 06:03:00 +0900
 categories: [MCP, 프로토콜 이론]
 tags: [mcp, stdio, http, sse, 트랜스포트, 인증]
 mermaid: true

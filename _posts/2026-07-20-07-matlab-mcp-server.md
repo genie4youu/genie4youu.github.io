@@ -1,7 +1,7 @@
 ---
 title: 07. MATLAB MCP 서버와 Agentic Toolkit
 description: MathWorks가 배포하는 구성요소, 노출되는 도구 12종, .satk 정책 게이트, 텔레메트리와 라이선스 조항을 정리한다. MCP 시리즈 7편.
-date: 2026-07-20 15:00:00 +0900
+date: 2026-07-20 06:07:00 +0900
 categories: [MCP, 실무 설정]
 tags: [mcp, matlab, simulink, stateflow, agentic-toolkit, 라이선스]
 mermaid: true

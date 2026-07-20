@@ -1,10 +1,14 @@
 ---
+publish: true
 title: 04. Primitives — Tools / Resources / Prompts
 description: 서버와 클라이언트가 제공하는 기능 6종을 통제 주체 기준으로 정리한다. MCP 시리즈 4편.
 date: 2026-07-20 06:04:00 +0900
-categories: [MCP, 프로토콜 이론]
+categories: [AI 에이전트, MCP 프로토콜]
 tags: [mcp, tools, resources, prompts, sampling, roots, elicitation]
 mermaid: true
+sources:
+  - https://modelcontextprotocol.io/docs/learn/server-concepts
+  - https://modelcontextprotocol.io/docs/learn/client-concepts
 ---
 
 > **기준:** MCP 스펙 `2025-11-25` / 확인일 2026-07-20

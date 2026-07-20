@@ -3,7 +3,7 @@ publish: true
 title: 16. 설정 적용 — 승인 모드의 실제 값과 trust_level의 오해
 description: 승인 모드 네 값의 실제 동작과 우선순위, 텔레메트리 차단 표기, trust_level이 정하지 않는 것을 소스와 공식 문서로 확인한다. MCP 시리즈 16편.
 date: 2026-07-20 06:18:00 +0900
-categories: [MCP, 실무 설정]
+categories: [AI 에이전트, 운영과 경계]
 tags: [mcp, 설정, 승인, 텔레메트리, 보안, toml]
 mermaid: true
 sources:

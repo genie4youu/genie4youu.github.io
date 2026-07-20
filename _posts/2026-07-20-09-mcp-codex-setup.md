@@ -1,10 +1,16 @@
 ---
+publish: true
 title: 09. 설치 — MCP 서버 등록
 description: MCP 서버를 Host에 등록하는 설정 필드 전체와, 도구별 승인 모드·샌드박스 설정을 정리한다. MCP 시리즈 9편.
 date: 2026-07-20 06:09:00 +0900
-categories: [MCP, 실무 설정]
+categories: [AI 에이전트, MATLAB 연결]
 tags: [mcp, 설정, toml, 승인, 샌드박스, matlab]
 mermaid: true
+sources:
+  - https://learn.chatgpt.com/docs/extend/mcp
+  - https://learn.chatgpt.com/docs/config-file/config-reference
+  - https://github.com/matlab/matlab-mcp-server
+  - https://github.com/matlab/simulink-agentic-toolkit/blob/main/Configuration_and_Troubleshooting.md
 ---
 
 > **기준:** 확인일 2026-07-20

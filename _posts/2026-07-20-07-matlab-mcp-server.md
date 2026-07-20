@@ -1,10 +1,16 @@
 ---
+publish: true
 title: 07. MATLAB MCP 서버와 Agentic Toolkit
 description: MathWorks가 배포하는 구성요소, 노출되는 도구 12종, .satk 정책 게이트, 텔레메트리와 라이선스 조항을 정리한다. MCP 시리즈 7편.
 date: 2026-07-20 06:07:00 +0900
-categories: [MCP, 실무 설정]
+categories: [AI 에이전트, MATLAB 연결]
 tags: [mcp, matlab, simulink, stateflow, agentic-toolkit, 라이선스]
 mermaid: true
+sources:
+  - https://github.com/matlab/matlab-mcp-server
+  - https://github.com/matlab/simulink-agentic-toolkit
+  - https://github.com/matlab/simulink-agentic-toolkit/blob/main/skills-catalog/model-based-design-core/setup-custom-libraries/references/library-setup.md
+  - https://www.mathworks.com/matlabcentral/answers/2183787-how-do-i-install-the-matlab-mcp-server-and-the-agentic-toolkits
 ---
 
 > **기준:** MATLAB MCP Server `v0.11.2` / Simulink Agentic Toolkit `2026.07.15` / 확인일 2026-07-20

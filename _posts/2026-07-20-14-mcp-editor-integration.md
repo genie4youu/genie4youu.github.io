@@ -3,7 +3,7 @@ publish: true
 title: 14. 에디터 통합 — 터미널과 확장
 description: 에디터 확장에서 MCP가 동작하는지 실측하고, 확장의 컨텍스트 자동 수집이 만드는 노출 경로를 정리한다. MCP 시리즈 14편.
 date: 2026-07-20 06:15:00 +0900
-categories: [MCP, 실무 설정]
+categories: [AI 에이전트, 운영과 경계]
 tags: [mcp, vscode, 확장, 보안, matlab]
 mermaid: true
 sources:

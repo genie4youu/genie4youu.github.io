@@ -3,7 +3,7 @@ publish: true
 title: 15. 세션 초기화 자동화 — 자동과 수동의 경계를 파일로 나눈다
 description: startup.m 에 전부 넣지 않고, 경로 등록은 자동으로 세션 공유는 수동으로 분리한 구현과 그 근거를 정리한다. MCP 시리즈 15편.
 date: 2026-07-20 06:17:00 +0900
-categories: [MCP, 실무 설정]
+categories: [AI 에이전트, 운영과 경계]
 tags: [mcp, matlab, startup, 세션공유, 자동화]
 mermaid: true
 sources:

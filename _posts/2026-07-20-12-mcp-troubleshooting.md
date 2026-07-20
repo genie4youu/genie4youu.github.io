@@ -1,10 +1,16 @@
 ---
+publish: true
 title: 12. 트러블슈팅
 description: 증상별 원인 분기, 겪은 문제와 해결, 공식 문서의 불일치 항목을 정리한다. MCP 시리즈 12편.
 date: 2026-07-20 06:12:00 +0900
-categories: [MCP, 실무 설정]
+categories: [AI 에이전트, MATLAB 연결]
 tags: [mcp, 트러블슈팅, matlab, simulink, stdio, 진단]
 mermaid: true
+sources:
+  - https://github.com/matlab/simulink-agentic-toolkit/blob/main/Configuration_and_Troubleshooting.md
+  - https://github.com/matlab/matlab-mcp-server
+  - https://modelcontextprotocol.io/specification/2025-11-25/basic/transports
+  - https://www.mathworks.com/help/matlab/ref/matlab.engine.shareengine.html
 ---
 
 > **기준:** 확인일 2026-07-20

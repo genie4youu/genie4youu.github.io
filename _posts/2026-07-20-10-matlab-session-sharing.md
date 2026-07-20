@@ -1,10 +1,15 @@
 ---
+publish: true
 title: 10. MATLAB 세션 공유와 초기화
 description: existing 세션 모드가 요구하는 세션 공유의 원리, satk_initialize의 동작, startup.m 자동화의 대가를 정리한다. MCP 시리즈 10편.
 date: 2026-07-20 06:10:00 +0900
-categories: [MCP, 실무 설정]
+categories: [AI 에이전트, MATLAB 연결]
 tags: [mcp, matlab, 세션공유, matlab-engine, simulink]
 mermaid: true
+sources:
+  - https://www.mathworks.com/help/matlab/ref/matlab.engine.shareengine.html
+  - https://github.com/matlab/simulink-agentic-toolkit
+  - https://github.com/matlab/matlab-mcp-server
 ---
 
 > **기준:** 확인일 2026-07-20

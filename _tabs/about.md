@@ -6,38 +6,42 @@ order: 4
 
 로봇 제어 소프트웨어를 개발합니다. 재활 로봇으로 석사를 했고, 센서와 모터 캘리브레이션, 통신, 연속 제어가 익숙한 영역입니다.
 
-이 블로그는 **Stateflow를 공부하면서 정리하는 기록**입니다. 세 가지를 합니다.
+이 블로그는 **공부한 것을 다시 찾아보기 위해 정리하는 자료 정리함**입니다. 세 가지를 합니다.
 
-- 공부한 내용을 정리합니다.
-- 공부하다 막힌 부분을 정리합니다.
+- 공부한 내용을 주제별로 정리합니다.
+- 공부하다 막힌 부분과 문서에서 확인되지 않는 것을 구분해 남깁니다.
 - 배운 것을 예제와 프로젝트로 직접 만들어 확인하고, 그 과정을 남깁니다.
 
 예제 코드는 [stateflow-examples](https://github.com/genie4youu/stateflow-examples) 저장소에 있습니다. `make` 한 번으로 빌드되고 테스트가 돌아갑니다.
 
-## 글 순서
+## 시리즈
 
-Stateflow 글은 세 부분으로 이어집니다.
+### [Stateflow](/posts/00-stateflow-series/) — 14편
 
-**1부. Stateflow 시작하기** — 충전식 배터리 예제 하나로 기본기를 다룹니다. 만들고, 로깅해서 결함을 찾고, 구조를 바꿔 고치는 과정이 반복됩니다.
+Chart 만들기부터 실행 순서와 안전 패턴까지. 충전식 배터리를 관통 예제로 씁니다.
 
-1. [배터리 충전 로직을 `if` 문으로 짜다가 포기한 이유](/posts/01-why-state-machine/)
-2. [배터리로 만드는 첫 Chart](/posts/02-first-chart/)
-3. [로깅을 켜보니 충전량이 100%를 넘고 있었다](/posts/03-log-and-debug/)
-4. [계층 State로 버그를 고치다](/posts/04-hierarchy/)
-5. [Junction으로 경로를 나누다](/posts/05-junction-flowchart/)
-6. [병렬 State와 Event 브로드캐스트](/posts/06-parallel-and-events/)
-7. [Function으로 로직을 재사용하다](/posts/07-reuse-functions/)
+| 구간 | 내용 |
+| --- | --- |
+| [기초 01~07](/posts/01-why-fsm/) | State와 Transition, 계층, Junction, 병렬, Function |
+| [**실행 순서 08~11**](/posts/08-chart-execution/) | **같은 Chart가 다르게 실행되는 이유.** `during`의 실행 조건, Backtracking, 병렬 실행 순서, Super Step |
+| [패턴과 학습 12~13](/posts/12-debounce/) | debounce와 `duration`, User's Guide 탐색법 |
 
-**2부. Chart 실행 순서** — 그린 Chart가 실제로 어떻게 실행되는가. 직관과 어긋나는 부분을 다룹니다.
+08~11편이 실무에서 가장 자주 문제가 되는 영역입니다. Chart를 그릴 줄 아는 것과 그 Chart가 언제 무엇을 실행하는지 아는 것은 다릅니다.
 
-1. [병렬(AND) State는 "동시"에 실행되지 않는다](/posts/stateflow-parallel-and-is-not-simultaneous/)
-2. [Condition Action은 Transition이 실패해도 이미 실행된 뒤다](/posts/stateflow-condition-action-vs-transition-action/)
-3. [`during` 은 상시 실행되지 않는다](/posts/stateflow-during-and-chart-lifecycle/)
-4. [Super Step: 한 스텝에 Transition이 연쇄한다](/posts/stateflow-super-step/)
+### [MCP와 MATLAB 연결](/posts/00-mcp-series/) — 15편
 
-**3부. 학습 자료**
+AI 에이전트를 MATLAB에 연결하는 프로토콜과 실무 설정입니다.
 
-1. [1,250쪽짜리 User's Guide에서 필요한 것만 찾기](/posts/navigating-stateflow-users-guide/)
+| 구간 | 내용 |
+| --- | --- |
+| [프로토콜 이론 01~06](/posts/01-what-is-mcp/) | 아키텍처, 트랜스포트, Primitives, JSON-RPC, 보안 모델 |
+| [실무 설정 07~14](/posts/07-matlab-mcp-server/) | MATLAB MCP 서버, 설치, 세션 공유, 검증, 트러블슈팅 |
+
+## 쓰는 방식
+
+각 글은 **기준 버전과 확인일**을 머리말에 밝히고, 주장마다 **공개 출처**를 답니다.
+
+문서에서 확인하지 못한 것은 **미확인**으로 표시합니다. 실측값과 문서화된 사양도 구분합니다. 도구가 빠르게 바뀌는 영역이라 **유통기한이 있는 내용은 따로 표시**합니다.
 
 ## 용어
 

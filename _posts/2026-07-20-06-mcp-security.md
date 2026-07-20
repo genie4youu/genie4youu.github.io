@@ -1,15 +1,10 @@
 ---
-publish: true
 title: 06. 보안 모델과 사람의 승인
 description: MCP의 보안 원칙 4가지, 승인이 필요한 이유, confused deputy 취약점과 완화책을 정리한다. MCP 시리즈 6편.
 date: 2026-07-20 06:06:00 +0900
 categories: [AI 에이전트, MCP 프로토콜]
 tags: [mcp, 보안, 승인, confused-deputy, 샌드박스, oauth]
 mermaid: true
-sources:
-  - https://modelcontextprotocol.io/specification/2025-11-25
-  - https://modelcontextprotocol.io/specification/2025-11-25/basic/security_best_practices
-  - https://modelcontextprotocol.io/specification/2025-11-25/server/tools
 ---
 
 > **기준:** MCP 스펙 `2025-11-25` / 확인일 2026-07-20

@@ -1,15 +1,10 @@
 ---
-publish: true
 title: 02. 아키텍처 — Host / Client / Server
 description: MCP의 3층 구조와 1:1 세션, 서버 격리 원칙을 정리한다. MCP 시리즈 2편.
 date: 2026-07-20 06:02:00 +0900
 categories: [AI 에이전트, MCP 프로토콜]
 tags: [mcp, 아키텍처, host, client, server, supervisory]
 mermaid: true
-sources:
-  - https://modelcontextprotocol.io/specification/2025-06-18/architecture
-  - https://modelcontextprotocol.io/docs/getting-started/intro
-  - https://github.com/matlab/matlab-mcp-server
 ---
 
 > **기준:** MCP 스펙 `2025-11-25` / 확인일 2026-07-20

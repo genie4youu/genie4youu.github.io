@@ -1,16 +1,10 @@
 ---
-publish: true
 title: 03. 트랜스포트 — stdio와 Streamable HTTP
 description: MCP의 두 트랜스포트를 비교하고, 로컬 stdio 서버에 인증이 없는 이유를 정리한다. MCP 시리즈 3편.
 date: 2026-07-20 06:03:00 +0900
 categories: [AI 에이전트, MCP 프로토콜]
 tags: [mcp, stdio, http, sse, 트랜스포트, 인증]
 mermaid: true
-sources:
-  - https://modelcontextprotocol.io/specification/2025-11-25/basic/transports
-  - https://modelcontextprotocol.io/specification/2025-11-25/basic/security_best_practices
-  - https://modelcontextprotocol.io/specification/2024-11-05/basic/transports
-  - https://github.com/openai/codex/issues/15609
 ---
 
 > **기준:** MCP 스펙 `2025-11-25` / 확인일 2026-07-20

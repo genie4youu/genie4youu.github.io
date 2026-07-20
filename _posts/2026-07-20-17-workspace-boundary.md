@@ -1,15 +1,10 @@
 ---
-publish: true
 title: 17. 작업공간 경계 설계 — 에이전트에게 무엇을 보여줄 것인가
 description: Roots도 규칙 파일도 방어가 아니라는 전제에서, 실제 경계인 워크스페이스를 어떻게 설계했는지와 그 한계를 정리한다. MCP 시리즈 17편.
 date: 2026-07-20 06:19:00 +0900
 categories: [AI 에이전트, 운영과 경계]
 tags: [mcp, 보안, 작업디렉터리, roots, 경계설계]
 mermaid: true
-sources:
-  - https://modelcontextprotocol.io/specification/
-  - https://modelcontextprotocol.io/docs/learn/client-concepts
-  - https://developers.openai.com/codex/ide
 ---
 
 > **기준:** 확인일 2026-07-20

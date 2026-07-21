@@ -86,4 +86,4 @@ flowchart LR
 
 - [Herbst & Madoński, ADRC: From Principles to Practice (Springer, 2025)](https://link.springer.com/book/10.1007/978-3-031-72687-3)
 - [Han, From PID to Active Disturbance Rejection Control (IEEE TIE, 2009)](https://ieeexplore.ieee.org/document/4796887)
-- [Gao, Scaling and Bandwidth-Parameterization Based Controller Tuning (ACC, 2003)](http://dcsl.gatech.edu/papers/acc03.pdf)
+- [Gao, Scaling and Bandwidth-Parameterization Based Controller Tuning (ACC, 2003)](https://ieeexplore.ieee.org/document/1242516)

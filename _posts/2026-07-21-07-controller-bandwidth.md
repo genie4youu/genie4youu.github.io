@@ -88,6 +88,6 @@ flowchart TD
 
 ## 참고
 
-- [Gao, Scaling and Bandwidth-Parameterization Based Controller Tuning (ACC, 2003)](http://dcsl.gatech.edu/papers/acc03.pdf)
+- [Gao, Scaling and Bandwidth-Parameterization Based Controller Tuning (ACC, 2003)](https://ieeexplore.ieee.org/document/1242516)
 - [MathWorks — Active Disturbance Rejection Control](https://www.mathworks.com/help/slcontrol/ug/active-disturbance-rejection-control.html)
 - [Linear ADRC is equivalent to PID with set-point weighting and measurement filter (arXiv 2501.11374)](https://arxiv.org/abs/2501.11374)

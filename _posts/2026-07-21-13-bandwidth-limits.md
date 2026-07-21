@@ -79,6 +79,6 @@ $$\omega_{\max} = \min(\text{노이즈, 양자화, 지연, 포화, 공진})$$
 
 ## 참고
 
-- [Gao, Scaling and Bandwidth-Parameterization Based Controller Tuning (ACC, 2003)](http://dcsl.gatech.edu/papers/acc03.pdf)
+- [Gao, Scaling and Bandwidth-Parameterization Based Controller Tuning (ACC, 2003)](https://ieeexplore.ieee.org/document/1242516)
 - [Cascade Extended State Observer for ADRC under Measurement Noise (arXiv 2004.01483)](https://arxiv.org/abs/2004.01483)
 - [Herbst & Madoński, ADRC: From Principles to Practice (Springer, 2025)](https://link.springer.com/book/10.1007/978-3-031-72687-3)

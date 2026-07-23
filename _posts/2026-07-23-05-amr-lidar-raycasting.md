@@ -103,7 +103,7 @@ end
 
 ## 참고
 
-- [Amanatides & Woo — A Fast Voxel Traversal Algorithm for Ray Tracing](http://www.cse.yorku.ca/~amana/research/grid.pdf)
+- [Amanatides & Woo — A Fast Voxel Traversal Algorithm for Ray Tracing](https://www.cse.yorku.ca/~amana/research/grid.pdf)
 - [프로젝트 LiDAR 구현](https://github.com/genie4youu/amr_robot_planning/tree/main/src/%2Bamr/%2Bsensors)
 
 ## 연재

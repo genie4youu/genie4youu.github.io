@@ -1,5 +1,8 @@
 ---
 # the default layout is 'page'
+# Chirpy 는 탭 이름을 locale 에서 찾고, 없으면 이 title 을 쓴다.
+# 커스텀 탭이라 locale 항목이 없으므로 title 이 없으면 파일명(SERIES)이 그대로 나온다.
+title: 시리즈
 icon: fas fa-layer-group
 order: 1
 ---

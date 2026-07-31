@@ -16,11 +16,12 @@ timezone: Asia/Seoul
 
 title: 제어 소프트웨어 노트 # the main title
 
-tagline: Stateflow 공부와 예제, 그 기록 # it will display as the subtitle
+tagline: Stateflow · 제어 이론 · 로봇 프로젝트, 다시 찾아보려고 쓰는 기록 # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  로봇 제어 소프트웨어 엔지니어의 공부 기록. Stateflow를 공부하고, 예제와 프로젝트로
-  직접 만들어 확인한 것을 정리합니다.
+  로봇 제어 소프트웨어 엔지니어의 공부 기록. Stateflow 로 FSM 을 설계하고 검증하는 법,
+  ADRC 외란 관측 제어, 실내 배송 AMR 프로젝트, MATLAB 개발환경을 공개 출처 기준으로
+  정리합니다. 실패한 경로도 함께 남깁니다.
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.

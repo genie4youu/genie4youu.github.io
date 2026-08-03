@@ -1,0 +1,178 @@
+---
+---
+
+@use 'abstracts/variables' with (
+  $theme: '{{ site.theme_mode }}'
+);
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* ============================================================
+   커스텀 테마 — 2026-08-03
+   ------------------------------------------------------------
+   이 파일은 테마 gem 의 같은 경로(assets/css/jekyll-theme-chirpy.scss)를
+   덮어쓴다. 위쪽 @use 블록은 테마 원본과 동일해야 하므로 건드리지 않는다.
+
+   되돌리려면 이 파일을 지우면 된다. 테마 기본값으로 돌아간다.
+
+   ⚠️ 테마가 쓰는 속성은 data-mode 가 아니라 data-bs-theme 다.
+      (jekyll-theme-chirpy v7.6.0 / _sass/base/_base.scss 실측)
+        :root[data-bs-theme='light']       명시적 라이트
+        :root[data-bs-theme='dark']        명시적 다크
+        :root:not([data-bs-theme])         OS 설정을 따름
+      셋 다 덮어야 토글과 OS 설정 양쪽에서 색이 적용된다.
+   ============================================================ */
+
+/* ── 팔레트: 모브 (연보라와 연분홍 사이, 회색이 섞인 톤) ──────
+   다른 후보로 바꾸려면 아래 두 믹스인의 값만 교체한다.
+   파일 맨 아래에 라벤더 / 연분홍 값을 주석으로 남겨두었다.
+
+   원칙: 연한 톤은 바탕(사이드바·콜아웃·표)에만 쓰고,
+        링크와 제목은 같은 계열의 진한 톤을 쓴다.
+        연한 색을 링크에 쓰면 흰 배경에서 대비가 3:1 아래로 떨어진다.
+        아래 링크 색은 흰 배경에서 약 6.5:1 이다.
+   ------------------------------------------------------------ */
+
+@mixin palette-light {
+  --link-color: #7f4f6d;
+  --link-underline-color: #e6d8e0;
+  --heading-color: #33262e;
+  --text-color: #413941;
+  --text-muted-color: #7f7480;
+  --main-border-color: #f2eef0;
+
+  --sidebar-bg: #f4f0f2;
+  --sidebar-border-color: #ece5e8;
+  --sidebar-muted-color: #564c53;
+  --sidebar-active-color: #261c22;
+  --sidebar-hover-bg: #e9e0e5;
+  --site-title-color: #6b606a;
+  --site-subtitle-color: #786d75;
+
+  --card-hover-bg: #ede5e9;
+  --toc-highlight: #7f4f6d;
+  --btn-share-hover-color: #7f4f6d;
+  --checkbox-checked-color: #7f4f6d;
+
+  --prompt-tip-bg: #f6ecf1;
+  --prompt-tip-icon-color: #7f4f6d;
+
+  --tb-odd-bg: #fbf9fa;
+  --tb-border-color: #f0ecee;
+  --tag-hover: #ece2e7;
+  --search-tag-bg: #f7f3f5;
+}
+
+@mixin palette-dark {
+  --main-bg: #191418;
+  --mask-bg: #443c41;
+  --main-border-color: #2b242a;
+
+  --link-color: #d9a8c4;
+  --heading-color: #d5c9d0;
+  --text-color: #b0a6ac;
+
+  --sidebar-bg: #201a1e;
+  --sidebar-border-color: #2b242a;
+  --sidebar-muted-color: #928691;
+  --sidebar-active-color: #e2d6dd;
+  --sidebar-hover-bg: #2a2227;
+  --site-title-color: #7d7178;
+  --site-subtitle-color: #7e7279;
+
+  --card-bg: #201a1e;
+  --card-hover-bg: #3a2f35;
+  --toc-highlight: #d9a8c4;
+  --btn-share-hover-color: #d9a8c4;
+
+  --prompt-tip-bg: #2e2029;
+  --prompt-tip-icon-color: #d9a8c4;
+
+  --tb-odd-bg: #221c20;
+  --tb-border-color: #2b242a;
+}
+
+:root[data-bs-theme='light'] {
+  @include palette-light;
+}
+
+:root[data-bs-theme='dark'] {
+  @include palette-dark;
+}
+
+:root:not([data-bs-theme]) {
+  @media (prefers-color-scheme: light) {
+    @include palette-light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    @include palette-dark;
+  }
+}
+
+/* ── 프레임: 목록 카드에 좌측 레일 ────────────────────────────
+   그림자를 빼고 얇은 테두리 + 왼쪽 3px 강조선으로 바꾼다.
+   #post-list 로 한정해 글 본문 안의 카드에는 영향이 없게 한다.
+   ------------------------------------------------------------ */
+
+#post-list .card-wrapper {
+  border: 1px solid var(--main-border-color);
+  border-left: 3px solid var(--link-color);
+  border-radius: 5px;
+  box-shadow: none;
+  transition:
+    background-color 0.25s ease,
+    border-left-color 0.25s ease;
+
+  &:hover {
+    box-shadow: none;
+    background-color: var(--card-hover-bg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #post-list .card-wrapper {
+    transition: none;
+  }
+}
+
+/* ============================================================
+   다른 팔레트 후보 (쓰려면 위 믹스인의 값을 이걸로 교체)
+   ------------------------------------------------------------
+   ▸ 라벤더 — 보라 쪽
+     light: --link-color #6d4f9c / --heading-color #2b2540
+            --text-color #3a3646 / --text-muted-color #7b7488
+            --main-border-color #f0eef5
+            --sidebar-bg #f2f0f8 / --sidebar-border-color #e7e3f0
+            --sidebar-muted-color #524c60 / --sidebar-active-color #1e1930
+            --sidebar-hover-bg #e4e0f2
+            --site-title-color #655d78 / --site-subtitle-color #726b82
+            --card-hover-bg #e7e3f2 / --prompt-tip-bg #efeafa
+            --tb-odd-bg #faf9fd / --tb-border-color #eeebf4
+     dark:  --main-bg #16141c / --sidebar-bg #1c1926 / --card-bg #1c1926
+            --link-color #b9a3e8 / --heading-color #cfc9de
+            --text-color #aca6bb / --main-border-color #272232
+            --sidebar-active-color #ddd8ea / --sidebar-hover-bg #262032
+            --prompt-tip-bg #241d33 / --tb-odd-bg #1e1b27
+
+   ▸ 연분홍 — 분홍 쪽
+     light: --link-color #a24f6e / --heading-color #3a2630
+            --text-color #443a3e / --text-muted-color #83757b
+            --main-border-color #f6eef1
+            --sidebar-bg #faf0f3 / --sidebar-border-color #f2e6ea
+            --sidebar-muted-color #594c51 / --sidebar-active-color #2c1c24
+            --sidebar-hover-bg #f2e0e6
+            --site-title-color #6f6066 / --site-subtitle-color #7b6c72
+            --card-hover-bg #f6e6ec / --prompt-tip-bg #fdeef2
+            --tb-odd-bg #fdf9fa / --tb-border-color #f4ecef
+     dark:  --main-bg #1a1417 / --sidebar-bg #221a1e / --card-bg #221a1e
+            --link-color #efa8bd / --heading-color #ddc9d1
+            --text-color #b3a5ab / --main-border-color #2d2428
+            --sidebar-active-color #ead6de / --sidebar-hover-bg #2d2228
+            --prompt-tip-bg #331f28 / --tb-odd-bg #231c20
+   ============================================================ */

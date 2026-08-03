@@ -21,16 +21,7 @@ order: 5
 | [amr_robot_planning](https://github.com/genie4youu/amr_robot_planning) | 실내 배송 AMR. MATLAB, Simulink, Stateflow. State 37개 / Transition 67개 supervisor 와 LiDAR, A*, DWA, 독립 safety gate |
 | [stateflow-examples](https://github.com/genie4youu/stateflow-examples) | 순수 C 예제. `make` 한 번으로 빌드되고 테스트가 돕니다. push 마다 CI 가 실행됩니다 |
 
-## 쓰는 방식
-
-각 글은 **기준 버전과 확인일**을 머리말에 밝히고, 주장마다 **공개 출처**를 답니다.
-
-문서에서 확인하지 못한 것은 **미확인**으로 표시합니다. 실측값과 문서화된 사양도 구분합니다. 도구가 빠르게 바뀌는 영역이라 **유통기한이 있는 내용은 따로 표시**합니다.
-
-**실패한 경로도 남깁니다.** 결과만 적으면 왜 그 결론에 왔는지가 사라집니다. 잘못 든 길, 검사기가 통과시켜서 못 잡은 것, 요청한 값과 저장된 값이 달랐던 것 같은 기록이 나중에 더 쓸모 있었습니다.
-
-## 용어
-
-Stateflow 편집기 화면에 영어로 표시되는 것은 영어 그대로 씁니다. State, Transition, Junction, Action, Event, Condition, Data, Chart, Truth Table 같은 것들입니다. 코드 키워드(`entry`, `during`, `exit`, `after()`)도 그대로 씁니다.
-
-조사는 한글 발음 받침을 따릅니다. Transition은/이/을, State는/가/를 로 씁니다.
+<!-- "쓰는 방식" 과 "용어" 절을 뺐다 (2026-08-03).
+     기준 버전 표기, 미확인 표시, 유통기한 표시, Stateflow 용어를 영어로 쓰는 것, 조사를 발음 받침에
+     맞추는 것은 전부 글을 쓸 때 스스로 정한 규칙이다. 규칙은 글에서 지키면 되는 것이고
+     읽는 사람에게 따로 설명할 필요가 없다. 규칙 자체는 볼트의 _글쓰기_스타일가이드 에 있다. -->

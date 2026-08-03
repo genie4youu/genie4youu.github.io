@@ -20,8 +20,7 @@ tagline: Stateflow · 제어 이론 · 로봇 프로젝트, 다시 찾아보려�
 
 description: >- # used by seo meta and the atom feed
   로봇 제어 소프트웨어 엔지니어의 공부 기록. Stateflow 로 FSM 을 설계하고 검증하는 법,
-  ADRC 외란 관측 제어, 실내 배송 AMR 프로젝트, MATLAB 개발환경을 공개 출처 기준으로
-  정리합니다. 실패한 경로도 함께 남깁니다.
+  ADRC 외란 관측 제어, 실내 배송 AMR 프로젝트, MATLAB 개발환경을 다룹니다.
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.

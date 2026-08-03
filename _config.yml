@@ -156,7 +156,10 @@ pwa:
     deny_paths:
       # - "/example"  # URLs match `<SITE_URL>/example/*` will not be cached by the PWA
 
-paginate: 10
+# 홈(index.html)은 랜딩 페이지라 페이지 넘김이 없다. 시간순 전체 목록은 /archives/ 가 맡는다.
+# `paginate` 를 켜두면 jekyll-paginate 가 index.html 을 붙잡고 /page2/ 부터 똑같은 랜딩을
+# 복제해 만든다. 그래서 비워둔다.
+# paginate: 10
 
 # The base URL of your site
 baseurl: ""

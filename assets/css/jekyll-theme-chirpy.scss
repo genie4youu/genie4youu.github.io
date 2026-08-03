@@ -13,7 +13,7 @@
 ';
 
 /* ============================================================
-   커스텀 테마 — 2026-08-03
+   커스텀 테마 — 2026-08-03 시작, 2026-08-03 개편
    ------------------------------------------------------------
    이 파일은 테마 gem 의 같은 경로(assets/css/jekyll-theme-chirpy.scss)를
    덮어쓴다. 위쪽 @use 블록은 테마 원본과 동일해야 하므로 건드리지 않는다.
@@ -26,9 +26,16 @@
         :root[data-bs-theme='dark']        명시적 다크
         :root:not([data-bs-theme])         OS 설정을 따름
       셋 다 덮어야 토글과 OS 설정 양쪽에서 색이 적용된다.
+
+   구성
+     1. 팔레트
+     2. 한국어 조판
+     3. 포스트 머리 이미지 (테마의 강제 크롭 해제)
+     4. 홈 랜딩
+     5. 시리즈 색
    ============================================================ */
 
-/* ── 팔레트: 모브 (연보라와 연분홍 사이, 회색이 섞인 톤) ──────
+/* ── 1. 팔레트: 모브 (연보라와 연분홍 사이, 회색이 섞인 톤) ──
    다른 후보로 바꾸려면 아래 두 믹스인의 값만 교체한다.
    파일 맨 아래에 라벤더 / 연분홍 값을 주석으로 남겨두었다.
 
@@ -66,6 +73,14 @@
   --tb-border-color: #f0ecee;
   --tag-hover: #ece2e7;
   --search-tag-bg: #f7f3f5;
+
+  /* 랜딩 전용 */
+  --landing-hero-bg: #f8f5f7;
+  --landing-card-bg: #fff;
+  --landing-card-border: #ece5e9;
+  --landing-card-hover-bg: #faf7f9;
+  --landing-card-shadow: 0 1px 2px rgb(51 38 46 / 4%);
+  --landing-card-shadow-hover: 0 6px 18px rgb(51 38 46 / 8%);
 }
 
 @mixin palette-dark {
@@ -95,6 +110,14 @@
 
   --tb-odd-bg: #221c20;
   --tb-border-color: #2b242a;
+
+  /* 랜딩 전용 */
+  --landing-hero-bg: #1d181c;
+  --landing-card-bg: #201a1e;
+  --landing-card-border: #2f2830;
+  --landing-card-hover-bg: #271f25;
+  --landing-card-shadow: none;
+  --landing-card-shadow-hover: 0 6px 18px rgb(0 0 0 / 28%);
 }
 
 :root[data-bs-theme='light'] {
@@ -115,81 +138,461 @@
   }
 }
 
-/* ── 프레임: 목록 카드에 좌측 레일 ────────────────────────────
-   그림자를 빼고 얇은 테두리 + 왼쪽 3px 강조선으로 바꾼다.
-   #post-list 로 한정해 글 본문 안의 카드에는 영향이 없게 한다.
+/* ── 2. 한국어 조판 ───────────────────────────────────────────
+   테마는 영어 기준이라 한국어에서 두 가지가 어긋난다.
+
+   (1) 줄바꿈. 브라우저 기본값은 한국어를 글자 단위로 끊어서
+       "실행 순서" 가 "실행 순
+       서" 로 갈라진다. keep-all 이 어절 단위로 끊어준다.
+       대신 긴 URL 이나 코드가 넘칠 수 있어 break-word 를 함께 준다.
+   (2) 행간. 한글은 라틴 문자보다 글자가 빽빽해서 같은 line-height 에서
+       더 답답해 보인다. 본문만 조금 넓힌다.
    ------------------------------------------------------------ */
 
-#post-list .card-wrapper {
-  border: 1px solid var(--main-border-color);
-  border-left: 3px solid var(--link-color);
-  border-radius: 5px;
-  box-shadow: none;
+body {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+#main-wrapper .content {
+  line-height: 1.75;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  word-break: keep-all;
+  letter-spacing: -0.01em;
+}
+
+/* 코드와 표는 어절 단위로 끊으면 오히려 깨진다. 원래대로 되돌린다. */
+code,
+pre,
+kbd,
+samp,
+.highlight,
+.table-wrapper {
+  word-break: normal;
+}
+
+/* ── 3. 포스트 머리 이미지 ────────────────────────────────────
+   테마는 image: 로 넣은 머리 이미지를 40/21 로 강제하고
+   object-fit: cover 로 채운다 (v7.6.0 / _sass/base/_base.scss).
+   가로로 넓거나 세로로 긴 그림은 가장자리가 잘려 나간다.
+
+   실제로 잘린 예: assets/img/amr/2026-07-22_environment_matrix_trajectories.png
+   2548x569 (4.48:1) 라 3개 패널 중 양 끝이 사라졌다.
+
+   그래프와 다이어그램이 머리 이미지로 들어오는 블로그라서
+   "보기 좋게 잘라내기" 보다 "다 보이기" 가 맞다. 비율 강제를 푼다.
+
+   목록 카드 썸네일에는 이 규칙을 적용하지 않는다. 거기서는 크기가
+   제각각이면 줄이 흐트러지므로 크롭이 맞다. (현재 랜딩에는 썸네일이
+   없지만 나중에 되살릴 때를 위해 선택자를 header 안으로 한정해 둔다.)
+   ------------------------------------------------------------ */
+
+article > header .preview-img {
+  display: block;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+  aspect-ratio: auto;
+  overflow: visible;
+
+  &:not(.no-bg) {
+    background: none;
+  }
+
+  img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+
+    /* 세로로 아주 긴 그림이 첫 화면을 다 먹지 않게 막는다.
+       가로 그림은 max-width 가 먼저 걸리므로 영향이 없다. */
+    max-height: 32rem;
+    aspect-ratio: auto;
+    -o-object-fit: contain;
+    object-fit: contain;
+  }
+}
+
+article > header figcaption {
+  color: var(--text-muted-color);
+  font-size: 0.85rem;
+}
+
+/* ── 4. 홈 랜딩 ───────────────────────────────────────────────
+   마크업은 _layouts/landing.html, 내용은 _data/series.yml 에 있다.
+   ------------------------------------------------------------ */
+
+#landing {
+  margin-top: 1.5rem;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+/* 4-1. 히어로 */
+
+.landing-hero {
+  background: var(--landing-hero-bg);
+  border: 1px solid var(--landing-card-border);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+
+  @media (min-width: 768px) {
+    padding: 2.75rem 2.5rem;
+  }
+
+  h1 {
+    color: var(--heading-color);
+    font-size: 1.9rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem;
+
+    @media (min-width: 768px) {
+      font-size: 2.3rem;
+    }
+  }
+
+  .hero-lead {
+    color: var(--text-muted-color);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin: 0;
+    max-width: 44rem;
+  }
+}
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  list-style: none;
+  padding: 0;
+  margin: 1.75rem 0 0;
+
+  li {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+  }
+
+  strong {
+    color: var(--heading-color);
+    font-size: 1.35rem;
+    font-weight: 700;
+
+    /* 날짜는 숫자가 길어 같은 크기면 통계 줄이 무너진다. */
+    time {
+      font-size: 1.05rem;
+    }
+  }
+
+  span {
+    color: var(--text-muted-color);
+    font-size: 0.8rem;
+    margin-top: 0.15rem;
+  }
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.75rem;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--landing-card-border);
+  border-radius: 999px;
+  background: var(--landing-card-bg);
+  color: var(--text-color) !important;
+  font-size: 0.9rem;
   transition:
-    background-color 0.25s ease,
-    border-left-color 0.25s ease;
+    background-color 0.2s ease,
+    border-color 0.2s ease;
 
   &:hover {
-    box-shadow: none;
-    background-color: var(--card-hover-bg);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  #post-list .card-wrapper {
-    transition: none;
-  }
-}
-
-/* ── 시리즈별 레일 색 ─────────────────────────────────────────
-   96편이라 목록에서 어느 시리즈 글인지가 잘 안 보인다.
-   왼쪽 강조선 색으로 구분한다.
-
-   data-series 는 _layouts/home.html 이 심는다.
-   (테마 원본 카드에는 카테고리를 나타내는 클래스가 없고,
-    카테고리가 링크가 아니라 텍스트라 CSS :has() 로도 못 잡는다.)
-
-   색은 모브 팔레트와 같은 계열 안에서 갈랐다. 튀지 않게 채도를 낮췄다.
-   ------------------------------------------------------------ */
-
-$series-rails-light: (
-  'stateflow': #7f4f6d,
-  'control': #6d4f9c,
-  'amr': #5f6ba8,
-  'agent': #4f7d86,
-  'reading': #8a6246,
-  'break': #99798c,
-);
-
-$series-rails-dark: (
-  'stateflow': #d9a8c4,
-  'control': #b9a3e8,
-  'amr': #9aa6e0,
-  'agent': #86c2cc,
-  'reading': #d0a284,
-  'break': #c3a7ba,
-);
-
-@each $name, $color in $series-rails-light {
-  :root[data-bs-theme='light'] #post-list .card-wrapper[data-series='#{$name}'] {
-    border-left-color: $color;
+    background: var(--card-hover-bg);
+    border-color: var(--link-color);
   }
 
-  :root:not([data-bs-theme]) #post-list .card-wrapper[data-series='#{$name}'] {
-    @media (prefers-color-scheme: light) {
-      border-left-color: $color;
+  &.primary {
+    background: var(--link-color);
+    border-color: var(--link-color);
+    color: #fff !important;
+
+    &:hover {
+      opacity: 0.88;
     }
   }
 }
 
-@each $name, $color in $series-rails-dark {
-  :root[data-bs-theme='dark'] #post-list .card-wrapper[data-series='#{$name}'] {
-    border-left-color: $color;
+:root[data-bs-theme='dark'] .hero-btn.primary {
+  color: #1a1418 !important;
+}
+
+:root:not([data-bs-theme]) {
+  @media (prefers-color-scheme: dark) {
+    .hero-btn.primary {
+      color: #1a1418 !important;
+    }
+  }
+}
+
+/* 4-2. 절 제목 */
+
+.landing-section {
+  margin-top: 3rem;
+}
+
+.landing-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--heading-color);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 1.1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--main-border-color);
+
+  .heading-more {
+    color: var(--text-muted-color) !important;
+    font-size: 0.85rem;
+    font-weight: 400;
+    white-space: nowrap;
+
+    &:hover {
+      color: var(--link-color) !important;
+    }
+  }
+}
+
+/* 4-3. 시리즈 카드 */
+
+/* 열 수를 미디어쿼리로 정하지 않는다. 화면이 1440px 이어도 사이드바와 오른쪽 패널을
+   빼고 나면 본문 폭은 760px 밖에 안 돼서, 화면 폭으로 3열을 주면 카드가 눌린다.
+   auto-fit + minmax 는 화면이 아니라 담긴 자리의 폭을 보고 열 수를 정한다. */
+.series-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 0.9rem;
+}
+
+.series-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.15rem 1.25rem;
+  background: var(--landing-card-bg);
+  border: 1px solid var(--landing-card-border);
+  border-left: 3px solid var(--link-color);
+  border-radius: 8px;
+  box-shadow: var(--landing-card-shadow);
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    background: var(--landing-card-hover-bg);
+    box-shadow: var(--landing-card-shadow-hover);
+    transform: translateY(-2px);
   }
 
-  :root:not([data-bs-theme]) #post-list .card-wrapper[data-series='#{$name}'] {
+  .series-icon {
+    color: var(--link-color);
+    font-size: 1.15rem;
+    line-height: 1;
+  }
+
+  .series-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+
+  .series-name {
+    color: var(--heading-color);
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  .series-count {
+    color: var(--text-muted-color);
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+
+  .series-blurb {
+    color: var(--text-muted-color);
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+
+  .series-repo {
+    color: var(--link-color);
+    font-size: 0.78rem;
+    margin-top: 0.1rem;
+  }
+}
+
+/* 4-4. 최근 글 */
+
+.recent-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recent-item {
+  border-bottom: 1px solid var(--main-border-color);
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  > a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 0.85rem 0.6rem 0.85rem 1rem;
+    border-radius: 6px;
+    position: relative;
+    transition: background-color 0.2s ease;
+
+    /* 왼쪽 점이 시리즈 색을 나타낸다 */
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0.15rem;
+      top: 1.35rem;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--link-color);
+    }
+
+    &:hover {
+      background: var(--card-hover-bg);
+    }
+  }
+
+  .recent-title {
+    color: var(--heading-color);
+    font-size: 0.98rem;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  .recent-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    color: var(--text-muted-color);
+    font-size: 0.78rem;
+  }
+
+  .recent-cat {
+    color: var(--link-color);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .series-card,
+  .hero-btn,
+  .recent-item > a {
+    transition: none;
+  }
+
+  .series-card:hover {
+    transform: none;
+  }
+}
+
+/* ── 5. 시리즈 색 ─────────────────────────────────────────────
+   시리즈가 7개라 이름만으로는 목록에서 구분이 잘 안 된다.
+   카드 왼쪽 선과 아이콘, 최근 글의 점에 색을 나눠 준다.
+
+   키 이름은 _data/series.yml 의 id 와 같아야 한다.
+   색은 모브 팔레트와 같은 계열 안에서 갈랐다. 튀지 않게 채도를 낮췄다.
+   ------------------------------------------------------------ */
+
+$series-light: (
+  'stateflow': #7f4f6d,
+  'sflayout': #96608a,
+  'adrc': #6d4f9c,
+  'amr': #5f6ba8,
+  'mcp': #4f7d86,
+  'reading': #8a6246,
+  'break': #99798c,
+);
+
+$series-dark: (
+  'stateflow': #d9a8c4,
+  'sflayout': #e0b0d5,
+  'adrc': #b9a3e8,
+  'amr': #9aa6e0,
+  'mcp': #86c2cc,
+  'reading': #d0a284,
+  'break': #c3a7ba,
+);
+
+@mixin series-accent($color) {
+  &.series-card {
+    border-left-color: $color;
+
+    .series-icon {
+      color: $color;
+    }
+  }
+
+  &.recent-item {
+    > a::before {
+      background: $color;
+    }
+
+    .recent-cat {
+      color: $color;
+    }
+  }
+}
+
+@each $name, $color in $series-light {
+  :root[data-bs-theme='light'] [data-series='#{$name}'] {
+    @include series-accent($color);
+  }
+
+  :root:not([data-bs-theme]) [data-series='#{$name}'] {
+    @media (prefers-color-scheme: light) {
+      @include series-accent($color);
+    }
+  }
+}
+
+@each $name, $color in $series-dark {
+  :root[data-bs-theme='dark'] [data-series='#{$name}'] {
+    @include series-accent($color);
+  }
+
+  :root:not([data-bs-theme]) [data-series='#{$name}'] {
     @media (prefers-color-scheme: dark) {
-      border-left-color: $color;
+      @include series-accent($color);
     }
   }
 }

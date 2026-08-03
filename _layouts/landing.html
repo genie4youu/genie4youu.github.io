@@ -1,0 +1,126 @@
+---
+layout: default
+---
+
+{% comment %}
+  홈 랜딩. index.html 이 이 레이아웃을 쓴다.
+
+  왜 시간순 목록이 아닌가:
+    글이 100편을 넘으면서 첫 화면의 시간순 카드 10장이 길잡이 역할을 못 하게 됐다.
+    맨 위 열 장이 그날 몰아 올린 한 시리즈로 채워지면 나머지 90편은 보이지 않는다.
+    시간순 전체 목록은 /archives/ 가 이미 하고 있으므로 여기서는 시리즈를 먼저 보여준다.
+
+  편수는 손으로 적지 않는다. 아래에서 _posts/<dir>/ 를 세어 채운다.
+  카드 내용을 고치려면 이 파일이 아니라 _data/series.yml 을 고친다.
+{% endcomment %}
+
+{% include lang.html %}
+
+{% assign latest = site.posts.first %}
+
+<div id="landing">
+  <section class="landing-hero">
+    <h1>{{ site.title }}</h1>
+
+    <p class="hero-lead">
+      로봇 제어 소프트웨어를 공부하며 남긴 기록이다. Stateflow 로 FSM 을 설계하고 검증하는 법,
+      ADRC 외란 관측 제어, 실내 배송 AMR 프로젝트, MATLAB 개발환경을 공개 출처 기준으로 정리한다.
+      막혔던 지점과 틀렸던 경로도 지우지 않고 그대로 남긴다.
+    </p>
+
+    <ul class="hero-stats">
+      <li><strong>{{ site.posts.size }}</strong><span>편</span></li>
+      <li><strong>{{ site.data.series.size }}</strong><span>시리즈</span></li>
+      <li>
+        <strong>{% include datetime.html date=latest.date lang=lang %}</strong>
+        <span>최근 갱신</span>
+      </li>
+    </ul>
+
+    <div class="hero-actions">
+      <a class="hero-btn primary" href="{{ '/series/' | relative_url }}">
+        <i class="fa-solid fa-layer-group fa-fw"></i> 시리즈 안내
+      </a>
+      <a class="hero-btn" href="{{ '/archives/' | relative_url }}">
+        <i class="fa-solid fa-clock-rotate-left fa-fw"></i> 전체 글
+      </a>
+      <a class="hero-btn" href="https://github.com/{{ site.github.username }}" rel="me noopener">
+        <i class="fa-brands fa-github fa-fw"></i> GitHub
+      </a>
+    </div>
+  </section>
+
+  <section class="landing-section">
+    <h2 class="landing-heading">시리즈</h2>
+
+    <div class="series-grid">
+      {% for s in site.data.series %}
+        {%- comment -%} 편수는 _posts/<dir>/ 를 직접 센다 {%- endcomment -%}
+        {%- assign count = 0 -%}
+        {%- for d in s.dirs -%}
+          {%- capture prefix %}_posts/{{ d }}/{% endcapture -%}
+          {%- for p in site.posts -%}
+            {%- if p.path contains prefix -%}{%- assign count = count | plus: 1 -%}{%- endif -%}
+          {%- endfor -%}
+        {%- endfor -%}
+
+        {%- if s.index -%}
+          {%- assign target = s.index | relative_url -%}
+        {%- else -%}
+          {%- capture target -%}
+            {{ site.baseurl }}/categories/{{ s.category | slugify | url_encode }}/
+          {%- endcapture -%}
+        {%- endif -%}
+
+        <a class="series-card" data-series="{{ s.id }}" href="{{ target | strip }}">
+          <span class="series-icon"><i class="{{ s.icon }}"></i></span>
+          <span class="series-head">
+            <span class="series-name">{{ s.name }}</span>
+            <span class="series-count">{{ count }}편</span>
+          </span>
+          <span class="series-blurb">{{ s.blurb }}</span>
+          {%- if s.repo %}
+            <span class="series-repo"><i class="fa-brands fa-github fa-fw"></i> 저장소 공개</span>
+          {%- endif %}
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="landing-section">
+    <h2 class="landing-heading">
+      최근 글
+      <a class="heading-more" href="{{ '/archives/' | relative_url }}">전체 보기 <i class="fa-solid fa-angle-right"></i></a>
+    </h2>
+
+    <ul class="recent-list">
+      {%- assign shown = 0 -%}
+      {%- for p in site.posts -%}
+        {%- comment -%} 시리즈 목차 글은 위 카드가 이미 가리키므로 건너뛴다 {%- endcomment -%}
+        {%- if p.categories contains '목차' -%}{%- continue -%}{%- endif -%}
+
+        {%- assign sid = 'break' -%}
+        {%- if p.path contains '_posts/stateflow/' -%}{%- assign sid = 'stateflow' -%}
+        {%- elsif p.path contains '_posts/sflayout/' -%}{%- assign sid = 'sflayout' -%}
+        {%- elsif p.path contains '_posts/adrc/' -%}{%- assign sid = 'adrc' -%}
+        {%- elsif p.path contains '_posts/amr/' -%}{%- assign sid = 'amr' -%}
+        {%- elsif p.path contains '_posts/mcp/' -%}{%- assign sid = 'mcp' -%}
+        {%- elsif p.path contains '_posts/news/' or p.path contains '_posts/papers/' or p.path contains '_posts/trends/' -%}{%- assign sid = 'reading' -%}
+        {%- endif -%}
+
+        <li class="recent-item" data-series="{{ sid }}">
+          <a href="{{ p.url | relative_url }}">
+            <span class="recent-title">{{ p.title }}</span>
+            <span class="recent-meta">
+              <span class="recent-cat">{{ p.categories | join: ', ' }}</span>
+              <time>{% include datetime.html date=p.date lang=lang %}</time>
+            </span>
+          </a>
+        </li>
+
+        {%- assign shown = shown | plus: 1 -%}
+        {%- if shown >= 6 -%}{%- break -%}{%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </section>
+</div>

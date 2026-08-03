@@ -1,0 +1,61 @@
+# 홈 랜딩(_layouts/landing.html)의 시리즈 카드 데이터.
+#
+# 편수는 여기 적지 않는다. landing.html 이 _posts/<dir>/ 안의 글을 직접 센다.
+# 손으로 적으면 글이 늘 때마다 조용히 낡는다.
+#
+# id     : 카드 강조색 키. assets/css/jekyll-theme-chirpy.scss 의 $series-rails-* 와 이름이 같아야 한다.
+# dirs   : _posts/ 아래 폴더 이름. 편수를 세는 기준이다.
+# index  : 카드를 눌렀을 때 갈 곳. 시리즈 목차 글을 쓴다.
+# category: index 가 없을 때 /categories/<카테고리>/ 로 대신 보낸다.
+
+- id: stateflow
+  name: Stateflow
+  icon: fa-solid fa-diagram-project
+  dirs: [stateflow]
+  index: /posts/00-stateflow-series/
+  blurb: Chart 만들기부터 실행 순서, 설계, 관측, 검증, 자동화까지. 배터리 충전 제어를 하나의 예제로 이어서 쓴다.
+
+- id: adrc
+  name: ADRC
+  icon: fa-solid fa-wave-square
+  dirs: [adrc]
+  index: /posts/00-adrc-series/
+  blurb: 정확한 모델 없이 외란을 추정해 상쇄하는 제어 기법. 발상에서 출발해 이산화, 튜닝, 수식 유도까지 내려간다.
+
+- id: amr
+  name: 실내 배송 AMR
+  icon: fa-solid fa-robot
+  dirs: [amr]
+  index: /posts/00-amr-series/
+  blurb: MATLAB, Simulink, Stateflow 만으로 만든 프로젝트. 좌표계에서 시작해 SLAM, 경로계획, 감독제어, 검증까지 이어진다.
+  repo: https://github.com/genie4youu/amr_robot_planning
+
+- id: mcp
+  name: MCP와 MATLAB 연결
+  icon: fa-solid fa-plug
+  dirs: [mcp]
+  index: /posts/00-mcp-series/
+  blurb: AI 에이전트를 MATLAB 에 붙이는 프로토콜과 실무 설정. JSON-RPC, 보안 모델, 승인 모드를 정리했다.
+
+- id: sflayout
+  name: Stateflow 레이아웃 자동화
+  # ⚠️ fa-vector-square 는 Font Awesome 7 에서 빠졌다. 테마가 FA7 을 불러오므로 쓰면 아이콘 자리가 빈다.
+  #    아이콘을 바꿀 때는 FA7 free 에 있는지 확인한다.
+  icon: fa-solid fa-object-group
+  dirs: [sflayout]
+  index: /posts/00-sflayout-series/
+  blurb: State 37개, Transition 67개짜리 차트를 사람이 읽을 수 있게 만든 기록. 그래픽 위반 32건을 0으로 줄였다.
+
+- id: reading
+  name: 업계 읽기
+  icon: fa-solid fa-newspaper
+  dirs: [news, papers, trends]
+  category: 업계 읽기
+  blurb: 로보틱스 뉴스, 논문 한 편 상세 리딩, 주간 기술 동향.
+
+- id: break
+  name: 쉬어가기
+  icon: fa-solid fa-mug-hot
+  dirs: [etc]
+  index: /posts/00-office-rpg-series/
+  blurb: 공부 글이 아닌 읽을거리.

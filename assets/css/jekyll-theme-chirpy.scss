@@ -141,6 +141,59 @@
   }
 }
 
+/* ── 시리즈별 레일 색 ─────────────────────────────────────────
+   96편이라 목록에서 어느 시리즈 글인지가 잘 안 보인다.
+   왼쪽 강조선 색으로 구분한다.
+
+   data-series 는 _layouts/home.html 이 심는다.
+   (테마 원본 카드에는 카테고리를 나타내는 클래스가 없고,
+    카테고리가 링크가 아니라 텍스트라 CSS :has() 로도 못 잡는다.)
+
+   색은 모브 팔레트와 같은 계열 안에서 갈랐다. 튀지 않게 채도를 낮췄다.
+   ------------------------------------------------------------ */
+
+$series-rails-light: (
+  'stateflow': #7f4f6d,
+  'control': #6d4f9c,
+  'amr': #5f6ba8,
+  'agent': #4f7d86,
+  'reading': #8a6246,
+  'break': #99798c,
+);
+
+$series-rails-dark: (
+  'stateflow': #d9a8c4,
+  'control': #b9a3e8,
+  'amr': #9aa6e0,
+  'agent': #86c2cc,
+  'reading': #d0a284,
+  'break': #c3a7ba,
+);
+
+@each $name, $color in $series-rails-light {
+  :root[data-bs-theme='light'] #post-list .card-wrapper[data-series='#{$name}'] {
+    border-left-color: $color;
+  }
+
+  :root:not([data-bs-theme]) #post-list .card-wrapper[data-series='#{$name}'] {
+    @media (prefers-color-scheme: light) {
+      border-left-color: $color;
+    }
+  }
+}
+
+@each $name, $color in $series-rails-dark {
+  :root[data-bs-theme='dark'] #post-list .card-wrapper[data-series='#{$name}'] {
+    border-left-color: $color;
+  }
+
+  :root:not([data-bs-theme]) #post-list .card-wrapper[data-series='#{$name}'] {
+    @media (prefers-color-scheme: dark) {
+      border-left-color: $color;
+    }
+  }
+}
+
 /* ============================================================
    다른 팔레트 후보 (쓰려면 위 믹스인의 값을 이걸로 교체)
    ------------------------------------------------------------

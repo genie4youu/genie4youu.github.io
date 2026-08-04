@@ -7,7 +7,7 @@ tags: [amr, occupancy-grid, log-odds, mapping, lidar, bayes]
 math: true
 ---
 
-> **연재:** [목차](/posts/00-amr-series/) · 이전 → [06. LiDAR 비이상성](/posts/06-amr-lidar-imperfections/) · 다음 → [08. Odometry, EKF, MCL](/posts/08-amr-localization/)
+> **연재:** [목차](/posts/00-amr-series/) | 이전 → [06. LiDAR 비이상성](/posts/06-amr-lidar-imperfections/) | 다음 → [08. Odometry, EKF, MCL](/posts/08-amr-localization/)
 
 binary map은 cell이 비었는지 막혔는지만 표현한다. 센서로 지도를 만들 때는 아직 모르는 공간과 비어 있다고 관측한 공간을 구분해야 한다.
 
@@ -108,4 +108,4 @@ log-odds 함수와 단위검사는 구현됐지만 통합 주행의 global A*는
 
 ## 연재
 
-[목차](/posts/00-amr-series/) · 이전 → [06. LiDAR 비이상성](/posts/06-amr-lidar-imperfections/) · 다음 → [08. Odometry, EKF, MCL](/posts/08-amr-localization/)
+[목차](/posts/00-amr-series/) | 이전 → [06. LiDAR 비이상성](/posts/06-amr-lidar-imperfections/) | 다음 → [08. Odometry, EKF, MCL](/posts/08-amr-localization/)

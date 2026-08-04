@@ -8,8 +8,8 @@ mermaid: true
 math: true
 ---
 
-> **기준 출처:** Herbst & Madoński, *ADRC: From Principles to Practice* (Springer, 2025, Ch.8) · Miklosovic & Gao, *Discrete Implementation of the ESO* (ACC, 2006) / 확인일 2026-07-21
-> **시리즈:** [목차](/posts/00-adrc-series/) · 이전 → [10. ADRC와 PID의 등가성](/posts/10-adrc-vs-pid/) · 다음 → [12. 튜닝 절차](/posts/12-tuning-procedure/)
+> **기준 출처:** Herbst & Madoński, *ADRC: From Principles to Practice* (Springer, 2025, Ch.8) / Miklosovic & Gao, *Discrete Implementation of the ESO* (ACC, 2006) / 확인일 2026-07-21
+> **시리즈:** [목차](/posts/00-adrc-series/) | 이전 → [10. ADRC와 PID의 등가성](/posts/10-adrc-vs-pid/) | 다음 → [12. 튜닝 절차](/posts/12-tuning-procedure/)
 
 ---
 
@@ -56,7 +56,7 @@ $$T_s = 100\,\mu s$$(10 kHz 제어)면 $$\omega_o$$는 대략 수백에서 수�
 
 ## ⚠️ 주의
 
-- 이 상한을 더 좁히는 요인(노이즈·양자화·지연·포화)은 13편에서 모아 다룬다.
+- 이 상한을 더 좁히는 요인(노이즈, 양자화, 지연, 포화)은 13편에서 모아 다룬다.
 - current estimator는 ADC에서 PWM까지 한 주기 안에 끝내야 해 타이밍이 빡빡하다.
 
 ## 📌 정리
@@ -68,7 +68,7 @@ $$T_s = 100\,\mu s$$(10 kHz 제어)면 $$\omega_o$$는 대략 수백에서 수�
 
 ## 시리즈
 
-[목차](/posts/00-adrc-series/) · 이전 → [10. ADRC와 PID의 등가성](/posts/10-adrc-vs-pid/) · 다음 → [12. 튜닝 절차](/posts/12-tuning-procedure/)
+[목차](/posts/00-adrc-series/) | 이전 → [10. ADRC와 PID의 등가성](/posts/10-adrc-vs-pid/) | 다음 → [12. 튜닝 절차](/posts/12-tuning-procedure/)
 
 ## 참고
 

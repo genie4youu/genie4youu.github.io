@@ -8,7 +8,7 @@ mermaid: true
 ---
 
 > **기준:** MathWorks 공개 문서 / 확인일 2026-07-14
-> **시리즈:** [목차](/posts/00-stateflow-series/) · 이전 → [08. Chart 실행 순서](/posts/08-chart-execution/) · 다음 → [10. 병렬 State의 실행 순서](/posts/10-parallel-order/)
+> **시리즈:** [목차](/posts/00-stateflow-series/) | 이전 → [08. Chart 실행 순서](/posts/08-chart-execution/) | 다음 → [10. 병렬 State의 실행 순서](/posts/10-parallel-order/)
 
 ---
 
@@ -158,7 +158,7 @@ Condition Action은 Transition 성공을 전제로 실행되지 않는다. **실
 
 ## 시리즈
 
-[목차](/posts/00-stateflow-series/) · 이전 → [08](/posts/08-chart-execution/) · 다음 → [10. 병렬 State의 실행 순서](/posts/10-parallel-order/)
+[목차](/posts/00-stateflow-series/) | 이전 → [08](/posts/08-chart-execution/) | 다음 → [10. 병렬 State의 실행 순서](/posts/10-parallel-order/)
 
 ## 참고
 

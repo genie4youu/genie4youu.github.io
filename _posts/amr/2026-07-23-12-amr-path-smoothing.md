@@ -7,7 +7,7 @@ tags: [amr, path-smoothing, line-of-sight, astar, collision-checking]
 math: true
 ---
 
-> **연재:** [목차](/posts/00-amr-series/) · 이전 → [11. Costmap, inflation, A*](/posts/11-amr-costmap-astar/) · 다음 → [13. Local costmap과 Pure Pursuit](/posts/13-amr-local-costmap-pure-pursuit/)
+> **연재:** [목차](/posts/00-amr-series/) | 이전 → [11. Costmap, inflation, A*](/posts/11-amr-costmap-astar/) | 다음 → [13. Local costmap과 Pure Pursuit](/posts/13-amr-local-costmap-pure-pursuit/)
 
 A*는 grid node의 연결을 따라 최단 경로를 찾는다. 해상도가 유한한 격자에서는 같은 방향의 점이 반복되고, 장애물에서 멀리 떨어진 구간도 계단처럼 꺾인다. controller에 그대로 주면 waypoint 전환이 잦고 angular command가 흔들릴 수 있다.
 
@@ -64,7 +64,7 @@ binary map에서 충돌하지 않는 가장 짧은 shortcut은 장애물 팽창 
 
 정상, 동적 장애물, 충전소 복귀, 잘못된 길 복귀 경로에서 smoothing 뒤 모든 선분을 재검증했다. 세 환경 × 네 시나리오의 실행 로그도 sample과 sample 사이 선분까지 `0.30 m` 팽창 지도에서 비충돌인지 확인했다.
 
-이 결과가 DWA의 trajectory collision check를 대신하지는 않는다. 전역 path는 정적·느린 정책이고 local planner는 현재 속도와 새 sensor hit를 고려한다.
+이 결과가 DWA의 trajectory collision check를 대신하지는 않는다. 전역 path는 정적이고 느린 정책이고 local planner는 현재 속도와 새 sensor hit를 고려한다.
 
 ## 다음 단계
 
@@ -77,4 +77,4 @@ binary map에서 충돌하지 않는 가장 짧은 shortcut은 장애물 팽창 
 
 ## 연재
 
-[목차](/posts/00-amr-series/) · 이전 → [11. Costmap, inflation, A*](/posts/11-amr-costmap-astar/) · 다음 → [13. Local costmap과 Pure Pursuit](/posts/13-amr-local-costmap-pure-pursuit/)
+[목차](/posts/00-amr-series/) | 이전 → [11. Costmap, inflation, A*](/posts/11-amr-costmap-astar/) | 다음 → [13. Local costmap과 Pure Pursuit](/posts/13-amr-local-costmap-pure-pursuit/)

@@ -8,8 +8,8 @@ mermaid: true
 math: true
 ---
 
-> **기준 출처:** Han, *From PID to ADRC* (IEEE TIE, 2009) · Gao, *Bandwidth-Parameterization* (ACC, 2003) · MathWorks ADRC 문서 / 확인일 2026-07-21
-> **시리즈:** [목차](/posts/00-adrc-series/) · 이전 → [02. 총외란](/posts/02-total-disturbance/) · 다음 → [04. 원형의 3요소](/posts/04-adrc-td-eso-control/)
+> **기준 출처:** Han, *From PID to ADRC* (IEEE TIE, 2009) / Gao, *Bandwidth-Parameterization* (ACC, 2003) / MathWorks ADRC 문서 / 확인일 2026-07-21
+> **시리즈:** [목차](/posts/00-adrc-series/) | 이전 → [02. 총외란](/posts/02-total-disturbance/) | 다음 → [04. 원형의 3요소](/posts/04-adrc-td-eso-control/)
 
 ---
 
@@ -19,7 +19,7 @@ math: true
 
 > 차수 $$N$$만 맞으면, 어떤 플랜트든 "$$N$$중 적분기 + 총외란"으로 적을 수 있다.
 
-영점·고차 극점·비선형은 전부 총외란 $$F$$ 안으로 들어간다.
+영점, 고차 극점, 비선형은 전부 총외란 $$F$$ 안으로 들어간다.
 
 ## 2. 적분기 사슬의 모양
 
@@ -78,7 +78,7 @@ $$\dot x_N = F + b_0 u$$
 
 ## 시리즈
 
-[목차](/posts/00-adrc-series/) · 이전 → [02. 총외란](/posts/02-total-disturbance/) · 다음 → [04. 원형의 3요소](/posts/04-adrc-td-eso-control/)
+[목차](/posts/00-adrc-series/) | 이전 → [02. 총외란](/posts/02-total-disturbance/) | 다음 → [04. 원형의 3요소](/posts/04-adrc-td-eso-control/)
 
 ## 참고
 

@@ -8,8 +8,8 @@ mermaid: true
 math: true
 ---
 
-> **기준 출처:** Gao, *Bandwidth-Parameterization* (ACC, 2003) · MathWorks ADRC 문서 / 확인일 2026-07-21
-> **시리즈:** [목차](/posts/00-adrc-series/) · 이전 → [06. 관측기 대역폭](/posts/06-observer-bandwidth/) · 다음 → [08. b0](/posts/08-b0-critical-gain/)
+> **기준 출처:** Gao, *Bandwidth-Parameterization* (ACC, 2003) / MathWorks ADRC 문서 / 확인일 2026-07-21
+> **시리즈:** [목차](/posts/00-adrc-series/) | 이전 → [06. 관측기 대역폭](/posts/06-observer-bandwidth/) | 다음 → [08. b0](/posts/08-b0-critical-gain/)
 
 ---
 
@@ -64,7 +64,7 @@ $$t_s \approx \frac{6}{\omega_c}$$
 flowchart TD
     B0["b0<br/>스텝응답"] --> U["제어법칙"]
     WC["ωc<br/>응답 속도"] -->|kp=ωc², kd=2ωc| U
-    WO["ωo = 5~10·ωc"] -->|β=3ωo,3ωo²,ωo³| ESO["ESO"]
+    WO["ωo = 5~10×ωc"] -->|β=3ωo,3ωo²,ωo³| ESO["ESO"]
     ESO --> U
 ```
 
@@ -84,7 +84,7 @@ flowchart TD
 
 ## 시리즈
 
-[목차](/posts/00-adrc-series/) · 이전 → [06. 관측기 대역폭](/posts/06-observer-bandwidth/) · 다음 → [08. b0](/posts/08-b0-critical-gain/)
+[목차](/posts/00-adrc-series/) | 이전 → [06. 관측기 대역폭](/posts/06-observer-bandwidth/) | 다음 → [08. b0](/posts/08-b0-critical-gain/)
 
 ## 참고
 

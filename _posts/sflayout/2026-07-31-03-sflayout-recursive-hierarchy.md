@@ -7,8 +7,8 @@ tags: [stateflow, api, subchart, 계층, 재귀, amr]
 mermaid: true
 ---
 
-> **기준:** MATLAB R2025b 실측 · [genie4youu/amr_robot_planning](https://github.com/genie4youu/amr_robot_planning) / 확인일 2026-07-31
-> **시리즈:** [목차](/posts/00-sflayout-series/) · 이전 → [02. 속성 결합](/posts/02-sflayout-api-coupling/) · 다음 → [04. 페이지와 배치 영역](/posts/04-sflayout-page-vs-layout/)
+> **기준:** MATLAB R2025b 실측 / [genie4youu/amr_robot_planning](https://github.com/genie4youu/amr_robot_planning) / 확인일 2026-07-31
+> **시리즈:** [목차](/posts/00-sflayout-series/) | 이전 → [02. 속성 결합](/posts/02-sflayout-api-coupling/) | 다음 → [04. 페이지와 배치 영역](/posts/04-sflayout-page-vs-layout/)
 
 ---
 
@@ -149,7 +149,7 @@ T60과 T54 사이에 path 대 path 경고가 1건 남는다. **Stateflow spline�
 
 ---
 
-**시리즈:** [목차](/posts/00-sflayout-series/) · 이전 → [02. 속성 결합](/posts/02-sflayout-api-coupling/) · 다음 → [04. `subviewS.pos` 는 배치 영역이 아니다](/posts/04-sflayout-page-vs-layout/)
+**시리즈:** [목차](/posts/00-sflayout-series/) | 이전 → [02. 속성 결합](/posts/02-sflayout-api-coupling/) | 다음 → [04. `subviewS.pos` 는 배치 영역이 아니다](/posts/04-sflayout-page-vs-layout/)
 
 ## 참고
 

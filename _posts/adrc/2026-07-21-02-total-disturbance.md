@@ -3,13 +3,13 @@ title: 02. 총외란이라는 발상
 date: 2026-07-21 06:02:00 +0900
 categories: [제어 이론, ADRC 발상]
 tags: [adrc, 총외란, eso, tdc, 제어]
-description: 플랜트를 아는 부분과 모르는 부분으로 가르고, 모르는 것 전부를 총외란으로 묶어 추정·상쇄한다. TDC와의 관계도 정리한다.
+description: 플랜트를 아는 부분과 모르는 부분으로 가르고, 모르는 것 전부를 총외란으로 묶어 추정하고 상쇄한다. TDC와의 관계도 정리한다.
 mermaid: true
 math: true
 ---
 
-> **기준 출처:** Han, *From PID to ADRC* (IEEE TIE, 2009) · Herbst & Madoński, *ADRC: From Principles to Practice* (Springer, 2025) / 확인일 2026-07-21
-> **시리즈:** [목차](/posts/00-adrc-series/) · 이전 → [01. 왜 ADRC인가](/posts/01-why-adrc/) · 다음 → [03. 표준형으로 옮기기](/posts/03-canonical-form/)
+> **기준 출처:** Han, *From PID to ADRC* (IEEE TIE, 2009) / Herbst & Madoński, *ADRC: From Principles to Practice* (Springer, 2025) / 확인일 2026-07-21
+> **시리즈:** [목차](/posts/00-adrc-series/) | 이전 → [01. 왜 ADRC인가](/posts/01-why-adrc/) | 다음 → [03. 표준형으로 옮기기](/posts/03-canonical-form/)
 
 ---
 
@@ -19,7 +19,7 @@ math: true
 
 $$\ddot y = f(y,\dot y, w, t) + b\,u$$
 
-$y$는 출력(위치), $u$는 입력, $b$는 입력 이득, $w$는 외란이다. $f(\cdot)$는 나머지 전부, 곧 마찰·중력·관성 변화·커플링·비선형·모델 오차다. ADRC는 여기서 $f$ 안에 무엇이 들었는지 모른다고 선언한다.
+$y$는 출력(위치), $u$는 입력, $b$는 입력 이득, $w$는 외란이다. $f(\cdot)$는 나머지 전부, 곧 마찰, 중력, 관성 변화, 커플링, 비선형, 모델 오차다. ADRC는 여기서 $f$ 안에 무엇이 들었는지 모른다고 선언한다.
 
 ## 2. 아는 것과 모르는 것으로 가르기
 
@@ -48,11 +48,11 @@ $\hat F \approx F$이면 결과는 하나로 정리된다.
 
 $$\ddot y \approx u_0$$
 
-마찰·중력·비선형이 전부 사라지고 순수한 2중 적분기만 남는다. 어떤 복잡한 플랜트든 ADRC를 씌우면 이렇게 변한다.
+마찰, 중력, 비선형이 전부 사라지고 순수한 2중 적분기만 남는다. 어떤 복잡한 플랜트든 ADRC를 씌우면 이렇게 변한다.
 
 ```mermaid
 flowchart LR
-    P["복잡한 플랜트<br/>ÿ = F + b0·u"] -->|F를 추정해 상쇄| I["순수 적분기<br/>ÿ ≈ u0"]
+    P["복잡한 플랜트<br/>ÿ = F + b0×u"] -->|F를 추정해 상쇄| I["순수 적분기<br/>ÿ ≈ u0"]
     I -->|단순 PD| Y["출력 y"]
 ```
 
@@ -89,7 +89,7 @@ TDC는 과거값으로, ADRC는 관측기로 같은 덩어리를 추정한다. T
 
 ## 시리즈
 
-[목차](/posts/00-adrc-series/) · 이전 → [01. 왜 ADRC인가](/posts/01-why-adrc/) · 다음 → [03. 표준형으로 옮기기](/posts/03-canonical-form/)
+[목차](/posts/00-adrc-series/) | 이전 → [01. 왜 ADRC인가](/posts/01-why-adrc/) | 다음 → [03. 표준형으로 옮기기](/posts/03-canonical-form/)
 
 ## 참고
 

@@ -8,7 +8,7 @@ mermaid: true
 ---
 
 > **기준:** 확인일 2026-07-20
-> **시리즈:** [목차](/posts/00-mcp-series/) · 이전 → [15. 세션 초기화 자동화](/posts/15-matlab-startup-automation/) · 다음 → [17. 작업공간 경계 설계](/posts/17-workspace-boundary/)
+> **시리즈:** [목차](/posts/00-mcp-series/) | 이전 → [15. 세션 초기화 자동화](/posts/15-matlab-startup-automation/) | 다음 → [17. 작업공간 경계 설계](/posts/17-workspace-boundary/)
 
 ---
 
@@ -90,7 +90,7 @@ approval_mode = "prompt"
 
 | 도구 | 최악의 경우 | 정책 |
 | --- | --- | --- |
-| 조회·검사 계열 | 없음 | `auto` |
+| 조회와 검사 계열 | 없음 | `auto` |
 | 모델 수정 | 모델이 손상된다 | **`prompt`** |
 | 임의 코드 실행 | **무엇이든 가능하다** | **`prompt`** |
 
@@ -142,7 +142,7 @@ trust_level = "trusted"
 
 ## 시리즈
 
-[목차](/posts/00-mcp-series/) · 이전 → [15. 세션 초기화 자동화](/posts/15-matlab-startup-automation/) · 다음 → [17. 작업공간 경계 설계](/posts/17-workspace-boundary/)
+[목차](/posts/00-mcp-series/) | 이전 → [15. 세션 초기화 자동화](/posts/15-matlab-startup-automation/) | 다음 → [17. 작업공간 경계 설계](/posts/17-workspace-boundary/)
 
 ## 참고
 

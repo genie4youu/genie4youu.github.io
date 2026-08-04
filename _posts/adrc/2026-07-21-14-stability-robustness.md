@@ -8,14 +8,14 @@ mermaid: true
 math: true
 ---
 
-> **기준 출처:** Herbst & Madoński, *ADRC: From Principles to Practice* (Springer, 2025) · Gao, *Bandwidth-Parameterization* (ACC, 2003) / 확인일 2026-07-21
-> **시리즈:** [목차](/posts/00-adrc-series/) · 이전 → [13. 대역폭을 제한하는 것들](/posts/13-bandwidth-limits/) · 다음 → [15. 실시간 임베디드 구현](/posts/15-realtime-embedded/)
+> **기준 출처:** Herbst & Madoński, *ADRC: From Principles to Practice* (Springer, 2025) / Gao, *Bandwidth-Parameterization* (ACC, 2003) / 확인일 2026-07-21
+> **시리즈:** [목차](/posts/00-adrc-series/) | 이전 → [13. 대역폭을 제한하는 것들](/posts/13-bandwidth-limits/) | 다음 → [15. 실시간 임베디드 구현](/posts/15-realtime-embedded/)
 
 ---
 
 ## 1. 두 가지를 나눈다
 
-안정성은 추정 오차와 제어 오차가 발산하지 않고 유계로 수렴하는가이고, 강인성은 $$b_0$$ 오차·모델 변화·외란이 있어도 성능이 유지되는가이다. 대역폭 파라미터화 덕분에 둘 다 분석이 깔끔하다. 극이 $$-\omega_o, -\omega_c$$에 몰려 위치가 명확하기 때문이다.
+안정성은 추정 오차와 제어 오차가 발산하지 않고 유계로 수렴하는가이고, 강인성은 $$b_0$$ 오차, 모델 변화, 외란이 있어도 성능이 유지되는가이다. 대역폭 파라미터화 덕분에 둘 다 분석이 깔끔하다. 극이 $$-\omega_o, -\omega_c$$에 몰려 위치가 명확하기 때문이다.
 
 ## 2. 안정성 — 두 루프의 겹침
 
@@ -49,12 +49,12 @@ $$b_0$$를 작게 잡으면 가짜 외란이 커져 ESO가 실효 대역폭을 �
 
 - 위상여유는 보통 30도에서 60도를 확보한다. 지연이 이걸 깎으므로 대역폭을 올릴 때 감시한다.
 - 감도함수는 외란 억제 성능이다. $$\omega_o$$가 클수록 저주파 외란을 잘 누르지만 고주파에서 노이즈가 증폭된다.
-- $$b_0, \omega$$ 변동에 대한 이득·위상 마진을 Bode에서 읽는다.
+- $$b_0, \omega$$ 변동에 대한 이득과 위상 마진을 Bode에서 읽는다.
 
 ## ⚠️ 주의
 
 - ESO 수렴은 정확히 0이 아니라 유계다. 느린 외란일수록 추정이 정확하다.
-- 안전이 중요한 응용에서는 최악 부하에서 $$\rho$$가 안전 범위인지 확인하고, 통신·연산 지연을 포함한 실측 위상여유를 확보한다.
+- 안전이 중요한 응용에서는 최악 부하에서 $$\rho$$가 안전 범위인지 확인하고, 통신과 연산 지연을 포함한 실측 위상여유를 확보한다.
 
 ## 📌 정리
 
@@ -65,7 +65,7 @@ $$b_0$$를 작게 잡으면 가짜 외란이 커져 ESO가 실효 대역폭을 �
 
 ## 시리즈
 
-[목차](/posts/00-adrc-series/) · 이전 → [13. 대역폭을 제한하는 것들](/posts/13-bandwidth-limits/) · 다음 → [15. 실시간 임베디드 구현](/posts/15-realtime-embedded/)
+[목차](/posts/00-adrc-series/) | 이전 → [13. 대역폭을 제한하는 것들](/posts/13-bandwidth-limits/) | 다음 → [15. 실시간 임베디드 구현](/posts/15-realtime-embedded/)
 
 ## 참고
 

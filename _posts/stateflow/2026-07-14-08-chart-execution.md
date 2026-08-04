@@ -8,7 +8,7 @@ mermaid: true
 ---
 
 > **기준:** MathWorks 공개 문서 / 확인일 2026-07-14
-> **시리즈:** [목차](/posts/00-stateflow-series/) · 이전 → [07. Function](/posts/07-functions/) · 다음 → [09. Condition Action](/posts/09-condition-action/)
+> **시리즈:** [목차](/posts/00-stateflow-series/) | 이전 → [07. Function](/posts/07-functions/) | 다음 → [09. Condition Action](/posts/09-condition-action/)
 
 ---
 
@@ -85,7 +85,7 @@ Powered
 
 | 항목 | 내용 |
 | --- | --- |
-| 평가 시점 | State가 active인 매 스텝 (**진입·이탈 스텝 제외**) — `during`과 동일 |
+| 평가 시점 | State가 active인 매 스텝 (**진입과 이탈 스텝 제외**) — `during`과 동일 |
 | 우선순위 | Inner Transition과 자식 간 Transition이 둘 다 있으면 **Inner Transition이 먼저** |
 
 ## 6. self-loop은 제자리가 아니다
@@ -119,7 +119,7 @@ flowchart LR
 
 ## 시리즈
 
-[목차](/posts/00-stateflow-series/) · 이전 → [07](/posts/07-functions/) · 다음 → [09. Condition Action과 Transition Action](/posts/09-condition-action/)
+[목차](/posts/00-stateflow-series/) | 이전 → [07](/posts/07-functions/) | 다음 → [09. Condition Action과 Transition Action](/posts/09-condition-action/)
 
 ## 참고
 

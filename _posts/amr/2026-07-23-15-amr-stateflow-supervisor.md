@@ -1,5 +1,5 @@
 ---
-title: 15. Stateflow 계층·병렬 상태로 AMR을 감독한다
+title: 15. Stateflow 계층과 병렬 상태로 AMR을 감독한다
 description: Lifecycle 상위 상태와 Mission, Navigation, Energy, Safety, Health 병렬 영역으로 실내 배송 AMR의 임무와 fault를 관리한다.
 date: 2026-07-23 06:15:00 +0900
 categories: [AMR, 감독제어와 안전]
@@ -10,7 +10,7 @@ image:
   alt: 정상, 장애물, 배터리, health fault, 비상정지의 Stateflow 병렬 상태 로그
 ---
 
-> **연재:** [목차](/posts/00-amr-series/) · 이전 → [14. DWA](/posts/14-amr-dwa/) · 다음 → [16. Safety gate와 recovery](/posts/16-amr-safety-recovery/)
+> **연재:** [목차](/posts/00-amr-series/) | 이전 → [14. DWA](/posts/14-amr-dwa/) | 다음 → [16. Safety gate와 recovery](/posts/16-amr-safety-recovery/)
 
 planner는 경로를 만들고 controller는 속도를 계산하지만, “배터리가 부족할 때 배송을 계속할지”, “장애물 정지 뒤 언제 재계획할지”, “fault 해제만으로 자동 복귀해도 되는지”는 다른 종류의 결정이다. Stateflow supervisor가 이 이산적인 임무 흐름을 맡는다.
 
@@ -122,4 +122,4 @@ A*, scan matching, DWA rollout, plant dynamics는 chart 밖에 둔다. Stateflow
 
 ## 연재
 
-[목차](/posts/00-amr-series/) · 이전 → [14. DWA](/posts/14-amr-dwa/) · 다음 → [16. Safety gate와 recovery](/posts/16-amr-safety-recovery/)
+[목차](/posts/00-amr-series/) | 이전 → [14. DWA](/posts/14-amr-dwa/) | 다음 → [16. Safety gate와 recovery](/posts/16-amr-safety-recovery/)

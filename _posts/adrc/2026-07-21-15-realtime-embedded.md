@@ -3,13 +3,13 @@ title: 15. 실시간 임베디드 구현
 date: 2026-07-21 06:15:00 +0900
 categories: [제어 이론, ADRC 구현]
 tags: [adrc, 임베디드, 실시간, 지터, 제어]
-description: ADRC를 MCU에 얹으면 무엇이 도는가. 연산량이 아니라 타이밍의 결정성이 성능을 좌우한다. 지터·실행시간 예산·수 표현을 정리한다.
+description: ADRC를 MCU에 얹으면 무엇이 도는가. 연산량이 아니라 타이밍의 결정성이 성능을 좌우한다. 지터, 실행시간 예산, 수 표현을 정리한다.
 mermaid: true
 math: true
 ---
 
-> **기준 출처:** MathWorks ADRC 문서 · TI, *What it takes to do real-time control* (spry157) · Herbst & Madoński (Springer, 2025, Ch.9) / 확인일 2026-07-21
-> **시리즈:** [목차](/posts/00-adrc-series/) · 이전 → [14. 안정성과 강인성](/posts/14-stability-robustness/) · 다음 → [16. 제어 전용 보조 코어(CLA)](/posts/16-cla-accelerator/)
+> **기준 출처:** MathWorks ADRC 문서 / TI, *What it takes to do real-time control* (spry157) / Herbst & Madoński (Springer, 2025, Ch.9) / 확인일 2026-07-21
+> **시리즈:** [목차](/posts/00-adrc-series/) | 이전 → [14. 안정성과 강인성](/posts/14-stability-robustness/) | 다음 → [16. 제어 전용 보조 코어(CLA)](/posts/16-cla-accelerator/)
 
 ---
 
@@ -20,7 +20,7 @@ math: true
 ```c
 // 매 Ts 마다 (예: 10 kHz → 100 us)
 y  = read_encoder();               // 1. 측정
-eso_update(y, u_prev);             // 2. ESO: 위치·속도·총외란 추정
+eso_update(y, u_prev);             // 2. ESO: 위치, 속도, 총외란 추정
 u0 = kp*(r - y_hat) + kd*(dr - v_hat);   // 3. 제어법칙(PD)
 u  = (u0 - f_hat) / b0;            // 4. 외란 상쇄
 u  = saturate(u, u_min, u_max);    // 5. 포화 처리
@@ -36,13 +36,13 @@ u_prev = u;
 
 - 인터럽트 지연의 변동이 지터를 만든다. 다른 인터럽트가 끼어들면 제어 인터럽트가 밀린다.
 - 그래서 제어 루프는 최고 우선순위여야 하고, 그 안에서 블로킹과 긴 연산을 피한다.
-- 측정 시점이 흔들리면 그것도 지터다. ADC 트리거를 타이머·PWM에 하드웨어로 동기시킨다.
+- 측정 시점이 흔들리면 그것도 지터다. ADC 트리거를 타이머와 PWM에 하드웨어로 동기시킨다.
 
 이 지터를 없애려는 요구가 제어 전용 보조 코어를 낳는다. 16편에서 다룬다.
 
 ## 3. 실행시간 예산
 
-한 주기 $$T_s$$ 안에 읽기·ESO·제어·쓰기가 다 끝나야 한다.
+한 주기 $$T_s$$ 안에 읽기, ESO, 제어, 쓰기가 다 끝나야 한다.
 
 $$t_{ADC} + t_{ESO} + t_{law} + t_{PWM} + t_{margin} < T_s$$
 
@@ -52,7 +52,7 @@ $$t_{ADC} + t_{ESO} + t_{law} + t_{PWM} + t_{margin} < T_s$$
 
 | | 부동소수점 | 고정소수점 |
 | --- | --- | --- |
-| $$\omega_o^3$$ 같은 큰 수 | 자연스럽게 처리 | 오버플로·스케일링 관리 필요 |
+| $$\omega_o^3$$ 같은 큰 수 | 자연스럽게 처리 | 오버플로와 스케일링 관리 필요 |
 | 구현 난이도 | 쉬움 | 어려움 |
 | 하드웨어 | FPU 필요 | 저가 MCU 가능 |
 
@@ -77,12 +77,12 @@ flowchart LR
 
 - ADRC 연산량은 작다. 진짜 문제는 **타이밍의 결정성**이다.
 - 지터가 이산 ESO 계수를 오염시킨다. 제어 루프를 최고 우선순위로, ADC를 하드웨어 동기로.
-- 실행시간 예산 안에 읽기·ESO·제어·쓰기를 끝낸다. 연산 지연은 위상 지연이다.
-- $$\omega_o^3$$·나눗셈 때문에 부동소수점이 표준이다. 모드 전환은 상위 FSM이 감독한다.
+- 실행시간 예산 안에 읽기, ESO, 제어, 쓰기를 끝낸다. 연산 지연은 위상 지연이다.
+- $$\omega_o^3$$과 나눗셈 때문에 부동소수점이 표준이다. 모드 전환은 상위 FSM이 감독한다.
 
 ## 시리즈
 
-[목차](/posts/00-adrc-series/) · 이전 → [14. 안정성과 강인성](/posts/14-stability-robustness/) · 다음 → [16. 제어 전용 보조 코어(CLA)](/posts/16-cla-accelerator/)
+[목차](/posts/00-adrc-series/) | 이전 → [14. 안정성과 강인성](/posts/14-stability-robustness/) | 다음 → [16. 제어 전용 보조 코어(CLA)](/posts/16-cla-accelerator/)
 
 ## 참고
 

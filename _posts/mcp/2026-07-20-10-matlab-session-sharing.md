@@ -8,7 +8,7 @@ mermaid: true
 ---
 
 > **기준:** 확인일 2026-07-20
-> **시리즈:** [목차](/posts/00-mcp-series/) · 이전 → [09. MCP 서버 등록](/posts/09-mcp-codex-setup/) · 다음 → [11. 첫 실습](/posts/11-mcp-first-run/)
+> **시리즈:** [목차](/posts/00-mcp-series/) | 이전 → [09. MCP 서버 등록](/posts/09-mcp-codex-setup/) | 다음 → [11. 첫 실습](/posts/11-mcp-first-run/)
 
 ---
 
@@ -26,7 +26,7 @@ matlab-mcp-server 기동  → 가장 최근 공유 세션에 접속
 
 | 세션 모드 | 화면의 MATLAB과 에이전트가 조작하는 MATLAB |
 | --- | --- |
-| `new` | **다르다.** 열린 모델·워크스페이스·경로가 분리된다 |
+| `new` | **다르다.** 열린 모델, 워크스페이스, 경로가 분리된다 |
 | `auto` | 상황에 따라 다르다 |
 | **`existing`** | **같다** |
 
@@ -144,7 +144,7 @@ end
 
 ## 시리즈
 
-[목차](/posts/00-mcp-series/) · 이전 → [09](/posts/09-mcp-codex-setup/) · 다음 → [11. 첫 실습 — 빈 Chart 생성과 검증](/posts/11-mcp-first-run/)
+[목차](/posts/00-mcp-series/) | 이전 → [09](/posts/09-mcp-codex-setup/) | 다음 → [11. 첫 실습 — 빈 Chart 생성과 검증](/posts/11-mcp-first-run/)
 
 ## 참고
 

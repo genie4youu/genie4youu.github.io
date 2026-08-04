@@ -1,6 +1,6 @@
 ---
 title: 10. Loop closure와 pose graph — 누적 drift를 다시 푼다
-description: key scan, 재방문 후보 생성과 검증, SE(2) pose graph의 node·edge·정보행렬과 Gauss-Newton 최적화를 정리한다.
+description: key scan, 재방문 후보 생성과 검증, SE(2) pose graph의 node, edge, 정보행렬과 Gauss-Newton 최적화를 정리한다.
 date: 2026-07-23 06:10:00 +0900
 categories: [AMR, 지도와 위치추정]
 tags: [amr, slam, loop-closure, pose-graph, gauss-newton, se2]
@@ -8,7 +8,7 @@ math: true
 mermaid: true
 ---
 
-> **연재:** [목차](/posts/00-amr-series/) · 이전 → [09. Scan matching](/posts/09-amr-scan-matching/) · 다음 → [11. Costmap, inflation, A*](/posts/11-amr-costmap-astar/)
+> **연재:** [목차](/posts/00-amr-series/) | 이전 → [09. Scan matching](/posts/09-amr-scan-matching/) | 다음 → [11. Costmap, inflation, A*](/posts/11-amr-costmap-astar/)
 
 로봇이 한 바퀴를 돌아 출발점에 다시 왔는데 지도에서는 두 지점이 벌어져 있다면, 그 차이는 긴 시간 누적된 drift다. loop closure는 “지금 이곳이 과거의 그곳”이라는 제약을 추가하고 과거 pose 전체를 다시 조정한다.
 
@@ -31,7 +31,7 @@ scan rate가 10 Hz라면 긴 주행에서 node 수가 빠르게 늘어난다. ke
 flowchart LR
     A["pose 근접 / descriptor"] --> B["후보 생성"]
     B --> C["넓은 범위 scan matching"]
-    C --> D["score·변환 크기 검사"]
+    C --> D["score와 변환 크기 검사"]
     D --> E["주변 제약 일관성"]
     E -->|통과| F["loop edge 추가"]
     E -->|실패| G["후보 폐기"]
@@ -65,7 +65,7 @@ $$
 
 ## 첫 node를 고정하는 이유
 
-모든 pose를 같은 만큼 이동·회전해도 상대 제약은 변하지 않는다. 이 자유도를 gauge freedom이라 한다. 첫 node를 고정하거나 prior를 하나 두지 않으면 Hessian이 singular해질 수 있다.
+모든 pose를 같은 만큼 이동하거나 회전해도 상대 제약은 변하지 않는다. 이 자유도를 gauge freedom이라 한다. 첫 node를 고정하거나 prior를 하나 두지 않으면 Hessian이 singular해질 수 있다.
 
 ## Gauss-Newton의 큰 흐름
 
@@ -114,4 +114,4 @@ key scan, loop 후보, SE(2) residual, pose graph optimizer는 구현 계획 단
 
 ## 연재
 
-[목차](/posts/00-amr-series/) · 이전 → [09. Scan matching](/posts/09-amr-scan-matching/) · 다음 → [11. Costmap, inflation, A*](/posts/11-amr-costmap-astar/)
+[목차](/posts/00-amr-series/) | 이전 → [09. Scan matching](/posts/09-amr-scan-matching/) | 다음 → [11. Costmap, inflation, A*](/posts/11-amr-costmap-astar/)

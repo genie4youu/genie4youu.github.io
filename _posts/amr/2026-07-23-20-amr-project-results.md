@@ -1,5 +1,5 @@
 ---
-title: 20. MATLAB·Simulink·Stateflow AMR — 결과와 남은 경계
+title: 20. MATLAB, Simulink, Stateflow로 만든 AMR — 결과와 남은 경계
 description: 3개 환경과 4개 상황의 실내 배송 AMR 수직 절편에서 구현한 것, 12/12 통합 검증 결과, 폐기한 접근과 아직 남은 기능을 정리한다.
 date: 2026-07-23 06:20:00 +0900
 categories: [AMR, 통합과 검증]
@@ -10,7 +10,7 @@ image:
   alt: 사무실, 병원, 물류 창고의 AMR 시나리오별 검증 궤적
 ---
 
-> **연재:** [목차](/posts/00-amr-series/) · 이전 → [19. 배송·배터리·도킹](/posts/19-amr-delivery-battery-docking/) · **코드:** [genie4youu/amr_robot_planning](https://github.com/genie4youu/amr_robot_planning)
+> **연재:** [목차](/posts/00-amr-series/) | 이전 → [19. 배송, 배터리, 도킹](/posts/19-amr-delivery-battery-docking/) | **코드:** [genie4youu/amr_robot_planning](https://github.com/genie4youu/amr_robot_planning)
 
 이 프로젝트의 목표는 ROS 2, Robotics System Toolbox, Simulink Test 없이 기본 MATLAB, Simulink, Stateflow로 실내 배송 AMR의 핵심 수직 절편을 직접 연결하는 것이었다.
 
@@ -29,7 +29,7 @@ flowchart TB
 
 ## 구현한 것
 
-- 차동구동 순·역운동학과 pose 적분
+- 차동구동 순운동학, 역운동학과 pose 적분
 - 합성 floor map rasterization과 grid/world 변환
 - 8-connected A*와 line-of-sight smoothing
 - 270°, 91 beam의 2D LiDAR
@@ -40,7 +40,7 @@ flowchart TB
 - log-odds mapping prototype
 - `[x,y,theta]` pose EKF covariance/health prototype
 - Stateflow lifecycle과 Mission, Navigation, Energy, Safety, Health 병렬 영역
-- 환경·시나리오 선택형 MATLAB playback UI
+- 환경과 시나리오 선택형 MATLAB playback UI
 
 ## 검증 환경
 
@@ -133,7 +133,7 @@ AMR의 난점은 A*나 DWA 하나의 수식보다 경계에 있었다.
 - fault 입력은 사라졌지만 자동 재가동하면 안 된다.
 - subsystem은 모두 PASS인데 초기화 순서가 틀렸다.
 
-그래서 좌표·시간·valid·command ownership·상태 전이·회귀 기준을 알고리즘과 같은 수준의 설계 대상으로 다뤄야 했다.
+그래서 좌표, 시간, valid, command ownership, 상태 전이, 회귀 기준을 알고리즘과 같은 수준의 설계 대상으로 다뤄야 했다.
 
 ## 다음 수직 절편
 
@@ -155,4 +155,4 @@ wheel/IMU → pose EKF health → Stateflow Health region
 
 ## 연재
 
-[목차](/posts/00-amr-series/) · 이전 → [19. 배송·배터리·도킹](/posts/19-amr-delivery-battery-docking/)
+[목차](/posts/00-amr-series/) | 이전 → [19. 배송, 배터리, 도킹](/posts/19-amr-delivery-battery-docking/)

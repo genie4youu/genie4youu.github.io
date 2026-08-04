@@ -7,7 +7,7 @@ tags: [amr, costmap, inflation, astar, path-planning, occupancy-grid]
 math: true
 ---
 
-> **연재:** [목차](/posts/00-amr-series/) · 이전 → [10. Loop closure와 pose graph](/posts/10-amr-loop-closure-pose-graph/) · 다음 → [12. Path smoothing](/posts/12-amr-path-smoothing/)
+> **연재:** [목차](/posts/00-amr-series/) | 이전 → [10. Loop closure와 pose graph](/posts/10-amr-loop-closure-pose-graph/) | 다음 → [12. Path smoothing](/posts/12-amr-path-smoothing/)
 
 occupancy map은 환경에 대한 관측이고 costmap은 주행 정책이다. 같은 장애물 지도라도 로봇 크기, 안전 여유, unknown-space 정책에 따라 지나갈 수 있는 경로가 달라진다.
 
@@ -102,4 +102,4 @@ A*가 반환한 path에는 collinear point와 불필요한 꺾임이 많다. 다
 
 ## 연재
 
-[목차](/posts/00-amr-series/) · 이전 → [10. Loop closure와 pose graph](/posts/10-amr-loop-closure-pose-graph/) · 다음 → [12. Path smoothing](/posts/12-amr-path-smoothing/)
+[목차](/posts/00-amr-series/) | 이전 → [10. Loop closure와 pose graph](/posts/10-amr-loop-closure-pose-graph/) | 다음 → [12. Path smoothing](/posts/12-amr-path-smoothing/)

@@ -8,8 +8,8 @@ math: true
 mermaid: true
 ---
 
-> **책:** Gernot Herbst, Rafał Madoński, *Active Disturbance Rejection Control: From Principles to Practice*, Control Engineering 시리즈, **Birkhäuser Cham, 2024** (eBook 2024-11-22) · 서문 Zhiqiang Gao
-> **DOI:** [10.1007/978-3-031-72687-3](https://doi.org/10.1007/978-3-031-72687-3) · ISBN 978-3-031-72687-3 (eBook) / 978-3-031-72686-6 (print)
+> **책:** Gernot Herbst, Rafał Madoński, *Active Disturbance Rejection Control: From Principles to Practice*, Control Engineering 시리즈, **Birkhäuser Cham, 2024** (eBook 2024-11-22), 서문 Zhiqiang Gao
+> **DOI:** [10.1007/978-3-031-72687-3](https://doi.org/10.1007/978-3-031-72687-3), ISBN 978-3-031-72687-3 (eBook) / 978-3-031-72686-6 (print)
 > **라이선스:** 🔓 **Open Access, CC BY 4.0** — 출처를 밝히면 인용, 복제, 번역, 개작, 코드 재사용이 자유롭다.
 > **관련 시리즈:** [ADRC 목차](/posts/00-adrc-series/)
 
@@ -212,4 +212,4 @@ Ch6 는 **ADRC 가 고정된 식이 아니라는 점**을 보인다.
 - Gernot Herbst, Rafał Madoński, *Active Disturbance Rejection Control: From Principles to Practice*, Birkhäuser Cham, 2024 — DOI [10.1007/978-3-031-72687-3](https://doi.org/10.1007/978-3-031-72687-3) (Open Access, CC BY 4.0)
 - Jingqing Han, *From PID to Active Disturbance Rejection Control*, IEEE TIE 56(3), 2009 — [원전 읽기](/posts/paper-han2009-pid-to-adrc/)
 - [MathWorks — Active Disturbance Rejection Control](https://www.mathworks.com/help/slcontrol/ug/active-disturbance-rejection-control.html)
-- 관련 시리즈 — [ADRC 목차](/posts/00-adrc-series/) · [LESO와 관측기 대역폭](/posts/06-observer-bandwidth/) · [제어법칙과 제어기 대역폭](/posts/07-controller-bandwidth/) · [b0](/posts/08-b0-critical-gain/) · [이산화 구현](/posts/11-discretization/) · [ADRC와 PID 등가성](/posts/10-adrc-vs-pid/)
+- 관련 시리즈 — [ADRC 목차](/posts/00-adrc-series/), [LESO와 관측기 대역폭](/posts/06-observer-bandwidth/), [제어법칙과 제어기 대역폭](/posts/07-controller-bandwidth/), [b0](/posts/08-b0-critical-gain/), [이산화 구현](/posts/11-discretization/), [ADRC와 PID 등가성](/posts/10-adrc-vs-pid/)

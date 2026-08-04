@@ -16,7 +16,7 @@ timezone: Asia/Seoul
 
 title: 제어 소프트웨어 노트 # the main title
 
-tagline: Stateflow · 제어 이론 · 로봇 프로젝트, 다시 찾아보려고 쓰는 기록 # it will display as the subtitle
+tagline: 로봇 제어 소프트웨어 엔지니어의 공부 기록 # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   로봇 제어 소프트웨어 엔지니어의 공부 기록. Stateflow 로 FSM 을 설계하고 검증하는 법,

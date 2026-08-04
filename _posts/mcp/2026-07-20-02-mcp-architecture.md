@@ -8,7 +8,7 @@ mermaid: true
 ---
 
 > **기준:** MCP 스펙 `2025-11-25` / 확인일 2026-07-20
-> **시리즈:** [목차](/posts/00-mcp-series/) · 이전 → [01. MCP란 무엇인가](/posts/01-what-is-mcp/) · 다음 → [03. 트랜스포트](/posts/03-mcp-transports/)
+> **시리즈:** [목차](/posts/00-mcp-series/) | 이전 → [01. MCP란 무엇인가](/posts/01-what-is-mcp/) | 다음 → [03. 트랜스포트](/posts/03-mcp-transports/)
 
 ---
 
@@ -118,7 +118,7 @@ MathWorks가 공식 검증했다고 밝힌 클라이언트는 다음 다섯이�
 
 ## 시리즈
 
-[목차](/posts/00-mcp-series/) · 이전 → [01](/posts/01-what-is-mcp/) · 다음 → [03. 트랜스포트](/posts/03-mcp-transports/)
+[목차](/posts/00-mcp-series/) | 이전 → [01](/posts/01-what-is-mcp/) | 다음 → [03. 트랜스포트](/posts/03-mcp-transports/)
 
 ## 참고
 

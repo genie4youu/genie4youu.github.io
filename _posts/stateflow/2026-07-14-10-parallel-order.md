@@ -8,7 +8,7 @@ mermaid: true
 ---
 
 > **기준:** MathWorks 공개 문서 / 확인일 2026-07-14
-> **시리즈:** [목차](/posts/00-stateflow-series/) · 이전 → [09. Condition Action](/posts/09-condition-action/) · 다음 → [11. Super Step](/posts/11-super-step/)
+> **시리즈:** [목차](/posts/00-stateflow-series/) | 이전 → [09. Condition Action](/posts/09-condition-action/) | 다음 → [11. Super Step](/posts/11-super-step/)
 
 ---
 
@@ -144,7 +144,7 @@ flowchart LR
 
 ## 시리즈
 
-[목차](/posts/00-stateflow-series/) · 이전 → [09](/posts/09-condition-action/) · 다음 → [11. Super Step](/posts/11-super-step/)
+[목차](/posts/00-stateflow-series/) | 이전 → [09](/posts/09-condition-action/) | 다음 → [11. Super Step](/posts/11-super-step/)
 
 ## 참고
 

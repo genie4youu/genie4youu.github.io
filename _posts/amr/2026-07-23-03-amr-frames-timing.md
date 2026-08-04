@@ -1,5 +1,5 @@
 ---
-title: 03. 좌표계·멀티레이트·데이터 유효성
+title: 03. 좌표계, 멀티레이트, 데이터 유효성
 description: map, odom, base, lidar frame과 서로 다른 실행 주기, timestamp freshness, valid 계약을 AMR 시스템 관점에서 정리한다.
 date: 2026-07-23 06:03:00 +0900
 categories: [AMR, 시스템 설계]
@@ -7,7 +7,7 @@ tags: [amr, frame, timestamp, multirate, sample-time, watchdog]
 mermaid: true
 ---
 
-> **연재:** [목차](/posts/00-amr-series/) · 이전 → [02. SE(2)와 2D pose](/posts/02-amr-se2-pose/) · 다음 → [04. 차동구동](/posts/04-amr-differential-drive/)
+> **연재:** [목차](/posts/00-amr-series/) | 이전 → [02. SE(2)와 2D pose](/posts/02-amr-se2-pose/) | 다음 → [04. 차동구동](/posts/04-amr-differential-drive/)
 
 센서 값이 수학적으로 맞아도 잘못된 frame이거나 너무 오래된 값이면 제어에는 틀린 데이터다. AMR에서 데이터의 의미는 `value` 하나가 아니라 최소한 다음 묶음이다.
 
@@ -93,4 +93,4 @@ frame과 시간은 알고리즘 바깥의 부가 정보가 아니다. 같은 점
 
 ## 연재
 
-[목차](/posts/00-amr-series/) · 이전 → [02. SE(2)와 2D pose](/posts/02-amr-se2-pose/) · 다음 → [04. 차동구동](/posts/04-amr-differential-drive/)
+[목차](/posts/00-amr-series/) | 이전 → [02. SE(2)와 2D pose](/posts/02-amr-se2-pose/) | 다음 → [04. 차동구동](/posts/04-amr-differential-drive/)

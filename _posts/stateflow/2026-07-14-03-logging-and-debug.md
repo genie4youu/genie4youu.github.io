@@ -8,7 +8,7 @@ mermaid: true
 ---
 
 > **기준:** MathWorks 공개 문서 / 확인일 2026-07-14
-> **시리즈:** [목차](/posts/00-stateflow-series/) · 이전 → [02. 첫 Chart](/posts/02-first-chart/) · 다음 → [04. 계층 State](/posts/04-hierarchy/)
+> **시리즈:** [목차](/posts/00-stateflow-series/) | 이전 → [02. 첫 Chart](/posts/02-first-chart/) | 다음 → [04. 계층 State](/posts/04-hierarchy/)
 
 ---
 
@@ -70,7 +70,7 @@ State나 Transition을 우클릭해 **Set Breakpoint**를 걸면 빨간 원 배�
 
 | | 기본 Breakpoint | 조건부 Breakpoint |
 | --- | --- | --- |
-| 정지 시점 | State 진입·유지 시마다 | **조건 만족 시에만** |
+| 정지 시점 | State 진입과 유지 시마다 | **조건 만족 시에만** |
 | 문제 | 매 스텝 정지 → Continue를 반복해야 함 | — |
 
 Debug 탭의 **Breakpoints List**에서 조건식을 지정한다.
@@ -109,7 +109,7 @@ flowchart LR
 
 ## 시리즈
 
-[목차](/posts/00-stateflow-series/) · 이전 → [02](/posts/02-first-chart/) · 다음 → [04. 계층 State](/posts/04-hierarchy/)
+[목차](/posts/00-stateflow-series/) | 이전 → [02](/posts/02-first-chart/) | 다음 → [04. 계층 State](/posts/04-hierarchy/)
 
 ## 참고
 

@@ -1,13 +1,13 @@
 ---
 title: 18. AMR 시나리오와 회귀검증 — 한 번 성공을 근거로 바꾸기
-description: 수식, MATLAB 단위검사, subsystem, 통합 scenario, baseline 회귀 순으로 AMR을 검증하고 위치오차·충돌·상태순서를 자동 판정한다.
+description: 수식, MATLAB 단위검사, subsystem, 통합 scenario, baseline 회귀 순으로 AMR을 검증하고 위치오차, 충돌, 상태순서를 자동 판정한다.
 date: 2026-07-23 06:18:00 +0900
 categories: [AMR, 통합과 검증]
 tags: [amr, verification, regression, scenario, matlab, simulink]
 math: true
 ---
 
-> **연재:** [목차](/posts/00-amr-series/) · 이전 → [17. 시스템 통합](/posts/17-amr-system-integration/) · 다음 → [19. 배송·배터리·도킹](/posts/19-amr-delivery-battery-docking/)
+> **연재:** [목차](/posts/00-amr-series/) | 이전 → [17. 시스템 통합](/posts/17-amr-system-integration/) | 다음 → [19. 배송, 배터리, 도킹](/posts/19-amr-delivery-battery-docking/)
 
 애니메이션이 목표점에 도착하는 장면은 좋은 demo지만 검증 결과는 아니다. 코드가 바뀐 뒤에도 같은 조건에서 허용 기준을 만족하는지 자동으로 판단해야 한다.
 
@@ -36,9 +36,9 @@ math: true
 
 ## 현재 단위검사 범위
 
-- 차동구동 순·역변환과 pose 적분
+- 차동구동 순변환, 역변환과 pose 적분
 - grid/world 변환과 occupancy query
-- A* 시작·끝과 path 선분 비충돌
+- A* 시작과 끝, path 선분 비충돌
 - LiDAR DDA 거리, no-hit, stop/slowdown zone
 - local costmap hit marking과 inflation
 - DWA dynamic window, rollout collision, goal progress, 가속도 step
@@ -116,7 +116,7 @@ sample point만 검사하지 않고 sample 사이 선분까지 보는 이유는 
 - coverage, HIL, real-time deadline
 - 실제 하드웨어와 안전 인증
 
-PASS 개수는 검증한 범위 안에서만 의미가 있다. 다음 글의 배송·배터리·도킹도 현재 구현과 계획을 나눠 본다.
+PASS 개수는 검증한 범위 안에서만 의미가 있다. 다음 글의 배송, 배터리, 도킹도 현재 구현과 계획을 나눠 본다.
 
 ## 참고
 
@@ -126,4 +126,4 @@ PASS 개수는 검증한 범위 안에서만 의미가 있다. 다음 글의 배
 
 ## 연재
 
-[목차](/posts/00-amr-series/) · 이전 → [17. 시스템 통합](/posts/17-amr-system-integration/) · 다음 → [19. 배송·배터리·도킹](/posts/19-amr-delivery-battery-docking/)
+[목차](/posts/00-amr-series/) | 이전 → [17. 시스템 통합](/posts/17-amr-system-integration/) | 다음 → [19. 배송, 배터리, 도킹](/posts/19-amr-delivery-battery-docking/)

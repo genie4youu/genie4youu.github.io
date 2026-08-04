@@ -7,8 +7,8 @@ tags: [stateflow, 레이아웃, 검토, 가독성, amr]
 mermaid: true
 ---
 
-> **기준:** MATLAB R2025b 실측 · [genie4youu/amr_robot_planning](https://github.com/genie4youu/amr_robot_planning) / 확인일 2026-07-31
-> **시리즈:** [목차](/posts/00-sflayout-series/) · 다음 → [02. 속성 결합](/posts/02-sflayout-api-coupling/)
+> **기준:** MATLAB R2025b 실측 / [genie4youu/amr_robot_planning](https://github.com/genie4youu/amr_robot_planning) / 확인일 2026-07-31
+> **시리즈:** [목차](/posts/00-sflayout-series/) | 다음 → [02. 속성 결합](/posts/02-sflayout-api-coupling/)
 
 ---
 
@@ -129,10 +129,10 @@ Replanning을 Tracking 바로 아래 둔 것은 그 둘 사이 Transition이 가
 
 ---
 
-**시리즈:** [목차](/posts/00-sflayout-series/) · 다음 → [02. Transition 그래픽 속성은 독립이 아니다](/posts/02-sflayout-api-coupling/)
+**시리즈:** [목차](/posts/00-sflayout-series/) | 다음 → [02. Transition 그래픽 속성은 독립이 아니다](/posts/02-sflayout-api-coupling/)
 
 ## 참고
 
-- [Stateflow.Transition](https://www.mathworks.com/help/stateflow/api/stateflow.transition.html) · [Stateflow.State](https://www.mathworks.com/help/stateflow/api/stateflow.state.html)
+- [Stateflow.Transition](https://www.mathworks.com/help/stateflow/api/stateflow.transition.html), [Stateflow.State](https://www.mathworks.com/help/stateflow/api/stateflow.state.html)
 - [Transition Between Operating Modes](https://www.mathworks.com/help/stateflow/ug/transitions.html)
 - [MAB Modeling Guidelines](https://www.mathworks.com/help/simulink/mdl_gd/maab/maab-guidelines.html)

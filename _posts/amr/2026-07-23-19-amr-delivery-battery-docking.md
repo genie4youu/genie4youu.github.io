@@ -1,5 +1,5 @@
 ---
-title: 19. 배송 임무·배터리·도킹으로 확장하기
+title: 19. 배송 임무, 배터리, 도킹으로 확장하기
 description: 주행 가능한 AMR에 주문과 payload 상태, 에너지 회계, 임무 가능성 판단, pre-dock과 fine docking 상태를 추가하는 설계.
 date: 2026-07-23 06:19:00 +0900
 categories: [AMR, 통합과 검증]
@@ -8,7 +8,7 @@ mermaid: true
 math: true
 ---
 
-> **연재:** [목차](/posts/00-amr-series/) · 이전 → [18. 시나리오와 회귀검증](/posts/18-amr-verification/) · 다음 → [20. 프로젝트 결과](/posts/20-amr-project-results/)
+> **연재:** [목차](/posts/00-amr-series/) | 이전 → [18. 시나리오와 회귀검증](/posts/18-amr-verification/) | 다음 → [20. 프로젝트 결과](/posts/20-amr-project-results/)
 
 목표 pose까지 가는 기능과 배송 임무를 수행하는 기능은 다르다. 배송에는 주문의 수명주기, payload, 남은 에너지, 충전과 재개 정책이 필요하다.
 
@@ -90,7 +90,7 @@ SOC > lowExit      → Normal
 lowExit > lowEnter
 ```
 
-critical에서는 새 임무를 받지 않고 충전을 우선하며, 이미 payload가 있다면 정책에 따라 배송 지속·안전 위치 정지·charger 복귀를 선택한다.
+critical에서는 새 임무를 받지 않고 충전을 우선하며, 이미 payload가 있다면 정책에 따라 배송 지속, 안전 위치 정지, charger 복귀를 선택한다.
 
 ## docking은 두 단계다
 
@@ -149,4 +149,4 @@ Scenario Lab에는 low-battery event, charger 복귀, 90% 충전 후 배송 재�
 
 ## 연재
 
-[목차](/posts/00-amr-series/) · 이전 → [18. 시나리오와 회귀검증](/posts/18-amr-verification/) · 다음 → [20. 프로젝트 결과](/posts/20-amr-project-results/)
+[목차](/posts/00-amr-series/) | 이전 → [18. 시나리오와 회귀검증](/posts/18-amr-verification/) | 다음 → [20. 프로젝트 결과](/posts/20-amr-project-results/)

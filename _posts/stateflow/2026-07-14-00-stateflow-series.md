@@ -39,7 +39,7 @@ Stateflow로 FSM을 설계하는 데 필요한 것을 22편으로 정리한다. 
 | 10 | [병렬 State의 실행 순서](/posts/10-parallel-order/) | active와 실행은 다른 축, 공유 Data 문제 |
 | 11 | [Super Step](/posts/11-super-step/) | 한 스텝에 Transition 연쇄, 반복 한계 |
 
-## 설계 판단 (12 · 15~17)
+## 설계 판단 (12, 15~17)
 
 **무엇을 어떻게 그릴지**를 정하는 구간이다.
 
@@ -50,14 +50,14 @@ Stateflow로 FSM을 설계하는 데 필요한 것을 22편으로 정리한다. 
 | 16 | [어느 형태로 그릴 것인가](/posts/16-sf-chart-type-choice/) | State / Flow Chart / Table / Truth Table, Simulink 와의 경계 |
 | 17 | [History Junction](/posts/17-sf-history-junction/) | 이전 활성 substate 복귀와 그 대가 |
 
-## 관측과 디버깅 (14 · 19)
+## 관측과 디버깅 (14, 19)
 
 | # | 글 | 다루는 것 |
 | --- | --- | --- |
-| 14 | [Simulation Data Inspector](/posts/14-sf-data-inspector/) | State 활동·Data 로깅, `logsout`, 회귀 검증으로 잇기 |
+| 14 | [Simulation Data Inspector](/posts/14-sf-data-inspector/) | State 활동과 Data 로깅, `logsout`, 회귀 검증으로 잇기 |
 | 19 | [Sequence Viewer와 애니메이션](/posts/19-sf-sequence-viewer/) | 도구마다 답하는 질문이 다르다, Activity Profiler |
 
-## 검증 (18 · 21~22)
+## 검증 (18, 21~22)
 
 **"테스트했다"와 "검증했다"를 가르는 선**을 다룬다.
 

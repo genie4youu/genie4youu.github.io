@@ -8,8 +8,8 @@ mermaid: true
 math: true
 ---
 
-> **기준 출처:** Gao, *Scaling and Bandwidth-Parameterization Based Controller Tuning* (ACC, 2003) · MathWorks ADRC 문서 / 확인일 2026-07-21
-> **시리즈:** [목차](/posts/00-adrc-series/) · 이전 → [05. 확장상태관측기](/posts/05-extended-state-observer/) · 다음 → [07. 제어기 대역폭](/posts/07-controller-bandwidth/)
+> **기준 출처:** Gao, *Scaling and Bandwidth-Parameterization Based Controller Tuning* (ACC, 2003) / MathWorks ADRC 문서 / 확인일 2026-07-21
+> **시리즈:** [목차](/posts/00-adrc-series/) | 이전 → [05. 확장상태관측기](/posts/05-extended-state-observer/) | 다음 → [07. 제어기 대역폭](/posts/07-controller-bandwidth/)
 
 ---
 
@@ -77,7 +77,7 @@ $$\omega_o \approx (5 \sim 10)\,\omega_c$$
 
 ```mermaid
 flowchart LR
-    O["관측기 ωo<br/>먼저 수렴"] -->|정확한 상태·외란 추정| C["제어기 ωc<br/>그 값으로 제어"]
+    O["관측기 ωo<br/>먼저 수렴"] -->|정확한 상태와 외란 추정| C["제어기 ωc<br/>그 값으로 제어"]
 ```
 
 노이즈가 심하면 배율을 5쪽으로 낮추고, 측정이 깨끗하면 10쪽으로 올린다.
@@ -97,7 +97,7 @@ flowchart LR
 
 ## 시리즈
 
-[목차](/posts/00-adrc-series/) · 이전 → [05. 확장상태관측기](/posts/05-extended-state-observer/) · 다음 → [07. 제어기 대역폭](/posts/07-controller-bandwidth/)
+[목차](/posts/00-adrc-series/) | 이전 → [05. 확장상태관측기](/posts/05-extended-state-observer/) | 다음 → [07. 제어기 대역폭](/posts/07-controller-bandwidth/)
 
 ## 참고
 

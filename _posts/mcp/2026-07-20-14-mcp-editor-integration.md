@@ -8,7 +8,7 @@ mermaid: true
 ---
 
 > **기준:** 확인일 2026-07-20
-> **시리즈:** [목차](/posts/00-mcp-series/) · 이전 → [13. 운영 시 검토할 것](/posts/13-mcp-next-steps/) · 다음 → [15. 세션 초기화 자동화](/posts/15-matlab-startup-automation/)
+> **시리즈:** [목차](/posts/00-mcp-series/) | 이전 → [13. 운영 시 검토할 것](/posts/13-mcp-next-steps/) | 다음 → [15. 세션 초기화 자동화](/posts/15-matlab-startup-automation/)
 
 ---
 
@@ -113,7 +113,7 @@ load_system('<모델 파일>')
 
 ## 시리즈
 
-[목차](/posts/00-mcp-series/) · 이전 → [13. 운영 시 검토할 것](/posts/13-mcp-next-steps/) · 다음 → [15. 세션 초기화 자동화](/posts/15-matlab-startup-automation/)
+[목차](/posts/00-mcp-series/) | 이전 → [13. 운영 시 검토할 것](/posts/13-mcp-next-steps/) | 다음 → [15. 세션 초기화 자동화](/posts/15-matlab-startup-automation/)
 
 ## 참고
 

@@ -8,7 +8,7 @@ mermaid: true
 ---
 
 > **기준:** 확인일 2026-07-20
-> **시리즈:** [목차](/posts/00-mcp-series/) · 이전 → [11. 첫 실습](/posts/11-mcp-first-run/) · 다음 → [13. 운영 시 검토할 것](/posts/13-mcp-next-steps/)
+> **시리즈:** [목차](/posts/00-mcp-series/) | 이전 → [11. 첫 실습](/posts/11-mcp-first-run/) | 다음 → [13. 운영 시 검토할 것](/posts/13-mcp-next-steps/)
 
 ---
 
@@ -22,7 +22,7 @@ flowchart TD
     B -->|안 보임| C["Host ↔ 서버 문제<br/>설정, 경로, 서버 기동"]
     B -->|보임| D{"호출하면 실패하는가?"}
     D -->|실패| E["서버 ↔ MATLAB 문제<br/>세션 공유, satk_initialize"]
-    D -->|성공| F["모델·코드 문제"]
+    D -->|성공| F["모델과 코드 문제"]
 ```
 
 **첫 분기점은 "도구 목록이 보이는가"다.** 목록은 `tools/list`로 전달되므로 MATLAB이 연결되지 않아도 표시될 수 있다. **목록 표시는 MCP 연결의 증거이지 MATLAB 연결의 증거가 아니다.**
@@ -103,7 +103,7 @@ license('test','Stateflow')
 | 항목 | 내용 |
 | --- | --- |
 | **도구 개수** | Troubleshooting 문서가 `model_test` 제외 시 "나머지 **7개**"라고 기술하나, registry 총계가 7개(`model_test` 포함)이므로 **6개여야 맞다** |
-| **`model_scan`** | `tools/model_scan/`에 `.p` 파일과 mex가 존재하나 `registry.json`·`tools.json` 어디에도 없다. 내부 헬퍼로 추정 (미확인) |
+| **`model_scan`** | `tools/model_scan/`에 `.p` 파일과 mex가 존재하나 `registry.json`과 `tools.json` 어디에도 없다. 내부 헬퍼로 추정 (미확인) |
 | **옛 이름** | `v0.11.0`에서 "MATLAB MCP Core Server" → "MATLAB MCP Server"로 개명. 옛 이름이 일부 문서에 잔존 |
 | **`shareMATLABSession`** | mathworks.com/help에 전용 페이지 없음 (404). 애드온 함수이며 README가 유일한 문서 |
 | **검증 리포트 항목** | `satk_initialize.p`가 P-code라 문서화된 사양이 없다. 관측된 항목은 실측값이지 규격이 아니다 |
@@ -118,11 +118,11 @@ license('test','Stateflow')
 - Windows는 **`env_vars = ["WINDIR"]`**
 - **한 세션에 엔진 클라이언트는 하나**
 - **stdout 출력이 stdio 연결을 파괴한다**
-- 문서 자체에 불일치가 있으므로 개수·이름은 실측으로 확인한다
+- 문서 자체에 불일치가 있으므로 개수와 이름은 실측으로 확인한다
 
 ## 시리즈
 
-[목차](/posts/00-mcp-series/) · 이전 → [11](/posts/11-mcp-first-run/) · 다음 → [13. 운영 시 검토할 것](/posts/13-mcp-next-steps/)
+[목차](/posts/00-mcp-series/) | 이전 → [11](/posts/11-mcp-first-run/) | 다음 → [13. 운영 시 검토할 것](/posts/13-mcp-next-steps/)
 
 ## 참고
 

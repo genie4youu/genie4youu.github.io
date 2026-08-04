@@ -7,7 +7,7 @@ tags: [amr, simulink, stateflow, integration, interface, multirate]
 mermaid: true
 ---
 
-> **연재:** [목차](/posts/00-amr-series/) · 이전 → [16. Safety gate와 recovery](/posts/16-amr-safety-recovery/) · 다음 → [18. 시나리오와 회귀검증](/posts/18-amr-verification/)
+> **연재:** [목차](/posts/00-amr-series/) | 이전 → [16. Safety gate와 recovery](/posts/16-amr-safety-recovery/) | 다음 → [18. 시나리오와 회귀검증](/posts/18-amr-verification/)
 
 개별 함수의 PASS가 통합 모델의 PASS를 보장하지 않는다. AMR 통합에서 어려운 것은 수식보다 초기화 순서, sample time, valid 전파, mode 전환과 command ownership이다.
 
@@ -138,4 +138,4 @@ smoke test에서는 update 성공, unconnected port, data size/type, zero comman
 
 ## 연재
 
-[목차](/posts/00-amr-series/) · 이전 → [16. Safety gate와 recovery](/posts/16-amr-safety-recovery/) · 다음 → [18. 시나리오와 회귀검증](/posts/18-amr-verification/)
+[목차](/posts/00-amr-series/) | 이전 → [16. Safety gate와 recovery](/posts/16-amr-safety-recovery/) | 다음 → [18. 시나리오와 회귀검증](/posts/18-amr-verification/)

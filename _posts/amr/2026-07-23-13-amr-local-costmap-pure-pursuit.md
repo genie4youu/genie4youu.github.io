@@ -7,7 +7,7 @@ tags: [amr, local-costmap, pure-pursuit, path-tracking, lidar]
 math: true
 ---
 
-> **연재:** [목차](/posts/00-amr-series/) · 이전 → [12. Path smoothing](/posts/12-amr-path-smoothing/) · 다음 → [14. Dynamic Window Approach](/posts/14-amr-dwa/)
+> **연재:** [목차](/posts/00-amr-series/) | 이전 → [12. Path smoothing](/posts/12-amr-path-smoothing/) | 다음 → [14. Dynamic Window Approach](/posts/14-amr-dwa/)
 
 전역 costmap은 전체 경로를 찾는 데 적합하지만 최신 동적 장애물을 빠르게 반영하기에는 크고 느리다. local costmap은 로봇 주변의 작은 window에서 최근 sensor 관측과 정적 지도를 합친다.
 
@@ -76,7 +76,7 @@ Pure Pursuit는 trajectory 후보를 여러 개 rollout하지 않는다. 그래�
 
 ## 현재 프로젝트 구현 상태
 
-local costmap의 LiDAR hit marking/inflation과 검증은 구현했다. 다만 일반 배송·충전·경로복귀의 기준 controller는 아직 정식 Pure Pursuit 함수가 아니라 pose-feedback waypoint follower다. Pure Pursuit의 독립 함수와 lookahead 비교는 계획 항목이다.
+local costmap의 LiDAR hit marking/inflation과 검증은 구현했다. 다만 일반 배송, 충전, 경로복귀의 기준 controller는 아직 정식 Pure Pursuit 함수가 아니라 pose-feedback waypoint follower다. Pure Pursuit의 독립 함수와 lookahead 비교는 계획 항목이다.
 
 장애물 scenario에서는 local costmap을 DWA에 전달한다. local costmap 구현이 통과한 뒤에야 trajectory rollout과 cost tuning을 시작했다.
 
@@ -94,4 +94,4 @@ local costmap의 LiDAR hit marking/inflation과 검증은 구현했다. 다만 �
 
 ## 연재
 
-[목차](/posts/00-amr-series/) · 이전 → [12. Path smoothing](/posts/12-amr-path-smoothing/) · 다음 → [14. Dynamic Window Approach](/posts/14-amr-dwa/)
+[목차](/posts/00-amr-series/) | 이전 → [12. Path smoothing](/posts/12-amr-path-smoothing/) | 다음 → [14. Dynamic Window Approach](/posts/14-amr-dwa/)

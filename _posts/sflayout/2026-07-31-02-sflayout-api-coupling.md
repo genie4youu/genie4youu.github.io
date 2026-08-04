@@ -7,8 +7,8 @@ tags: [stateflow, api, transition, midpoint, 레이아웃, amr]
 mermaid: true
 ---
 
-> **기준:** MATLAB R2025b 실측 · [genie4youu/amr_robot_planning](https://github.com/genie4youu/amr_robot_planning) / 확인일 2026-07-31
-> **시리즈:** [목차](/posts/00-sflayout-series/) · 이전 → [01. 못 읽는 차트](/posts/01-sflayout-why-graphics/) · 다음 → [03. 재귀 계층 탐색](/posts/03-sflayout-recursive-hierarchy/)
+> **기준:** MATLAB R2025b 실측 / [genie4youu/amr_robot_planning](https://github.com/genie4youu/amr_robot_planning) / 확인일 2026-07-31
+> **시리즈:** [목차](/posts/00-sflayout-series/) | 이전 → [01. 못 읽는 차트](/posts/01-sflayout-why-graphics/) | 다음 → [03. 재귀 계층 탐색](/posts/03-sflayout-recursive-hierarchy/)
 
 ---
 
@@ -131,7 +131,7 @@ flowchart LR
 
 ---
 
-**시리즈:** [목차](/posts/00-sflayout-series/) · 이전 → [01. 논리는 맞는데 못 읽는 차트](/posts/01-sflayout-why-graphics/) · 다음 → [03. 계층을 재귀로 훑는다](/posts/03-sflayout-recursive-hierarchy/)
+**시리즈:** [목차](/posts/00-sflayout-series/) | 이전 → [01. 논리는 맞는데 못 읽는 차트](/posts/01-sflayout-why-graphics/) | 다음 → [03. 계층을 재귀로 훑는다](/posts/03-sflayout-recursive-hierarchy/)
 
 ## 참고
 

@@ -7,8 +7,8 @@ tags: [stateflow, 형식검증, sldv, dead-logic, 안전]
 mermaid: true
 ---
 
-> **기준:** MathWorks 공개 문서 · R2025b / 확인일 2026-07-31
-> **시리즈:** [목차](/posts/00-stateflow-series/) · 이전 → [21. 관찰과 증명](/posts/21-sf-coverage/)
+> **기준:** MathWorks 공개 문서 / R2025b / 확인일 2026-07-31
+> **시리즈:** [목차](/posts/00-stateflow-series/) | 이전 → [21. 관찰과 증명](/posts/21-sf-coverage/)
 
 ---
 
@@ -123,7 +123,7 @@ flowchart TD
 
 ---
 
-**시리즈:** [목차](/posts/00-stateflow-series/) · 이전 → [21. 관찰과 증명 — 커버리지](/posts/21-sf-coverage/)
+**시리즈:** [목차](/posts/00-stateflow-series/) | 이전 → [21. 관찰과 증명 — 커버리지](/posts/21-sf-coverage/)
 
 ## 참고
 

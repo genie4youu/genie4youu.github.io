@@ -7,8 +7,8 @@ tags: [stateflow, sdi, 로깅, 검증, 디버깅]
 mermaid: true
 ---
 
-> **기준:** MathWorks 공개 문서 · R2025b / 확인일 2026-07-31
-> **시리즈:** [목차](/posts/00-stateflow-series/) · 이전 → [13. User's Guide](/posts/13-users-guide/) · 다음 → [15. Bus Signals](/posts/15-sf-bus-signals/)
+> **기준:** MathWorks 공개 문서 / R2025b / 확인일 2026-07-31
+> **시리즈:** [목차](/posts/00-stateflow-series/) | 이전 → [13. User's Guide](/posts/13-users-guide/) | 다음 → [15. Bus Signals](/posts/15-sf-bus-signals/)
 
 ---
 
@@ -111,7 +111,7 @@ SDI는 사람이 보는 도구다. 반복 검증은 `logsout` 을 코드로 읽�
 
 ---
 
-**시리즈:** [목차](/posts/00-stateflow-series/) · 이전 → [13. User's Guide 찾아 쓰기](/posts/13-users-guide/) · 다음 → [15. Bus Signals](/posts/15-sf-bus-signals/)
+**시리즈:** [목차](/posts/00-stateflow-series/) | 이전 → [13. User's Guide 찾아 쓰기](/posts/13-users-guide/) | 다음 → [15. Bus Signals](/posts/15-sf-bus-signals/)
 
 ## 참고
 

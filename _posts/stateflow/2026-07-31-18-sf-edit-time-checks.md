@@ -7,8 +7,8 @@ tags: [stateflow, 검증, edit-time, 진단, 정적검사]
 mermaid: true
 ---
 
-> **기준:** MathWorks 공개 문서 · R2025b / 확인일 2026-07-31
-> **시리즈:** [목차](/posts/00-stateflow-series/) · 이전 → [17. History Junction](/posts/17-sf-history-junction/) · 다음 → [19. 관측 도구 나머지](/posts/19-sf-sequence-viewer/)
+> **기준:** MathWorks 공개 문서 / R2025b / 확인일 2026-07-31
+> **시리즈:** [목차](/posts/00-stateflow-series/) | 이전 → [17. History Junction](/posts/17-sf-history-junction/) | 다음 → [19. 관측 도구 나머지](/posts/19-sf-sequence-viewer/)
 
 ---
 
@@ -90,13 +90,13 @@ edit-time 검사는 **구조**를 본다. 의미는 안 본다.
 - edit-time 검사는 **시뮬레이션 전에** 도는 가장 싼 검사다.
 - 매달린 Transition, **Transition shadowing**, 도달 불가 State 를 잡는다.
 - shadowing 은 **에러 없이 그냥 그 State 에 안 가는** 형태라 시뮬레이션으로 잘 안 드러난다.
-- 진단 수준은 `error` · `warning` · `none` 이고, `Unreachable execution path` 하나에 세 항목이 묶여 있다.
+- 진단 수준은 `error`, `warning`, `none` 이고, `Unreachable execution path` 하나에 세 항목이 묶여 있다.
 - **끄지 말고 경고를 없앤다.** 검사를 완화하면 그 항목 전체가 무력해진다.
 - 구조는 보지만 **의미는 못 본다.** 조건식이 요구사항과 맞는지는 다른 층이 답한다.
 
 ---
 
-**시리즈:** [목차](/posts/00-stateflow-series/) · 이전 → [17. History Junction](/posts/17-sf-history-junction/) · 다음 → [19. Sequence Viewer와 애니메이션](/posts/19-sf-sequence-viewer/)
+**시리즈:** [목차](/posts/00-stateflow-series/) | 이전 → [17. History Junction](/posts/17-sf-history-junction/) | 다음 → [19. Sequence Viewer와 애니메이션](/posts/19-sf-sequence-viewer/)
 
 ## 참고
 

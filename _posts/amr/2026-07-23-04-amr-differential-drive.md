@@ -7,7 +7,7 @@ tags: [amr, 차동구동, kinematics, odometry, simulink, matlab]
 math: true
 ---
 
-> **연재:** [목차](/posts/00-amr-series/) · 이전 → [03. 좌표계·멀티레이트](/posts/03-amr-frames-timing/) · 다음 → [05. 2D LiDAR ray casting](/posts/05-amr-lidar-raycasting/)
+> **연재:** [목차](/posts/00-amr-series/) | 이전 → [03. 좌표계와 멀티레이트](/posts/03-amr-frames-timing/) | 다음 → [05. 2D LiDAR ray casting](/posts/05-amr-lidar-raycasting/)
 
 두 바퀴를 독립적으로 구동하는 AMR은 바퀴 속도의 합으로 전진하고 차이로 회전한다. 이 단순한 관계가 wheel command, odometry, trajectory rollout의 공통 바닥이다.
 
@@ -31,7 +31,7 @@ $$
 \dot{\theta}=\omega
 $$
 
-두 바퀴가 같은 방향·같은 속도면 직진하고, 크기가 같고 방향이 반대면 제자리 회전한다. 한쪽 바퀴만 돌면 정지한 바퀴 주변의 원호를 따른다.
+두 바퀴가 같은 방향과 같은 속도면 직진하고, 크기가 같고 방향이 반대면 제자리 회전한다. 한쪽 바퀴만 돌면 정지한 바퀴 주변의 원호를 따른다.
 
 ## 역운동학
 
@@ -45,7 +45,7 @@ $$
 \omega_L=\frac{1}{r}\left(v-\frac{L}{2}\omega\right)
 $$
 
-구현에서는 부호와 단위를 직접 검증해야 한다. `rad/s`와 `m/s`를 섞거나 왼쪽·오른쪽 순서를 바꾸면 직진 검사는 통과해도 회전에서 반대 방향으로 돈다.
+구현에서는 부호와 단위를 직접 검증해야 한다. `rad/s`와 `m/s`를 섞거나 왼쪽과 오른쪽 순서를 바꾸면 직진 검사는 통과해도 회전에서 반대 방향으로 돈다.
 
 ## 이산 pose 적분
 
@@ -77,7 +77,7 @@ amr.modeling.integrateDifferentialDrive
 | 윤거 | `0.30 m` |
 | plant sample time | `0.01 s` |
 
-순·역변환 일관성, 직진, 제자리 회전, pose 적분을 기본 MATLAB `assert`로 확인했다.
+순변환과 역변환 일관성, 직진, 제자리 회전, pose 적분을 기본 MATLAB `assert`로 확인했다.
 
 ## 첫 Simulink/Stateflow 수직 절편
 
@@ -108,7 +108,7 @@ Pose integration
 - track-width 오차
 - slip, 하중, 배터리 영향
 
-DWA command 쪽에는 속도·가속도 제한이 있지만 물리 모터 모델을 대신하지 않는다. 따라서 이 프로젝트의 `0.08 m`급 최종 오차를 실제 로봇 위치 정확도로 해석하면 안 된다.
+DWA command 쪽에는 속도와 가속도 제한이 있지만 물리 모터 모델을 대신하지 않는다. 따라서 이 프로젝트의 `0.08 m`급 최종 오차를 실제 로봇 위치 정확도로 해석하면 안 된다.
 
 ## 검증 포인트
 
@@ -128,4 +128,4 @@ DWA command 쪽에는 속도·가속도 제한이 있지만 물리 모터 모델
 
 ## 연재
 
-[목차](/posts/00-amr-series/) · 이전 → [03. 좌표계·멀티레이트](/posts/03-amr-frames-timing/) · 다음 → [05. 2D LiDAR ray casting](/posts/05-amr-lidar-raycasting/)
+[목차](/posts/00-amr-series/) | 이전 → [03. 좌표계와 멀티레이트](/posts/03-amr-frames-timing/) | 다음 → [05. 2D LiDAR ray casting](/posts/05-amr-lidar-raycasting/)

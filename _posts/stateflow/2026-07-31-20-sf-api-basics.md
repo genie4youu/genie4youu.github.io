@@ -7,8 +7,8 @@ tags: [stateflow, api, sfroot, 자동화, 검토]
 mermaid: true
 ---
 
-> **기준:** MathWorks 공개 문서 · R2025b / 확인일 2026-07-31
-> **시리즈:** [목차](/posts/00-stateflow-series/) · 이전 → [19. Sequence Viewer](/posts/19-sf-sequence-viewer/) · 다음 → [21. 관찰과 증명](/posts/21-sf-coverage/)
+> **기준:** MathWorks 공개 문서 / R2025b / 확인일 2026-07-31
+> **시리즈:** [목차](/posts/00-stateflow-series/) | 이전 → [19. Sequence Viewer](/posts/19-sf-sequence-viewer/) | 다음 → [21. 관찰과 증명](/posts/21-sf-coverage/)
 
 ---
 
@@ -81,9 +81,9 @@ end
 
 | 클래스 | 자주 쓰는 속성 |
 | --- | --- |
-| `Stateflow.State` | `Name` · `Path` · `Position` · `IsSubchart` · `Decomposition` · `LabelString` |
-| `Stateflow.Transition` | `Source` · `Destination` · `LabelString` · `ExecutionOrder` |
-| `Stateflow.Data` | `Name` · `Scope` · `DataType` · `Port` |
+| `Stateflow.State` | `Name`, `Path`, `Position`, `IsSubchart`, `Decomposition`, `LabelString` |
+| `Stateflow.Transition` | `Source`, `Destination`, `LabelString`, `ExecutionOrder` |
+| `Stateflow.Data` | `Name`, `Scope`, `DataType`, `Port` |
 
 `Position` 은 `[left top width height]` 형태의 4요소 벡터다. `Decomposition` 이 OR 인지 AND 인지가 [06편](/posts/06-parallel-and-events/)의 병렬 여부를 말해준다.
 
@@ -134,11 +134,11 @@ API 는 읽기 전용이 아니다. Chart 를 스크립트로 생성할 수 있�
 
 ---
 
-**시리즈:** [목차](/posts/00-stateflow-series/) · 이전 → [19. Sequence Viewer와 애니메이션](/posts/19-sf-sequence-viewer/) · 다음 → [21. 관찰과 증명 — 커버리지](/posts/21-sf-coverage/)
+**시리즈:** [목차](/posts/00-stateflow-series/) | 이전 → [19. Sequence Viewer와 애니메이션](/posts/19-sf-sequence-viewer/) | 다음 → [21. 관찰과 증명 — 커버리지](/posts/21-sf-coverage/)
 
 ## 참고
 
 - [Overview of the Stateflow API](https://www.mathworks.com/help/stateflow/api/overview-of-the-stateflow-api.html)
 - [sfroot](https://www.mathworks.com/help/stateflow/ref/sfroot.html)
-- [Stateflow.State](https://www.mathworks.com/help/stateflow/api/stateflow.state.html) · [Stateflow.Transition](https://www.mathworks.com/help/stateflow/api/stateflow.transition.html)
+- [Stateflow.State](https://www.mathworks.com/help/stateflow/api/stateflow.state.html), [Stateflow.Transition](https://www.mathworks.com/help/stateflow/api/stateflow.transition.html)
 - [Create Charts by Using the Stateflow API](https://www.mathworks.com/help/stateflow/api/quick-start-for-the-stateflow-api.html)

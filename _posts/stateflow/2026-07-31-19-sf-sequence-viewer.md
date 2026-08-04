@@ -7,8 +7,8 @@ tags: [stateflow, sequence-viewer, 애니메이션, 디버깅, 관측]
 mermaid: true
 ---
 
-> **기준:** MathWorks 공개 문서 · R2025b / 확인일 2026-07-31
-> **시리즈:** [목차](/posts/00-stateflow-series/) · 이전 → [18. edit-time 검사](/posts/18-sf-edit-time-checks/) · 다음 → [20. Stateflow API](/posts/20-sf-api-basics/)
+> **기준:** MathWorks 공개 문서 / R2025b / 확인일 2026-07-31
+> **시리즈:** [목차](/posts/00-stateflow-series/) | 이전 → [18. edit-time 검사](/posts/18-sf-edit-time-checks/) | 다음 → [20. Stateflow API](/posts/20-sf-api-basics/)
 
 ---
 
@@ -37,8 +37,8 @@ mermaid: true
 메시지, 이벤트, 함수 호출을 **시간 순서로** 보여준다.
 
 - 각 블록을 **세로 lifeline** 으로 그리고 시간이 아래로 흐른다.
-- 메시지·이벤트·함수 호출을 **보낸 쪽에서 받는 쪽으로 가는 화살표**로 표시한다.
-- 메시지가 생성·전송·전달·수신·소멸되는 시점을 각각 표시한다.
+- 메시지, 이벤트, 함수 호출을 **보낸 쪽에서 받는 쪽으로 가는 화살표**로 표시한다.
+- 메시지가 생성, 전송, 전달, 수신, 소멸되는 시점을 각각 표시한다.
 - **State 활동과 Transition** 도 함께 보여준다.
 - 함수 호출은 Stateflow graphical function, Simulink function, MATLAB function 전부 해당한다.
 
@@ -54,7 +54,7 @@ Chart 가 여러 개이고 서로 메시지를 주고받을 때 값어치가 크
 
 ## 4. Activity Profiler
 
-Debug 탭에서 `Activity Profiler` 를 누르면 편집기 아래에 창이 열린다. `Run` 을 누르면 **각 State·Transition·함수의 실행 정도**를 보여준다.
+Debug 탭에서 `Activity Profiler` 를 누르면 편집기 아래에 창이 열린다. `Run` 을 누르면 **각 State, Transition, 함수의 실행 정도**를 보여준다.
 
 앞의 셋이 **한 번의 실행을 따라가는** 도구라면 이것은 **전체에서 어디가 뜨거운가**를 본다.
 
@@ -104,7 +104,7 @@ flowchart TD
 
 ---
 
-**시리즈:** [목차](/posts/00-stateflow-series/) · 이전 → [18. edit-time 검사](/posts/18-sf-edit-time-checks/) · 다음 → [20. Stateflow API 기초](/posts/20-sf-api-basics/)
+**시리즈:** [목차](/posts/00-stateflow-series/) | 이전 → [18. edit-time 검사](/posts/18-sf-edit-time-checks/) | 다음 → [20. Stateflow API 기초](/posts/20-sf-api-basics/)
 
 ## 참고
 

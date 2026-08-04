@@ -8,7 +8,7 @@ mermaid: true
 ---
 
 > **기준:** 실행 2026-07-16 / 확인일 2026-07-20
-> **시리즈:** [목차](/posts/00-mcp-series/) · 이전 → [10. 세션 공유](/posts/10-matlab-session-sharing/) · 다음 → [12. 트러블슈팅](/posts/12-mcp-troubleshooting/)
+> **시리즈:** [목차](/posts/00-mcp-series/) | 이전 → [10. 세션 공유](/posts/10-matlab-session-sharing/) | 다음 → [12. 트러블슈팅](/posts/12-mcp-troubleshooting/)
 
 ---
 
@@ -148,7 +148,7 @@ MathWorks 문서도 동일한 요구를 한다.
 
 ## 시리즈
 
-[목차](/posts/00-mcp-series/) · 이전 → [10](/posts/10-matlab-session-sharing/) · 다음 → [12. 트러블슈팅](/posts/12-mcp-troubleshooting/)
+[목차](/posts/00-mcp-series/) | 이전 → [10](/posts/10-matlab-session-sharing/) | 다음 → [12. 트러블슈팅](/posts/12-mcp-troubleshooting/)
 
 ## 참고
 

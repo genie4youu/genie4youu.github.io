@@ -8,7 +8,7 @@ mermaid: true
 ---
 
 > **기준:** MCP 스펙 `2025-11-25` / 확인일 2026-07-20
-> **시리즈:** [목차](/posts/00-mcp-series/) · 이전 → [02. 아키텍처](/posts/02-mcp-architecture/) · 다음 → [04. Primitives](/posts/04-mcp-primitives/)
+> **시리즈:** [목차](/posts/00-mcp-series/) | 이전 → [02. 아키텍처](/posts/02-mcp-architecture/) | 다음 → [04. Primitives](/posts/04-mcp-primitives/)
 
 ---
 
@@ -127,7 +127,7 @@ stdio 서버 = 클라이언트가 spawn한 자식 프로세스
 
 ## 시리즈
 
-[목차](/posts/00-mcp-series/) · 이전 → [02](/posts/02-mcp-architecture/) · 다음 → [04. Primitives](/posts/04-mcp-primitives/)
+[목차](/posts/00-mcp-series/) | 이전 → [02](/posts/02-mcp-architecture/) | 다음 → [04. Primitives](/posts/04-mcp-primitives/)
 
 ## 참고
 

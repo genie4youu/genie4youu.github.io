@@ -7,8 +7,8 @@ tags: [stateflow, history, junction, 계층, 복구]
 mermaid: true
 ---
 
-> **기준:** MathWorks 공개 문서 · R2025b / 확인일 2026-07-31
-> **시리즈:** [목차](/posts/00-stateflow-series/) · 이전 → [16. 어느 형태로 그릴 것인가](/posts/16-sf-chart-type-choice/) · 다음 → [18. edit-time 검사](/posts/18-sf-edit-time-checks/)
+> **기준:** MathWorks 공개 문서 / R2025b / 확인일 2026-07-31
+> **시리즈:** [목차](/posts/00-stateflow-series/) | 이전 → [16. 어느 형태로 그릴 것인가](/posts/16-sf-chart-type-choice/) | 다음 → [18. edit-time 검사](/posts/18-sf-edit-time-checks/)
 
 ---
 
@@ -94,7 +94,7 @@ History 가 있으면 같은 부모 State 진입이라도 **결과가 여러 가
 
 ---
 
-**시리즈:** [목차](/posts/00-stateflow-series/) · 이전 → [16. 어느 형태로 그릴 것인가](/posts/16-sf-chart-type-choice/) · 다음 → [18. edit-time 검사](/posts/18-sf-edit-time-checks/)
+**시리즈:** [목차](/posts/00-stateflow-series/) | 이전 → [16. 어느 형태로 그릴 것인가](/posts/16-sf-chart-type-choice/) | 다음 → [18. edit-time 검사](/posts/18-sf-edit-time-checks/)
 
 ## 참고
 

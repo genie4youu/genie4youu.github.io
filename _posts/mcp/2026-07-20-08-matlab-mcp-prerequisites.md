@@ -8,7 +8,7 @@ mermaid: true
 ---
 
 > **기준:** 확인일 2026-07-20 / 실측 환경 Windows 10 Pro + MATLAB R2025b Update 5
-> **시리즈:** [목차](/posts/00-mcp-series/) · 이전 → [07. MATLAB MCP 서버](/posts/07-matlab-mcp-server/) · 다음 → [09. MCP 서버 등록](/posts/09-mcp-codex-setup/)
+> **시리즈:** [목차](/posts/00-mcp-series/) | 이전 → [07. MATLAB MCP 서버](/posts/07-matlab-mcp-server/) | 다음 → [09. MCP 서버 등록](/posts/09-mcp-codex-setup/)
 
 ---
 
@@ -40,7 +40,7 @@ flowchart TD
 | MATLAB | R2021a+ (**`existing`은 R2023a+**) | R2021a+ | **R2023a+ 및 Simulink** |
 | OS | Windows, Linux, macOS (arm64/x64) | 동일 | Linux x86_64, macOS arm64/x86_64, Windows x86_64 |
 | **Node.js** | **불필요** | 불필요 | 불필요 |
-| 기타 | — | **Git 필요** | Simulink Test(`model_test`용), System Composer·Simscape·Stateflow(일부 스킬) |
+| 기타 | — | **Git 필요** | Simulink Test(`model_test`용), System Composer, Simscape, Stateflow(일부 스킬) |
 
 ## 3. 실측 환경
 
@@ -48,7 +48,7 @@ flowchart TD
 | --- | --- |
 | OS | Windows 10 Pro |
 | MATLAB | **R2025b Update 5** |
-| Simulink / Stateflow | 설치·라이선스 정상 |
+| Simulink / Stateflow | 설치와 라이선스 정상 |
 | Simulink Test | 미설치 (의도적) |
 | Node.js | v24.18.0 |
 | npm | 11.16.0 |
@@ -128,7 +128,7 @@ npm config set strict-ssl false     # 사용하지 않는다
 
 ## 시리즈
 
-[목차](/posts/00-mcp-series/) · 이전 → [07](/posts/07-matlab-mcp-server/) · 다음 → [09. 설치 — MCP 서버 등록](/posts/09-mcp-codex-setup/)
+[목차](/posts/00-mcp-series/) | 이전 → [07](/posts/07-matlab-mcp-server/) | 다음 → [09. 설치 — MCP 서버 등록](/posts/09-mcp-codex-setup/)
 
 ## 참고
 

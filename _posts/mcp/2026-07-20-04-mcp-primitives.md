@@ -8,7 +8,7 @@ mermaid: true
 ---
 
 > **기준:** MCP 스펙 `2025-11-25` / 확인일 2026-07-20
-> **시리즈:** [목차](/posts/00-mcp-series/) · 이전 → [03. 트랜스포트](/posts/03-mcp-transports/) · 다음 → [05. 와이어 프로토콜](/posts/05-mcp-json-rpc/)
+> **시리즈:** [목차](/posts/00-mcp-series/) | 이전 → [03. 트랜스포트](/posts/03-mcp-transports/) | 다음 → [05. 와이어 프로토콜](/posts/05-mcp-json-rpc/)
 
 ---
 
@@ -109,7 +109,7 @@ Roots에 대해 스펙이 이례적으로 상세한 근거를 제시한다.
 
 ## 시리즈
 
-[목차](/posts/00-mcp-series/) · 이전 → [03](/posts/03-mcp-transports/) · 다음 → [05. 와이어 프로토콜](/posts/05-mcp-json-rpc/)
+[목차](/posts/00-mcp-series/) | 이전 → [03](/posts/03-mcp-transports/) | 다음 → [05. 와이어 프로토콜](/posts/05-mcp-json-rpc/)
 
 ## 참고
 

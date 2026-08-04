@@ -7,8 +7,8 @@ tags: [stateflow, flowchart, truth-table, 설계, 판단]
 mermaid: true
 ---
 
-> **기준:** MathWorks 공개 문서 · R2025b / 확인일 2026-07-31
-> **시리즈:** [목차](/posts/00-stateflow-series/) · 이전 → [15. Bus Signals](/posts/15-sf-bus-signals/) · 다음 → [17. History Junction](/posts/17-sf-history-junction/)
+> **기준:** MathWorks 공개 문서 / R2025b / 확인일 2026-07-31
+> **시리즈:** [목차](/posts/00-stateflow-series/) | 이전 → [15. Bus Signals](/posts/15-sf-bus-signals/) | 다음 → [17. History Junction](/posts/17-sf-history-junction/)
 
 ---
 
@@ -18,7 +18,7 @@ mermaid: true
 
 | 형태 | 무엇에 맞나 |
 | --- | --- |
-| **State Transition Diagram** | 이력에 의존하는 반응형·감독 시스템 |
+| **State Transition Diagram** | 이력에 의존하는 반응형 감독 시스템 |
 | **Flow Chart** | 조건 분기와 반복 같은 제어 흐름 |
 | **State Transition Table** | 같은 내용을 표로. 상태가 많고 전이가 규칙적일 때 |
 | **Truth Table** | 입력 조합에 대한 출력이 표로 떨어질 때 |
@@ -87,7 +87,7 @@ flowchart LR
 
 ---
 
-**시리즈:** [목차](/posts/00-stateflow-series/) · 이전 → [15. Bus Signals](/posts/15-sf-bus-signals/) · 다음 → [17. History Junction](/posts/17-sf-history-junction/)
+**시리즈:** [목차](/posts/00-stateflow-series/) | 이전 → [15. Bus Signals](/posts/15-sf-bus-signals/) | 다음 → [17. History Junction](/posts/17-sf-history-junction/)
 
 ## 참고
 

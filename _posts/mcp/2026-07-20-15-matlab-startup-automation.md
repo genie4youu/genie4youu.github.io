@@ -8,7 +8,7 @@ mermaid: true
 ---
 
 > **기준:** 확인일 2026-07-20
-> **시리즈:** [목차](/posts/00-mcp-series/) · 이전 → [14. 에디터 통합](/posts/14-mcp-editor-integration/) · 다음 → [16. 설정 적용](/posts/16-mcp-config-applied/)
+> **시리즈:** [목차](/posts/00-mcp-series/) | 이전 → [14. 에디터 통합](/posts/14-mcp-editor-integration/) | 다음 → [16. 설정 적용](/posts/16-mcp-config-applied/)
 
 ---
 
@@ -133,7 +133,7 @@ which satk_initialize
 
 ## 시리즈
 
-[목차](/posts/00-mcp-series/) · 이전 → [14. 에디터 통합](/posts/14-mcp-editor-integration/) · 다음 → [16. 설정 적용](/posts/16-mcp-config-applied/)
+[목차](/posts/00-mcp-series/) | 이전 → [14. 에디터 통합](/posts/14-mcp-editor-integration/) | 다음 → [16. 설정 적용](/posts/16-mcp-config-applied/)
 
 ## 참고
 

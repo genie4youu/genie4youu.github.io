@@ -1,5 +1,5 @@
 ---
-title: 06. LiDAR 노이즈·dropout·delay와 watchdog
+title: 06. LiDAR 노이즈, dropout, delay와 watchdog
 description: 완벽한 가상 LiDAR에 range noise, beam과 frame dropout, 1-sample delay, hold-last와 freshness watchdog을 넣고 복귀까지 검증한다.
 date: 2026-07-23 06:06:00 +0900
 categories: [AMR, 센서와 인지]
@@ -9,7 +9,7 @@ image:
   alt: LiDAR ray와 local planning을 표시한 AMR 시나리오 UI
 ---
 
-> **연재:** [목차](/posts/00-amr-series/) · 이전 → [05. LiDAR ray casting](/posts/05-amr-lidar-raycasting/) · 다음 → [07. 점유격자와 log-odds](/posts/07-amr-occupancy-logodds/)
+> **연재:** [목차](/posts/00-amr-series/) | 이전 → [05. LiDAR ray casting](/posts/05-amr-lidar-raycasting/) | 다음 → [07. 점유격자와 log-odds](/posts/07-amr-occupancy-logodds/)
 
 완벽한 센서는 알고리즘이 정상 경로를 실행하는지 보여줄 뿐, 실패에 어떻게 반응하는지는 보여주지 못한다. LiDAR 비이상성은 한꺼번에 섞지 않고 각각 독립적으로 넣어야 원인과 결과를 추적할 수 있다.
 
@@ -22,7 +22,7 @@ image:
 | frame dropout | scan 전체가 오지 않음 | 29 scan마다 1회 |
 | delay | 측정과 사용 시점 차이 | 1-sample |
 
-추가로 LiDAR 자체의 한계인 FOV, angular resolution, 최소·최대 range, mounting offset을 scan 생성 단계에서 반영했다.
+추가로 LiDAR 자체의 한계인 FOV, angular resolution, 최소와 최대 range, mounting offset을 scan 생성 단계에서 반영했다.
 
 ## noise와 dropout은 다른 상태다
 
@@ -103,4 +103,4 @@ random fault만 쓰면 같은 실패를 다시 만들기 어렵다. 프로젝트
 
 ## 연재
 
-[목차](/posts/00-amr-series/) · 이전 → [05. LiDAR ray casting](/posts/05-amr-lidar-raycasting/) · 다음 → [07. 점유격자와 log-odds](/posts/07-amr-occupancy-logodds/)
+[목차](/posts/00-amr-series/) | 이전 → [05. LiDAR ray casting](/posts/05-amr-lidar-raycasting/) | 다음 → [07. 점유격자와 log-odds](/posts/07-amr-occupancy-logodds/)

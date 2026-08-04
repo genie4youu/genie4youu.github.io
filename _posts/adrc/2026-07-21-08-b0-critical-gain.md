@@ -8,14 +8,14 @@ mermaid: true
 math: true
 ---
 
-> **기준 출처:** MathWorks ADRC 문서 · Gao, *Bandwidth-Parameterization* (ACC, 2003) / 확인일 2026-07-21
-> **시리즈:** [목차](/posts/00-adrc-series/) · 이전 → [07. 제어기 대역폭](/posts/07-controller-bandwidth/) · 다음 → [09. 제어기 차수](/posts/09-adrc-order/)
+> **기준 출처:** MathWorks ADRC 문서 / Gao, *Bandwidth-Parameterization* (ACC, 2003) / 확인일 2026-07-21
+> **시리즈:** [목차](/posts/00-adrc-series/) | 이전 → [07. 제어기 대역폭](/posts/07-controller-bandwidth/) | 다음 → [09. 제어기 차수](/posts/09-adrc-order/)
 
 ---
 
 ## 1. b0만은 왜 못 버리나
 
-ADRC는 마찰·중력·관성·비선형을 전부 총외란으로 쓸어담아 모른다고 했다. 그런데 $$b_0$$ 하나는 반드시 줘야 한다. 제어법칙에 있다.
+ADRC는 마찰, 중력, 관성, 비선형을 전부 총외란으로 쓸어담아 모른다고 했다. 그런데 $$b_0$$ 하나는 반드시 줘야 한다. 제어법칙에 있다.
 
 $$u = \frac{u_0 - \hat F}{b_0}$$
 
@@ -42,7 +42,7 @@ $$b_0$$의 오차 $$(b-b_0)u$$가 그대로 총외란 $$F$$ 안으로 들어간�
 ```mermaid
 flowchart LR
     B["b0 오차 (b-b0)u"] -->|총외란에 편입| F["F"]
-    F -->|ESO가 추정·상쇄| OK["동작 유지"]
+    F -->|ESO가 추정해 상쇄| OK["동작 유지"]
 ```
 
 무한정은 아니다.
@@ -51,7 +51,7 @@ flowchart LR
 | --- | --- |
 | 참값에 가까움 | 최선, ESO 부담 최소 |
 | 다소 작거나 큼 | 동작함, ESO 부담 증가 |
-| 너무 작음 | 입력 과대, 포화·발진 위험 |
+| 너무 작음 | 입력 과대, 포화와 발진 위험 |
 | 너무 큼 | 입력 부족, 굼뜸 |
 | 부호 반대 | 불안정 |
 
@@ -77,7 +77,7 @@ flowchart LR
 
 ## 시리즈
 
-[목차](/posts/00-adrc-series/) · 이전 → [07. 제어기 대역폭](/posts/07-controller-bandwidth/) · 다음 → [09. 제어기 차수](/posts/09-adrc-order/)
+[목차](/posts/00-adrc-series/) | 이전 → [07. 제어기 대역폭](/posts/07-controller-bandwidth/) | 다음 → [09. 제어기 차수](/posts/09-adrc-order/)
 
 ## 참고
 

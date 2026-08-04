@@ -7,9 +7,9 @@ tags: [amr, 아키텍처, matlab, simulink, stateflow, 수직절편]
 mermaid: true
 ---
 
-> **연재:** [목차](/posts/00-amr-series/) · 다음 → [02. SE(2)와 2D pose](/posts/02-amr-se2-pose/)
+> **연재:** [목차](/posts/00-amr-series/) | 다음 → [02. SE(2)와 2D pose](/posts/02-amr-se2-pose/)
 
-AMR을 처음 공부할 때 가장 쉬운 실수는 A*, SLAM, DWA처럼 이름이 선명한 알고리즘부터 만드는 것이다. 각 알고리즘은 따로 움직여도, 연결 순간에는 좌표계·시간·유효성·우선순위가 맞지 않아 시스템이 멈춘다. 그래서 이 프로젝트의 첫 설계 대상은 알고리즘이 아니라 **책임 경계**였다.
+AMR을 처음 공부할 때 가장 쉬운 실수는 A*, SLAM, DWA처럼 이름이 선명한 알고리즘부터 만드는 것이다. 각 알고리즘은 따로 움직여도, 연결 순간에는 좌표계, 시간, 유효성, 우선순위가 맞지 않아 시스템이 멈춘다. 그래서 이 프로젝트의 첫 설계 대상은 알고리즘이 아니라 **책임 경계**였다.
 
 ## 하나의 큰 루프 대신 책임을 나눈다
 
@@ -68,7 +68,7 @@ Stateflow가 `vCmd`, `wCmd`, `stateId`를 내보내고 Simulink 차동구동 플
 2. 합성 floor map + A*
 3. LiDAR + local costmap + DWA
 4. 독립 safety gate
-5. 계층·병렬 Industrial Supervisor
+5. 계층과 병렬 Industrial Supervisor
 6. 3개 환경 × 4개 시나리오 회귀검증
 
 큰 subsystem을 둘 이상 한 번에 붙이지 않으면 실패했을 때 마지막 경계를 먼저 의심할 수 있다.
@@ -85,7 +85,7 @@ src/+amr/
 ├─ +mapping/       occupancy, log-odds, collision query
 ├─ +localization/  pose EKF와 health
 ├─ +planning/      A*, smoothing, local costmap, DWA
-├─ +scenarios/     환경·상황 실행
+├─ +scenarios/     환경과 상황 실행
 ├─ +verification/  collision과 metric 검증
 └─ +ui/            결과 재생
 ```
@@ -124,4 +124,4 @@ AMR은 알고리즘 목록이 아니라 서로 다른 시간과 실패 방식의
 
 ## 연재
 
-[목차](/posts/00-amr-series/) · 다음 → [02. SE(2)와 2D pose](/posts/02-amr-se2-pose/)
+[목차](/posts/00-amr-series/) | 다음 → [02. SE(2)와 2D pose](/posts/02-amr-se2-pose/)

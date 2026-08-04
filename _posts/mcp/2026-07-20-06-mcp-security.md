@@ -8,7 +8,7 @@ mermaid: true
 ---
 
 > **기준:** MCP 스펙 `2025-11-25` / 확인일 2026-07-20
-> **시리즈:** [목차](/posts/00-mcp-series/) · 이전 → [05. 와이어 프로토콜](/posts/05-mcp-json-rpc/) · 다음 → [07. MATLAB MCP 서버](/posts/07-matlab-mcp-server/)
+> **시리즈:** [목차](/posts/00-mcp-series/) | 이전 → [05. 와이어 프로토콜](/posts/05-mcp-json-rpc/) | 다음 → [07. MATLAB MCP 서버](/posts/07-matlab-mcp-server/)
 
 ---
 
@@ -18,7 +18,7 @@ mermaid: true
 | --- | --- | --- |
 | 1 | **User Consent and Control** | "Users must explicitly consent to and understand all data access and operations" |
 | 2 | **Data Privacy** | "Hosts must obtain explicit user consent before exposing user data to servers" |
-| 3 | **Tool Safety** | "**Tools represent arbitrary code execution** and must be treated with appropriate caution." · "**Hosts must obtain explicit user consent before invoking any tool**" |
+| 3 | **Tool Safety** | "**Tools represent arbitrary code execution** and must be treated with appropriate caution." / "**Hosts must obtain explicit user consent before invoking any tool**" |
 | 4 | **LLM Sampling Controls** | "Users must explicitly approve any LLM sampling requests" |
 
 3번에 부연이 하나 더 있다.
@@ -37,7 +37,7 @@ mermaid: true
 | --- | --- |
 | MCP를 쓴다는 사실이 보장하는 것 | 연결 방식의 표준화 |
 | 보장하지 않는 것 | **보안** |
-| 실제로 결정하는 것 | 어떤 Host를 쓰는가, 승인·샌드박스를 어떻게 설정했는가 |
+| 실제로 결정하는 것 | 어떤 Host를 쓰는가, 승인과 샌드박스를 어떻게 설정했는가 |
 
 [04편](/posts/04-mcp-primitives/)의 Roots와 같은 태도다. 강제 불가능한 것을 강제한다고 기술하지 않는다.
 
@@ -84,7 +84,7 @@ sudo rm -rf /important/system/files && echo "MCP server installed!"
 
 | 구분 | 요구 사항 |
 | --- | --- |
-| **MUST** | 잘리지 않은 **전체 명령어** 표시 · 위험성 명시 · 명시적 승인 · 취소 가능 |
+| **MUST** | 잘리지 않은 **전체 명령어** 표시, 위험성 명시, 명시적 승인, 취소 가능 |
 | **SHOULD** | 아래 샌드박싱 권고 |
 
 > "Warn that MCP servers run with the **same privileges as the client**"
@@ -94,7 +94,7 @@ sudo rm -rf /important/system/files && echo "MCP server installed!"
 
 첫 항목이 [03편](/posts/03-mcp-transports/)의 결론과 이어진다. **stdio 서버는 사용자와 동일한 권한으로 실행된다.**
 
-⚠️ 주의할 점이 하나 있다. **Host의 샌드박스가 MCP 서버를 경유하는 동작까지 제한하지는 않는다.** Host 샌드박스는 Host가 직접 수행하는 파일·명령 실행에 적용된다. 서버를 통해 대상 시스템에 전달된 코드는 **그 시스템 프로세스의 권한**으로 실행된다.
+⚠️ 주의할 점이 하나 있다. **Host의 샌드박스가 MCP 서버를 경유하는 동작까지 제한하지는 않는다.** Host 샌드박스는 Host가 직접 수행하는 파일과 명령 실행에 적용된다. 서버를 통해 대상 시스템에 전달된 코드는 **그 시스템 프로세스의 권한**으로 실행된다.
 
 ## 5. Confused Deputy
 
@@ -155,7 +155,7 @@ MCP 서버가 서드파티 API 앞의 프록시로 동작할 때 발생한다.
 
 ## 시리즈
 
-[목차](/posts/00-mcp-series/) · 이전 → [05](/posts/05-mcp-json-rpc/) · 다음 → [07. MATLAB MCP 서버와 Agentic Toolkit](/posts/07-matlab-mcp-server/)
+[목차](/posts/00-mcp-series/) | 이전 → [05](/posts/05-mcp-json-rpc/) | 다음 → [07. MATLAB MCP 서버와 Agentic Toolkit](/posts/07-matlab-mcp-server/)
 
 ## 참고
 

@@ -8,8 +8,8 @@ mermaid: true
 math: true
 ---
 
-> **기준 출처:** Herbst & Madoński, *ADRC: From Principles to Practice* (Springer, 2025) · Han, *From PID to ADRC* (IEEE TIE, 2009) / 확인일 2026-07-21
-> **시리즈:** [목차](/posts/00-adrc-series/) · 이전 → [04. 원형의 3요소](/posts/04-adrc-td-eso-control/) · 다음 → [06. 관측기 대역폭](/posts/06-observer-bandwidth/)
+> **기준 출처:** Herbst & Madoński, *ADRC: From Principles to Practice* (Springer, 2025) / Han, *From PID to ADRC* (IEEE TIE, 2009) / 확인일 2026-07-21
+> **시리즈:** [목차](/posts/00-adrc-series/) | 이전 → [04. 원형의 3요소](/posts/04-adrc-td-eso-control/) | 다음 → [06. 관측기 대역폭](/posts/06-observer-bandwidth/)
 
 ---
 
@@ -75,12 +75,12 @@ flowchart LR
 
 - 관측기는 측정되지 않는 상태를 측정에서 추정한다. 예측과 교정, 이득 $$L$$로 이뤄진다.
 - ESO는 총외란 $$F$$를 상태 $$x_3$$로 승격해, model-free인데도 관측기를 성립시킨다.
-- ESO를 돌리면 위치·속도와 함께 $$\hat x_3 = \hat F$$가 딸려 나온다.
+- ESO를 돌리면 위치와 속도에 더해 $$\hat x_3 = \hat F$$가 딸려 나온다.
 - 수렴 원리는 자가 교정이며, 관측기가 충분히 빨라야 한다.
 
 ## 시리즈
 
-[목차](/posts/00-adrc-series/) · 이전 → [04. 원형의 3요소](/posts/04-adrc-td-eso-control/) · 다음 → [06. 관측기 대역폭](/posts/06-observer-bandwidth/)
+[목차](/posts/00-adrc-series/) | 이전 → [04. 원형의 3요소](/posts/04-adrc-td-eso-control/) | 다음 → [06. 관측기 대역폭](/posts/06-observer-bandwidth/)
 
 ## 참고
 

@@ -8,8 +8,8 @@ mermaid: true
 math: true
 ---
 
-> **기준 출처:** Herbst & Madoński, *ADRC: From Principles to Practice* (Birkhäuser, CC BY 4.0) · Han, IEEE TIE 2009 / 확인일 2026-07-31
-> **시리즈:** [목차](/posts/00-adrc-series/) · 이전 → [20. 부록 B](/posts/20-adrc-derivation-bandwidth-gains/)
+> **기준 출처:** Herbst & Madoński, *ADRC: From Principles to Practice* (Birkhäuser, CC BY 4.0) / Han, IEEE TIE 2009 / 확인일 2026-07-31
+> **시리즈:** [목차](/posts/00-adrc-series/) | 이전 → [20. 부록 B](/posts/20-adrc-derivation-bandwidth-gains/)
 
 ---
 
@@ -216,7 +216,7 @@ flowchart LR
 
 ---
 
-**시리즈:** [목차](/posts/00-adrc-series/) · 이전 → [20. 부록 B — 대역폭 게인 유도](/posts/20-adrc-derivation-bandwidth-gains/)
+**시리즈:** [목차](/posts/00-adrc-series/) | 이전 → [20. 부록 B — 대역폭 게인 유도](/posts/20-adrc-derivation-bandwidth-gains/)
 
 ## 참고
 

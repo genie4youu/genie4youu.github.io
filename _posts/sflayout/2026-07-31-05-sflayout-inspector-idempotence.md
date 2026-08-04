@@ -7,8 +7,8 @@ tags: [stateflow, 검증, 단위테스트, 멱등성, 레이아웃, amr]
 mermaid: true
 ---
 
-> **기준:** MATLAB R2025b 실측 · [genie4youu/amr_robot_planning](https://github.com/genie4youu/amr_robot_planning) / 확인일 2026-07-31
-> **시리즈:** [목차](/posts/00-sflayout-series/) · 이전 → [04. 페이지와 배치 영역](/posts/04-sflayout-page-vs-layout/)
+> **기준:** MATLAB R2025b 실측 / [genie4youu/amr_robot_planning](https://github.com/genie4youu/amr_robot_planning) / 확인일 2026-07-31
+> **시리즈:** [목차](/posts/00-sflayout-series/) | 이전 → [04. 페이지와 배치 영역](/posts/04-sflayout-page-vs-layout/)
 
 ---
 
@@ -111,13 +111,13 @@ v7 결과에서 두 번째 실행의 변화량이다.
 | 항목 | 확인 |
 | --- | --- |
 | State/Transition SSID | 동일 |
-| 이름과 LabelString | 공백·줄바꿈까지 동일 |
+| 이름과 LabelString | 공백과 줄바꿈까지 동일 |
 | Source/Destination | 동일 |
 | 계층과 decomposition, State type | 동일 |
 | **모든 ExecutionOrder와 outgoing 순서** | 동일 |
 | Data/Event/Message/Function 서명 | 동일 |
 
-v3와 v7 모두 State 37개, Transition 67개와 위 서명 전체를 저장·재열기 전후로 보존했고, Model check healthy와 Update Diagram PASS를 확인했다.
+v3와 v7 모두 State 37개, Transition 67개와 위 서명 전체를 저장과 재열기 전후로 보존했고, Model check healthy와 Update Diagram PASS를 확인했다.
 
 ## 7. 예외는 없애지 말고 기록한다
 
@@ -151,7 +151,7 @@ v3에 남은 경고가 하나 있다. T60과 T54 사이 path 대 path 경고인�
 
 ---
 
-**시리즈:** [목차](/posts/00-sflayout-series/) · 이전 → [04. `subviewS.pos` 는 배치 영역이 아니다](/posts/04-sflayout-page-vs-layout/)
+**시리즈:** [목차](/posts/00-sflayout-series/) | 이전 → [04. `subviewS.pos` 는 배치 영역이 아니다](/posts/04-sflayout-page-vs-layout/)
 
 ## 참고
 

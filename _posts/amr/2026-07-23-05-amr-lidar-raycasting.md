@@ -7,7 +7,7 @@ tags: [amr, lidar, raycasting, dda, occupancy-grid, matlab]
 math: true
 ---
 
-> **연재:** [목차](/posts/00-amr-series/) · 이전 → [04. 차동구동](/posts/04-amr-differential-drive/) · 다음 → [06. LiDAR 비이상성](/posts/06-amr-lidar-imperfections/)
+> **연재:** [목차](/posts/00-amr-series/) | 이전 → [04. 차동구동](/posts/04-amr-differential-drive/) | 다음 → [06. LiDAR 비이상성](/posts/06-amr-lidar-imperfections/)
 
 시뮬레이션의 planner가 ground-truth 장애물 좌표를 직접 받으면 센서가 없는 로봇을 만든 셈이다. 이 프로젝트에서는 합성 floor map을 occupancy grid로 만들고, 각 LiDAR beam이 처음 만나는 occupied cell까지의 거리를 계산했다.
 
@@ -108,4 +108,4 @@ end
 
 ## 연재
 
-[목차](/posts/00-amr-series/) · 이전 → [04. 차동구동](/posts/04-amr-differential-drive/) · 다음 → [06. LiDAR 비이상성](/posts/06-amr-lidar-imperfections/)
+[목차](/posts/00-amr-series/) | 이전 → [04. 차동구동](/posts/04-amr-differential-drive/) | 다음 → [06. LiDAR 비이상성](/posts/06-amr-lidar-imperfections/)

@@ -7,7 +7,7 @@ tags: [amr, odometry, ekf, mcl, localization, covariance]
 math: true
 ---
 
-> **연재:** [목차](/posts/00-amr-series/) · 이전 → [07. 점유격자와 log-odds](/posts/07-amr-occupancy-logodds/) · 다음 → [09. Scan matching](/posts/09-amr-scan-matching/)
+> **연재:** [목차](/posts/00-amr-series/) | 이전 → [07. 점유격자와 log-odds](/posts/07-amr-occupancy-logodds/) | 다음 → [09. Scan matching](/posts/09-amr-scan-matching/)
 
 로봇의 위치추정에는 서로 다른 역할의 추정기가 있다. wheel odometry는 연속적인 짧은 시간 motion에 강하고, 지도 기반 localization은 누적 drift를 전역 기준으로 보정한다. 하나의 pose 숫자로 합치기 전에 각 추정기가 무엇을 보장하는지 구분해야 한다.
 
@@ -109,7 +109,7 @@ Stateflow Health region은 이 상태를 받아 degraded mode나 fault로 전환
 
 현재 구현된 것은 `[x,y,theta]` pose EKF의 prediction/update와 covariance health prototype이다. 아직 하지 않은 것은 wheel encoder/IMU 생성, slip과 bias를 포함한 폐루프 odometry, MCL, kidnapped robot 복구다. EKF health도 통합 Industrial Supervisor 입력에는 아직 연결하지 않았다.
 
-다음 두 글의 SLAM은 localization과 mapping을 함께 풀지만, 현재 프로젝트에서는 이론·구현 계획 단계로 남아 있다.
+다음 두 글의 SLAM은 localization과 mapping을 함께 풀지만, 현재 프로젝트에서는 이론과 구현 계획 단계로 남아 있다.
 
 ## 참고
 
@@ -119,4 +119,4 @@ Stateflow Health region은 이 상태를 받아 degraded mode나 fault로 전환
 
 ## 연재
 
-[목차](/posts/00-amr-series/) · 이전 → [07. 점유격자와 log-odds](/posts/07-amr-occupancy-logodds/) · 다음 → [09. Scan matching](/posts/09-amr-scan-matching/)
+[목차](/posts/00-amr-series/) | 이전 → [07. 점유격자와 log-odds](/posts/07-amr-occupancy-logodds/) | 다음 → [09. Scan matching](/posts/09-amr-scan-matching/)

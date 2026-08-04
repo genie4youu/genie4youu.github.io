@@ -8,7 +8,7 @@ mermaid: true
 ---
 
 > **기준:** 확인일 2026-07-20
-> **시리즈:** [목차](/posts/00-mcp-series/) · 이전 → [12. 트러블슈팅](/posts/12-mcp-troubleshooting/) · 다음 → [14. 에디터 통합 — 터미널과 확장](/posts/14-mcp-editor-integration/)
+> **시리즈:** [목차](/posts/00-mcp-series/) | 이전 → [12. 트러블슈팅](/posts/12-mcp-troubleshooting/) | 다음 → [14. 에디터 통합 — 터미널과 확장](/posts/14-mcp-editor-integration/)
 
 ---
 
@@ -17,7 +17,7 @@ mermaid: true
 ```
 ✅ Host ↔ MATLAB MCP 서버 ↔ MATLAB 연결
 ✅ Simulink 도구 7개 + MATLAB 도구 5개 노출
-✅ 빈 Chart 생성·검증 완주
+✅ 빈 Chart 생성과 검증 완주
 ❌ 설정이 기본값에 가깝다   ← 여기부터가 운영 영역
 ```
 
@@ -143,7 +143,7 @@ approval_mode = "prompt"
 
 ## 📌 정리
 
-- **편의 설정보다 먼저:** 텔레메트리 차단, `model_edit`·`evaluate_matlab_code`만 확인 게이트
+- **편의 설정보다 먼저:** 텔레메트리 차단, `model_edit`과 `evaluate_matlab_code`만 확인 게이트
 - **`"approve"`는 자동 통과다.** 확인을 받으려면 `"prompt"`
 - 다중 사용자 공유는 라이선스상 금지
 - **한 MATLAB 세션에 클라이언트는 하나** — 동시 사용을 전제하지 않는다
@@ -153,7 +153,7 @@ approval_mode = "prompt"
 
 ## 시리즈
 
-[목차](/posts/00-mcp-series/) · 이전 → [12. 트러블슈팅](/posts/12-mcp-troubleshooting/) · 다음 → [14. 에디터 통합 — 터미널과 확장](/posts/14-mcp-editor-integration/)
+[목차](/posts/00-mcp-series/) | 이전 → [12. 트러블슈팅](/posts/12-mcp-troubleshooting/) | 다음 → [14. 에디터 통합 — 터미널과 확장](/posts/14-mcp-editor-integration/)
 
 ## 참고
 

@@ -8,8 +8,8 @@ mermaid: true
 math: true
 ---
 
-> **기준 출처:** Han, *From PID to ADRC*, IEEE TIE 2009 · Herbst & Madoński, *ADRC: From Principles to Practice* (Birkhäuser, CC BY 4.0) / 확인일 2026-07-31
-> **시리즈:** [목차](/posts/00-adrc-series/) · 이전 → [18. 검증](/posts/18-verification/) · 다음 → [20. 부록 B](/posts/20-adrc-derivation-bandwidth-gains/)
+> **기준 출처:** Han, *From PID to ADRC*, IEEE TIE 2009 / Herbst & Madoński, *ADRC: From Principles to Practice* (Birkhäuser, CC BY 4.0) / 확인일 2026-07-31
+> **시리즈:** [목차](/posts/00-adrc-series/) | 이전 → [18. 검증](/posts/18-verification/) | 다음 → [20. 부록 B](/posts/20-adrc-derivation-bandwidth-gains/)
 
 ---
 
@@ -19,9 +19,9 @@ math: true
 
 | 부록 | 다루는 것 |
 | --- | --- |
-| **19편 (이 글)** | 총외란 상쇄가 왜 적분기를 만드나 · ESO가 왜 맞히나 |
+| **19편 (이 글)** | 총외란 상쇄가 왜 적분기를 만드나, ESO가 왜 맞히나 |
 | [20편](/posts/20-adrc-derivation-bandwidth-gains/) | $3\omega_o,\ 3\omega_o^2,\ \omega_o^3$ 와 $\omega_c^2,\ 2\omega_c$ 는 어디서 나오나 |
-| [21편](/posts/21-adrc-derivation-worked-example/) | 숫자 예제 · fal 유한시간 수렴 · PI + 필터 등가 |
+| [21편](/posts/21-adrc-derivation-worked-example/) | 숫자 예제, fal 유한시간 수렴, PI + 필터 등가 |
 
 ## 1. 정직하게 쓴 플랜트
 
@@ -31,7 +31,7 @@ $$\ddot y = f(y,\dot y,\ \text{외란},\ t) + b\,u \tag{1}$$
 
 | 기호 | 뜻 | 아는가 |
 | --- | --- | --- |
-| $u$ | 입력 (전류·토크 지령) | 안다 |
+| $u$ | 입력 (전류와 토크 지령) | 안다 |
 | $b$ | 참 입력이득 | 대략만 안다 |
 | $f(\cdot)$ | 마찰, 중력, 비선형, 외란 | **모른다** |
 
@@ -66,7 +66,7 @@ $$\ddot y \approx u_0$$
 
 ```mermaid
 flowchart LR
-    A["실제 플랜트<br/>y'' = F + b0·u"] --> B["상쇄 제어법칙<br/>u = (u0 - F_hat)/b0"]
+    A["실제 플랜트<br/>y'' = F + b0×u"] --> B["상쇄 제어법칙<br/>u = (u0 - F_hat)/b0"]
     B --> C["보이는 플랜트<br/>y'' = u0"]
     C --> D["PD 하나로 충분"]
 ```
@@ -165,7 +165,7 @@ $\omega_o$ 를 키우면 추정오차 유계가 줄고, $F$ 가 천천히 변할
 
 ## ⚠️ 주의
 
-- **$\lvert h\rvert$ 유계 가정이 깨지면 보장도 깨진다.** 총외란이 스텝처럼 튀는 순간에는 추정이 한 박자 늦는다. 충돌·급정지처럼 불연속 사건이 있는 시스템은 이 지점을 따로 봐야 한다.
+- **$\lvert h\rvert$ 유계 가정이 깨지면 보장도 깨진다.** 총외란이 스텝처럼 튀는 순간에는 추정이 한 박자 늦는다. 충돌과 급정지처럼 불연속 사건이 있는 시스템은 이 지점을 따로 봐야 한다.
 - **(4)의 근사는 ESO가 수렴한 뒤에만 성립한다.** 기동 직후 과도구간에서는 $\ddot y \approx u_0$ 가 아니다. 초기값 설정과 입력 포화가 이 구간을 좌우한다.
 - $\lvert e_3\rvert_{ss}$ 식의 지수는 시스템 차수와 $h$ 의 형태에 따라 달라진다. 여기서는 경향만 쓴다. 정확한 차수별 유계는 R2 원문을 확인한다.
 
@@ -179,7 +179,7 @@ $\omega_o$ 를 키우면 추정오차 유계가 줄고, $F$ 가 천천히 변할
 
 ---
 
-**시리즈:** [목차](/posts/00-adrc-series/) · 이전 → [18. 검증](/posts/18-verification/) · 다음 → [20. 부록 B — 대역폭 게인 유도](/posts/20-adrc-derivation-bandwidth-gains/)
+**시리즈:** [목차](/posts/00-adrc-series/) | 이전 → [18. 검증](/posts/18-verification/) | 다음 → [20. 부록 B — 대역폭 게인 유도](/posts/20-adrc-derivation-bandwidth-gains/)
 
 ## 참고
 

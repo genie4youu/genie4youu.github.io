@@ -8,7 +8,7 @@ mermaid: true
 ---
 
 > **기준:** MathWorks 공개 문서 / 확인일 2026-07-14
-> **시리즈:** [목차](/posts/00-stateflow-series/) · 이전 → [05. Junction](/posts/05-junction/) · 다음 → [07. Function](/posts/07-functions/)
+> **시리즈:** [목차](/posts/00-stateflow-series/) | 이전 → [05. Junction](/posts/05-junction/) | 다음 → [07. Function](/posts/07-functions/)
 
 ---
 
@@ -121,7 +121,7 @@ flowchart LR
 
 ## 시리즈
 
-[목차](/posts/00-stateflow-series/) · 이전 → [05](/posts/05-junction/) · 다음 → [07. Function으로 재사용](/posts/07-functions/)
+[목차](/posts/00-stateflow-series/) | 이전 → [05](/posts/05-junction/) | 다음 → [07. Function으로 재사용](/posts/07-functions/)
 
 ## 참고
 

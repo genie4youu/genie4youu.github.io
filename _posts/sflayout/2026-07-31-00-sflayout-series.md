@@ -8,7 +8,7 @@ tags: [stateflow, api, 레이아웃, 자동화, amr, 목차]
 mermaid: true
 ---
 
-> **기준:** MATLAB R2025b · [genie4youu/amr_robot_planning](https://github.com/genie4youu/amr_robot_planning) / 확인일 2026-07-31
+> **기준:** MATLAB R2025b / [genie4youu/amr_robot_planning](https://github.com/genie4youu/amr_robot_planning) / 확인일 2026-07-31
 
 ---
 
@@ -102,6 +102,6 @@ flowchart TD
 ## 참고
 
 - [Overview of the Stateflow API](https://www.mathworks.com/help/stateflow/api/overview-of-the-stateflow-api.html)
-- [Stateflow.Transition](https://www.mathworks.com/help/stateflow/api/stateflow.transition.html) · [Stateflow.State](https://www.mathworks.com/help/stateflow/api/stateflow.state.html)
+- [Stateflow.Transition](https://www.mathworks.com/help/stateflow/api/stateflow.transition.html), [Stateflow.State](https://www.mathworks.com/help/stateflow/api/stateflow.state.html)
 - [Refactor Charts Programmatically](https://www.mathworks.com/help/stateflow/api/refactor-stateflowcharts-using-the-api.html)
 - 프로젝트 저장소 — [genie4youu/amr_robot_planning](https://github.com/genie4youu/amr_robot_planning)

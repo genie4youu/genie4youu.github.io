@@ -1,6 +1,6 @@
 ---
 title: 09. 설치 — MCP 서버 등록
-description: MCP 서버를 Host에 등록하는 설정 필드 전체와, 도구별 승인 모드·샌드박스 설정을 정리한다. MCP 시리즈 9편.
+description: MCP 서버를 Host에 등록하는 설정 필드 전체와, 도구별 승인 모드와 샌드박스 설정을 정리한다. MCP 시리즈 9편.
 date: 2026-07-20 06:09:00 +0900
 categories: [AI 에이전트, MATLAB 연결]
 tags: [mcp, 설정, toml, 승인, 샌드박스, matlab]
@@ -8,7 +8,7 @@ mermaid: true
 ---
 
 > **기준:** 확인일 2026-07-20
-> **시리즈:** [목차](/posts/00-mcp-series/) · 이전 → [08. 사전 준비](/posts/08-matlab-mcp-prerequisites/) · 다음 → [10. MATLAB 세션 공유](/posts/10-matlab-session-sharing/)
+> **시리즈:** [목차](/posts/00-mcp-series/) | 이전 → [08. 사전 준비](/posts/08-matlab-mcp-prerequisites/) | 다음 → [10. MATLAB 세션 공유](/posts/10-matlab-session-sharing/)
 
 ---
 
@@ -127,7 +127,7 @@ tool_timeout_sec = 600
 | `tool_timeout_sec` | 60 | 도구 실행 타임아웃 |
 | `enabled` | | 삭제하지 않고 비활성화 |
 | `required` | | 초기화 실패 시 Host 기동 자체를 실패 처리 |
-| `enabled_tools` / `disabled_tools` | | 도구 허용·거부 목록 |
+| `enabled_tools` / `disabled_tools` | | 도구 허용과 거부 목록 |
 | **`default_tools_approval_mode`** | | `"auto"` / `"prompt"` / `"writes"` / `"approve"` |
 | **`tools.<tool>.approval_mode`** | | 도구별 개별 오버라이드 |
 
@@ -193,7 +193,7 @@ untrusted | on-request | never | { granular = { sandbox_approval, rules, mcp_eli
 
 `[sandbox_workspace_write]` 하위 옵션: `exclude_slash_tmp`, `exclude_tmpdir_env_var`, `network_access`, `writable_roots`.
 
-> ⚠️ **샌드박스는 MCP 서버를 경유하는 동작을 제한하지 않는다.** Host 샌드박스는 Host가 직접 수행하는 파일·명령 실행에 적용된다. `evaluate_matlab_code`로 전달된 코드는 **MATLAB 프로세스의 권한**으로 실행된다. 방어선은 승인 프롬프트와 `.satk/` 정책 쪽에 있다.
+> ⚠️ **샌드박스는 MCP 서버를 경유하는 동작을 제한하지 않는다.** Host 샌드박스는 Host가 직접 수행하는 파일과 명령 실행에 적용된다. `evaluate_matlab_code`로 전달된 코드는 **MATLAB 프로세스의 권한**으로 실행된다. 방어선은 승인 프롬프트와 `.satk/` 정책 쪽에 있다.
 
 ## 7. 등록 확인
 
@@ -214,7 +214,7 @@ untrusted | on-request | never | { granular = { sandbox_approval, rules, mcp_eli
 
 ## 시리즈
 
-[목차](/posts/00-mcp-series/) · 이전 → [08](/posts/08-matlab-mcp-prerequisites/) · 다음 → [10. MATLAB 세션 공유](/posts/10-matlab-session-sharing/)
+[목차](/posts/00-mcp-series/) | 이전 → [08](/posts/08-matlab-mcp-prerequisites/) | 다음 → [10. MATLAB 세션 공유](/posts/10-matlab-session-sharing/)
 
 ## 참고
 

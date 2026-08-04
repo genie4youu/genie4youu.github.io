@@ -7,8 +7,8 @@ tags: [stateflow, subchart, zoomfactor, 가독성, 레이아웃, amr]
 mermaid: true
 ---
 
-> **기준:** MATLAB R2025b 실측 · [genie4youu/amr_robot_planning](https://github.com/genie4youu/amr_robot_planning) / 확인일 2026-07-31
-> **시리즈:** [목차](/posts/00-sflayout-series/) · 이전 → [03. 재귀 계층 탐색](/posts/03-sflayout-recursive-hierarchy/) · 다음 → [05. 검사기와 멱등성](/posts/05-sflayout-inspector-idempotence/)
+> **기준:** MATLAB R2025b 실측 / [genie4youu/amr_robot_planning](https://github.com/genie4youu/amr_robot_planning) / 확인일 2026-07-31
+> **시리즈:** [목차](/posts/00-sflayout-series/) | 이전 → [03. 재귀 계층 탐색](/posts/03-sflayout-recursive-hierarchy/) | 다음 → [05. 검사기와 멱등성](/posts/05-sflayout-inspector-idempotence/)
 
 ---
 
@@ -112,7 +112,7 @@ flowchart TD
 
 재발 방지로 고정한 세 가지다.
 
-1. 정식 모델과 모든 후보에 **동일한** 중심·크기 검사를 적용한다.
+1. 정식 모델과 모든 후보에 **동일한** 중심과 크기 검사를 적용한다.
 2. 저장하고 닫고 다시 연 뒤에도 저장 배율이 유지되는지 검사한다.
 3. `max(graphicWidth, graphicHeight) × ZoomFactor` 가 400 px 미만이면 생성과 테스트를 실패시킨다.
 
@@ -135,7 +135,7 @@ flowchart TD
 
 ---
 
-**시리즈:** [목차](/posts/00-sflayout-series/) · 이전 → [03. 계층을 재귀로 훑는다](/posts/03-sflayout-recursive-hierarchy/) · 다음 → [05. 검사기가 통과시킨 것](/posts/05-sflayout-inspector-idempotence/)
+**시리즈:** [목차](/posts/00-sflayout-series/) | 이전 → [03. 계층을 재귀로 훑는다](/posts/03-sflayout-recursive-hierarchy/) | 다음 → [05. 검사기가 통과시킨 것](/posts/05-sflayout-inspector-idempotence/)
 
 ## 참고
 

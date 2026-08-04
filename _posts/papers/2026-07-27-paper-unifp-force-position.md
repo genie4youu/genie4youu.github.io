@@ -62,14 +62,14 @@ $$F = K(x - x^{\text{des}}) + D(\dot{x} - \dot{x}^{\text{des}}) + M(\ddot{x} - \
 | --- | --- |
 | 비용 | 수백만 원대이고 과부하에 취약하다 |
 | 관측 범위 | 손목에 달면 **그 뒤쪽 링크가 받는 힘은 보이지 않는다.** 팔뚝으로 밀거나 몸으로 기대면 안 보인다 |
-| 보정 | 중력·관성 보상이 별도로 필요하고, 자세가 바뀌면 캘리브레이션이 흔들린다 |
+| 보정 | 중력과 관성 보상이 별도로 필요하고, 자세가 바뀌면 캘리브레이션이 흔들린다 |
 | 다점 접촉 | 접촉점이 여럿이면 구분하지 못한다 |
 
 그래서 관절 토크나 상태 이력에서 외력을 역산하려는 시도가 계속 있었다. 고전적으로는 generalized momentum observer 계열이 있고, UniFP 는 그 자리를 **학습된 추정기**로 채운다.
 
 ## 4. 핵심 아이디어 — 힘 명령을 위치 목표로 환산한다
 
-준정적(quasi-static) 조작을 가정하면 식 (1)의 속도·가속도 항이 사라진다.
+준정적(quasi-static) 조작을 가정하면 식 (1)의 속도와 가속도 항이 사라진다.
 
 $$F = K(x - x^{\text{des}})$$
 
@@ -119,7 +119,7 @@ $$\mathbf{o}_{t} = [\ \mathbf{g}^{\text{base}}_{t},\ \omega^{\text{base}}_{t},\ 
 | --- | --- | --- |
 | $\mathbf{g}^{\text{base}}$ | 베이스 자세 | IMU |
 | $\omega^{\text{base}}$ | 베이스 각속도 | IMU |
-| $\mathbf{q},\ \dot{\mathbf{q}}$ | 관절 각도·각속도 | 엔코더 |
+| $\mathbf{q},\ \dot{\mathbf{q}}$ | 관절 각도와 각속도 | 엔코더 |
 | $\mathbf{a}_{t-1}$ | 직전 행동 | 내부값 |
 | $\mathbf{c}^{\text{cmd}}$ | 명령 | 사용자 |
 | $\theta^{\text{feet}}$ | 발 접촉 위상 | 내부 게이트 클럭 |
@@ -167,7 +167,7 @@ $$r_{\text{base}} = \exp\left\{-\frac{\left|\mathbf{v}_{\text{base}} - \left(\ma
 | 항 | 가중치 | 목적 |
 | --- | --- | --- |
 | 관절 한계 위반 | −10.0 | 기구 보호 |
-| 충돌 | −5.0 | 자기 충돌·환경 충돌 억제 |
+| 충돌 | −5.0 | 자기 충돌과 환경 충돌 억제 |
 | 행동 변화율 | −0.02 | 채터링 억제 |
 | 토크 한계 | −0.005 | 포화 회피 |
 | 관절 속도 | −8×10⁻⁴ | 진동 억제 |
@@ -219,7 +219,7 @@ $K$ 가 크면 같은 힘에 대해 $\Delta x$ 가 작아진다. 그러면 엔�
 
 하드웨어는 두 종류다. 4족은 Unitree B2 (12 DOF) 에 Unitree Z1 팔 (6 DOF) 을 얹었고, 휴머노이드는 Unitree G1 (29 DOF) 이다. 둘 다 RTX 3090 데스크톱과 무선으로 연결해 구동했다.
 
-**추종·추정 정확도**
+**추종과 추정 정확도**
 
 | 항목 | 값 |
 | --- | --- |
@@ -283,7 +283,7 @@ $J$ 는 자세의 함수이므로 $K_x$ 는 팔을 뻗는 방식에 따라 달�
 
 - 논문의 향상률 표기(39.5 %)는 **절대 성공률 차이(%p)** 다. 상대 개선율로 오독하기 쉽다.
 - 힘 추정 오차 10 N 은 성능 지표이지 안전 보증이 아니다.
-- 임피던스 모델에서 감쇠·관성 항을 생략한 **준정적 가정**이므로 민첩하거나 동적인 스킬에는 적용되지 않는다.
+- 임피던스 모델에서 감쇠와 관성 항을 생략한 **준정적 가정**이므로 민첩하거나 동적인 스킬에는 적용되지 않는다.
 - 단일 접촉점만 다룬다. 다점 접촉력의 동시 추정은 미해결이다.
 - 강체 접촉을 가정한다.
 
@@ -303,4 +303,4 @@ $J$ 는 자세의 함수이므로 $K_x$ 는 팔을 뻗는 방식에 따라 달�
 - [CoRL 2025 Awards](https://2025.corl.org/program/awards)
 - N. Hogan, *Impedance Control: An Approach to Manipulation*, 1985
 - M. Raibert, J. Craig, *Hybrid Position/Force Control of Manipulators*, 1981
-- 관련 시리즈 — [ADRC 목차](/posts/00-adrc-series/) · [총외란이라는 발상](/posts/02-total-disturbance/) · [ESO](/posts/05-extended-state-observer/)
+- 관련 시리즈 — [ADRC 목차](/posts/00-adrc-series/), [총외란이라는 발상](/posts/02-total-disturbance/), [ESO](/posts/05-extended-state-observer/)

@@ -1,13 +1,13 @@
 ---
 title: 16. Safety gate, watchdog, recovery — 마지막 방어선
-description: local planner 뒤에 독립 safety gate를 두고 stop·slowdown zone, freshness watchdog, progress checker, recovery ladder를 구성한다.
+description: local planner 뒤에 독립 safety gate를 두고 stop, slowdown zone, freshness watchdog, progress checker, recovery ladder를 구성한다.
 date: 2026-07-23 06:16:00 +0900
 categories: [AMR, 감독제어와 안전]
 tags: [amr, safety-gate, watchdog, recovery, emergency-stop, collision-monitor]
 mermaid: true
 ---
 
-> **연재:** [목차](/posts/00-amr-series/) · 이전 → [15. Stateflow 감독제어](/posts/15-amr-stateflow-supervisor/) · 다음 → [17. 시스템 통합](/posts/17-amr-system-integration/)
+> **연재:** [목차](/posts/00-amr-series/) | 이전 → [15. Stateflow 감독제어](/posts/15-amr-stateflow-supervisor/) | 다음 → [17. 시스템 통합](/posts/17-amr-system-integration/)
 
 DWA가 trajectory collision을 검사해도 최종 명령 앞에는 독립 safety gate가 필요하다. planner의 bug, stale map, 잘못된 cost weight, adapter 오류를 모두 “planner가 안전할 것”이라는 같은 가정에 맡기지 않기 위해서다.
 
@@ -126,4 +126,4 @@ Replan
 
 ## 연재
 
-[목차](/posts/00-amr-series/) · 이전 → [15. Stateflow 감독제어](/posts/15-amr-stateflow-supervisor/) · 다음 → [17. 시스템 통합](/posts/17-amr-system-integration/)
+[목차](/posts/00-amr-series/) | 이전 → [15. Stateflow 감독제어](/posts/15-amr-stateflow-supervisor/) | 다음 → [17. 시스템 통합](/posts/17-amr-system-integration/)

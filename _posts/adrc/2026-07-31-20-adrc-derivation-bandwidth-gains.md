@@ -8,8 +8,8 @@ mermaid: true
 math: true
 ---
 
-> **기준 출처:** Gao, *Scaling and Bandwidth-Parameterization Based Controller Tuning*, ACC 2003 · Herbst & Madoński, *ADRC: From Principles to Practice* (Birkhäuser, CC BY 4.0) / 확인일 2026-07-31
-> **시리즈:** [목차](/posts/00-adrc-series/) · 이전 → [19. 부록 A](/posts/19-adrc-derivation-cancellation-eso/) · 다음 → [21. 부록 C](/posts/21-adrc-derivation-worked-example/)
+> **기준 출처:** Gao, *Scaling and Bandwidth-Parameterization Based Controller Tuning*, ACC 2003 / Herbst & Madoński, *ADRC: From Principles to Practice* (Birkhäuser, CC BY 4.0) / 확인일 2026-07-31
+> **시리즈:** [목차](/posts/00-adrc-series/) | 이전 → [19. 부록 A](/posts/19-adrc-derivation-cancellation-eso/) | 다음 → [21. 부록 C](/posts/21-adrc-derivation-worked-example/)
 
 ---
 
@@ -149,7 +149,7 @@ flowchart TD
 
 ---
 
-**시리즈:** [목차](/posts/00-adrc-series/) · 이전 → [19. 부록 A — 상쇄와 ESO 수렴](/posts/19-adrc-derivation-cancellation-eso/) · 다음 → [21. 부록 C — 숫자 예제와 PID 등가](/posts/21-adrc-derivation-worked-example/)
+**시리즈:** [목차](/posts/00-adrc-series/) | 이전 → [19. 부록 A — 상쇄와 ESO 수렴](/posts/19-adrc-derivation-cancellation-eso/) | 다음 → [21. 부록 C — 숫자 예제와 PID 등가](/posts/21-adrc-derivation-worked-example/)
 
 ## 참고
 

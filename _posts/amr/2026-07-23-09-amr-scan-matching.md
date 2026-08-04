@@ -7,7 +7,7 @@ tags: [amr, slam, scan-matching, lidar, correlative, localization]
 math: true
 ---
 
-> **연재:** [목차](/posts/00-amr-series/) · 이전 → [08. Odometry, EKF, MCL](/posts/08-amr-localization/) · 다음 → [10. Loop closure와 pose graph](/posts/10-amr-loop-closure-pose-graph/)
+> **연재:** [목차](/posts/00-amr-series/) | 이전 → [08. Odometry, EKF, MCL](/posts/08-amr-localization/) | 다음 → [10. Loop closure와 pose graph](/posts/10-amr-loop-closure-pose-graph/)
 
 odometry는 다음 pose의 좋은 초기값을 주지만 drift가 누적된다. scan matching은 그 주변에서 LiDAR 관측이 기존 map과 가장 잘 맞는 pose 보정을 찾는다.
 
@@ -104,4 +104,4 @@ scan matching이 통과하기 전에 loop closure를 붙이지 않는다. 다음
 
 ## 연재
 
-[목차](/posts/00-amr-series/) · 이전 → [08. Odometry, EKF, MCL](/posts/08-amr-localization/) · 다음 → [10. Loop closure와 pose graph](/posts/10-amr-loop-closure-pose-graph/)
+[목차](/posts/00-amr-series/) | 이전 → [08. Odometry, EKF, MCL](/posts/08-amr-localization/) | 다음 → [10. Loop closure와 pose graph](/posts/10-amr-loop-closure-pose-graph/)

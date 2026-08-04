@@ -8,7 +8,7 @@ math: true
 mermaid: true
 ---
 
-> **논문:** Jingqing Han, *From PID to Active Disturbance Rejection Control*, **IEEE Transactions on Industrial Electronics**, Vol. 56, No. 3, pp. 900–906, March 2009 · DOI [10.1109/TIE.2008.2011621](https://doi.org/10.1109/TIE.2008.2011621) · [Semantic Scholar](https://www.semanticscholar.org/paper/From-PID-to-Active-Disturbance-Rejection-Control-Han/e18dbe93dc0c0a3b22559b08fb04d94f481aad3a)
+> **논문:** Jingqing Han, *From PID to Active Disturbance Rejection Control*, **IEEE Transactions on Industrial Electronics**, Vol. 56, No. 3, pp. 900–906, March 2009, DOI [10.1109/TIE.2008.2011621](https://doi.org/10.1109/TIE.2008.2011621), [Semantic Scholar](https://www.semanticscholar.org/paper/From-PID-to-Active-Disturbance-Rejection-Control-Han/e18dbe93dc0c0a3b22559b08fb04d94f481aad3a)
 > **비고:** Han 은 이 논문의 영문 출판 이전인 2008년에 별세했다. 영문 개정은 제자 Zhiqiang Gao 가 맡았다.
 > **관련 시리즈:** [ADRC 목차](/posts/00-adrc-series/)
 
@@ -213,7 +213,7 @@ $b_0$ 를 ±50 % 범위로 잡아도 된다는 것, $h_1$ 이 주 노브이고 $
 | **시간지연** (식 28) | ① $e^{-\tau s}\approx 1/(\tau s+1)$ 1차 근사 ② 예측 출력 되먹임 ③ 의사입력 예측. 모델 부정확에 강하므로 ①이면 대개 충분하다 |
 | **MIMO 디커플링** (식 32~34) | $D=CB$ 가 가역이면 $\ddot y=G+U$ 로 완전 분리 → 채널마다 SISO ADRC → $u=D^{-1}U$. **$D$ 도 정확할 필요가 없다** |
 | **캐스케이드** (식 35) | 안쪽 루프에 의사입력 $u_1=x_2$ 를 두고 ADRC, 그 출력을 바깥 setpoint 로. **안쪽을 바깥보다 빠르게** |
-| **병렬·공진계** (식 36~37) | 공진 모드들의 합을 SISO 로 보고 모드 항들을 전부 총외란으로 처리 |
+| **병렬계와 공진계** (식 36~37) | 공진 모드들의 합을 SISO 로 보고 모드 항들을 전부 총외란으로 처리 |
 
 ## 6. 적용의 네 원칙과 "차수 = 상대차수"
 
@@ -259,7 +259,7 @@ $b_0$ 를 ±50 % 범위로 잡아도 된다는 것, $h_1$ 이 주 노브이고 $
 
 ## 참고
 
-- Jingqing Han, *From PID to Active Disturbance Rejection Control*, IEEE Transactions on Industrial Electronics, 56(3), 900–906, 2009 — DOI [10.1109/TIE.2008.2011621](https://doi.org/10.1109/TIE.2008.2011621) · [Semantic Scholar](https://www.semanticscholar.org/paper/From-PID-to-Active-Disturbance-Rejection-Control-Han/e18dbe93dc0c0a3b22559b08fb04d94f481aad3a)
+- Jingqing Han, *From PID to Active Disturbance Rejection Control*, IEEE Transactions on Industrial Electronics, 56(3), 900–906, 2009 — DOI [10.1109/TIE.2008.2011621](https://doi.org/10.1109/TIE.2008.2011621), [Semantic Scholar](https://www.semanticscholar.org/paper/From-PID-to-Active-Disturbance-Rejection-Control-Han/e18dbe93dc0c0a3b22559b08fb04d94f481aad3a)
 - Zhiqiang Gao, *Scaling and Bandwidth-Parameterization Based Controller Tuning*, Proceedings of the American Control Conference, 2003 — 대역폭 파라미터화의 원전 (본문에서 언급하는, 이 논문에 **없는** 부분)
 - Gernot Herbst, Rafał Madoński, *ADRC: From Principles to Practice*, Birkhäuser Cham, 2024 (CC BY 4.0) — [선형 LADRC 정본 읽기](/posts/book-adrc-principles-to-practice/)
-- 관련 시리즈 — [ADRC 목차](/posts/00-adrc-series/) · [총외란이라는 발상](/posts/02-total-disturbance/) · [ESO](/posts/05-extended-state-observer/) · [ADRC 원형: TD, ESO, 제어법칙](/posts/04-adrc-td-eso-control/) · [제어기 차수](/posts/09-adrc-order/)
+- 관련 시리즈 — [ADRC 목차](/posts/00-adrc-series/), [총외란이라는 발상](/posts/02-total-disturbance/), [ESO](/posts/05-extended-state-observer/), [ADRC 원형: TD, ESO, 제어법칙](/posts/04-adrc-td-eso-control/), [제어기 차수](/posts/09-adrc-order/)

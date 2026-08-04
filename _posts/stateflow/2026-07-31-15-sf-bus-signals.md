@@ -7,8 +7,8 @@ tags: [stateflow, bus, 구조체, simulink, 인터페이스]
 mermaid: true
 ---
 
-> **기준:** MathWorks 공개 문서 · R2025b / 확인일 2026-07-31
-> **시리즈:** [목차](/posts/00-stateflow-series/) · 이전 → [14. Simulation Data Inspector](/posts/14-sf-data-inspector/)
+> **기준:** MathWorks 공개 문서 / R2025b / 확인일 2026-07-31
+> **시리즈:** [목차](/posts/00-stateflow-series/) | 이전 → [14. Simulation Data Inspector](/posts/14-sf-data-inspector/)
 
 ---
 
@@ -117,7 +117,7 @@ field 단위로 소유자를 하나로 좁히는 편이 안전하다. 이는 [MA
 
 ---
 
-**시리즈:** [목차](/posts/00-stateflow-series/) · 이전 → [14. 결과 관측 — Simulation Data Inspector](/posts/14-sf-data-inspector/)
+**시리즈:** [목차](/posts/00-stateflow-series/) | 이전 → [14. 결과 관측 — Simulation Data Inspector](/posts/14-sf-data-inspector/)
 
 ## 참고
 

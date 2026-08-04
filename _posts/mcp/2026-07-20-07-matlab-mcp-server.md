@@ -8,7 +8,7 @@ mermaid: true
 ---
 
 > **기준:** MATLAB MCP Server `v0.11.2` / Simulink Agentic Toolkit `2026.07.15` / 확인일 2026-07-20
-> **시리즈:** [목차](/posts/00-mcp-series/) · 이전 → [06. 보안 모델](/posts/06-mcp-security/) · 다음 → [08. 사전 준비](/posts/08-matlab-mcp-prerequisites/)
+> **시리즈:** [목차](/posts/00-mcp-series/) | 이전 → [06. 보안 모델](/posts/06-mcp-security/) | 다음 → [08. 사전 준비](/posts/08-matlab-mcp-prerequisites/)
 
 ---
 
@@ -19,7 +19,7 @@ MathWorks가 배포하는 것은 GitHub의 repo 네 개다.
 | repo | 역할 |
 | --- | --- |
 | [matlab-mcp-server](https://github.com/matlab/matlab-mcp-server) | **MCP 서버 본체** |
-| [matlab-agentic-toolkit](https://github.com/matlab/matlab-agentic-toolkit) | MATLAB용 스킬·에이전트 설정 |
+| [matlab-agentic-toolkit](https://github.com/matlab/matlab-agentic-toolkit) | MATLAB용 스킬과 에이전트 설정 |
 | [simulink-agentic-toolkit](https://github.com/matlab/simulink-agentic-toolkit) | **Simulink/Stateflow용 도구 확장** |
 | [polyspace-agentic-toolkit](https://github.com/mathworks/polyspace-agentic-toolkit) | Polyspace용 |
 
@@ -101,13 +101,13 @@ MCP **resource** 2종도 함께 노출된다 — `matlab_coding_guidelines`(`gui
 
 | 도구 | 역할 | 성격 |
 | --- | --- | --- |
-| `model_overview` | subsystem 계층·인터페이스·연결 개관. `detail`: `tree`/`interfaces`/`full` | readOnly |
-| `model_read` | 블록 topology·연결·표현식. `depth`: `0`/`1`/`inf` | readOnly |
+| `model_overview` | subsystem 계층, 인터페이스, 연결 개관. `detail`: `tree`/`interfaces`/`full` | readOnly |
+| `model_read` | 블록 topology, 연결, 표현식. `depth`: `0`/`1`/`inf` | readOnly |
 | `model_query_params` | 파라미터 임의 접근 (sample time, solver, StopTime, 신호 속성) | readOnly |
 | `model_resolve_params` | 워크스페이스 변수를 수치로 해석 | readOnly |
-| **`model_edit`** | **모델 생성·수정·블록 추가** | ⚠️ **파괴적.** registry에서 유일한 `readOnlyHint: false` |
+| **`model_edit`** | **모델 생성, 수정, 블록 추가** | ⚠️ **파괴적.** registry에서 유일한 `readOnlyHint: false` |
 | `model_check` | 구조 검증. 미연결 포트, dangling line, **State와 Subchart의 Edit-Time Checks** | readOnly |
-| `model_test` | Gherkin 테스트·harness 생성 | **Simulink Test 라이선스 필요** |
+| `model_test` | Gherkin 테스트와 harness 생성 | **Simulink Test 라이선스 필요** |
 
 > ⚠️ **도구 목록에 표시되는 것과 사용 가능한 것은 다르다.** `model_test`는 Simulink Test가 없어도 목록에 나타나며, 호출 시 실패한다.
 
@@ -175,7 +175,7 @@ Simulink Agentic Toolkit README에 있다.
 
 ## 시리즈
 
-[목차](/posts/00-mcp-series/) · 이전 → [06](/posts/06-mcp-security/) · 다음 → [08. 설치 — 사전 준비](/posts/08-matlab-mcp-prerequisites/)
+[목차](/posts/00-mcp-series/) | 이전 → [06](/posts/06-mcp-security/) | 다음 → [08. 설치 — 사전 준비](/posts/08-matlab-mcp-prerequisites/)
 
 ## 참고
 

@@ -70,7 +70,7 @@ candump can0,0~0,#FFFFFFFF
 candump -ta -e can0
 ```
 
-`candump -e` 는 오류 프레임을 사람이 읽는 형태로 해석해준다. `protocol-violation{{bit-error}{}}` 같은 형태로 나온다.
+`candump -e` 는 오류 프레임을 사람이 읽는 형태로 해석해준다. `protocol-violation` 뒤에 중괄호로 `bit-error` 같은 세부 종류를 붙여 출력한다.
 
 ```cpp
 // 07편과 08편의 카운터를 주기적으로 진단 토픽이나 로그로 내보낸다

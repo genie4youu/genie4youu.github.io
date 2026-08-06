@@ -54,7 +54,7 @@ mermaid: true
 
 ```mermaid
 flowchart LR
-  N3[3 네트워크] --> D{{지운다}}
+  N3[3 네트워크] --> D{지운다}
   N4[4 전송] --> D
   N5[5 세션] --> D
   N6[6 표현] --> D

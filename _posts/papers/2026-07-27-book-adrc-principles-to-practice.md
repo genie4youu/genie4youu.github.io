@@ -1,6 +1,6 @@
 ---
 title: Herbst & Madonski, ADRC From Principles to Practice 읽기 — LADRC 공식의 정본
-description: 대역폭 파라미터화로 게인을 이항계수 하나로 정하는 유도부터 이산 구현과 C 코드까지. LADRC를 N과 b0, 대역폭 두 개로 완결시키는 책의 핵심 수식을 정리한다.
+description: 대역폭 파라미터화로 게인을 이항계수 하나로 정하는 유도부터 이산 구현과 C 코드까지. LADRC를 N과 b0, 대역폭 두 개로 완결시키는 책의 주요 수식을 정리한다.
 date: 2026-07-27 06:24:00 +0900
 categories: [업계 읽기, 논문]
 tags: [adrc, ladrc, observer, eso, bandwidth-parameterization, embedded]
@@ -13,7 +13,7 @@ mermaid: true
 > **라이선스:** 🔓 **Open Access, CC BY 4.0** — 출처를 밝히면 인용, 복제, 번역, 개작, 코드 재사용이 자유롭다.
 > **관련 시리즈:** [ADRC 목차](/posts/00-adrc-series/)
 
-**결론부터.** [Han 의 2009 년 논문](/posts/paper-han2009-pid-to-adrc/)이 비선형 원형의 원전이라면, 이 책은 **실무에서 실제로 쓰이는 선형 ADRC(LADRC)의 정본**이다. 핵심 주장은 하나다.
+**결론부터.** [Han 의 2009 년 논문](/posts/paper-han2009-pid-to-adrc/)이 비선형 원형의 원전이라면, 이 책은 **실무에서 실제로 쓰이는 선형 ADRC(LADRC)의 정본**이다. 주장은 하나다.
 
 > **LADRC 는 네 개의 값으로 완결된다. 차수 $N$, 임계이득 $b_0$, 제어기 대역폭 $\omega_{CL}$, 관측기 대역폭 $\omega_{ESO}$.**
 
@@ -27,7 +27,7 @@ CC BY 4.0 이라 수식과 코드를 출처 표기만으로 가져다 쓸 수 �
 
 **Part I — Foundations**
 
-| Ch | 제목 | 핵심 |
+| Ch | 제목 | 요점 |
 | --- | --- | --- |
 | 1 | Prelude: A Fresh Look | 읽기 안내. 비순차 읽기를 권한다 |
 | 2 | First Contact with ADRC | 물탱크와 질량 예제로 "얼마나 알아야 하나"를 보인다 |
@@ -39,7 +39,7 @@ CC BY 4.0 이라 수식과 코드를 출처 표기만으로 가져다 쓸 수 �
 
 **Part II — Going Practical**
 
-| Ch | 제목 | 핵심 |
+| Ch | 제목 | 요점 |
 | --- | --- | --- |
 | **8** | **Discrete-Time LADRC** | 상태공간형, 전달함수형, 이중되먹임형 |
 | 9 | Practical Aspects | 출력제한, 범프리스 전환, 측정노이즈, 데드타임 |

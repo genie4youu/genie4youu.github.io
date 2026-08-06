@@ -72,7 +72,7 @@ inline BissStatus decode_status(bool nE, bool nW) {
 
 Ack 길이가 가변이라는 것의 함의도 있다. 마스터는 Start 비트인 `1` 을 만날 때까지 클럭을 계속 주면서 SLO 를 읽어야 한다. 고정 길이 SPI 전송으로는 안 되고 비트 스트림을 훑어 Start 를 찾는 로직이 필요하다. 이 때문에 소프트웨어 SPI 흉내로 BiSS 를 구현하는 게 SSI 보다 훨씬 까다롭다.
 
-## 4. CRC-6 이 BiSS 의 핵심 가치다
+## 4. CRC-6 이 BiSS 에 더한 것
 
 | 항목 | 값 |
 | --- | --- |

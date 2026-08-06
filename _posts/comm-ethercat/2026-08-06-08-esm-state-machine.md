@@ -143,7 +143,7 @@ bool go_to_operational(std::uint32_t settle_cycles) {
 
 ## 6. AL Status Code, 실패 이유를 읽는다
 
-전이가 실패하면 `0x0134` 에 코드가 남는다. 이게 EtherCAT 디버깅의 핵심이다.
+전이가 실패하면 `0x0134` 에 코드가 남는다. EtherCAT 디버깅은 이 레지스터에서 시작한다.
 
 | 코드 | 뜻 | 대개의 원인 |
 | --- | --- | --- |

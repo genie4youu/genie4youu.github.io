@@ -33,7 +33,7 @@ flowchart LR
 
 이 프로젝트의 LiDAR는 base 중심보다 전방 `0.18 m`에 있다. 센서 원점을 base pose와 같다고 두면 회전할 때 모든 beam 시작점에 체계적인 오차가 생긴다.
 
-## AMR은 본질적으로 multirate다
+## AMR은 multirate다
 
 하나의 주기로 모든 것을 계산할 이유가 없다.
 

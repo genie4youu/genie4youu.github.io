@@ -85,7 +85,7 @@ class ISpiBus {
 public:
     virtual ~ISpiBus() = default;
 
-    // SPI 의 본질은 교환이다. tx 와 rx 는 같은 길이여야 한다.
+    // SPI 는 교환이다. tx 와 rx 는 같은 길이여야 한다.
     // rx 가 필요 없으면 빈 span 을 넘겨 구현이 버리게 한다.
     virtual bool transfer(std::span<const std::uint8_t> tx,
                           std::span<std::uint8_t> rx) = 0;
@@ -133,7 +133,7 @@ private:
 
 ## 정리
 
-- SPI 의 본질은 프로토콜이 아니라 링으로 이은 시프트 레지스터 두 개다.
+- SPI 는 프로토콜이 아니라 링으로 이은 시프트 레지스터 두 개다.
 - 그래서 언제나 교환이다. 읽으려면 더미를 보내야 하고 쓰면 뭔가 돌아온다.
 - API 는 `read` 와 `write` 가 아니라 `transfer(tx, rx)` 다.
 - 신호 이름 SDI 와 SDO 는 관점에 따라 뒤집힌다. 이름 말고 방향으로 배선한다.

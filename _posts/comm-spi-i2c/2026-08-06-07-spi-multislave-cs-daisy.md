@@ -57,7 +57,7 @@ EtherCAT 의 분산 클록이 푸는 문제와 같은 종류다. 규모가 다�
 ```cpp
 // comm_core/spi_daisy_chain.hpp
 // N개의 동일 슬레이브가 데이지 체인으로 연결된 버스.
-// 프레임 크기가 같아야 하고 명령 순서가 뒤집힌다는 점이 핵심이다.
+// 프레임 크기가 같아야 하고 명령 순서가 뒤집힌다.
 template <std::size_t kSlaves, std::size_t kFrameBytes>
 class SpiDaisyChain {
 public:

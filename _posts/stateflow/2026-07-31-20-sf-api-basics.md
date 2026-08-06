@@ -75,7 +75,7 @@ for k = 1:numel(trans)
 end
 ```
 
-**`ExecutionOrder` 를 뽑는 것이 핵심이다.** [09편](/posts/09-condition-action/)과 [10편](/posts/10-parallel-order/)에서 본 대로 평가 순서가 곧 동작이다. 그림으로는 번호가 작게 보여서 놓친다.
+**`ExecutionOrder` 를 뽑는다.** [09편](/posts/09-condition-action/)과 [10편](/posts/10-parallel-order/)에서 본 대로 평가 순서가 곧 동작이다. 그림으로는 번호가 작게 보여서 놓친다.
 
 ## 4. 주요 속성
 

@@ -38,7 +38,7 @@ flowchart TD
 
 이 다섯 개가 문제의 절반을 잡는다. 오실로스코프를 꺼내기 전에 한다.
 
-그리고 언제 깨지는지를 먼저 묻는다. [기초 11편](/posts/11-basics-noise-ground-isolation/)의 핵심 질문이다.
+그리고 언제 깨지는지를 먼저 묻는다. [기초 11편](/posts/11-basics-noise-ground-isolation/)에서 던진 질문이다.
 
 | 시점 | 의심 |
 | --- | --- |

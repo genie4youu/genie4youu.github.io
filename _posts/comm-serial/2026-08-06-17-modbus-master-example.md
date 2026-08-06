@@ -107,7 +107,7 @@ private:
 };
 ```
 
-`advance_us()` 로 가상 시계를 쓰는 게 핵심이다. 실제로 100 ms 를 기다리지 않고 타임아웃 로직을 테스트할 수 있다. 테스트가 밀리초 단위로 끝난다. 그리고 `set_split_response()` 가 [10편](/posts/10-modbus-silence-timeout/)의 USB latency timer 문제를 재현한다. 응답이 한 덩어리로 오든 1바이트씩 오든 파서가 똑같이 동작해야 한다.
+`advance_us()` 로 가상 시계를 쓴다. 실제로 100 ms 를 기다리지 않고 타임아웃 로직을 테스트할 수 있다. 테스트가 밀리초 단위로 끝난다. 그리고 `set_split_response()` 가 [10편](/posts/10-modbus-silence-timeout/)의 USB latency timer 문제를 재현한다. 응답이 한 덩어리로 오든 1바이트씩 오든 파서가 똑같이 동작해야 한다.
 
 ## 4. 무엇을 검증하나
 
@@ -135,7 +135,7 @@ TEST(ModbusFrame, EndiannessIsMixed) {
 ### 하이브리드 파서가 조각나서 와도 동작하는가
 
 ```cpp
-// 10편의 핵심 주장인 침묵은 힌트로만 쓰고 판정은 길이와 CRC 로 한다를 검증한다
+// 10편의 주장인 침묵은 힌트로만 쓰고 판정은 길이와 CRC 로 한다를 검증한다
 TEST(ModbusParser, WorksWhenResponseArrivesInOneChunk) {
     ModbusRtuParser p;
     const auto resp = make_response(1, 3, {0x12,0x34,0x56,0x78});

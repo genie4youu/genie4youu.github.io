@@ -108,7 +108,7 @@ flowchart LR
 
 ## 📌 정리
 
-| 개념 | 핵심 |
+| 개념 | 요점 |
 | --- | --- |
 | **Exclusive (OR)** | 같은 계층에서 하나만 active. 실선 |
 | **Parallel (AND)** | 같은 계층이 전부 active. 점선 |

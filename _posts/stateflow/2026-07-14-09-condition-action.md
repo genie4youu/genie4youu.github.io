@@ -37,7 +37,7 @@ flowchart TD
     D -->|무효| H[Backtracking]
 ```
 
-**핵심은 3번과 6번 사이에 4번(경로 검증)이 있다는 것이다.**
+**3번과 6번 사이에 4번(경로 검증)이 있다.**
 
 > Condition Action은 Condition이 참으로 평가될 때 실행된다. Transition 경로가 유효하다고 판정되기 **전**에.
 >

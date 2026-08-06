@@ -22,7 +22,7 @@ RS-485 는 논리 1 과 0 이라 부르는데 CAN 은 dominant 와 recessive 라
 | dominant (우세) | 0 | 능동적으로 밀어낸다. 이긴다 |
 | recessive (열세) | 1 | 아무도 안 밀면 되는 상태다. 진다 |
 
-비대칭이 핵심이다. 누구든 dominant 를 내면 버스가 dominant 가 된다. recessive 는 전원이 다 놓았을 때만 나타난다. 논리적으로 와이어드 AND 다. I²C 의 오픈 드레인과 같다. 다만 CAN 은 이걸 차동 신호 위에서 구현해서 노이즈 내성과 거리를 함께 얻었다.
+이 구조는 비대칭이다. 누구든 dominant 를 내면 버스가 dominant 가 된다. recessive 는 전원이 다 놓았을 때만 나타난다. 논리적으로 와이어드 AND 다. I²C 의 오픈 드레인과 같다. 다만 CAN 은 이걸 차동 신호 위에서 구현해서 노이즈 내성과 거리를 함께 얻었다.
 
 $$\text{버스 상태} = \text{노드}_1 \ \text{AND}\ \text{노드}_2 \ \text{AND}\ \cdots \ \text{AND}\ \text{노드}_N$$
 

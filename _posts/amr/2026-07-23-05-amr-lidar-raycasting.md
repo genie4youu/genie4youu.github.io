@@ -49,7 +49,7 @@ ray를 일정한 거리 간격으로 찍는 방식은 구현이 쉽지만 간격
 
 대표적인 방법은 Bresenham, DDA(Digital Differential Analyzer), Amanatides–Woo traversal이다. 프로젝트의 기준 구현 `raycastGrid`는 DDA 방식으로 한 ray가 지나가는 cell을 추적한다.
 
-## DDA의 핵심
+## DDA의 진행 규칙
 
 현재 cell에서 x 방향 다음 경계와 y 방향 다음 경계까지 필요한 ray parameter를 비교한다.
 

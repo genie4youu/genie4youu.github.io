@@ -80,7 +80,7 @@ void Rs485Port::send(std::span<const std::uint8_t> data) {
         uart_->DR = b;
     }
 
-    // 핵심은 TC(Transmission Complete)를 기다리는 것이다.
+    // TC(Transmission Complete)를 기다린다.
     // 마지막 정지 비트까지 선로에 나간 뒤에 뜬다.
     while (!(uart_->SR & UART_SR_TC)) {}
 

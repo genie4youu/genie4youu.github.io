@@ -278,7 +278,7 @@ TEST(CanErrorState, PersistentFaultReachesBusOff) {
 }
 
 TEST(CanErrorState, ReceiveErrorsNeverCauseBusOff) {
-    // 08편의 핵심이다. REC 로는 Bus Off 가 안 된다
+    // 08편에서 다룬 내용이다. REC 로는 Bus Off 가 안 된다
     CanErrorStateMachine sm;
     for (int i = 0; i < 100'000; ++i) sm.on_receive_error();
     EXPECT_EQ(sm.state(), CanState::ErrorPassive);
@@ -380,7 +380,7 @@ flowchart TD
   G --> H[드라이브가 생기면 실물]
 ```
 
-세 번째와 네 번째가 이 예제의 핵심이고, Stateflow 로 같은 FSM 을 그려서 같은 입력 시퀀스로 출력을 비교하면 Stateflow 공부와 직접 이어진다.
+세 번째와 네 번째가 이 예제가 노린 것이고, Stateflow 로 같은 FSM 을 그려서 같은 입력 시퀀스로 출력을 비교하면 Stateflow 공부와 직접 이어진다.
 
 ## 정리
 

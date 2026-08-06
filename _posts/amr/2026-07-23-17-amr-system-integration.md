@@ -126,7 +126,7 @@ smoke test에서는 update 성공, unconnected port, data size/type, zero comman
 - map source variant: reference / built map
 - fault injection variant
 
-## 통합의 핵심
+## 통합에서 실제로 하는 일
 
 큰 모델은 블록 수로 완성되지 않는다. 초기화, 유효성, 시간, 책임과 실패 전파를 계약으로 만들고, 한 경계씩 연결해 이전 baseline을 계속 지키는 과정이 통합이다.
 

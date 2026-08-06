@@ -130,7 +130,7 @@ TEST(ByteOrder, StructPaddingIsNotWireFormat) {
 ### 프레이밍 — 재동기가 되는가
 
 ```cpp
-// 06편의 핵심 주장. 어긋나도 다음 STX 에서 복구된다
+// 06편의 주장. 어긋나도 다음 STX 에서 복구된다
 TEST(FrameParser, ResyncsAfterGarbage) {
     FrameParser p;
     for (std::uint8_t g : {0x11,0x22,0x33,0xFF,0x00}) EXPECT_FALSE(p.feed(g));

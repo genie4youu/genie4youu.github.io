@@ -162,7 +162,7 @@ SCL 이 대칭이 아니다. Fast 모드에서 $t_{LOW}$ 1.3 µs 가 $t_{HIGH}$ 
 ## 정리
 
 - I²C 가 느린 근본 이유는 HIGH 를 풀업 저항이 RC 로 만들기 때문이다.
-- 규격의 핵심 식은 $t_r = 0.8473 \times R_p \times C_b$ 다.
+- 규격의 식은 $t_r = 0.8473 \times R_p \times C_b$ 다.
 - 속도 등급은 Standard 100 kHz($t_r$ 1000 ns), Fast 400 kHz(300 ns), Fm+ 1 MHz(120 ns)이고 $C_b$ 상한은 400 pF 다.
 - $C_b$ 는 핀 5~10 pF 에 배선 1 pF/cm, 케이블 50~100 pF/m 다. I²C 를 보드 밖으로 빼지 않는다.
 - 풀업 계산은 $R_{p(min)}=(V_{DD}-0.4)/3\text{mA}$ 와 $R_{p(max)}=t_r/(0.8473 C_b)$ 다.

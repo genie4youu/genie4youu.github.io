@@ -44,7 +44,7 @@ flowchart TD
 4. 자식 State         (내려간다)
 ```
 
-**`during`이 분기 아래에 있다는 것이 핵심이다.**
+**`during`은 분기 아래에 있다.**
 
 > 🚨 **유효한 outer Transition이 있으면 `during`은 실행조차 되지 않는다.**
 {: .prompt-danger }

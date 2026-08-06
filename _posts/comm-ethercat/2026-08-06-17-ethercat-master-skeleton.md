@@ -49,7 +49,7 @@ comm-examples/
 
 ## 3. 가짜 슬레이브, 두 FSM이 겹친 모델
 
-08편과 12편의 "FSM 세 개가 겹친다" 를 시뮬레이터로 만든다. 이게 이 예제의 핵심이다.
+08편과 12편의 "FSM 세 개가 겹친다" 를 시뮬레이터로 만든다. 이 예제가 하는 일이 그것이다.
 
 ```cpp
 // test/fake_slave_model.hpp
@@ -117,7 +117,7 @@ public:
 private:
     EsmState  esm_{EsmState::Init};
     FakeCia402Slave drive_;                 // CAN 예제의 것을 재사용한다
-    std::int32_t position_{123456};         // 0 이 아닌 초기 위치. D4 검증의 핵심
+    std::int32_t position_{123456};         // 0 이 아닌 초기 위치. D4 검증에 쓴다
     std::uint32_t pd_cycles_{0}, jump_events_{0}, dc_ticks_{0}, watchdog_us_{0};
     std::uint32_t watchdog_timeout_us_{100'000};
     bool pdo_mapping_valid_{true}, sm_config_valid_{true};
@@ -242,7 +242,7 @@ TEST(WkcMonitor, ExpectedValueMatchesSpecFormula) {
 ### ⑤ 진단, 불량 구간 특정
 
 ```cpp
-// 16편의 핵심: "RX Error 있고 Forwarded 없는" 슬레이브가 범인 구간의 끝
+// 16편의 규칙: "RX Error 있고 Forwarded 없는" 슬레이브가 범인 구간의 끝
 TEST(Diagnostics, LocatesBadCableSegment) {
     std::vector<SlaveDiagnostics> d(10);
     d[5].ports[0].rx_error  = 42;      // 슬레이브 5(0-based)에서 처음 깨졌다
@@ -365,7 +365,7 @@ void run() {
 1. budget과 테스트. 설계 검토에 바로 쓰인다
 2. esm과 al_status_string과 테스트
 3. `FakeSlaveModel`. ESM과 CiA 402 겹침, CAN 예제의 드라이브 재사용
-4. esm_sequencer와 테스트. D4 검증이 핵심
+4. esm_sequencer와 테스트. D4 검증까지
 5. wkc_monitor와 테스트
 6. diagnostics와 테스트. 불량 구간 특정
 7. pdo_map과 axis_io와 테스트. 오프셋 `static_assert`
@@ -379,7 +379,7 @@ void run() {
 
 - EtherCAT는 슬레이브에 ESC 칩이 필요해서 예제를 로직 층(하드웨어 불필요)과 I/O 층으로 나눈다
 - 로직 층이 생각보다 넓다. ESM 전이, CiA 402 겹침, WKC 정책, 진단, 예산이 전부 로직이다
-- `FakeSlaveModel` 이 FSM 세 개 겹침을 시뮬레이션한다. `position_{123456}` 이 D4 검증의 핵심이다
+- `FakeSlaveModel` 이 FSM 세 개 겹침을 시뮬레이션한다. `position_{123456}` 으로 D4 를 검증한다
 - 목표값 초기화를 빼면 급이동이 발생한다는 것을 CI가 막는다
 - ESM 순서 강제와 AL Status Code(`0x0011`, `0x0024`, `0x001A`, `0x0030`)를 검증한다
 - SM 워치독은 데이터가 멈추면 스스로 SAFEOP로 내려간다. 타임아웃이 안전 요구를 만족하는지 계산까지 자동화한다

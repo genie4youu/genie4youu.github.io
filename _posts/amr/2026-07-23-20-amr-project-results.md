@@ -12,7 +12,7 @@ image:
 
 > **연재:** [목차](/posts/00-amr-series/) | 이전 → [19. 배송, 배터리, 도킹](/posts/19-amr-delivery-battery-docking/) | **코드:** [genie4youu/amr_robot_planning](https://github.com/genie4youu/amr_robot_planning)
 
-이 프로젝트의 목표는 ROS 2, Robotics System Toolbox, Simulink Test 없이 기본 MATLAB, Simulink, Stateflow로 실내 배송 AMR의 핵심 수직 절편을 직접 연결하는 것이었다.
+이 프로젝트의 목표는 ROS 2, Robotics System Toolbox, Simulink Test 없이 기본 MATLAB, Simulink, Stateflow로 실내 배송 AMR의 수직 절편을 직접 연결하는 것이었다.
 
 ## 최종 연결 구조
 

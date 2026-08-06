@@ -20,7 +20,7 @@ CLA(Control Law Accelerator)는 TI C2000 계열 MCU에 들어 있는 제어 전�
 > "The C28x Control Law Accelerator (CLA) is an **independent, fully-programmable, 32-bit floating-point math processor** that brings concurrent control-loop execution to the C28x family."
 > — [TI C2000 CLA Software Guide](https://software-dl.ti.com/C2000/docs/cla_software_dev_guide/intro.html)
 
-핵심 단어는 독립, 부동소수점, 동시 실행이다. 메인 CPU 옆에서 제어 루프만 따로 돌리는 작은 코어다.
+독립, 부동소수점, 동시 실행 세 단어가 이 정의를 이룬다. 메인 CPU 옆에서 제어 루프만 따로 돌리는 작은 코어다.
 
 ## 2. 왜 별도 코어인가 — 지터 해결
 
@@ -61,7 +61,7 @@ flowchart TB
 ## 📌 정리
 
 - CLA는 C2000의 독립된 부동소수점 제어 전용 보조 코어다.
-- 핵심 가치는 인터럽트 없이 하드웨어 이벤트로 태스크를 기동해 **지터를 없애고 결정적으로 실행**하는 것이다.
+- 인터럽트 없이 하드웨어 이벤트로 태스크를 기동해 **지터를 없애고 결정적으로 실행**한다.
 - 부동소수점, 주변장치 직접 접근, 결정적 주기가 ADRC와 맞는다.
 - 분업은 CLA가 안쪽 ADRC 루프, CPU가 통신과 상위 FSM 감독이다.
 

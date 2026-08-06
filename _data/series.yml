@@ -46,6 +46,14 @@
   index: /posts/00-sflayout-series/
   blurb: State 37개, Transition 67개짜리 차트를 사람이 읽을 수 있게 만든 기록. 그래픽 위반 32건을 0으로 줄였다.
 
+- id: comm
+  name: 로봇 통신
+  icon: fa-solid fa-network-wired
+  # 통신 하나 = 폴더 하나로 나눠 두었다. 카드는 하나지만 편수는 일곱 폴더를 합쳐 센다.
+  dirs: [comm-basics, comm-spi-i2c, comm-serial, comm-can, comm-ethernet, comm-ethercat, comm-summary]
+  index: /posts/00-comm-series/
+  blurb: 도달, 동기, 경계, 무결, 조정, 시간. 여섯 칸을 정해 두고 SPI 부터 EtherCAT 까지 같은 표를 채워 나간다.
+
 - id: reading
   name: 업계 읽기
   icon: fa-solid fa-newspaper

@@ -179,7 +179,7 @@ TEST(SpscRingBuffer, NoLossUnderConcurrency) {
 ## 4. 만드는 순서
 
 ```mermaid
-flowchart LR
+flowchart TD
   A[crc.hpp] --> B[byte_order.hpp]
   B --> C[framing.hpp]
   C --> R[여기서 repo 생성]

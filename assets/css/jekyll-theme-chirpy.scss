@@ -526,7 +526,8 @@ article > header figcaption {
 }
 
 /* ── 5. 시리즈 색 ─────────────────────────────────────────────
-   시리즈가 7개라 이름만으로는 목록에서 구분이 잘 안 된다.
+   시리즈가 여러 개라 이름만으로는 목록에서 구분이 잘 안 된다.
+   (개수를 여기 적으면 시리즈가 늘 때마다 조용히 낡는다. 목록은 _data/series.yml 이 정본이다.)
    카드 왼쪽 선과 아이콘, 최근 글의 점에 색을 나눠 준다.
 
    키 이름은 _data/series.yml 의 id 와 같아야 한다.
@@ -540,6 +541,8 @@ $series-light: (
   'amr': #5f6ba8,
   'mcp': #4f7d86,
   'comm': #4a7a63,
+  'rtos': #4d6f8f,
+  'mp': #6f7a4a,
   'reading': #8a6246,
   'break': #99798c,
 );
@@ -551,6 +554,8 @@ $series-dark: (
   'amr': #9aa6e0,
   'mcp': #86c2cc,
   'comm': #8fc9ac,
+  'rtos': #9bbcd8,
+  'mp': #bdc78f,
   'reading': #d0a284,
   'break': #c3a7ba,
 );

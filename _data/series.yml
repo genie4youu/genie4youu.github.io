@@ -54,6 +54,21 @@
   index: /posts/00-comm-series/
   blurb: 도달, 동기, 경계, 무결, 조정, 시간. 여섯 칸을 정해 두고 SPI 부터 EtherCAT 까지 같은 표를 채워 나간다.
 
+- id: rtos
+  name: RTOS와 실시간
+  icon: fa-solid fa-stopwatch
+  # 이론 / 리눅스 / 윈도우로 나눠 두었다. 카드는 하나지만 편수는 세 폴더를 합쳐 센다.
+  dirs: [rtos-theory, rtos-linux, rtos-windows]
+  index: /posts/00-rtos-series/
+  blurb: 실시간은 빠른 게 아니라 늦지 않는 것이다. 스케줄 가능성을 손으로 계산하고, 리눅스와 윈도우에서 실제로 재본다.
+
+- id: mp
+  name: MATLAB과 Simulink 문법
+  icon: fa-solid fa-calculator
+  dirs: [matlab, simulink, stateflow-syntax]
+  index: /posts/00-mp-series/
+  blurb: 남이 만든 모델을 읽기 위한 최소 문법. 정수 타입과 비트 연산에서 시작해 블록과 Stateflow 문법까지.
+
 - id: reading
   name: 업계 읽기
   icon: fa-solid fa-newspaper

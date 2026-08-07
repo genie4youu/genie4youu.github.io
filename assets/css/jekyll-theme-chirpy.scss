@@ -35,14 +35,22 @@
      5. 시리즈 색
    ============================================================ */
 
-/* ── 1. 팔레트: 모브 (연보라와 연분홍 사이, 회색이 섞인 톤) ──
+/* ── 1. 팔레트: 연보라 바탕 + 모브 글씨 (2026-08-07 개편) ─────
+   전에는 바탕과 글씨가 모두 모브였고 본문 바탕은 테마 기본값인 순백이었다.
+
+   지금은 둘을 나눠 쓴다.
+     바탕·테두리·hover (surface)  연보라   — 페이지, 사이드바, 카드, 표
+     글씨·링크·제목·시리즈 (ink)  모브 그대로
+   차가운 연보라 종이에 따뜻한 모브 잉크로 쓴 모양이 된다.
+   surface 만 옮기고 ink 는 두는 것이 이 개편의 규칙이다. 섞으면 탁해진다.
+   예외는 콜아웃(--prompt-tip-*)이다. 튀라고 있는 것이라 모브로 남겼다.
+
+   원칙: 연한 톤은 바탕에만 쓰고, 링크와 제목은 같은 계열의 진한 톤을 쓴다.
+        연한 색을 링크에 쓰면 밝은 배경에서 대비가 3:1 아래로 떨어진다.
+        아래 링크 색은 연보라 바탕(#f4f1fb)에서 5.81:1, 흰 카드 위에서 6.48:1 이다.
+
    다른 후보로 바꾸려면 아래 두 믹스인의 값만 교체한다.
    파일 맨 아래에 라벤더 / 연분홍 값을 주석으로 남겨두었다.
-
-   원칙: 연한 톤은 바탕(사이드바, 콜아웃, 표)에만 쓰고,
-        링크와 제목은 같은 계열의 진한 톤을 쓴다.
-        연한 색을 링크에 쓰면 흰 배경에서 대비가 3:1 아래로 떨어진다.
-        아래 링크 색은 흰 배경에서 약 6.5:1 이다.
    ------------------------------------------------------------ */
 
 @mixin palette-light {
@@ -50,72 +58,83 @@
   --link-underline-color: #e6d8e0;
   --heading-color: #33262e;
   --text-color: #413941;
-  --text-muted-color: #7f7480;
-  --main-border-color: #f2eef0;
+  --text-muted-color: #736874;
+  --main-border-color: #eee9f5;
 
-  --sidebar-bg: #f4f0f2;
-  --sidebar-border-color: #ece5e8;
+  /* 바탕은 연보라, 글씨와 링크는 모브 그대로다 (2026-08-07).
+     테마 기본값은 순백이었다. 아주 옅게만 넣는다 — 바탕에 색이 붙으면
+     본문 대비가 같이 내려가므로 흰색에서 4% 정도만 벗어난다. */
+  --main-bg: #f4f1fb;
+
+  --sidebar-bg: #ebe6f7;
+  --sidebar-border-color: #e2dcf1;
   --sidebar-muted-color: #564c53;
   --sidebar-active-color: #261c22;
-  --sidebar-hover-bg: #e9e0e5;
+  --sidebar-hover-bg: #e1d9f3;
   --site-title-color: #6b606a;
-  --site-subtitle-color: #786d75;
+  --site-subtitle-color: #6f6470;
 
-  --card-hover-bg: #ede5e9;
+  --card-hover-bg: #e9e2f6;
   --toc-highlight: #7f4f6d;
   --btn-share-hover-color: #7f4f6d;
   --checkbox-checked-color: #7f4f6d;
 
+  /* 콜아웃은 일부러 모브로 남긴다. 눈에 띄라고 있는 것이라
+     바탕과 같은 계열로 맞추면 존재 이유가 없어진다. */
   --prompt-tip-bg: #f6ecf1;
   --prompt-tip-icon-color: #7f4f6d;
 
-  --tb-odd-bg: #fbf9fa;
-  --tb-border-color: #f0ecee;
-  --tag-hover: #ece2e7;
-  --search-tag-bg: #f7f3f5;
+  --tb-odd-bg: #f9f7fd;
+  --tb-border-color: #eae5f4;
+  --tag-hover: #e6def4;
+  --search-tag-bg: #f0ecf9;
 
   /* 랜딩 전용 */
-  --landing-hero-bg: #f8f5f7;
-  --landing-card-bg: #fff;
-  --landing-card-border: #ece5e9;
-  --landing-card-hover-bg: #faf7f9;
-  --landing-card-shadow: 0 1px 2px rgb(51 38 46 / 4%);
-  --landing-card-shadow-hover: 0 6px 18px rgb(51 38 46 / 8%);
+  --landing-hero-bg: #f8f5f7; /* 히어로는 §4-1 에서 그림으로 덮인다. 안 쓰인다 */
+  --landing-card-bg: #fff; /* 연보라 바탕 위의 흰 카드. 이 대비로 카드가 떠 보인다 */
+  --landing-card-border: #e6e0f3;
+  --landing-card-hover-bg: #f8f5fd;
+  --landing-card-shadow: 0 1px 2px rgb(45 38 62 / 5%);
+  --landing-card-shadow-hover: 0 6px 18px rgb(45 38 62 / 9%);
 }
 
 @mixin palette-dark {
-  --main-bg: #191418;
-  --mask-bg: #443c41;
-  --main-border-color: #2b242a;
+  /* 다크에서도 같은 연보라 계열이되 어두운 쪽 끝을 쓴다. 라이트와 같은
+     밝기를 넣으면 다크 모드가 아니게 되므로, 옮기는 것은 밝기가 아니라
+     색상(hue)이다 — 전에는 모브 쪽으로 기운 #191418 이었다. */
+  --main-bg: #171328;
+  --mask-bg: #413b54;
+  --main-border-color: #2b2442;
 
   --link-color: #d9a8c4;
   --heading-color: #d5c9d0;
   --text-color: #b0a6ac;
 
-  --sidebar-bg: #201a1e;
-  --sidebar-border-color: #2b242a;
+  --sidebar-bg: #1e1934;
+  --sidebar-border-color: #2b2442;
   --sidebar-muted-color: #928691;
   --sidebar-active-color: #e2d6dd;
-  --sidebar-hover-bg: #2a2227;
+  --sidebar-hover-bg: #292245;
   --site-title-color: #7d7178;
   --site-subtitle-color: #7e7279;
 
-  --card-bg: #201a1e;
-  --card-hover-bg: #3a2f35;
+  --card-bg: #1e1934;
+  --card-hover-bg: #372f52;
   --toc-highlight: #d9a8c4;
   --btn-share-hover-color: #d9a8c4;
 
+  /* 라이트와 같은 이유로 콜아웃은 모브로 남긴다. */
   --prompt-tip-bg: #2e2029;
   --prompt-tip-icon-color: #d9a8c4;
 
-  --tb-odd-bg: #221c20;
-  --tb-border-color: #2b242a;
+  --tb-odd-bg: #211c38;
+  --tb-border-color: #2b2442;
 
   /* 랜딩 전용 */
-  --landing-hero-bg: #1d181c;
-  --landing-card-bg: #201a1e;
-  --landing-card-border: #2f2830;
-  --landing-card-hover-bg: #271f25;
+  --landing-hero-bg: #1d181c; /* 히어로는 §4-1 에서 그림으로 덮인다. 안 쓰인다 */
+  --landing-card-bg: #1e1934;
+  --landing-card-border: #302949;
+  --landing-card-hover-bg: #26203f;
   --landing-card-shadow: none;
   --landing-card-shadow-hover: 0 6px 18px rgb(0 0 0 / 28%);
 }
@@ -240,23 +259,94 @@ article > header figcaption {
   }
 }
 
-/* 4-1. 히어로 */
+/* 4-1. 히어로 ────────────────────────────────────────────────
+   배경 그림 (2026-08-07): assets/img/bg/city-pop-desk.webp
+
+   원본은 1672x941 PNG 1.86 MB 였다. 홈 첫 화면에서 바로 받는 그림이라
+   WebP q88 로 줄였다 (204 KB). 3배 확대 대조에서 하늘 그라데이션 밴딩과
+   픽셀 글자 뭉개짐이 없는 것을 확인하고 고른 품질값이다.
+   좁은 화면에는 가로 900px 판(81 KB)을 따로 준다.
+
+   ⚠️ 히어로 안의 글자색은 팔레트 변수를 쓰지 않고 라이트/다크 양쪽 모두
+      흰색으로 고정한다. 팔레트를 그대로 두면 라이트 모드에서 어두운 글씨가
+      밤 풍경 위에 올라가 안 읽힌다. 이 예외는 히어로 안에서만이다.
+
+   그림과 스크림(어둡게 덮는 막)을 가상 요소 둘로 나눠 얹는다.
+   한 declaration 에 몰면 (라이트/다크) x (좁은/넓은 화면) 네 벌을
+   전부 다시 적어야 한다.
+     ::before  그림   — 화면 폭에 따라 파일이 갈린다
+     ::after   스크림 — 테마에 따라 진하기가 갈린다
+
+   스크림은 왼쪽이 진하고 오른쪽으로 걷힌다. 글씨는 왼쪽에 몰려 있고
+   그림에서 볼거리(로봇팔·책·네온 간판)는 가운데와 오른쪽에 있어 안 겹친다.
+   좁은 화면에서는 글씨가 폭을 다 쓰므로 가로 방향 대신 고르게 덮는다.
+   ------------------------------------------------------------ */
+
+/* ⚠️ 여기서는 `rgb(14 9 22 / $left)` 를 쓰지 않는다. 변수가 들어가면 Sass 가
+      `/` 를 나눗셈으로 읽어 알파가 통째로 사라지고 불투명한 rgb(14, 9, 25) 가
+      나온다. 경고만 뜨고 컴파일은 성공하므로 빌드로는 안 잡힌다.
+      (실측 2026-08-07. 이 파일의 다른 곳처럼 변수가 없는 자리는 슬래시 표기여도 된다.) */
+@mixin hero-scrim($left, $mid, $right) {
+  background: linear-gradient(
+    100deg,
+    rgba(14, 9, 22, $left) 0%,
+    rgba(14, 9, 22, $mid) 46%,
+    rgba(18, 11, 28, $right) 100%
+  );
+}
 
 .landing-hero {
-  background: var(--landing-hero-bg);
-  border: 1px solid var(--landing-card-border);
+  position: relative;
+
+  /* 아래 z-index 가 음수라 이게 없으면 페이지 배경 뒤로 빠져 안 보인다. */
+  isolation: isolate;
+  overflow: hidden;
+
+  /* 그림을 못 받았을 때 남는 바탕. 흰 바탕에 흰 글씨가 되지 않게 어둡게 둔다. */
+  background: #1d1520;
+  border: 1px solid rgb(255 255 255 / 14%);
   border-radius: 12px;
   padding: 2rem 1.5rem;
 
   @media (min-width: 768px) {
     padding: 2.75rem 2.5rem;
+    min-height: 20rem;
+  }
+
+  /* 그림 */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background-image: url('/assets/img/bg/city-pop-desk-sm.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* 좁은 화면은 가로로 크게 잘리므로 로봇팔 쪽으로 당겨 둔다. */
+    background-position: 68% 55%;
+
+    @media (min-width: 901px) {
+      background-image: url('/assets/img/bg/city-pop-desk.webp');
+      background-position: 50% 62%;
+    }
+  }
+
+  /* 스크림 */
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgb(14 9 22 / 74%);
   }
 
   h1 {
-    color: var(--heading-color);
+    color: #fff;
     font-size: 1.9rem;
     font-weight: 700;
     margin: 0 0 0.75rem;
+    text-shadow: 0 1px 4px rgb(0 0 0 / 45%);
 
     @media (min-width: 768px) {
       font-size: 2.3rem;
@@ -264,11 +354,14 @@ article > header figcaption {
   }
 
   .hero-lead {
-    color: var(--text-muted-color);
+    color: rgb(255 255 255 / 84%);
     font-size: 1rem;
     line-height: 1.8;
     margin: 0;
-    max-width: 44rem;
+    text-shadow: 0 1px 3px rgb(0 0 0 / 45%);
+
+    /* 44rem 이면 스크림이 옅어지는 오른쪽까지 글씨가 나가 대비가 떨어진다. */
+    max-width: 34rem;
   }
 }
 
@@ -350,6 +443,93 @@ article > header figcaption {
     .hero-btn.primary {
       color: #1a1418 !important;
     }
+  }
+}
+
+/* 4-1-1. 그림 위에 올라가는 것들 ─────────────────────────────
+   .hero-stats 와 .hero-btn 은 최상위 선택자로 정의돼 있어 팔레트 색을
+   그대로 받는다. 히어로 안에서만 흰 계열로 덮는다.
+
+   🔴 이 블록을 위로 옮기지 말 것. `.landing-hero .hero-btn.primary` 는
+      바로 위 `:root[data-bs-theme='dark'] .hero-btn.primary` 와 특정도가
+      (0,3,0) 으로 같다. 뒤에 있어서 이기는 것이라 순서가 곧 규칙이다.
+   ------------------------------------------------------------ */
+
+.landing-hero {
+  .hero-stats {
+    strong {
+      color: #fff;
+      text-shadow: 0 1px 3px rgb(0 0 0 / 45%);
+    }
+
+    span {
+      color: rgb(255 255 255 / 68%);
+    }
+  }
+
+  .hero-btn {
+    background: rgb(255 255 255 / 10%);
+    border-color: rgb(255 255 255 / 30%);
+    color: #fff !important;
+
+    /* Safari 는 18 이전까지 접두사만 받는다. 블러가 빠져도 대비는 4.5:1 을
+       넘는 것을 실측했으므로(2026-08-07) 이건 모양 문제이지 가독성 문제는 아니다. */
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+
+    &:hover {
+      background: rgb(255 255 255 / 20%);
+      border-color: rgb(255 255 255 / 55%);
+    }
+
+    /* 그림 속 네온 분홍에서 가져왔다. 다크 팔레트의 --link-color 와 같은 계열이다. */
+    &.primary {
+      background: #e8b4d0;
+      border-color: #e8b4d0;
+      color: #23161f !important;
+      backdrop-filter: none;
+
+      &:hover {
+        background: #f2c6de;
+        border-color: #f2c6de;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+/* 4-1-2. 스크림 진하기 ───────────────────────────────────────
+   넓은 화면에서만 가로로 걷히는 그라데이션을 쓴다. 좁은 화면은 글씨가
+   폭을 다 쓰므로 4-1 의 고른 막을 그대로 둔다.
+
+   라이트 모드가 더 옅다. 밝은 페이지 안에서 히어로만 어두운 창처럼
+   보이는 것이 이 그림을 넣는 이유다. 다크 모드는 페이지 전체가 이미
+   어두워 그림이 그대로 나오면 혼자 튀므로 조금 더 덮는다.
+   ------------------------------------------------------------ */
+
+@media (min-width: 901px) {
+  .landing-hero::after {
+    @include hero-scrim(0.88, 0.8, 0.42);
+  }
+}
+
+@mixin hero-scrim-dark {
+  .landing-hero::after {
+    background: rgb(14 9 22 / 82%);
+
+    @media (min-width: 901px) {
+      @include hero-scrim(0.93, 0.88, 0.58);
+    }
+  }
+}
+
+:root[data-bs-theme='dark'] {
+  @include hero-scrim-dark;
+}
+
+:root:not([data-bs-theme]) {
+  @media (prefers-color-scheme: dark) {
+    @include hero-scrim-dark;
   }
 }
 

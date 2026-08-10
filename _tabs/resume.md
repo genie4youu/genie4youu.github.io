@@ -9,12 +9,13 @@ order: 6
 
 ## 학력
 
-| 기간 | 학교 | 전공 |
-| --- | --- | --- |
-| 2023.08 ~ 2025.07 | 성균관대학교 대학원 | 지능형로봇학과 석사 |
-| 2017.03 ~ 2023.02 | 아주대학교 | 전자공학과 학사 |
+| 기간 | 학교 | 전공 | 상태 |
+| --- | --- | --- | --- |
+| 2023.08 ~ 2025.07 | 성균관대학교 대학원(자연과학) | 지능형로봇학과 (석사) | 졸업 |
+| 2017.03 ~ 2023.02 | 아주대학교 (4년제) | 전자공학과 (학사) | 졸업 |
 
-석사 연구분야는 정밀 실시간 제어와 스트리밍 데이터 예측을 접목한 로봇 시스템입니다.
+- 석사 소속 연구실: RBL
+- 석사 연구분야: 정밀 실시간 제어와 스트리밍 데이터 예측을 접목한 로봇 시스템
 
 ## 경력
 
@@ -26,64 +27,100 @@ order: 6
 
 ### 성균관대학교 RBL 연구실, 연구원 (2023.08 ~ 2025.07)
 
-**부분체중부하 지면보행훈련을 위한 로보틱 체중탈부하 시스템** (국립재활원 수행과제, 2024.05 ~ 2025.11)
+연구분야는 정밀 실시간 제어와 스트리밍 데이터 예측을 접목한 로봇 시스템입니다.
+
+#### 부분체중부하 지면보행훈련을 위한 로보틱 체중탈부하 시스템의 고도화
+
+국립재활원 수행과제 (2024.05 ~ 2025.11)
 
 - 시스템 전장 설계 및 제작
-- SBC 기반 실시간 제어 시스템 구축. Linux PREEMPT-RT 환경에서 C++ 과 Python 으로 제어기를 구성하고, 고정 주기 루프에서 위치, 속도, 장력 신호를 처리
-- 이종 통신 통합. EtherCAT 으로 모터 위치와 속도를 제어하고 CAN 과 Serial 로 센서를 연동
-- ROS 2 기반 소프트웨어 플랫폼 설계. 실시간 제어, 데이터 분석, HMI 를 독립 노드로 분리하고 분석 결과를 퍼블리시해 제어 노드의 폐루프 판단에 반영
-- 적응형 속도 제어 알고리즘 개발. 보행자의 위치와 속도 오차, 이동 추세로 게인을 실시간 갱신하고 프로젝션, 데드존, 레이트 리미터로 변화 범위를 제한
-- Fuzzy Logic 기반 힘 제어(Assist-as-needed) 알고리즘 개발. IMU, 로드셀, 엔코더를 통합해 보행 상태와 협응도를 실시간 추정하고 개인별 보조값을 산출
-- Qt Creator 기반 운영자 HMI 구현. 상태 모니터링과 데이터 로깅
-- 안전 로직 설계. E-stop 과 fail-safe, 속도와 가속도 한계를 3계층으로 구성하고 실시간 로깅과 리플레이로 이상 상황을 재현
-- 실험 설계 및 임상 테스트 수행
+- SBC 기반 실시간 제어 시스템 구축. Linux PREEMPT-RT 환경에서 C++ 과 Python 으로 실시간 제어기를 구성하고, 고정 주기 루프에서 위치, 속도, 장력 신호를 처리
+- 이종 통신 통합. Serial, CAN, EtherCAT
+- ROS 2 기반 플랫폼 설계. 실시간 제어, 데이터 분석, HMI 를 독립 노드(프로세스)로 분리하고, 분석 결과를 퍼블리시하여 제어 노드의 폐루프 의사결정에 반영
+- Fuzzy Logic 기반 힘 제어(Assist-as-needed) 알고리즘 개발. Rule-base 추론으로 실시간 보조력 조절
+- 적응형 속도 제어 알고리즘 개발. 보행 상태 추정 기반 개인 맞춤형 트레드밀 속도 제어
+- Qt Creator 기반 운영자 HMI 구현. 상태 모니터링, 데이터 로깅
+- MATLAB 과 Simulink 활용. 파라미터 튜닝, 주파수 응답 확인, 실험 데이터 후처리
+- 안전 로직 설계. E-stop, fail-safe, 속도와 가속도 한계, 예외 처리
+- 실험 설계 및 임상 테스트 진행
 
-| 항목 | 결과 |
+| 항목 | 수치 |
 | --- | --- |
-| 제어 주기 | 1 kHz 고정 주기, on-time 98.2% (SCHED_FIFO) |
+| 제어 주기 | 1 kHz, on-time 98.2% (Linux PREEMPT-RT, SCHED_FIFO) |
 | 추종 성능 | 게인 스케줄링 적용으로 84% 향상 |
-| 과도 응답 가속도 | AR 예측과 감쇠기 적용으로 50% 이상 억제 |
-| 임상 검증 | 피험자 15명 |
+| 과도 응답 가속도 | AR 예측과 attenuator 적용으로 50% 이상 억제 |
+| 현장 검증 | 피험자 15명 |
+| ROS 2 노드 구성 | 3노드 (실시간 제어, 데이터 분석, HMI) |
+| EtherCAT | PDO 동기 매핑으로 모터 위치와 속도 제어 |
+
+#### 친환경자동차(xEV) 부품개발 R&D 전문인력양성
+
+한국산업기술진흥원 (2023.08 ~ 2025.07)
+
+교육 이수: 전력 반도체, 파워모듈의 이해, V2G 기술의 이해, ChatGPT 이해와 활용, 개발자도 알아야 할 차량 SW 품질 이론과 사례
 
 ## 논문 및 특허
 
-**Real-Time Gait-Adaptive Acceleration Control for Natural Overground Walking on Interactive Treadmills**<br>
+### 논문
+
+**1) Real-Time Gait-Adaptive Acceleration Control for Natural Overground Walking on Interactive Treadmills**<br>
 대한기계학회(KSME), 2025.05
 
-**Toward a Customizable Body Weight Support System with Interactive Treadmill for Patients with diverse gait impairments**<br>
-IEEE International Conference on Rehabilitation Robotics (ICORR), 2025.05
+- **적응형 속도 제어 (Souman 기반):** 보행자의 위치와 속도 오차, 이동 추세에 따라 제어기 파라미터를 실시간 갱신하는 adaptive controller 설계. 프로젝션, 데드존, 레이트 리미터로 게인 변화를 안전 범위로 제한하여 급복귀와 오버슈트를 억제하고 중심 유지 성능을 높임
+- **순간 속도 변화 완화 (예측과 감쇠):** 사용자 연결 케이블의 장력 변화를 AR(Autoregressive) 시계열 예측으로 다음 구간의 속도 요구를 추정하고, attenuator 로 속도를 부드럽게 이행
 
-**보행 훈련 장치**<br>
-특허 출원 10-2024-0190629, 대한민국, 2024.12.18
+**2) Toward a Customizable Body Weight Support System with Interactive Treadmill for Patients with diverse gait impairments**<br>
+IEEE International Conference on Rehabilitation Robotics (ICORR) 2025, 2025.05
 
-## 자격 및 수상
+- **Fuzzy Logic 기반 보조력 제어:** 사용자의 움직임에 따라 보조력이 자동 조절되는 Assist-as-needed 알고리즘 설계, Rule-base 추론으로 실시간 제어 수행
+- **보행 상태 추정 및 지표 산출:** IMU, 로드셀, 엔코더 데이터를 통합하여 보행 상태와 사용자 협응도를 실시간 추정, 개인 맞춤형 보조값 계산
+
+### 특허
+
+| 명칭 | 출원번호 | 국가 | 출원일 |
+| --- | --- | --- | --- |
+| 보행 훈련 장치 | 10-2024-0190629 | 대한민국 | 2024.12.18 |
+
+## 자격, 어학, 수상
 
 | 시기 | 항목 | 상세 |
 | --- | --- | --- |
-| 2025.03 | OPIc | Intermediate High (영어) |
-| 2018.12 | 자유 PPT 발표 대회 대상 | 아주대학교 |
-| 2018.09 | 하계 전자 전시회 장려상 | 아주대학교 |
-| 2017.12 | 자유 PPT 발표 대회 우수상 | 아주대학교 |
+| 2025.03 | OPIc | Intermediate High / PASS (영어) |
+| 2018.12 | 자유 PPT 발표 대회 **대상(1등)** | 아주대학교 |
+| 2018.09 | 2018년 하계 전자 전시회 **장려상** | 아주대학교 |
+| 2017.12 | 자유 PPT 발표 대회 **우수상(3등)** | 아주대학교 |
 
 ## 기술 스택
 
 | 구분 | 내용 |
 | --- | --- |
-| 언어 | C++, C, Python, MATLAB |
+| 프로그래밍 언어 | C++, C, Python, MATLAB |
+| 툴 및 환경 | ROS 2, Linux (PREEMPT-RT), MATLAB, Simulink, Stateflow, Visual Studio, Qt Creator, Git |
+| 실시간 및 임베디드 | RTOS, Linux PREEMPT-RT, SCHED_FIFO, 고정 주기 제어 루프 |
+| 제어 | 적응형 제어, 게인 스케줄링, AR 기반 시계열 예측, Fuzzy Logic, 외란 관측기 기반 제어 |
 | 모델 기반 설계 | Simulink, Stateflow, 계층 및 병렬 FSM, 커버리지와 형식 검증 |
-| 제어 | 적응형 제어, 게인 스케줄링, Fuzzy Logic, 외란 관측기 기반 제어 |
-| 실시간 및 임베디드 | Linux PREEMPT-RT, SCHED_FIFO, 고정 주기 제어 루프 |
 | 통신 | EtherCAT, CAN, Serial |
 | 자율주행 | 점유격자, EKF, scan matching, A\*, DWA |
-| 플랫폼 및 도구 | ROS 2, Qt Creator, Visual Studio, Git |
+
+### 핵심 역량
+
+- 지능형로봇공학 수강: 로봇 키네마틱스 이론, 다중 센서 통합 및 3D 좌표계 변환
+- Linux PREEMPT-RT 환경에서 C++ 기반 1 kHz 고정 주기 제어 루프 구축
+- ROS 2 기반 로봇 소프트웨어 플랫폼 설계: 실시간 제어 / 데이터 분석 / HMI 노드 분리
+- EtherCAT, CAN, Serial 이종 통신 기반 모터 위치와 속도 제어 및 센서 시스템 통합
+- 적응형 제어 알고리즘 설계: 게인 스케줄링, AR 기반 시계열 예측, Fuzzy Logic 기반 실시간 파라미터 갱신
+- Qt Creator 기반 운영자 HMI 설계와 구현 (상태 모니터링, 데이터 로깅)
+- MATLAB, Simulink 기반 시스템 모델링 및 파라미터 튜닝
 
 ## 프로젝트
 
-### 실내 배송 AMR
+### 실내 배송 AMR supervisory FSM
 
-MATLAB 과 Simulink, Stateflow 로 구현한 자율주행 로봇입니다. 계층과 병렬을 사용한 supervisor(State 37개, Transition 67개)에 2D LiDAR, A\* 전역 계획, local costmap, DWA, 그리고 제어 경로와 분리된 독립 safety gate 를 결합했습니다.
+MATLAB 과 Simulink, Stateflow 로 구현한 자율주행 로봇입니다.
 
-환경 3종과 상황 4종을 조합한 12개 시나리오를 2회 반복해 12/12 를 통과했고, 최종 위치 오차는 0.080 m 이하입니다. supervisor 는 Stateflow API 로 레이아웃을 자동 배치해 그래픽 규칙 위반 32건을 0건으로 정리했습니다.
+- 계층과 병렬을 사용한 supervisor(State 37개, Transition 67개)에 2D LiDAR, A\* 전역 계획, local costmap, DWA, 제어 경로와 분리된 독립 safety gate 를 결합
+- 검증: 환경 3종과 상황 4종을 조합한 12개 시나리오를 2회 반복하여 12/12 통과, 최종 위치 오차 0.080 m 이하
+- supervisor 레이아웃을 Stateflow API 로 자동 배치하여 그래픽 규칙 위반 32건을 0건으로 정리
 
 [저장소](https://github.com/genie4youu/amr_robot_planning), [구현 과정 21편](/posts/00-amr-series/), [레이아웃 자동화 6편](/posts/00-sflayout-series/)
 

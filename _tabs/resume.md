@@ -47,13 +47,13 @@ order: 6
 
 ## 논문 및 특허
 
-**Real-Time Gait-Adaptive Acceleration Control for Natural Overground Walking on Interactive Treadmills**
+**Real-Time Gait-Adaptive Acceleration Control for Natural Overground Walking on Interactive Treadmills**<br>
 대한기계학회(KSME), 2025.05
 
-**Toward a Customizable Body Weight Support System with Interactive Treadmill for Patients with diverse gait impairments**
+**Toward a Customizable Body Weight Support System with Interactive Treadmill for Patients with diverse gait impairments**<br>
 IEEE International Conference on Rehabilitation Robotics (ICORR), 2025.05
 
-**보행 훈련 장치**
+**보행 훈련 장치**<br>
 특허 출원 10-2024-0190629, 대한민국, 2024.12.18
 
 ## 자격 및 수상

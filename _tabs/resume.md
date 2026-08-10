@@ -45,9 +45,10 @@ order: 6
 - Fuzzy Logic 기반 힘 제어(Assist-as-needed) 알고리즘 개발. Rule-base 추론으로 실시간 보조력 조절
 - 적응형 속도 제어 알고리즘 개발
 - 보행 패턴 분석 및 개인 맞춤형 트레드밀 속도 제어 알고리즘 개발
-- Qt Creator 기반 운영자 HMI 구현. 상태 모니터링, 데이터 로깅
+- Qt Creator 기반 운영자 HMI 구현. 상태 모니터링, 데이터 로깅, 파라미터 튜닝을 통합
 - MATLAB 과 Simulink 활용. 파라미터 튜닝, 주파수 응답 확인, 실험 데이터 후처리
-- 안전 로직 설계. E-stop, fail-safe, 속도와 가속도 한계, 예외 처리
+- 안전 로직 설계. E-stop, fail-safe, 속도와 가속도 한계를 포함한 3계층 구성과 예외 처리
+- 실시간 로깅과 리플레이 기반 검증 체계 구축. 이상 상황을 재현하고 원인을 추적
 - 실험 설계 및 임상 테스트 진행 (15명)
 
 실적
@@ -121,7 +122,7 @@ IEEE International Conference on Rehabilitation Robotics (ICORR) 2025, 2025.05
 
 ### 핵심 역량
 
-- 지능형로봇공학 수업 수강: 로봇 키네마틱스 이론, 다중 센서 통합 및 3D 좌표계 변환
+- 지능형로봇공학 수업 수강: 로봇 키네마틱스 이론(FK / IK / Velocity Kinematics), 다중 센서 통합 및 3D 좌표계 변환
 - Linux PREEMPT-RT 환경에서 C++ 기반 1 kHz 고정 주기 제어 루프 구축
 - ROS 2 기반 로봇 소프트웨어 플랫폼 설계: 실시간 제어 / 데이터 분석 / HMI 노드 분리
 - EtherCAT / CAN / Serial 이종 통신 기반 모터 위치와 속도 제어 및 센서 시스템 통합

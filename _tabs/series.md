@@ -1,8 +1,8 @@
 ---
 # the default layout is 'page'
-# Chirpy 는 탭 이름을 locale 에서 찾고, 없으면 이 title 을 쓴다.
-# 커스텀 탭이라 locale 항목이 없으므로 title 이 없으면 파일명(SERIES)이 그대로 나온다.
-title: 시리즈
+# 탭 이름은 _data/locales/ko-KR.yml 의 tabs.series 가 정한다.
+# 키가 파일명(series)이어야 하므로 여기에 한글 title 을 두지 않는다.
+# 한글 title 을 두면 사이드바에는 나오지만 <title> 태그가 비어 버린다.
 icon: fas fa-layer-group
 order: 1
 ---

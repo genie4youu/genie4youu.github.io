@@ -92,15 +92,14 @@ IEEE International Conference on Rehabilitation Robotics (ICORR) 2025, 2025.05
 
 ## 기술 스택
 
-| 구분 | 내용 |
-| --- | --- |
-| 프로그래밍 언어 | C++, C, Python, MATLAB |
-| 툴 및 환경 | ROS 2, Linux (PREEMPT-RT), MATLAB, Simulink, Stateflow, Visual Studio, Qt Creator, Git |
-| 실시간 및 임베디드 | RTOS, Linux PREEMPT-RT, SCHED_FIFO, 고정 주기 제어 루프 |
-| 제어 | 적응형 제어, 게인 스케줄링, AR 기반 시계열 예측, Fuzzy Logic, 외란 관측기 기반 제어 |
-| 모델 기반 설계 | Simulink, Stateflow, 계층 및 병렬 FSM, 커버리지와 형식 검증 |
-| 통신 | EtherCAT, CAN, Serial |
-| 자율주행 | 점유격자, EKF, scan matching, A\*, DWA |
+- **프로그래밍 언어:** C++, C, Python, MATLAB
+- **툴 및 환경:** ROS 2, Linux (PREEMPT-RT), MATLAB, Simulink, Stateflow, Visual Studio, Qt Creator, Git
+- **스킬 태그:** MATLAB, Simulink, ROS, Linux, C, C++, Python, 알고리즘, RTOS
+- **실시간 및 임베디드:** RTOS, Linux PREEMPT-RT, SCHED_FIFO, 고정 주기 제어 루프
+- **제어:** 적응형 제어, 게인 스케줄링, AR 기반 시계열 예측, Fuzzy Logic, 외란 관측기 기반 제어
+- **모델 기반 설계:** Simulink, Stateflow, 계층 및 병렬 FSM, 커버리지와 형식 검증
+- **통신:** EtherCAT, CAN, Serial
+- **자율주행:** 점유격자, EKF, scan matching, A\*, DWA
 
 ### 핵심 역량
 

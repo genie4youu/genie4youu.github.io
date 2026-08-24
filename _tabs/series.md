@@ -140,8 +140,8 @@ order: 1
 | 구간 | 편 | 내용 |
 | --- | --- | --- |
 | [문제와 정의](/posts/01-why-one-agent-breaks/) | 01~03 | 에이전트 하나가 깨지는 세 가지, 하네스라는 층, [**Stateflow 대응표**](/posts/03-stateflow-mapping/) |
-| 배선 | 04~06 | 팬아웃, 파이프라인과 배리어, 구조화 출력 (준비 중) |
-| 신뢰성 | 07~12 | 적대적 검증, 수렴 조건, 자원 경합, 권한, 재개 (준비 중) |
+| [배선](/posts/04-fanout-as-parallel-states/) | 04~06 | 축으로 나누는 팬아웃, [**파이프라인과 배리어**](/posts/05-pipeline-and-barrier/), 스키마가 곧 guard |
+| [신뢰성](/posts/07-adversarial-verification/) | 07~12 | 적대적 검증, 수렴 조건, [**자원 경합**](/posts/09-resource-contention/), 권한 인터록, 재개, [깨지는 방식들](/posts/12-how-it-breaks/) |
 
 ⚠️ 대응은 **어휘 수준**이고 의미론까지 같지는 않습니다. Stateflow 의 병렬 상태는 실제로 동시에 돌지 않고, 오케스트레이션의 팬아웃은 실제로 동시에 돕니다. 03편에서 그 선을 긋습니다.
 

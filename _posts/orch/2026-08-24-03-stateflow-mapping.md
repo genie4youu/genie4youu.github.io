@@ -8,7 +8,7 @@ mermaid: true
 ---
 
 > **기준 출처:** D. Harel, *Statecharts: A Visual Formalism for Complex Systems*, Science of Computer Programming 8 (1987) 231-274 ([원문](https://www.sciencedirect.com/science/article/pii/0167642387900359)) · [MathWorks, Parallel and Exclusive States](https://www.mathworks.com/help/stateflow/parallel-and-exclusive-state-semantics.html) · [MathWorks, Execution Order for Parallel States](https://www.mathworks.com/help/stateflow/ug/execution-order-for-parallel-states.html) · [Claude Code Docs, Create custom subagents](https://code.claude.com/docs/en/sub-agents) / 확인일 2026-08-24
-> **시리즈:** [목차](/posts/00-orch-series/) | 이전 → [02. 제어 구조를 모델 밖으로](/posts/02-control-outside-the-model/)
+> **시리즈:** [목차](/posts/00-orch-series/) | 이전 → [02. 제어 구조를 모델 밖으로](/posts/02-control-outside-the-model/) | 다음 → [04. 병렬 상태로 읽는 팬아웃](/posts/04-fanout-as-parallel-states/)
 
 앞 편에서 오케스트레이션이 단계와 배선을 코드로 고정하는 일이라고 했다. 그 그림을 그리다 보면 익숙한 모양이 나온다.
 

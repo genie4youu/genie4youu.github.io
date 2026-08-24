@@ -3,7 +3,7 @@ title: 11. History 상태, 중단 후 재개
 date: 2026-08-24 07:11:00 +0900
 description: 긴 흐름은 반드시 중간에 끊긴다. 처음부터 다시 돌리면 비용이 두 배가 되고, 이어 붙이려면 어디까지 갔는지가 기록에 남아야 한다.
 categories: [에이전트 오케스트레이션, 신뢰성]
-tags: [재개, History, 결정론, 체크포인트, Stateflow]
+tags: [재개, history, 결정론, 체크포인트, stateflow]
 mermaid: true
 ---
 

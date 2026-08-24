@@ -3,7 +3,7 @@ title: "03. 대응표: State, Transition, Condition, Action"
 date: 2026-08-24 07:03:00 +0900
 description: Harel 이 상태 기계에 더한 것은 계층, 동시성, 통신 셋이다. 오케스트레이션도 같은 셋이 필요해진다. 그림이 닮는 것은 우연이 아니다.
 categories: [에이전트 오케스트레이션, 대응]
-tags: [Stateflow, FSM, 오케스트레이션, Harel, statecharts, 병렬]
+tags: [stateflow, fsm, 오케스트레이션, Harel, statecharts, 병렬]
 mermaid: true
 ---
 

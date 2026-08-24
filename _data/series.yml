@@ -94,12 +94,13 @@
 #    배포가 통째로 떨어진다 (2026-08-07 에 실제로 겪었다).
 #    폴더와 목차 글을 만든 뒤 아래 주석을 풀고 scss 의 대기 색도 함께 푼다.
 #
-# - id: agentic
-#   name: 에이전틱 엔지니어링
-#   icon: fa-solid fa-layer-group
-#   dirs: [agentic]
-#   index: /posts/00-agentic-series/
-#   blurb: 루프, 에이전트, 하네스. 세 층으로 나눠 보면 무엇을 고쳐야 할지가 갈린다.
+# 🟢 2026-08-24 활성화
+- id: agentic
+  name: 에이전틱 엔지니어링
+  icon: fa-solid fa-layer-group
+  dirs: [agentic]
+  index: /posts/00-agentic-series/
+  blurb: 루프, 에이전트, 하네스. 세 층으로 나눠 보면 무엇을 고쳐야 할지가 갈린다.
 #
 # 🟢 2026-08-24 활성화
 - id: ccsetup

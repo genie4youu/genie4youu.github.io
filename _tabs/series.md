@@ -13,7 +13,7 @@ order: 1
 
 {%- assign n_comm = 0 -%}{%- assign n_rtos = 0 -%}{%- assign n_mp = 0 -%}
 {%- assign n_sf = 0 -%}{%- assign n_sfl = 0 -%}{%- assign n_adrc = 0 -%}
-{%- assign n_amr = 0 -%}{%- assign n_mcp = 0 -%}{%- assign n_read = 0 -%}{%- assign n_etc = 0 -%}{%- assign n_orch = 0 -%}{%- assign n_cc = 0 -%}
+{%- assign n_amr = 0 -%}{%- assign n_mcp = 0 -%}{%- assign n_read = 0 -%}{%- assign n_etc = 0 -%}{%- assign n_orch = 0 -%}{%- assign n_cc = 0 -%}{%- assign n_ag = 0 -%}
 {%- for p in site.posts -%}
   {%- comment -%} 🔴 00 목차 글은 세지 않는다 — landing.html 의 카드 편수와 같은 규약이다. {%- endcomment -%}
   {%- if p.categories contains '목차' -%}{%- continue -%}{%- endif -%}
@@ -28,6 +28,7 @@ order: 1
   {%- elsif p.path contains '_posts/news/' or p.path contains '_posts/papers/' or p.path contains '_posts/trends/' -%}{%- assign n_read = n_read | plus: 1 -%}
   {%- elsif p.path contains '_posts/orch/' -%}{%- assign n_orch = n_orch | plus: 1 -%}
   {%- elsif p.path contains '_posts/ccsetup/' -%}{%- assign n_cc = n_cc | plus: 1 -%}
+  {%- elsif p.path contains '_posts/agentic/' -%}{%- assign n_ag = n_ag | plus: 1 -%}
   {%- elsif p.path contains '_posts/etc/' -%}{%- assign n_etc = n_etc | plus: 1 -%}
   {%- endif -%}
 {%- endfor -%}
@@ -133,6 +134,17 @@ order: 1
 | [프로토콜 이론](/posts/01-what-is-mcp/) | 01~06 | 아키텍처, 트랜스포트, Primitives, JSON-RPC, 보안 모델 |
 | [실무 설정](/posts/07-matlab-mcp-server/) | 07~12 | MATLAB MCP 서버, 설치, 세션 공유, 첫 실행, 트러블슈팅 |
 | [운영과 경계](/posts/13-mcp-next-steps/) | 13~17 | 편집기 연동, 시작 자동화, 승인 모드, 작업공간 경계 |
+
+## 🧱 에이전틱 엔지니어링 — {{ n_ag }}편
+
+> [**목차 →**](/posts/00-agentic-series/) Loop, Agent, Harness 세 층으로 나눠 봅니다. 나누는 값은 증상을 보고 어디를 고칠지 좁히는 데 있습니다.
+
+| 구간 | 편 | 내용 |
+| --- | --- | --- |
+| [무엇을 만드나](/posts/01-workflow-vs-agent/) | 01 | 워크플로와 에이전트는 경로를 누가 정하는가로 갈린다 |
+| [Loop 층](/posts/02-what-is-agent-loop/) | 02~04 | 도구 반환값이 루프의 한계다, [컨텍스트에서 뺄 것](/posts/03-context-engineering/), 종료 사유 구분 |
+| [Agent 와 Harness](/posts/05-defining-an-agent/) | 05~06 | 역할·도구·권한, [기록이 원본이다](/posts/06-harness-layer/) |
+| [쓰는 법](/posts/07-when-layers-mismatch/) | 07~08 | 🔴 **증상별 진단표와 흔한 오진 넷**, 이름이 같아도 동작은 갈린다 |
 
 ## 🎛️ Claude Code 세팅 — {{ n_cc }}편
 

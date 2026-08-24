@@ -108,9 +108,10 @@
 #   index: /posts/00-ccsetup-series/
 #   blurb: 슬래시 명령, 서브에이전트, skill, hook, MCP. 다섯 갈래를 언제 쓰는지 정하고 실제로 붙였다.
 #
-# - id: orch
-#   name: 에이전트 오케스트레이션
-#   icon: fa-solid fa-sitemap
-#   dirs: [orch]
-#   index: /posts/00-orch-series/
-#   blurb: State, Transition, 병렬, History. 제어 쪽 어휘로 다중 에이전트 배선을 읽는다.
+# 🟢 2026-08-24 활성화 — _posts/orch/ 와 00 목차 글이 생겼다
+- id: orch
+  name: 에이전트 오케스트레이션
+  icon: fa-solid fa-sitemap
+  dirs: [orch]
+  index: /posts/00-orch-series/
+  blurb: State, Transition, 병렬, History. 제어 쪽 어휘로 다중 에이전트 배선을 읽는다.

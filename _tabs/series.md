@@ -13,7 +13,7 @@ order: 1
 
 {%- assign n_comm = 0 -%}{%- assign n_rtos = 0 -%}{%- assign n_mp = 0 -%}
 {%- assign n_sf = 0 -%}{%- assign n_sfl = 0 -%}{%- assign n_adrc = 0 -%}
-{%- assign n_amr = 0 -%}{%- assign n_mcp = 0 -%}{%- assign n_read = 0 -%}{%- assign n_etc = 0 -%}
+{%- assign n_amr = 0 -%}{%- assign n_mcp = 0 -%}{%- assign n_read = 0 -%}{%- assign n_etc = 0 -%}{%- assign n_orch = 0 -%}
 {%- for p in site.posts -%}
   {%- comment -%} 🔴 00 목차 글은 세지 않는다 — landing.html 의 카드 편수와 같은 규약이다. {%- endcomment -%}
   {%- if p.categories contains '목차' -%}{%- continue -%}{%- endif -%}
@@ -26,6 +26,7 @@ order: 1
   {%- elsif p.path contains '_posts/amr/' -%}{%- assign n_amr = n_amr | plus: 1 -%}
   {%- elsif p.path contains '_posts/mcp/' -%}{%- assign n_mcp = n_mcp | plus: 1 -%}
   {%- elsif p.path contains '_posts/news/' or p.path contains '_posts/papers/' or p.path contains '_posts/trends/' -%}{%- assign n_read = n_read | plus: 1 -%}
+  {%- elsif p.path contains '_posts/orch/' -%}{%- assign n_orch = n_orch | plus: 1 -%}
   {%- elsif p.path contains '_posts/etc/' -%}{%- assign n_etc = n_etc | plus: 1 -%}
   {%- endif -%}
 {%- endfor -%}
@@ -131,6 +132,18 @@ order: 1
 | [프로토콜 이론](/posts/01-what-is-mcp/) | 01~06 | 아키텍처, 트랜스포트, Primitives, JSON-RPC, 보안 모델 |
 | [실무 설정](/posts/07-matlab-mcp-server/) | 07~12 | MATLAB MCP 서버, 설치, 세션 공유, 첫 실행, 트러블슈팅 |
 | [운영과 경계](/posts/13-mcp-next-steps/) | 13~17 | 편집기 연동, 시작 자동화, 승인 모드, 작업공간 경계 |
+
+## 🕸️ 에이전트 오케스트레이션 — {{ n_orch }}편
+
+> [**목차 →**](/posts/00-orch-series/) 여러 에이전트를 어떻게 엮을 것인가. State, Transition, 병렬, History 라는 FSM 어휘로 그 배선을 읽습니다.
+
+| 구간 | 편 | 내용 |
+| --- | --- | --- |
+| [문제와 정의](/posts/01-why-one-agent-breaks/) | 01~03 | 에이전트 하나가 깨지는 세 가지, 하네스라는 층, [**Stateflow 대응표**](/posts/03-stateflow-mapping/) |
+| 배선 | 04~06 | 팬아웃, 파이프라인과 배리어, 구조화 출력 (준비 중) |
+| 신뢰성 | 07~12 | 적대적 검증, 수렴 조건, 자원 경합, 권한, 재개 (준비 중) |
+
+⚠️ 대응은 **어휘 수준**이고 의미론까지 같지는 않습니다. Stateflow 의 병렬 상태는 실제로 동시에 돌지 않고, 오케스트레이션의 팬아웃은 실제로 동시에 돕니다. 03편에서 그 선을 긋습니다.
 
 ## 📄 업계 읽기 — {{ n_read }}편
 

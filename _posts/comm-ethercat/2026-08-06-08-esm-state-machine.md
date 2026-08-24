@@ -3,7 +3,7 @@ title: 08. ESM, INIT과 PREOP과 SAFEOP과 OP
 date: 2026-08-06 12:08:00 +0900
 description: SAFEOP은 입력만 유효하고 출력은 무시된다. 그 한 단계가 축이 급이동하는 문제를 푼다. 그리고 FSM 세 개가 겹친다.
 categories: [로봇 통신, EtherCAT]
-tags: [통신, ethercat, ESM, FSM, AL Status Code, CiA402]
+tags: [통신, ethercat, ESM, fsm, AL Status Code, cia402]
 mermaid: true
 ---
 

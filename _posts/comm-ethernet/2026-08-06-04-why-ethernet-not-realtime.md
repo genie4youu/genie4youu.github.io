@@ -3,7 +3,7 @@ title: 04. 표준 이더넷이 실시간에 안 맞는 이유
 date: 2026-08-06 11:04:00 +0900
 description: 지연의 다섯 원천과 최악 11.1 ms. 그리고 산업계의 네 가지 해법을 "어느 층을 건드렸나" 로 분류한다.
 categories: [로봇 통신, 이더넷]
-tags: [통신, 이더넷, 실시간, TSN, EtherCAT, PREEMPT_RT]
+tags: [통신, 이더넷, 실시간, TSN, ethercat, PREEMPT_RT]
 math: true
 mermaid: true
 ---

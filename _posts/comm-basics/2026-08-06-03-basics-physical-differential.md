@@ -2,7 +2,7 @@
 title: 03. 물리계층 — 전압과 차동신호
 description: 차동 전송이 노이즈를 지우는 원리는 뺄셈 한 줄이다. 단선 방식이 그라운드 전위차에 지는 이유와 오픈 드레인의 와이어드 AND 성질까지 정리한다.
 date: 2026-08-06 07:03:00 +0900
-categories: [로봇 통신, 기초]
+categories: [로봇 통신, 통신 기초]
 tags: [통신, 물리계층, 차동신호, rs485, can, i2c]
 mermaid: true
 math: true

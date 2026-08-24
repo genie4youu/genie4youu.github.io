@@ -3,7 +3,7 @@ title: 10. 프로세스 데이터와 PDO 매핑
 date: 2026-08-06 12:10:00 +0900
 description: CoE는 CANopen의 PDO 매핑을 그대로 쓰고 SM 할당 층이 하나 더 있다. 크기만 검증하면 "크기는 같은데 순서가 다른" 경우를 놓친다.
 categories: [로봇 통신, EtherCAT]
-tags: [통신, ethercat, PDO매핑, CoE, SDO, 검증]
+tags: [통신, ethercat, PDO매핑, CoE, sdo, 검증]
 ---
 
 > **기준 출처:** [ETG EtherCAT Technology](https://www.ethercat.org/en/technology.html) · CiA 301 / ETG.1000 매핑 객체(0x1600, 0x1A00)와 SM 할당 객체(0x1C12, 0x1C13) · [CiA CANopen 개요](https://www.can-cia.org/can-knowledge/canopen) · [SOEM](https://github.com/OpenEtherCATsociety/SOEM) / 확인일 2026-08-03

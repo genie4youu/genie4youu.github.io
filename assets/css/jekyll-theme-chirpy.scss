@@ -725,6 +725,11 @@ $series-light: (
   'mp': #6f7a4a,
   'reading': #8a6246,
   'break': #99798c,
+
+  // 🕓 대기 중인 카드 3장의 색 (2026-08-21). 카드가 주석 해제될 때 함께 쓰인다.
+  'agentic': #96504f,
+  'ccsetup': #4a6b7a,
+  'orch': #5f5a8c,
 );
 
 $series-dark: (
@@ -738,6 +743,10 @@ $series-dark: (
   'mp': #bdc78f,
   'reading': #d0a284,
   'break': #c3a7ba,
+
+  'agentic': #e0a09f,
+  'ccsetup': #8fb6c4,
+  'orch': #a8a2d8,
 );
 
 @mixin series-accent($color) {

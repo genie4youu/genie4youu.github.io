@@ -3,7 +3,7 @@ title: 04. Transition 읽는 법
 date: 2026-08-07 06:18:00 +0900
 description: 대괄호는 조건이고 중괄호는 조건 액션이고 슬래시는 전이 액션이다. 조건 액션은 이동이 취소되어도 되돌려지지 않아서 값만 바뀐 상태가 남는다.
 categories: [MATLAB과 Simulink, Stateflow 문법]
-tags: [stateflow, Transition, 라벨, condition, 평가순서, Junction]
+tags: [stateflow, transition, 라벨, condition, 평가순서, junction]
 mermaid: true
 ---
 

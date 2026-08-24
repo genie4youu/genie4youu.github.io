@@ -2,7 +2,7 @@
 title: 07. 오류 검출 — 패리티, 체크섬, CRC
 date: 2026-08-06 07:07:00 +0900
 description: 목표는 오류를 없애는 것이 아니라 미검출 확률을 낮추는 것이다. CRC-4를 손으로 돌려보고, CRC-16을 C++로 구현하고, 이론을 전수 테스트로 증명한다.
-categories: [로봇 통신, 기초]
+categories: [로봇 통신, 통신 기초]
 tags: [통신, crc, 체크섬, 패리티, modbus, can, 기능안전]
 math: true
 ---

@@ -2,7 +2,7 @@
 title: 10. 실시간성 — 주기, 지연, 지터, 결정성
 date: 2026-08-06 07:10:00 +0900
 description: 제어가 통신에 요구하는 것은 처리량이 아니라 지연의 상한과 일정함이다. 지터가 지연보다 나쁜 이유를 속도 추정 오차로 계산해 본다.
-categories: [로봇 통신, 기초]
+categories: [로봇 통신, 통신 기초]
 tags: [통신, 실시간제어, 지터, 지연, ethercat, adrc]
 mermaid: true
 math: true

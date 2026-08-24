@@ -9,7 +9,7 @@ math: true
 ---
 
 > **기준 출처:** MCU 레퍼런스 매뉴얼의 USART 절(ST RM0090 §30 등), TIA/EIA-232-F, Modbus over Serial Line V1.02 §2.5 / 확인일 2026-08-03
-> **시리즈:** [목차](/posts/00-comm-series/) | 다음 → [02. 보율과 샘플링](/posts/02-uart-baud-error-budget/)
+> **시리즈:** [목차](/posts/00-comm-series/) | 이전 → [SPI·I²C 10. 예제](/posts/10-spi-i2c-sensor-driver/) | 다음 → [02. 보율과 샘플링](/posts/02-uart-baud-error-budget/)
 
 ---
 

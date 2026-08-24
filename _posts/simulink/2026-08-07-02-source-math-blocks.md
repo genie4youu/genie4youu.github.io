@@ -3,7 +3,7 @@ title: 02. 기본 블록, 소스와 싱크와 수학 연산
 date: 2026-08-07 06:06:00 +0900
 description: Sum 블록은 그림만 보고 덧셈이라고 단정할 수 없다. Constant에 0이라고 쓰면 double이고 uint16(0)이라고 써야 uint16이다.
 categories: [MATLAB과 Simulink, Simulink]
-tags: [simulink, Sum, Product, Gain, Constant, Terminator]
+tags: [simulink, sum, Product, Gain, Constant, Terminator]
 mermaid: true
 ---
 

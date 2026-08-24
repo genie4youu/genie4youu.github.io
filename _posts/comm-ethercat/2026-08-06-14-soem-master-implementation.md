@@ -3,7 +3,7 @@ title: 14. 마스터 구현, SOEM 코드로 읽기
 date: 2026-08-06 12:14:00 +0900
 description: ec_config_map() 한 줄 안에 05편부터 07편까지가 다 들어 있다. 그리고 EcatError 를 안 읽으면 실패 이유가 아예 안 나온다.
 categories: [로봇 통신, EtherCAT]
-tags: [통신, ethercat, SOEM, C++, 스레드, 복구]
+tags: [통신, ethercat, SOEM, cpp, 스레드, 복구]
 ---
 
 > **기준 출처:** [SOEM (Simple Open EtherCAT Master)](https://github.com/OpenEtherCATsociety/SOEM) GPLv2, `simple_test.c`, `slaveinfo.c`, `red_test.c` · [IgH EtherCAT Master](https://gitlab.com/etherlab.org/ethercat) / 확인일 2026-08-03

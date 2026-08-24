@@ -3,7 +3,7 @@ title: 13. 리눅스에서 EtherCAT 마스터
 date: 2026-08-07 05:32:00 +0900
 description: 필드버스의 실시간성은 마스터 쪽 OS가 정한다. DC가 마스터 지터를 상당 부분 흡수하지만 무한정은 아니고, NIC의 인터럽트 coalescing이 가장 자주 놓치는 항목이다.
 categories: [RTOS와 실시간, 리눅스]
-tags: [rtos, 리눅스, EtherCAT, SOEM, IgH, ethtool, WKC]
+tags: [rtos, 리눅스, ethercat, SOEM, IgH, ethtool, WKC]
 mermaid: true
 ---
 

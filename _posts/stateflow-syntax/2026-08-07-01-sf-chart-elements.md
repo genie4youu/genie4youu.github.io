@@ -3,7 +3,7 @@ title: 01. Chart의 구성 요소
 date: 2026-08-07 06:15:00 +0900
 description: 구성 요소는 다섯인데 Data와 Event는 그림에 나타나지 않는다. Junction은 State가 아니라 경로가 끝까지 State에 도달해야 이동이 성립한다.
 categories: [MATLAB과 Simulink, Stateflow 문법]
-tags: [stateflow, State, Transition, Junction, Data, Event, 계층]
+tags: [stateflow, State, transition, junction, Data, event, 계층]
 mermaid: true
 ---
 

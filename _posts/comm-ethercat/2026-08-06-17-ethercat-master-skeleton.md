@@ -3,11 +3,11 @@ title: 17. 예제, 마스터 골격 만들기
 date: 2026-08-06 12:17:00 +0900
 description: ESC 칩이 없어도 검증할 수 있는 범위가 생각보다 넓다. 초기 위치를 0이 아니게 두면 목표값 초기화 누락이 테스트로 잡힌다.
 categories: [로봇 통신, EtherCAT]
-tags: [통신, ethercat, 예제, gtest, C++, 안전]
+tags: [통신, ethercat, 예제, gtest, cpp, 안전]
 ---
 
 > **기준 출처:** 이 폴더 01편부터 16편까지를 코드로 옮긴 것 · [SOEM](https://github.com/OpenEtherCATsociety/SOEM) (GPLv2 + 링킹 예외, 상용 사용 시 라이선스 확인) · `sched_setscheduler(2)`, `mlockall(2)`, `clock_nanosleep(2)` / 확인일 2026-08-03
-> **시리즈:** [목차](/posts/00-comm-series/) | 이전 → [16. 진단](/posts/16-diagnostics-wkc-crc-counters/)
+> **시리즈:** [목차](/posts/00-comm-series/) | 이전 → [16. 진단](/posts/16-diagnostics-wkc-crc-counters/) | 다음 → [정리 01. 한 장 비교표](/posts/01-protocol-comparison-table/)
 
 ## 1. 무엇을 만드나
 

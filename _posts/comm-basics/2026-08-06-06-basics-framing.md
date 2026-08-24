@@ -2,7 +2,7 @@
 title: 06. 프레이밍 — 바이트에서 메시지로
 date: 2026-08-06 07:06:00 +0900
 description: 프레이밍은 경계를 표시하는 일과 어긋났을 때 다시 맞추는 일 둘 다를 해야 한다. 다섯 가지 방법을 비교하고 재동기가 되는 파서를 C++로 짠다.
-categories: [로봇 통신, 기초]
+categories: [로봇 통신, 통신 기초]
 tags: [통신, 프레이밍, modbus, cobs, fsm, i2c]
 mermaid: true
 ---

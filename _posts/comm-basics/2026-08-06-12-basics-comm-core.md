@@ -2,13 +2,13 @@
 title: 12. 예제 — 공통 모듈 만들기
 date: 2026-08-06 07:12:00 +0900
 description: 하드웨어 없이 만들고 CI로 전부 검증되는 것만 모아 comm_core 를 만든다. 테스트가 본체이고, 앞 열한 편의 이론을 코드로 증명한다.
-categories: [로봇 통신, 기초]
+categories: [로봇 통신, 통신 기초]
 tags: [통신, cpp, gtest, ros2, crc, 링버퍼, ci]
 mermaid: true
 ---
 
 > **기준 출처:** 이 시리즈 01편부터 11편까지의 내용을 코드로 옮긴 것이라 새 출처가 없다. CRC 검증값은 Modbus over Serial Line V1.02 §6.2.2, 메모리 모델과 `std::bit_cast` 는 ISO/IEC 14882 / 확인일 2026-08-03
-> **시리즈:** [목차](/posts/00-comm-series/) | 이전 → [11. 노이즈, 접지, 절연](/posts/11-basics-noise-ground-isolation/)
+> **시리즈:** [목차](/posts/00-comm-series/) | 이전 → [11. 노이즈, 접지, 절연](/posts/11-basics-noise-ground-isolation/) | 다음 → [SPI·I²C 01. 보드 안 통신](/posts/01-spi-i2c-why-onboard/)
 
 ---
 

@@ -9,7 +9,7 @@ math: true
 ---
 
 > **기준 출처:** 01편부터 15편까지를 코드로 옮긴 것이라 새 출처가 없다. Linux SocketCAN 커널 문서와 can-utils, 그리고 서보 드라이브 매뉴얼에 널리 공개된 CiA 402 FSM 과 비트 정의 / 확인일 2026-08-03
-> **시리즈:** [목차](/posts/00-comm-series/) | 이전 → [15. CAN 디버깅](/posts/15-can-debugging-busload/)
+> **시리즈:** [목차](/posts/00-comm-series/) | 이전 → [15. CAN 디버깅](/posts/15-can-debugging-busload/) | 다음 → [이더넷 01. 프레임과 MAC](/posts/01-ethernet-frame-mac/)
 
 ---
 

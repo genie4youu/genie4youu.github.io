@@ -2,7 +2,7 @@
 title: 05. 비트를 읽는 법 — 동기와 비동기
 date: 2026-08-06 07:05:00 +0900
 description: 클럭선을 따로 줄 것인가 데이터에서 뽑을 것인가. UART 보율 오차 허용치와 CAN 비트 스터핑, 그리고 라인 코딩이 사는 것을 정리한다.
-categories: [로봇 통신, 기초]
+categories: [로봇 통신, 통신 기초]
 tags: [통신, uart, can, spi, 라인코딩, 비트동기]
 mermaid: true
 math: true

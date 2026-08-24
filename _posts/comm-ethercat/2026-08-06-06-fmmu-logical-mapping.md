@@ -3,7 +3,7 @@ title: 06. FMMU, 논리 주소를 접는다
 date: 2026-08-06 12:06:00 +0900
 description: CPU의 MMU와 같은 발상을 하드웨어로. 비트 단위 매핑 덕에 디지털 I/O를 낭비 없이 채우고, 마스터 코드에서 통신이 사라진다.
 categories: [로봇 통신, EtherCAT]
-tags: [통신, ethercat, FMMU, IOmap, PDO, C++]
+tags: [통신, ethercat, FMMU, IOmap, pdo, cpp]
 ---
 
 > **기준 출처:** [ETG EtherCAT Technology](https://www.ethercat.org/en/technology.html) · ESC 데이터시트 공개 사양 · [SOEM](https://github.com/OpenEtherCATsociety/SOEM) `ethercatconfig.c` / 확인일 2026-08-03

@@ -9,7 +9,7 @@ math: true
 ---
 
 > **기준 출처:** MathWorks ADRC 문서 / Herbst & Madoński (Springer, 2025, Ch.10) / 확인일 2026-07-21
-> **시리즈:** [목차](/posts/00-adrc-series/) | 이전 → [17. 모터 조인트 루프 구조](/posts/17-motor-joint-loops/)
+> **시리즈:** [목차](/posts/00-adrc-series/) | 이전 → [17. 모터 조인트 루프 구조](/posts/17-motor-joint-loops/) | 다음 → [19. 부록 A, 총외란 상쇄와 ESO 수렴 증명](/posts/19-adrc-derivation-cancellation-eso/)
 
 ---
 
@@ -102,7 +102,7 @@ flowchart LR
 
 ## 시리즈
 
-[목차](/posts/00-adrc-series/) | 이전 → [17. 모터 조인트 루프 구조](/posts/17-motor-joint-loops/)
+[목차](/posts/00-adrc-series/) | 이전 → [17. 모터 조인트 루프 구조](/posts/17-motor-joint-loops/) | 다음 → [19. 부록 A, 총외란 상쇄와 ESO 수렴 증명](/posts/19-adrc-derivation-cancellation-eso/)
 
 ## 참고
 

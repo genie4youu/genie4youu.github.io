@@ -3,11 +3,11 @@ title: 05. 소켓 프로그래밍 기초 (C++)
 date: 2026-08-06 11:05:00 +0900
 description: UDP 소켓의 필수 옵션 셋, 제어 루프에서 sendto를 부르지 않는 구조, SO_TIMESTAMPING으로 지연을 층별로 분해하기.
 categories: [로봇 통신, 이더넷]
-tags: [통신, 이더넷, UDP, 소켓, C++, 실시간, raw소켓]
+tags: [통신, 이더넷, UDP, 소켓, cpp, 실시간, raw소켓]
 ---
 
 > **기준 출처:** POSIX `socket(2)`, `bind(2)`, `sendto(2)`, `recvfrom(2)`, `setsockopt(2)` · Linux `socket(7)`, `udp(7)`, `packet(7)` · [Linux SO_TIMESTAMPING 문서](https://www.kernel.org/doc/html/latest/networking/timestamping.html) / 확인일 2026-08-03
-> **시리즈:** [목차](/posts/00-comm-series/) | 이전 → [04. 표준 이더넷이 실시간에 안 맞는 이유](/posts/04-why-ethernet-not-realtime/)
+> **시리즈:** [목차](/posts/00-comm-series/) | 이전 → [04. 표준 이더넷이 실시간에 안 맞는 이유](/posts/04-why-ethernet-not-realtime/) | 다음 → [EtherCAT 00. 한눈에 보는 EtherCAT](/posts/00-ethercat-overview/)
 
 ## 1. 무엇을 만드나
 

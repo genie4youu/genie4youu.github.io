@@ -3,7 +3,7 @@ title: 13. WCET와 실행시간 예산
 date: 2026-08-07 05:13:00 +0900
 description: WCET는 정확한 값이 아니라 안전한 상한을 목표로 한다. 측정만으로는 경성 실시간의 근거가 안 되고, 워치독은 정상일 때만 먹여야 의미가 있다.
 categories: [RTOS와 실시간, 이론]
-tags: [rtos, WCET, 실행시간예산, 워치독, SCHED_DEADLINE, MISRA]
+tags: [rtos, wcet, 실행시간예산, 워치독, SCHED_DEADLINE, MISRA]
 mermaid: true
 math: true
 ---

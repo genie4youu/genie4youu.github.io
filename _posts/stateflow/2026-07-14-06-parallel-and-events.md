@@ -2,7 +2,7 @@
 title: 06. 병렬 State와 Event
 description: Exclusive(OR)와 Parallel(AND) 분해, send()를 통한 Event 브로드캐스트, 그리고 병렬 State가 동시 실행이 아니라는 점을 정리한다. Stateflow 시리즈 6편.
 date: 2026-07-14 05:06:00 +0900
-categories: [Stateflow, 기초]
+categories: [Stateflow, Chart 기초]
 tags: [stateflow, 병렬상태, parallel, event, broadcast]
 mermaid: true
 ---

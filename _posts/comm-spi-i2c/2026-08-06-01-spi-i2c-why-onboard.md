@@ -8,7 +8,7 @@ mermaid: true
 ---
 
 > **기준 출처:** NXP UM10204 §1, TI SLVA020, MCU 레퍼런스 매뉴얼의 주변장치 절 / 확인일 2026-08-03
-> **시리즈:** [목차](/posts/00-comm-series/) | 다음 → [02. I²C 두 선으로 주소를 부른다](/posts/02-i2c-two-wires-addressing/)
+> **시리즈:** [목차](/posts/00-comm-series/) | 이전 → [기초 12. 예제](/posts/12-basics-comm-core/) | 다음 → [02. I²C 두 선으로 주소를 부른다](/posts/02-i2c-two-wires-addressing/)
 
 ---
 

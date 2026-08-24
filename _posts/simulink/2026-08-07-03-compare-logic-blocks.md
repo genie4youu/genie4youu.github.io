@@ -3,7 +3,7 @@ title: 03. 비교와 논리 블록
 date: 2026-08-07 06:07:00 +0900
 description: Logical Operator에는 단락 평가가 없어서 보호 조건을 표현할 수 없다. Multiport Switch는 인덱스가 0-기반인지 1-기반인지 확인하지 않으면 한 칸씩 어긋난다.
 categories: [MATLAB과 Simulink, Simulink]
-tags: [simulink, RelationalOperator, LogicalOperator, Switch, MultiportSwitch, Detect]
+tags: [simulink, RelationalOperator, LogicalOperator, switch, MultiportSwitch, Detect]
 mermaid: true
 ---
 

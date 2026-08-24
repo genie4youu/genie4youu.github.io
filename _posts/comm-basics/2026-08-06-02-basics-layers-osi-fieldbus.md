@@ -2,7 +2,7 @@
 title: 02. 계층으로 나누기 — OSI와 필드버스
 description: 필드버스는 OSI 7계층에서 3, 4, 5, 6을 지우고 1, 2, 7만 남긴다. 지울 수 있는 이유와 그 대가를 8바이트 전송 비용으로 계산해 본다.
 date: 2026-08-06 07:02:00 +0900
-categories: [로봇 통신, 기초]
+categories: [로봇 통신, 통신 기초]
 tags: [통신, osi, 필드버스, ethercat, can]
 mermaid: true
 ---

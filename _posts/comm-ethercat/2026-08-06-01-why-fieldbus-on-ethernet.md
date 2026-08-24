@@ -8,7 +8,7 @@ math: true
 ---
 
 > **기준 출처:** [ETG EtherCAT Technology](https://www.ethercat.org/en/technology.html) · IEC 61158 Type 12 / IEC 61784-2 CPF 12 · [SOEM](https://github.com/OpenEtherCATsociety/SOEM) / 확인일 2026-08-03
-> **시리즈:** [목차](/posts/00-comm-series/) | 이전 → [이더넷 05. 소켓 프로그래밍](/posts/05-socket-programming-basics/) | 다음 → [02. on-the-fly 처리](/posts/02-on-the-fly-processing/)
+> **시리즈:** [목차](/posts/00-comm-series/) | 이전 → [00. 한눈에 보는 EtherCAT](/posts/00-ethercat-overview/) | 다음 → [02. on-the-fly 처리](/posts/02-on-the-fly-processing/)
 
 ## 1. 앞의 두 결론이 만나는 지점
 

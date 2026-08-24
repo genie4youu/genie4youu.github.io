@@ -9,7 +9,7 @@ math: true
 ---
 
 > **기준 출처:** 01편부터 16편까지를 코드로 옮긴 것이라 새 출처가 없다. Modbus over Serial Line V1.02 와 Modbus Application Protocol V1.1b3 / 확인일 2026-08-03
-> **시리즈:** [목차](/posts/00-comm-series/) | 이전 → [16. 시리얼 디버깅](/posts/16-serial-debugging-loopback/)
+> **시리즈:** [목차](/posts/00-comm-series/) | 이전 → [16. 시리얼 디버깅](/posts/16-serial-debugging-loopback/) | 다음 → [CAN 01. CAN 이 푸는 문제](/posts/01-can-what-it-solves/)
 
 ---
 

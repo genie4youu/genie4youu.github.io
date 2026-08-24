@@ -54,12 +54,19 @@ layout: default
 
     <div class="series-grid">
       {% for s in site.data.series %}
-        {%- comment -%} 편수는 _posts/<dir>/ 를 직접 센다 {%- endcomment -%}
+        {%- comment -%}
+          편수는 _posts/<dir>/ 를 직접 센다.
+          🔴 00 목차 글은 세지 않는다 (2026-08-21 결정). 세면 카드는 "23편"인데
+             그 카드를 눌러 들어간 목차 글 본문은 "22편으로 정리한다" 가 되어
+             같은 시리즈에 두 숫자가 뜬다. 아래 최근 글 목록도 같은 조건으로 건너뛴다.
+        {%- endcomment -%}
         {%- assign count = 0 -%}
         {%- for d in s.dirs -%}
           {%- capture prefix %}_posts/{{ d }}/{% endcapture -%}
           {%- for p in site.posts -%}
-            {%- if p.path contains prefix -%}{%- assign count = count | plus: 1 -%}{%- endif -%}
+            {%- if p.path contains prefix -%}
+              {%- unless p.categories contains '목차' -%}{%- assign count = count | plus: 1 -%}{%- endunless -%}
+            {%- endif -%}
           {%- endfor -%}
         {%- endfor -%}
 
@@ -98,14 +105,21 @@ layout: default
         {%- comment -%} 시리즈 목차 글은 위 카드가 이미 가리키므로 건너뛴다 {%- endcomment -%}
         {%- if p.categories contains '목차' -%}{%- continue -%}{%- endif -%}
 
-        {%- assign sid = 'break' -%}
-        {%- if p.path contains '_posts/stateflow/' -%}{%- assign sid = 'stateflow' -%}
-        {%- elsif p.path contains '_posts/sflayout/' -%}{%- assign sid = 'sflayout' -%}
-        {%- elsif p.path contains '_posts/adrc/' -%}{%- assign sid = 'adrc' -%}
-        {%- elsif p.path contains '_posts/amr/' -%}{%- assign sid = 'amr' -%}
-        {%- elsif p.path contains '_posts/mcp/' -%}{%- assign sid = 'mcp' -%}
-        {%- elsif p.path contains '_posts/news/' or p.path contains '_posts/papers/' or p.path contains '_posts/trends/' -%}{%- assign sid = 'reading' -%}
-        {%- endif -%}
+        {%- comment -%}
+          시리즈 색 키는 _data/series.yml 의 dirs 에서 도출한다. 하드코딩하지 않는다.
+          🔴 2026-08-21: 하드코딩이던 시절 comm-* 7 · rtos-* 3 · matlab/simulink/stateflow-syntax 3,
+             모두 13폴더 148편이 분기에 없어 전부 기본값으로 떨어져 '쉬어가기' 색으로 칠해졌다.
+             카드가 늘 때 이 파일을 같이 고쳐야 한다는 규칙은 지켜지지 않는다 — 그래서 데이터에서 읽는다.
+          기본값은 실재하는 시리즈 id 가 아니라 빈 문자열이다. 못 찾으면 색을 안 입히는 편이
+          엉뚱한 시리즈 색을 입히는 것보다 낫다.
+        {%- endcomment -%}
+        {%- assign sid = '' -%}
+        {%- for s in site.data.series -%}
+          {%- for d in s.dirs -%}
+            {%- capture needle %}_posts/{{ d }}/{% endcapture -%}
+            {%- if p.path contains needle -%}{%- assign sid = s.id -%}{%- endif -%}
+          {%- endfor -%}
+        {%- endfor -%}
 
         <li class="recent-item" data-series="{{ sid }}">
           <a href="{{ p.url | relative_url }}">

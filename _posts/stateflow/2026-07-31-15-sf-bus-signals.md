@@ -8,7 +8,7 @@ mermaid: true
 ---
 
 > **기준:** MathWorks 공개 문서 / R2025b / 확인일 2026-07-31
-> **시리즈:** [목차](/posts/00-stateflow-series/) | 이전 → [14. Simulation Data Inspector](/posts/14-sf-data-inspector/)
+> **시리즈:** [목차](/posts/00-stateflow-series/) | 이전 → [14. Simulation Data Inspector](/posts/14-sf-data-inspector/) | 다음 → [16. 어느 형태로 그릴 것인가](/posts/16-sf-chart-type-choice/)
 
 ---
 
@@ -117,7 +117,7 @@ field 단위로 소유자를 하나로 좁히는 편이 안전하다. 이는 [MA
 
 ---
 
-**시리즈:** [목차](/posts/00-stateflow-series/) | 이전 → [14. 결과 관측 — Simulation Data Inspector](/posts/14-sf-data-inspector/)
+**시리즈:** [목차](/posts/00-stateflow-series/) | 이전 → [14. 결과 관측 — Simulation Data Inspector](/posts/14-sf-data-inspector/) | 다음 → [16. 어느 형태로 그릴 것인가](/posts/16-sf-chart-type-choice/)
 
 ## 참고
 

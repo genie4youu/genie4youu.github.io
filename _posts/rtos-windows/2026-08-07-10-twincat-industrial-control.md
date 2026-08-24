@@ -3,7 +3,7 @@ title: 10. TwinCAT, 윈도우에서 산업제어
 date: 2026-08-07 05:49:00 +0900
 description: 코어를 뺏는 발상을 산업 자동화 전체 스택으로 완성한 형태다. I/O를 EtherCAT 너머로 밀어내 드라이버 문제를 구조적으로 없앴고, µs급은 여전히 슬레이브 MCU의 몫이다.
 categories: [RTOS와 실시간, 윈도우]
-tags: [rtos, 윈도우, TwinCAT, EtherCAT, IEC61131-3, CODESYS, SimulinkRealTime]
+tags: [rtos, 윈도우, TwinCAT, ethercat, IEC61131-3, CODESYS, SimulinkRealTime]
 mermaid: true
 ---
 

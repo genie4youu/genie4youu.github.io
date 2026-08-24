@@ -9,7 +9,7 @@ math: true
 ---
 
 > **기준 출처:** Bosch CAN Specification 2.0 Part A/B §1, ISO 11898-1 과 -2 와 -3 개요, CiA CAN Knowledge 공개 요약 / 확인일 2026-08-03
-> **시리즈:** [목차](/posts/00-comm-series/) | 다음 → [02. CAN 물리계층](/posts/02-can-physical-dominant-recessive/)
+> **시리즈:** [목차](/posts/00-comm-series/) | 이전 → [시리얼 17. 예제](/posts/17-modbus-master-example/) | 다음 → [02. CAN 물리계층](/posts/02-can-physical-dominant-recessive/)
 
 ---
 

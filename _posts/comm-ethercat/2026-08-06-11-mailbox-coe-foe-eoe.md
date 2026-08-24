@@ -3,7 +3,7 @@ title: 11. 메일박스 프로토콜, CoE와 FoE와 EoE와 SoE
 date: 2026-08-06 12:11:00 +0900
 description: 하나의 메일박스로 여러 프로토콜을 나른다. EoE는 케이블 하나로 제어와 IP 통신을 함께 하지만 사이클을 갉아먹는다.
 categories: [로봇 통신, EtherCAT]
-tags: [통신, ethercat, CoE, FoE, EoE, SDO, 메일박스]
+tags: [통신, ethercat, CoE, FoE, EoE, sdo, 메일박스]
 ---
 
 > **기준 출처:** [ETG EtherCAT Technology](https://www.ethercat.org/en/technology.html) · ETG.1000 계열, ETG.5003 · [SOEM](https://github.com/OpenEtherCATsociety/SOEM) `ethercatcoe.c`, `ethercatfoe.c`, `ethercateoe.c`, `ethercatsoe.c` / 확인일 2026-08-03

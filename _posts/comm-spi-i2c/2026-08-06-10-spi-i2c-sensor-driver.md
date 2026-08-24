@@ -8,7 +8,7 @@ mermaid: true
 ---
 
 > **기준 출처:** 01편부터 09편까지를 코드로 옮긴 것이라 새 출처가 없다. I²C 복구 절차는 NXP UM10204 §3.1.16 / 확인일 2026-08-03
-> **시리즈:** [목차](/posts/00-comm-series/) | 이전 → [09. SPI 와 I²C 선택 기준](/posts/09-spi-vs-i2c-selection/)
+> **시리즈:** [목차](/posts/00-comm-series/) | 이전 → [09. SPI 와 I²C 선택 기준](/posts/09-spi-vs-i2c-selection/) | 다음 → [시리얼 01. UART 원리](/posts/01-uart-async-meaning/)
 
 ---
 

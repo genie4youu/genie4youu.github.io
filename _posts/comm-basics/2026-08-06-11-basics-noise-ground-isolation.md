@@ -2,7 +2,7 @@
 title: 11. 노이즈, 접지, 절연 — 실전 전기
 date: 2026-08-06 07:11:00 +0900
 description: 랩에서 잘 돌던 통신이 모터를 켜는 순간 깨진다. 코드는 그대로다. 결합 경로 셋을 숫자로 계산하고 진단 순서를 정리한다.
-categories: [로봇 통신, 기초]
+categories: [로봇 통신, 통신 기초]
 tags: [통신, 노이즈, 접지, 절연, emc, rs485, can]
 mermaid: true
 math: true

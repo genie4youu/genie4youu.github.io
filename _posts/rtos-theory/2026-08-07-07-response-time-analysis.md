@@ -3,7 +3,7 @@ title: 07. 응답시간 분석, 손으로 계산하기
 date: 2026-08-07 05:07:00 +0900
 description: 고정 우선순위의 필요충분조건이다. 자기참조식을 반복해 수렴시키면 각 태스크의 여유까지 나온다. 최고 우선순위의 15 µs 증가가 최저 우선순위에서 7,770 µs가 된다.
 categories: [RTOS와 실시간, 이론]
-tags: [rtos, 스케줄링, 응답시간분석, RTA, WCET, 블로킹]
+tags: [rtos, 스케줄링, 응답시간분석, RTA, wcet, 블로킹]
 mermaid: true
 math: true
 ---

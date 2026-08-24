@@ -13,7 +13,7 @@ order: 1
 
 {%- assign n_comm = 0 -%}{%- assign n_rtos = 0 -%}{%- assign n_mp = 0 -%}
 {%- assign n_sf = 0 -%}{%- assign n_sfl = 0 -%}{%- assign n_adrc = 0 -%}
-{%- assign n_amr = 0 -%}{%- assign n_mcp = 0 -%}{%- assign n_read = 0 -%}{%- assign n_etc = 0 -%}{%- assign n_orch = 0 -%}
+{%- assign n_amr = 0 -%}{%- assign n_mcp = 0 -%}{%- assign n_read = 0 -%}{%- assign n_etc = 0 -%}{%- assign n_orch = 0 -%}{%- assign n_cc = 0 -%}
 {%- for p in site.posts -%}
   {%- comment -%} 🔴 00 목차 글은 세지 않는다 — landing.html 의 카드 편수와 같은 규약이다. {%- endcomment -%}
   {%- if p.categories contains '목차' -%}{%- continue -%}{%- endif -%}
@@ -27,6 +27,7 @@ order: 1
   {%- elsif p.path contains '_posts/mcp/' -%}{%- assign n_mcp = n_mcp | plus: 1 -%}
   {%- elsif p.path contains '_posts/news/' or p.path contains '_posts/papers/' or p.path contains '_posts/trends/' -%}{%- assign n_read = n_read | plus: 1 -%}
   {%- elsif p.path contains '_posts/orch/' -%}{%- assign n_orch = n_orch | plus: 1 -%}
+  {%- elsif p.path contains '_posts/ccsetup/' -%}{%- assign n_cc = n_cc | plus: 1 -%}
   {%- elsif p.path contains '_posts/etc/' -%}{%- assign n_etc = n_etc | plus: 1 -%}
   {%- endif -%}
 {%- endfor -%}
@@ -132,6 +133,16 @@ order: 1
 | [프로토콜 이론](/posts/01-what-is-mcp/) | 01~06 | 아키텍처, 트랜스포트, Primitives, JSON-RPC, 보안 모델 |
 | [실무 설정](/posts/07-matlab-mcp-server/) | 07~12 | MATLAB MCP 서버, 설치, 세션 공유, 첫 실행, 트러블슈팅 |
 | [운영과 경계](/posts/13-mcp-next-steps/) | 13~17 | 편집기 연동, 시작 자동화, 승인 모드, 작업공간 경계 |
+
+## 🎛️ Claude Code 세팅 — {{ n_cc }}편
+
+> [**목차 →**](/posts/00-ccsetup-series/) 슬래시 명령, 서브에이전트, Skill, Hook, MCP. 다섯 갈래가 각각 무엇을 고정하고 언제 고르는지 정리했습니다.
+
+| 구간 | 편 | 내용 |
+| --- | --- | --- |
+| [왜와 무엇](/posts/01-why-prompt-is-not-enough/) | 01~03 | 프롬프트의 한계, 절차를 파일로, [**컨텍스트 격리**](/posts/03-subagents/) |
+| [통제](/posts/04-tools-not-requests/) | 04~06 | 도구로 막기, [**검증은 쓴 쪽이 하지 않는다**](/posts/05-independent-verification/), Hook 과 오탐률 |
+| [확장과 운영](/posts/07-skills/) | 07~10 | Skill, MCP, [예약 실행과 중단 검출](/posts/09-scheduled-runs/), 고르는 기준 |
 
 ## 🕸️ 에이전트 오케스트레이션 — {{ n_orch }}편
 

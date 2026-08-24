@@ -101,12 +101,13 @@
 #   index: /posts/00-agentic-series/
 #   blurb: 루프, 에이전트, 하네스. 세 층으로 나눠 보면 무엇을 고쳐야 할지가 갈린다.
 #
-# - id: ccsetup
-#   name: Claude Code 세팅
-#   icon: fa-solid fa-sliders
-#   dirs: [ccsetup]
-#   index: /posts/00-ccsetup-series/
-#   blurb: 슬래시 명령, 서브에이전트, skill, hook, MCP. 다섯 갈래를 언제 쓰는지 정하고 실제로 붙였다.
+# 🟢 2026-08-24 활성화
+- id: ccsetup
+  name: Claude Code 세팅
+  icon: fa-solid fa-sliders
+  dirs: [ccsetup]
+  index: /posts/00-ccsetup-series/
+  blurb: 슬래시 명령, 서브에이전트, skill, hook, MCP. 다섯 갈래를 언제 쓰는지 정하고 실제로 붙였다.
 #
 # 🟢 2026-08-24 활성화 — _posts/orch/ 와 00 목차 글이 생겼다
 - id: orch

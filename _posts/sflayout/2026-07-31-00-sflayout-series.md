@@ -1,9 +1,8 @@
 ---
-title: 00. Stateflow 레이아웃을 코드로 만들기 — 연재 목차
+title: 00. Stateflow 레이아웃 자동화 — 시리즈 목차
 description: State 37개, Transition 67개짜리 차트를 사람이 읽을 수 있게 만드는 과정을 Stateflow API로 자동화하며 부딪힌 것들. 5편 연재 목차.
 date: 2026-07-31 06:04:00 +0900
 categories: [Stateflow, 목차]
-pin: true
 tags: [stateflow, api, 레이아웃, 자동화, amr, 목차]
 mermaid: true
 ---

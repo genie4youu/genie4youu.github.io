@@ -2,7 +2,7 @@
 title: 01. 논리는 맞는데 못 읽는 차트
 description: 자동 배치된 좌표를 그대로 두면 무엇이 문제가 되는가. hard violation 32건의 내역과 State 활용률 0.302라는 수치가 뜻하는 것.
 date: 2026-07-31 06:05:00 +0900
-categories: [Stateflow, 자동화]
+categories: [Stateflow, 레이아웃 자동화]
 tags: [stateflow, 레이아웃, 검토, 가독성, amr]
 mermaid: true
 ---

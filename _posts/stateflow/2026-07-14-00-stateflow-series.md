@@ -1,11 +1,10 @@
 ---
-title: 00. Stateflow 시리즈 목차
+title: 00. Stateflow — 시리즈 목차
 description: Chart 만들기부터 실행 순서, 설계, 관측, 검증, 자동화까지 22편의 목차. MathWorks 공개 문서 기준.
 date: 2026-07-14 05:14:00 +0900
 categories: [Stateflow, 목차]
 tags: [stateflow, fsm, simulink, 목차, 임베디드]
 mermaid: true
-pin: true
 ---
 
 > **기준:** MathWorks 공개 문서 / 최종 갱신 2026-07-31
@@ -74,7 +73,7 @@ Stateflow로 FSM을 설계하는 데 필요한 것을 22편으로 정리한다. 
 | 20 | [Stateflow API 기초](/posts/20-sf-api-basics/) | `sfroot`, `find`, 논리 서명 비교 |
 | 13 | [User's Guide 찾아 쓰기](/posts/13-users-guide/) | 1,250쪽 레퍼런스 탐색법 |
 
-> API 를 실제 모델에 적용한 사례는 별도 연재로 있다 → [Stateflow 레이아웃을 코드로 만들기](/posts/00-sflayout-series/) (6편)
+> API 를 실제 모델에 적용한 사례는 별도 연재로 있다 → [Stateflow 레이아웃 자동화](/posts/00-sflayout-series/)
 {: .prompt-tip }
 
 ---

@@ -2,7 +2,7 @@
 title: 04. subviewS.pos 는 배치 영역이 아니라 페이지다
 description: Subchart 안의 객체를 잘 배치했는데도 Space/Fit을 누르면 작게 나오는 이유. 저장된 페이지 사각형과 배치 영역을 혼동하면 생기는 일.
 date: 2026-07-31 06:08:00 +0900
-categories: [Stateflow, 자동화]
+categories: [Stateflow, 레이아웃 자동화]
 tags: [stateflow, subchart, zoomfactor, 가독성, 레이아웃, amr]
 mermaid: true
 ---

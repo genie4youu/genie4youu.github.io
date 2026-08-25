@@ -2,7 +2,7 @@
 title: 03. 계층을 재귀로 훑는다
 description: Region 이름을 하드코딩한 레이아웃 스크립트는 State가 늘면 바로 낡는다. 부모 관계를 재귀 탐색해 Subviewer를 찾고 깊은 곳부터 배치하는 방법.
 date: 2026-07-31 06:07:00 +0900
-categories: [Stateflow, 자동화]
+categories: [Stateflow, 레이아웃 자동화]
 tags: [stateflow, api, subchart, 계층, 재귀, amr]
 mermaid: true
 ---

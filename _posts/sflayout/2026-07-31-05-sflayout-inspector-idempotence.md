@@ -2,7 +2,7 @@
 title: 05. 검사기가 통과시킨 것
 description: 통과 리포트는 무엇이 맞았는지가 아니라 무엇을 봤는지만 알려준다. 존재 검사와 값 검사의 차이, 그리고 멱등성을 합격 기준으로 삼은 이유.
 date: 2026-07-31 06:09:00 +0900
-categories: [Stateflow, 자동화]
+categories: [Stateflow, 레이아웃 자동화]
 tags: [stateflow, 검증, 단위테스트, 멱등성, 레이아웃, amr]
 mermaid: true
 ---

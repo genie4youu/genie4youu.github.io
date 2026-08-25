@@ -1,5 +1,5 @@
 ---
-title: "00. 목차: Claude Code 를 이렇게 세팅했다"
+title: 00. Claude Code 세팅 — 시리즈 목차
 date: 2026-08-24 08:00:00 +0900
 description: 슬래시 명령, 서브에이전트, Skill, Hook, MCP. 다섯 갈래가 각각 무엇을 고정하고 언제 고르는지, 그리고 만들지 않기로 한 것들.
 categories: [Claude Code 세팅, 목차]

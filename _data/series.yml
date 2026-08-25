@@ -1,41 +1,64 @@
-# 홈 랜딩(_layouts/landing.html)의 시리즈 카드 데이터.
+# 홈 랜딩(_layouts/landing.html)의 시리즈 카드 데이터. 시리즈의 단일 정본이다.
 #
 # 편수는 여기 적지 않는다. landing.html 이 _posts/<dir>/ 안의 글을 직접 센다.
 # 손으로 적으면 글이 늘 때마다 조용히 낡는다.
 #
-# id     : 카드 강조색 키. assets/css/jekyll-theme-chirpy.scss 의 $series-rails-* 와 이름이 같아야 한다.
-# dirs   : _posts/ 아래 폴더 이름. 편수를 세는 기준이다.
-# index  : 카드를 눌렀을 때 갈 곳. 시리즈 목차 글을 쓴다.
-# category: index 가 없을 때 /categories/<카테고리>/ 로 대신 보낸다.
+# id           : 카드 강조색 키. assets/css/jekyll-theme-chirpy.scss 의 $series-* 와 이름이 같아야 한다.
+# name         : 카드에 보이는 연재 이름. _tabs/series.md 의 절 제목, 그리고 00 목차 글의
+#                제목 "00. <name> — 시리즈 목차" 와 같은 말이어야 한다. (tools/lint-site.mjs 검사 8)
+# dirs         : _posts/ 아래 폴더 이름. 편수를 세는 기준이다.
+# index        : 카드를 눌렀을 때 갈 곳. 시리즈 목차 글을 쓴다.
+# category     : index 가 없을 때 /categories/<category>/ 로 대신 보낸다. 링크 대상이다.
+# top_category : 이 연재 글들이 실제로 쓰는 categories 의 첫 칸(대분류). 링크가 아니라 대응 기록이다.
+#                🔴 name 과 다를 수 있고, 다른 것이 정상이다 — 아래 "이름이 왜 다른가" 참고.
+# resume_note  : _tabs/resume.md 의 블로그 표에 들어갈 한 줄. 그 표는 이 파일을 순회해 만든다.
+#
+# ── 이름이 왜 다른가 (2026-08-25 확정) ──────────────────────────────
+# 대분류(top_category)는 "주제 영역", name 은 "연재 제목"이라 역할이 다르다.
+#   ADRC(연재)는 제어 이론(주제) 아래 있고, 앞으로 다른 제어 연재가 같은 칸에 들어온다.
+#   Stateflow 는 카드가 둘(stateflow / sflayout)인데 주제는 하나다.
+# 그래서 5건이 일부러 다르다. 맞추려 하지 말고 top_category 로 대응만 고정한다.
+#
+# ⚠️ 카드는 landing.html 에서 항상 <a href> 로 감싸인다. index 도 category 도 없으면
+#    href="" 가 되고, index 가 없는 글을 가리키면 internal-link 실패가 된다.
+#    둘 중 하나는 실제로 존재하는 대상이어야 한다. (2026-08-07 빌드 실패로 확인)
 
 - id: stateflow
   name: Stateflow
   icon: fa-solid fa-diagram-project
   dirs: [stateflow]
   index: /posts/00-stateflow-series/
+  top_category: Stateflow
   blurb: Chart 만들기부터 실행 순서, 설계, 관측, 검증, 자동화까지. 배터리 충전 제어를 하나의 예제로 이어서 쓴다.
+  resume_note: 실행 의미론, 계층과 병렬, 커버리지와 형식 증명
 
 - id: adrc
   name: ADRC
   icon: fa-solid fa-wave-square
   dirs: [adrc]
   index: /posts/00-adrc-series/
+  top_category: 제어 이론
   blurb: 정확한 모델 없이 외란을 추정해 상쇄하는 제어 기법. 발상에서 출발해 이산화, 튜닝, 수식 유도까지 내려간다.
+  resume_note: 확장 상태 관측기, 대역폭 파라미터화, 이산화와 튜닝
 
 - id: amr
   name: 실내 배송 AMR
   icon: fa-solid fa-robot
   dirs: [amr]
   index: /posts/00-amr-series/
+  top_category: AMR
   blurb: MATLAB, Simulink, Stateflow 만으로 만든 프로젝트. 좌표계에서 시작해 SLAM, 경로계획, 감독제어, 검증까지 이어진다.
   repo: https://github.com/genie4youu/amr_robot_planning
+  resume_note: 점유격자에서 supervisor 까지의 구현 과정
 
 - id: mcp
   name: MCP와 MATLAB 연결
   icon: fa-solid fa-plug
   dirs: [mcp]
   index: /posts/00-mcp-series/
+  top_category: AI 에이전트
   blurb: AI 에이전트를 MATLAB 에 붙이는 프로토콜과 실무 설정. JSON-RPC, 보안 모델, 승인 모드를 정리했다.
+  resume_note: AI 에이전트를 MATLAB 에 연결하고 운영 경계를 정리
 
 - id: sflayout
   name: Stateflow 레이아웃 자동화
@@ -44,15 +67,22 @@
   icon: fa-solid fa-object-group
   dirs: [sflayout]
   index: /posts/00-sflayout-series/
+  # 대분류는 stateflow 카드와 같은 Stateflow 다. 소분류로 갈린다 — 이쪽이 '레이아웃 자동화',
+  # stateflow/ 의 API·User's Guide 2편이 '자동화' 다. (2026-08-25 분리)
+  top_category: Stateflow
   blurb: State 37개, Transition 67개짜리 차트를 사람이 읽을 수 있게 만든 기록. 그래픽 위반 32건을 0으로 줄였다.
+  resume_note: API 기반 자동 배치와 그래픽 규칙 검사
 
 - id: comm
   name: 로봇 통신
   icon: fa-solid fa-network-wired
   # 통신 하나 = 폴더 하나로 나눠 두었다. 카드는 하나지만 편수는 일곱 폴더를 합쳐 센다.
+  # 🔴 번호는 폴더(구간)마다 01 부터 다시 시작한다. 연재 전체 통번호가 아니다 — README 참고.
   dirs: [comm-basics, comm-spi-i2c, comm-serial, comm-can, comm-ethernet, comm-ethercat, comm-summary]
   index: /posts/00-comm-series/
+  top_category: 로봇 통신
   blurb: 도달, 동기, 경계, 무결, 조정, 시간. 여섯 칸을 정해 두고 SPI 부터 EtherCAT 까지 같은 표를 채워 나간다.
+  resume_note: SPI, I²C, UART, CAN, 이더넷, EtherCAT. 도달·동기·경계·무결·조정·시간 여섯 칸으로 같은 표를 채운다
 
 - id: rtos
   name: RTOS와 실시간
@@ -60,60 +90,66 @@
   # 이론 / 리눅스 / 윈도우로 나눠 두었다. 카드는 하나지만 편수는 세 폴더를 합쳐 센다.
   dirs: [rtos-theory, rtos-linux, rtos-windows]
   index: /posts/00-rtos-series/
+  top_category: RTOS와 실시간
   blurb: 실시간은 빠른 게 아니라 늦지 않는 것이다. 스케줄 가능성을 손으로 계산하고, 리눅스와 윈도우에서 실제로 재본다.
+  resume_note: 스케줄 가능성 계산, 우선순위 역전, 지터와 WCET. 리눅스 PREEMPT_RT 와 윈도우에서 실측
 
-# ⚠️ 카드는 landing.html 에서 항상 <a href> 로 감싸인다. index 도 category 도 없으면
-#    href="" 가 되고, index 가 없는 글을 가리키면 internal-link 실패가 된다.
-#    둘 중 하나는 실제로 존재하는 대상이어야 한다. (2026-08-07 빌드 실패로 확인)
 - id: mp
   name: MATLAB과 Simulink 문법
   icon: fa-solid fa-calculator
   dirs: [matlab, simulink, stateflow-syntax]
   index: /posts/00-mp-series/
+  top_category: MATLAB과 Simulink
   blurb: 남이 만든 모델을 읽기 위한 최소 문법. 정수 타입과 비트 연산에서 시작해 블록과 Stateflow 문법까지.
+  resume_note: 남이 만든 모델을 읽기 위한 최소 문법. 정수 타입과 비트 연산부터
 
 - id: reading
   name: 업계 읽기
   icon: fa-solid fa-newspaper
   dirs: [news, papers, trends]
+  # 목차 글이 없다. 흐름 콘텐츠라 시간순으로 읽는 편이 맞아 카테고리로 보낸다.
   category: 업계 읽기
+  top_category: 업계 읽기
   blurb: 로보틱스 뉴스, 논문 한 편 상세 리딩, 주간 기술 동향.
+  resume_note: 매일의 뉴스, 논문과 책 한 편씩의 상세 리딩, 그것을 한 주로 묶은 동향
 
 - id: break
   name: 쉬어가기
   icon: fa-solid fa-mug-hot
   dirs: [etc]
-  index: /posts/00-office-rpg-series/
-  blurb: 공부 글이 아닌 읽을거리.
+  # 🔴 2026-08-25: index 를 버리고 카테고리로 보낸다.
+  #    전에는 /posts/00-office-rpg-series/ 를 가리켰는데, 그 글은 "일하는 척하다가 세계를
+  #    구한 이야기" 2부작만의 목차다. 카드가 그것을 가리키면 2부작이 이 칸의 전부인 것처럼
+  #    보이고, 이어지지 않는 단편은 카드를 눌러도 안 나온다. 쉬어가기는 여러 갈래가
+  #    들어올 상위 칸이므로 카테고리 페이지가 목차 역할을 한다. 새 글은 자동으로 붙는다.
+  category: 쉬어가기
+  top_category: 쉬어가기
+  blurb: 공부 글이 아닌 읽을거리. 소설, 잡글, 실험적인 글.
+  resume_note: 공부 글이 아닌 읽을거리
 
-# ============================================================
-# 🕓 대기 중인 카드 3장 (2026-08-24 확정, 아직 활성화하지 않음)
-# ------------------------------------------------------------
-# 🔴 활성화 조건: 해당 _posts/<dir>/ 폴더에 00 목차 글이 실제로 있어야 한다.
-#    index 가 없는 글을 가리키면 htmlproofer 가 internal-link 실패를 내고
-#    배포가 통째로 떨어진다 (2026-08-07 에 실제로 겪었다).
-#    폴더와 목차 글을 만든 뒤 아래 주석을 풀고 scss 의 대기 색도 함께 푼다.
-#
-# 🟢 2026-08-24 활성화
 - id: agentic
   name: 에이전틱 엔지니어링
   icon: fa-solid fa-layer-group
   dirs: [agentic]
   index: /posts/00-agentic-series/
+  top_category: 에이전틱 엔지니어링
   blurb: 루프, 에이전트, 하네스. 세 층으로 나눠 보면 무엇을 고쳐야 할지가 갈린다.
-#
-# 🟢 2026-08-24 활성화
+  resume_note: 루프, 에이전트, 하네스. 증상을 보고 어느 층을 고칠지 좁히는 진단표까지
+
 - id: ccsetup
   name: Claude Code 세팅
   icon: fa-solid fa-sliders
   dirs: [ccsetup]
   index: /posts/00-ccsetup-series/
+  top_category: Claude Code 세팅
   blurb: 슬래시 명령, 서브에이전트, skill, hook, MCP. 다섯 갈래를 언제 쓰는지 정하고 실제로 붙였다.
-#
-# 🟢 2026-08-24 활성화 — _posts/orch/ 와 00 목차 글이 생겼다
+  resume_note: 슬래시 명령, 서브에이전트, skill, hook, MCP. 무엇이 반복되는가로 갈래를 고른다
+
 - id: orch
   name: 에이전트 오케스트레이션
   icon: fa-solid fa-sitemap
   dirs: [orch]
   index: /posts/00-orch-series/
+  top_category: 에이전트 오케스트레이션
   blurb: State, Transition, 병렬, History. 제어 쪽 어휘로 다중 에이전트 배선을 읽는다.
+  resume_note: 팬아웃과 배리어, 스키마 계약, 적대적 검증. 제어 어휘로 다중 에이전트 배선을 읽는다

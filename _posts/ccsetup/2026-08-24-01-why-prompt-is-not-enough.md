@@ -2,7 +2,7 @@
 title: 01. 왜 프롬프트만으로는 안 되나
 date: 2026-08-24 08:01:00 +0900
 description: 잊는다, 틀린다, 재현이 안 된다. 세 가지가 반복되면 프롬프트를 더 잘 쓰는 것으로는 안 되고 층을 하나 더 만들어야 한다.
-categories: [Claude Code 세팅, 문제 정의]
+categories: [Claude Code 세팅, 프롬프트의 한계]
 tags: [ClaudeCode, 프롬프트, 자동화, 재현성, 설정]
 ---
 

@@ -2,7 +2,7 @@
 title: 10. 다섯 갈래를 언제 쓰나
 date: 2026-08-24 08:10:00 +0900
 description: 무엇이 반복되는가에 따라 고를 갈래가 달라진다. 그리고 넷은 모델을 돕는 층이고 하나는 모델을 우회하는 층이라 성격이 다르다.
-categories: [Claude Code 세팅, 정리]
+categories: [Claude Code 세팅, 선택 기준]
 tags: [ClaudeCode, 정리, 선택기준, 세팅, 회고]
 mermaid: true
 ---

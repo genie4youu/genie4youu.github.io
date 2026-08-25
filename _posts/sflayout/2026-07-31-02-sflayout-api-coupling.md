@@ -2,7 +2,7 @@
 title: 02. Transition 그래픽 속성은 서로 독립이 아니다
 description: SourceOClock, DestinationOClock, MidPoint를 설정하는 순서가 결과를 바꾼다. 요청한 값과 저장된 값이 다른 이유와 대응 방법.
 date: 2026-07-31 06:06:00 +0900
-categories: [Stateflow, 자동화]
+categories: [Stateflow, 레이아웃 자동화]
 tags: [stateflow, api, transition, midpoint, 레이아웃, amr]
 mermaid: true
 ---

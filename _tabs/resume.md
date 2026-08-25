@@ -150,18 +150,41 @@ MATLAB 과 Simulink, Stateflow 로 구현한 자율주행 로봇입니다.
 
 ## 기술 블로그
 
-공부한 것을 다시 찾아보려고 정리합니다. 연재별 목록은 [시리즈](/series/), 전체 목록은 [아카이브](/archives/)에 있습니다.
+{%- comment -%}
+  🔴 이 표는 손으로 적지 않는다. _data/series.yml 을 순회하고 편수는 _posts/ 를 직접 센다.
+     2026-08-24 이전에는 수기였고 101편에서 멈춰 있었다. 2026-08-25 에 다시 보니
+     그 사이 늘어난 연재 3개와 업계 읽기·쉬어가기가 빠져 283편 중 230편만 나오고 있었다.
+     같은 원인으로 두 번 낡았으므로 데이터에서 읽는다.
+  🔴 00 목차 글은 세지 않는다 — landing.html, _tabs/series.md 와 같은 규약이다.
+  줄 순서는 series.yml 의 카드 순서를 그대로 따른다. 편수순으로 정렬하지 않는다 —
+     정렬 기준을 손으로 유지하면 그것이 다음에 낡는 자리가 된다.
+{%- endcomment -%}
+{%- assign total = 0 -%}
+{%- for p in site.posts -%}
+  {%- unless p.categories contains '목차' -%}{%- assign total = total | plus: 1 -%}{%- endunless -%}
+{%- endfor -%}
+
+공부한 것을 다시 찾아보려고 정리합니다. 지금 {{ total }}편이고, 연재별 목록은 [시리즈](/series/), 전체 목록은 [아카이브](/archives/)에 있습니다.
 
 | 연재 | 편수 | 내용 |
 | --- | --- | --- |
-| [로봇 통신](/posts/00-comm-series/) | 83편 | SPI, I²C, UART, CAN, 이더넷, EtherCAT. 도달·동기·경계·무결·조정·시간 여섯 칸으로 같은 표를 채운다 |
-| [RTOS와 실시간](/posts/00-rtos-series/) | 41편 | 스케줄 가능성 계산, 우선순위 역전, 지터와 WCET. 리눅스 PREEMPT_RT 와 윈도우에서 실측 |
-| [Stateflow](/posts/00-stateflow-series/) | 22편 | 실행 의미론, 계층과 병렬, 커버리지와 형식 증명 |
-| [ADRC](/posts/00-adrc-series/) | 21편 | 확장 상태 관측기, 대역폭 파라미터화, 이산화와 튜닝 |
-| [MATLAB과 Simulink 문법](/posts/00-mp-series/) | 21편 | 남이 만든 모델을 읽기 위한 최소 문법. 정수 타입과 비트 연산부터 |
-| [실내 배송 AMR](/posts/00-amr-series/) | 20편 | 점유격자에서 supervisor 까지의 구현 과정 |
-| [MCP](/posts/00-mcp-series/) | 17편 | AI 에이전트를 MATLAB 에 연결하고 운영 경계를 정리 |
-| [Stateflow 레이아웃 자동화](/posts/00-sflayout-series/) | 5편 | API 기반 자동 배치와 그래픽 규칙 검사 |
+{%- for s in site.data.series -%}
+  {%- assign count = 0 -%}
+  {%- for d in s.dirs -%}
+    {%- capture prefix %}_posts/{{ d }}/{% endcapture -%}
+    {%- for p in site.posts -%}
+      {%- if p.path contains prefix -%}
+        {%- unless p.categories contains '목차' -%}{%- assign count = count | plus: 1 -%}{%- endunless -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endfor -%}
+  {%- if s.index -%}
+    {%- assign href = s.index -%}
+  {%- else -%}
+    {%- capture href -%}/categories/{{ s.category | slugify | url_encode }}/{%- endcapture -%}
+  {%- endif %}
+| [{{ s.name }}]({{ href | strip }}) | {{ count }}편 | {{ s.resume_note }} |
+{%- endfor %}
 
 ## 자기소개서
 

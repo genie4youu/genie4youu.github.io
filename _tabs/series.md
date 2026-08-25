@@ -35,7 +35,9 @@ order: 1
 
 이 블로그는 **다시 찾아보기 위한 자료 정리함**입니다. 글이 {{ site.posts.size }}편이라 시간순으로는 찾기 어려워서, 시리즈 단위로 정리했습니다.
 
-각 시리즈의 **00번 글이 그 시리즈의 목차**입니다. 거기서 시작하면 됩니다. 다만 업계 읽기는 흐름 콘텐츠라 목차 글 대신 카테고리로 갑니다.
+각 시리즈의 **00번 글이 그 시리즈의 목차**입니다. 거기서 시작하면 됩니다. [목차 글만 모아 보기 →](/categories/%EB%AA%A9%EC%B0%A8/)
+
+다만 **업계 읽기와 쉬어가기는 목차 글로 가지 않습니다.** 앞은 흐름 콘텐츠라 시간순으로 읽는 편이 맞고, 뒤는 서로 이어지지 않는 글이 섞이는 칸이라 어느 한 편을 입구로 두면 그것이 전부인 것처럼 보입니다. 둘 다 카테고리 페이지가 목차 역할을 합니다.
 
 ---
 
@@ -90,7 +92,7 @@ order: 1
 | [**검증**](/posts/21-sf-coverage/) | 18, 21~22 | **"테스트했다"와 "검증했다"의 차이.** edit-time 검사, 커버리지, 형식 증명 |
 | [자동화](/posts/20-sf-api-basics/) | 13, 20 | Stateflow API, User's Guide 탐색법 |
 
-## 🔧 Stateflow 레이아웃을 코드로 만들기 — {{ n_sfl }}편
+## 🔧 Stateflow 레이아웃 자동화 — {{ n_sfl }}편
 
 > [**목차 →**](/posts/00-sflayout-series/) State 37개, Transition 67개짜리 차트를 사람이 읽을 수 있게 만든 기록입니다.
 
@@ -177,19 +179,39 @@ order: 1
 > 이 시리즈만 목차 글이 없습니다. 흐름 콘텐츠라 시간순으로 읽는 편이 맞습니다.
 > [카테고리 전체 →](/categories/%EC%97%85%EA%B3%84-%EC%9D%BD%EA%B8%B0/)
 
+{%- comment -%}
+  🔴 아래 두 목록은 손으로 적지 않는다. _posts/papers/ 와 _posts/trends/ 를 직접 센다.
+     2026-08-25 실측: 수기였을 때 논문은 5편 중 3편, 동향은 2편 중 1편만 적혀 있었다.
+{%- endcomment -%}
+
 **논문과 책**
 
-- [Han 2009 — From PID to ADRC](/posts/paper-han2009-pid-to-adrc/)
-- [Herbst & Madoński — ADRC: From Principles to Practice](/posts/book-adrc-principles-to-practice/)
-- [UniFP — 위치와 힘 통합 정책](/posts/paper-unifp-force-position/)
+{% for p in site.posts reversed -%}
+  {%- if p.path contains '_posts/papers/' %}
+- [{{ p.title }}]({{ p.url | relative_url }})
+  {%- endif -%}
+{%- endfor %}
 
-**주간 동향** — [2026-W31 규제는 증명 체계를 보고, 기술은 계층을 합친다](/posts/trend-2026-w31/)
+**주간 동향**
+
+{% for p in site.posts -%}
+  {%- if p.path contains '_posts/trends/' %}
+- [{{ p.title }}]({{ p.url | relative_url }})
+  {%- endif -%}
+{%- endfor %}
 
 **뉴스** — 하루치 로보틱스 브리핑입니다. 최신 글은 위 카테고리 페이지에서 바로 보입니다.
 
 ## ☕ 쉬어가기 — {{ n_etc }}편
 
-> [**목차 →**](/posts/00-office-rpg-series/) 공부 글이 아닌 읽을거리입니다.
+> [**카테고리 전체 →**](/categories/%EC%89%AC%EC%96%B4%EA%B0%80%EA%B8%B0/) 공부 글이 아닌 읽을거리입니다. 소설, 잡글, 실험적인 글.
+
+여기는 **서로 이어지지 않는 글이 섞이는 칸**입니다. 이어지는 것끼리만 묶어 번호를 붙이고, 나머지는 단편으로 둡니다.
+
+| 갈래 | 무엇 |
+| --- | --- |
+| [일하는 척하다가 세계를 구한 이야기](/posts/00-office-rpg-series/) | GPT 와 주고받으며 만든 선택형 사내 생존 소설 2부작 |
+| [단편](/posts/arm7-eleven-oclock-number/) | 이어지지 않는 짧은 글. 지금은 로봇 팔과 뮤지컬 이야기 하나 |
 
 ---
 
@@ -205,4 +227,8 @@ order: 1
 | 남이 만든 모델을 읽어야 한다 | [MATLAB과 Simulink 문법 목차](/posts/00-mp-series/) |
 | 제어 이론 쪽이 궁금하다 | [ADRC 목차](/posts/00-adrc-series/) |
 | 실제로 굴러가는 프로젝트가 보고 싶다 | [AMR 목차](/posts/00-amr-series/) |
+| AI 를 MATLAB 에 붙여야 한다 | [MCP와 MATLAB 연결 목차](/posts/00-mcp-series/) |
+| 에이전트가 자꾸 어긋나는데 어디를 고칠지 모르겠다 | [에이전틱 엔지니어링 목차](/posts/00-agentic-series/) |
+| Claude Code 를 어떻게 세팅하는지 보고 싶다 | [Claude Code 세팅 목차](/posts/00-ccsetup-series/) |
+| 에이전트를 여러 개 엮어야 한다 | [에이전트 오케스트레이션 목차](/posts/00-orch-series/) |
 | 코드 예제가 보고 싶다 | [stateflow-examples](https://github.com/genie4youu/stateflow-examples) |

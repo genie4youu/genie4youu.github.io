@@ -271,9 +271,31 @@ console.log('[10] 폴더 안 번호 연속성');
 }
 console.log();
 
+// ── 11. http:// 외부 링크 ────────────────────────────────────
+// 🔴 htmlproofer 는 --disable-external 이어도 "is not an HTTPS link" 로 떨어뜨린다.
+//    도달 가능 여부와 무관하게 스킴만 보고 실패시킨다.
+// 2026-08-25 에 볼트 노트에서 http:// 출처 URL 하나를 그대로 옮겨 담아 배포가 떨어졌다.
+//    (usa.chinadaily.com.cn — https 로 바꾸니 같은 문서가 그대로 열렸다)
+// 여기서 잡으면 push 전에 끝난다. _tabs 도 함께 본다 — htmlproofer 는 사이트 전체를 본다.
+console.log('[11] http:// 외부 링크');
+{
+  const LOCAL = /^https?:\/\/(127\.0\.0\.1|0\.0\.0\.0|localhost)/;
+  const targets = [...docs, ...walk('_tabs').map((f) => ({ name: path.basename(f), text: fs.readFileSync(f, 'utf8') }))];
+  let n = 0;
+  for (const d of targets) {
+    for (const m of d.text.matchAll(/http:\/\/[^\s)\]"'>]+/g)) {
+      if (LOCAL.test(m[0])) continue;
+      fail(`http:// 링크 (htmlproofer 가 배포를 떨어뜨린다): ${d.name} -> ${m[0]}`);
+      n++;
+    }
+  }
+  if (n === 0) ok(`${targets.length}개 파일 전수, http:// 0건`);
+}
+console.log();
+
 // ── 결과 ─────────────────────────────────────────────────────
 if (bad === 0) {
-  console.log(`통과. 검사 10종 / 포스트 ${docs.length}편 / 위반 0건`);
+  console.log(`통과. 검사 11종 / 포스트 ${docs.length}편 / 위반 0건`);
   process.exit(0);
 }
 console.log(`실패 ${bad}건. 위 줄을 하나씩 읽고 판정한다.`);

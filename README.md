@@ -86,15 +86,20 @@ BOM 이 있으면 그 탭이 통째로 안 만들어진다.
 
 `news/2026-07-27-news-20260727.md` 는 날짜가 두 번인 것처럼 보이는데, 앞은 **Jekyll 이 요구하는 날짜 접두사**이고 뒤가 slug 다. `papers/` 의 `paper-` 와 `book-` 은 종류가 실제로 둘이라 그렇다. 둘 다 결함이 아니므로 개명하지 않는다.
 
-### 9. 테마 레이아웃은 덮어쓰지 않는다 — include 만 넷 (2026-11-12)
+### 9. 테마 레이아웃은 덮어쓰지 않는다 — 덮어쓰는 파일 목록 (2026-11-12)
 
 디자인 개편(2026-11-12)은 **테마 `_layouts` 를 하나도 덮어쓰지 않고** 했다. 사이드바를 상단 메뉴로 바꾼 것도 CSS 다. 테마를 올릴 때 손으로 합칠 곳을 줄이려는 것이다.
 
 | 덮어쓴 파일 | 왜 | 테마를 올릴 때 |
 | --- | --- | --- |
-| `_includes/metadata-hook.html` | 테마가 일부러 비워 둔 자리. 글꼴(Pretendard, Nanum Gothic Coding)을 부른다 | 할 일 없음 |
+| `_includes/metadata-hook.html` | 테마가 일부러 비워 둔 자리. 본문 글꼴 Pretendard 를 부른다 | 할 일 없음 |
 | `_includes/footer.html` | 바닥에 사이트 이름·메뉴 줄을 더했다 | 아랫줄(`.footer-bottom`)만 테마 원본과 대조 |
 | `_includes/post-edit.html` | 글 끝 "시리즈 위치 상자" 자리. 원래 "이 글 편집" 링크인데 `edit_post` 를 꺼 둬서 늘 비어 있었다. 편집 링크 코드는 원본 그대로 남겼다 | ② 부분만 테마 원본과 대조 |
+| `_data/origin/cors.yml` | **`webfonts` 한 줄만** 적는다. 쓰지 않게 된 Lato·Source Sans Pro 대신 코드 글꼴 Nanum Gothic Coding 을 받는다. Jekyll 이 테마 `_data` 와 키 단위로 합치므로(deep merge) 나머지 라이브러리 주소는 테마 값 그대로다 | 🔴 다른 키를 옮겨 적지 않는다. 적으면 그 주소가 테마 업그레이드에서 빠진다 |
+| `assets/img/favicons/*` | 테마 기본 아이콘(Chirpy 로고)이 탭에 떠 있었다. 아바타에서 만들었다 — 탭 크기는 얼굴만 잘라서, 홈 화면용은 아바타 전체. `favicon.svg` 도 바꿔야 한다(브라우저가 SVG 를 먼저 쓴다) | 테마 파일 이름이 바뀌었는지만 본다 |
+| `assets/img/favicons/site.webmanifest` | `theme_color`·`background_color` 두 값만 사이트 색으로 | 나머지 줄을 테마 원본과 대조 |
+
+`assets/img/social-preview.jpg`(링크 미리보기)는 테마 파일이 아니라 `_config.yml` 이 가리키는 사이트 파일이다. 2026-11-12 에 정사각형 그림 한 장이던 것을 1200×630 카드(사이트 이름·부제·주제 + 같은 그림)로 바꿨다. 플랫폼이 1.91:1 로 잘라 보여 주는데 정사각형은 위아래가 잘렸다. 편수 같은 숫자는 넣지 않았다 — 손으로 적은 숫자는 조용히 낡는다.
 
 `_layouts/landing.html` 은 덮어쓰기가 아니라 이 사이트만의 레이아웃이다.
 

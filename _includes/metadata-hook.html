@@ -2,21 +2,14 @@
   테마가 비워 둔 자리(_includes/head.html 이 부른다)를 채운다. 테마 레이아웃은 건드리지 않는다.
 
   글꼴 (2026-11-12)
-    Pretendard   본문·제목. 화면에 실제로 나온 글자 조각만 받는 dynamic-subset 판이다.
+    Pretendard   본문·제목. 화면에 실제로 나온 글자 조각만 받는 dynamic-subset 판이다. 여기서 부른다.
                  🔴 jsDelivr 경로는 npm 쪽을 쓴다. gh/orioncactus/pretendard@v1.3.9 경로는 404 였다.
     Nanum Gothic Coding  코드. 한글이 영문의 정확히 두 칸이라 한글 섞인 ASCII 그림의 줄이 맞는다.
-                 Google Fonts 가 글자 범위별로 쪼개 주므로 필요한 조각만 받는다.
-
-  테마 기본 글꼴(Lato, Source Sans Pro)은 테마가 따로 부른다. 이제 쓰이지 않지만
-  그것을 끄려면 _data/origin/cors.yml 을 통째로 덮어써야 해서(라이브러리 주소까지 고정된다) 그대로 둔다.
-  둘 다 라틴 글자만 있는 작은 파일이다.
+                 여기서 부르지 않는다. 테마의 웹폰트 자리(_data/origin/cors.yml 의 webfonts)를
+                 이 글꼴로 바꿔 두었다 — 그 자리에 있던 Lato, Source Sans Pro 는 더 이상 안 쓰여서.
 {% endcomment %}
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
->
-<link
-  rel="stylesheet"
-  href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap"
 >

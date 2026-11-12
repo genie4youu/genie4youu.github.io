@@ -1,0 +1,12 @@
+# 테마의 _data/origin/cors.yml 에서 webfonts 한 줄만 바꾼다 (2026-11-12).
+#
+# Jekyll 은 테마의 _data 와 이 사이트의 _data 를 키 단위로 합친다(deep merge,
+# jekyll 4.4.1 lib/jekyll/reader.rb 의 read_data 실측). 그래서 이 파일에 적은 키만 바뀌고
+# bootstrap, mermaid 같은 나머지 라이브러리 주소는 테마 값 그대로 남는다.
+# 🔴 이 파일에 다른 키를 통째로 옮겨 적지 않는다. 적는 순간 그 주소는 테마를 올려도 안 바뀐다.
+#
+# 테마 기본값은 Lato + Source Sans Pro 였다. 2026-11-12 개편 뒤로는 본문이 Pretendard
+# (_includes/metadata-hook.html 이 부른다)라 둘 다 쓰이지 않는데 매 페이지 받고 있었다.
+# 그 자리에서 코드 글꼴 Nanum Gothic Coding 을 받는다.
+
+webfonts: https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap

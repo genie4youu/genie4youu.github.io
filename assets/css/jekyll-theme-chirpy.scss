@@ -1367,6 +1367,14 @@ h1.dynamic-title {
   }
 }
 
+/* "관련된 글" 제목. 테마 h3 가 본문 h3 보다 얇아 따로 노는 것처럼 보였다. */
+#related-label {
+  color: var(--heading-color);
+  font-size: 1.3rem;
+  font-weight: 780;
+  letter-spacing: -0.025em;
+}
+
 #related-posts .card {
   border: 1px solid var(--line);
   border-radius: 1rem;

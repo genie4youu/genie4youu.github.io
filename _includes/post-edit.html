@@ -70,13 +70,25 @@
     {%- assign sb_index = sb_series.index -%}
   {%- endif -%}
 
+  {%- comment -%}
+    › 뒤에 붙는 구간 이름. 보통은 글의 소분류(categories 둘째 칸)다.
+    index 가 없는 카드(쉬어가기, 업계 읽기)는 서로 안 이어지는 글을 모은 칸이라, 그 안에서 번호가
+    붙은 폴더는 따로 선 연재다(예: 하늘섬의 영혼 상담사). 그때는 폴더 00 글 제목에서
+    "00. <연재 이름> — 시리즈 목차" 의 <연재 이름> 을 꺼내 쓴다. 소분류("소설")로는 무슨 연재인지 안 보였다.
+  {%- endcomment -%}
+  {%- assign sb_label = nil -%}
+  {%- if page.categories.size > 1 -%}{%- assign sb_label = page.categories.last -%}{%- endif -%}
+  {%- if sb_map and sb_series.index == nil -%}
+    {%- assign sb_label = sb_map.title | split: ' — ' | first | remove_first: '00. ' -%}
+  {%- endif -%}
+
   {%- if sb_pos > 0 -%}
     <nav class="series-box" data-series="{{ sb_series.id }}" aria-label="시리즈 위치">
       <div class="series-box-head">
         <span class="series-box-name">
           {{- sb_series.name -}}
-          {%- if page.categories.size > 1 -%}
-            <span class="series-box-sep" aria-hidden="true">›</span>{{ page.categories.last }}
+          {%- if sb_label -%}
+            <span class="series-box-sep" aria-hidden="true">›</span>{{ sb_label }}
           {%- endif -%}
         </span>
         <span class="series-box-pos">

@@ -110,6 +110,8 @@ $header-h: 4rem;
   --glow-2: #6d7fd6;
   --header-bg: rgb(249 248 252 / 82%);
   --lift-shadow: 0 24px 48px -28px rgb(40 24 56 / 40%);
+  --note-bg: #fbf4e6;
+  --note-line: #e2cfa6;
 
   /* 테마 변수 */
   --main-bg: #f9f8fc;
@@ -192,6 +194,8 @@ $header-h: 4rem;
   --glow-2: #5a6bc4;
   --header-bg: rgb(19 17 23 / 80%);
   --lift-shadow: 0 24px 48px -28px rgb(0 0 0 / 70%);
+  --note-bg: #2a2419;
+  --note-line: #574a30;
 
   --main-bg: #131117;
   --mask-bg: #2a2533;
@@ -471,6 +475,12 @@ samp,
     padding-left: 1.5rem !important;
     padding-right: 1.5rem !important;
   }
+}
+
+/* 부제는 모든 폭에서 바로 세운다. 테마는 기울임(fst-italic)인데 한글 글꼴에는 기울임꼴이 없어
+   브라우저가 억지로 눕혀 그린다. 모바일 서랍에서 어색했다. */
+#sidebar .site-subtitle {
+  font-style: normal !important;
 }
 
 /* 홈 화면에서도 메뉴의 "홈" 을 켠다. 테마는 layout 이 'home' 일 때만 켜는데
@@ -1160,7 +1170,10 @@ h1.dynamic-title {
   border-radius: 0.9rem;
   background: var(--surface);
 
+  /* 테마는 850px 이상에서 표 최소 폭을 70% 로 둔다. 카드 테두리는 100% 라서
+     짧은 표(이력서 학력표 등)는 오른쪽 30% 가 빈 칸으로 남았다. 카드를 꽉 채운다. */
   > table {
+    min-width: 100%;
     margin-bottom: 0;
 
     thead {
@@ -1194,6 +1207,150 @@ h1.dynamic-title {
 /* 7-7. 본문 그림 */
 #main-wrapper .content img {
   border-radius: 0.6rem;
+}
+
+/* 7-7-1. Mermaid 그림 (2026-11-12)
+   글 224편에 349개가 있다(flowchart 325, stateDiagram-v2 18, sequenceDiagram 6).
+   Mermaid 기본 색(연보라 #ECECFF 상자, 회색 글자 바탕, 노란 메모)이 새 팔레트와 따로 놀아서
+   색만 팔레트에 맞춘다. 글꼴은 건드리지 않는다 — Mermaid 가 그릴 때 글자 폭을 재서 상자 크기를
+   정하는데, 그 뒤에 글꼴을 바꾸면 글자가 상자를 넘친다.
+
+   덮어쓰는 방법: Mermaid 는 SVG 안에 <style> 을 넣고 `#mermaid-123 .node rect` 처럼 ID 하나짜리
+   선택자를 쓴다. 앞에 #main-wrapper 를 붙여 ID 를 하나 더 얹으면 !important 없이 이긴다.
+   🔴 !important 를 쓰지 않는 이유: 글쓴이가 직접 칠한 색(classDef 는 Mermaid 가 !important 로,
+      style 문은 인라인 style 로 넣는다 — 27개 그림)이 그대로 이겨야 하기 때문이다.
+   다크 모드는 테마가 Mermaid 를 dark 테마로 다시 그리지만 아래 규칙이 변수로 같이 바뀐다. */
+
+#main-wrapper .mermaid {
+  margin: 1.5rem 0;
+  padding: 1.5rem 1rem;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: var(--surface);
+}
+
+#main-wrapper .mermaid svg {
+  /* 상자 · 마름모 · 원 (flowchart, state) */
+  .node :is(rect, circle, ellipse, polygon, path),
+  g.stateGroup rect,
+  .statediagram-cluster rect,
+  .actor,
+  rect.actor,
+  .labelBox {
+    fill: color-mix(in srgb, var(--accent) 7%, var(--surface));
+    stroke: color-mix(in srgb, var(--accent) 50%, var(--line));
+  }
+
+  .actor-line {
+    stroke: var(--line-strong);
+  }
+
+  /* 묶음(subgraph, 복합 상태) */
+  .cluster rect,
+  .statediagram-cluster .inner {
+    fill: var(--surface-2);
+    stroke: var(--line-strong);
+  }
+
+  /* 글자 */
+  .label,
+  .nodeLabel,
+  .cluster-label,
+  .label text,
+  span,
+  .cluster text,
+  .stateLabel text,
+  g.stateGroup text,
+  text.actor > tspan,
+  .labelText,
+  .labelText > tspan,
+  .loopText,
+  .loopText > tspan {
+    color: var(--heading-color);
+    fill: var(--heading-color);
+  }
+
+  /* 선과 화살촉 */
+  .flowchart-link,
+  .edgePaths .path,
+  .transition,
+  .messageLine0,
+  .messageLine1,
+  g.stateGroup line {
+    stroke: var(--text-muted-color);
+  }
+
+  .marker,
+  .arrowheadPath,
+  [id$='-barbEnd'],
+  [id$='-arrowhead'] path,
+  [id$='-crosshead'] path {
+    fill: var(--text-muted-color);
+    stroke: var(--text-muted-color);
+  }
+
+  .loopLine {
+    stroke: var(--line-strong);
+    fill: var(--line-strong);
+  }
+
+  /* 선 위 글자: 회색 반투명 바탕 → 카드 바탕색. 선이 글자 뒤에서 끊겨 보인다. */
+  .edgeLabel,
+  .edgeLabel p,
+  .labelBkg {
+    background-color: var(--surface);
+    color: var(--text-color);
+  }
+
+  .edgeLabel rect {
+    opacity: 1;
+    fill: var(--surface);
+  }
+
+  .messageText {
+    fill: var(--text-color);
+  }
+
+  /* 상태도의 시작·끝 점 */
+  .node circle.state-start,
+  .node .fork-join {
+    fill: var(--heading-color);
+    stroke: var(--heading-color);
+  }
+
+  .node circle.state-end {
+    fill: var(--heading-color);
+    stroke: var(--surface);
+  }
+
+  .end-state-inner {
+    fill: var(--surface);
+  }
+
+  /* 메모 */
+  .note,
+  .state-note,
+  .statediagram-note rect {
+    fill: var(--note-bg);
+    stroke: var(--note-line);
+  }
+
+  .noteText,
+  .noteText > tspan,
+  .state-note text,
+  .statediagram-note text,
+  .statediagram-note .nodeLabel {
+    fill: var(--heading-color);
+    color: var(--heading-color);
+  }
+
+  .activation0,
+  .activation1,
+  .activation2 {
+    fill: var(--surface-2);
+    stroke: var(--line-strong);
+  }
 }
 
 /* 7-8. 글 꼬리 — 이전/다음 글, 더 읽어보기 */

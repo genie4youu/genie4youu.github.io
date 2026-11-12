@@ -27,7 +27,7 @@ order: 1
   {%- elsif p.path contains '_posts/mcp/' -%}{%- assign n_mcp = n_mcp | plus: 1 -%}
   {%- elsif p.path contains '_posts/news/' or p.path contains '_posts/papers/' or p.path contains '_posts/trends/' -%}{%- assign n_read = n_read | plus: 1 -%}
   {%- elsif p.path contains '_posts/orch/' -%}{%- assign n_orch = n_orch | plus: 1 -%}
-  {%- elsif p.path contains '_posts/ccsetup/' -%}{%- assign n_cc = n_cc | plus: 1 -%}
+  {%- elsif p.path contains '_posts/ccsetup/' or p.path contains '_posts/ccsetup-apply/' -%}{%- assign n_cc = n_cc | plus: 1 -%}
   {%- elsif p.path contains '_posts/agentic/' -%}{%- assign n_ag = n_ag | plus: 1 -%}
   {%- elsif p.path contains '_posts/etc/' -%}{%- assign n_etc = n_etc | plus: 1 -%}
   {%- endif -%}
@@ -150,13 +150,14 @@ order: 1
 
 ## 🎛️ Claude Code 세팅 — {{ n_cc }}편
 
-> [**목차 →**](/posts/00-ccsetup-series/) 슬래시 명령, 서브에이전트, Skill, Hook, MCP. 다섯 갈래가 각각 무엇을 고정하고 언제 고르는지 정리했습니다.
+> [**목차 →**](/posts/00-ccsetup-series/) 슬래시 명령, 서브에이전트, Skill, Hook, MCP. 다섯 갈래가 각각 무엇을 고정하고 언제 고르는지, 그리고 실제로 붙이고 확인하고 되돌리는 법까지 정리했습니다.
 
 | 구간 | 편 | 내용 |
 | --- | --- | --- |
 | [왜와 무엇](/posts/01-why-prompt-is-not-enough/) | 01~03 | 프롬프트의 한계, 절차를 파일로, [**컨텍스트 격리**](/posts/03-subagents/) |
 | [통제](/posts/04-tools-not-requests/) | 04~06 | 도구로 막기, [**검증은 쓴 쪽이 하지 않는다**](/posts/05-independent-verification/), Hook 과 오탐률 |
 | [확장과 운영](/posts/07-skills/) | 07~10 | Skill, MCP, [예약 실행과 중단 검출](/posts/09-scheduled-runs/), 고르는 기준 |
+| [**적용법**](/posts/00-apply-map/) | 00~10 | 일곱 갈래의 [**적용표**](/posts/00-apply-map/), 갈래별 붙이는 법, [Claude Code 와 Codex 같이 쓰기](/posts/08-claude-and-codex/), [하네스 비교](/posts/09-harness-bakeoff/), 에이전트 여럿 돌리기 |
 
 ## 🕸️ 에이전트 오케스트레이션 — {{ n_orch }}편
 

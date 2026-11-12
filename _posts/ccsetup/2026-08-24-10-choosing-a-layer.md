@@ -8,7 +8,7 @@ mermaid: true
 ---
 
 > **기준 출처:** [Claude Code Docs, Extend Claude Code](https://code.claude.com/docs/en/features-overview) · [Slash commands](https://code.claude.com/docs/en/commands) · [Skills](https://code.claude.com/docs/en/skills) · [Create custom subagents](https://code.claude.com/docs/en/sub-agents) · [Hooks reference](https://code.claude.com/docs/en/hooks) · [MCP](https://code.claude.com/docs/en/mcp) / 확인일 2026-08-24
-> **시리즈:** [목차](/posts/00-ccsetup-series/) | 이전 → [09. 예약 실행과 무인 운영](/posts/09-scheduled-runs/)
+> **시리즈:** [목차](/posts/00-ccsetup-series/) | 이전 → [09. 예약 실행과 무인 운영](/posts/09-scheduled-runs/) | 다음 → [00. 한눈에 보는 적용표](/posts/00-apply-map/) (4부 적용법)
 
 연재를 닫으면서 고르는 기준만 남긴다.
 

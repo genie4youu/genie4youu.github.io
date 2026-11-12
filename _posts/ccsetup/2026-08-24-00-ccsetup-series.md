@@ -1,7 +1,7 @@
 ---
 title: 00. Claude Code 세팅 — 시리즈 목차
 date: 2026-08-24 08:00:00 +0900
-description: 슬래시 명령, 서브에이전트, Skill, Hook, MCP. 다섯 갈래가 각각 무엇을 고정하고 언제 고르는지, 그리고 만들지 않기로 한 것들.
+description: 슬래시 명령, 서브에이전트, Skill, Hook, MCP. 다섯 갈래가 각각 무엇을 고정하고 언제 고르는지(1~3부), 그리고 실제로 붙이고 확인하고 되돌리는 법(4부).
 categories: [Claude Code 세팅, 목차]
 tags: [ClaudeCode, 목차, 세팅, hook, mcp]
 mermaid: true
@@ -54,6 +54,24 @@ flowchart TD
 | 08 | [MCP, 로컬 도구를 붙인다](/posts/08-mcp/) | 붙는 순간 그 내용이 세션을 통과한다는 것 |
 | 09 | [예약 실행과 무인 운영](/posts/09-scheduled-runs/) | 실패보다 **중단**을 알아채는 것이 어렵다 |
 | 10 | [다섯 갈래를 언제 쓰나](/posts/10-choosing-a-layer/) | 고르는 기준과 만들지 않기로 한 것들 |
+
+### 4부. 적용법 — 어떻게 붙이고, 확인하고, 되돌리나 (2026-11-12)
+
+1~3부가 「왜 · 무엇」이라면 4부는 「어떻게」다. 폴더가 따로라 번호를 00 부터 다시 센다.
+
+| # | 글 | 무엇을 얻나 |
+| --- | --- | --- |
+| 00 | [**한눈에 보는 적용표: 일곱 갈래를 어떻게 붙이나**](/posts/00-apply-map/) | 어느 갈래인지 고르는 표와, 갈래마다 놓는 곳 · 순서 · 확인 · 되돌리기 한 장 |
+| 01 | [Skill 적용법](/posts/01-apply-skill/) | 알아서 꺼내 쓰게 하려면 무엇을 어디에 두나 |
+| 02 | [Plugin 적용법](/posts/02-apply-plugin/) | 남이 묶은 꾸러미를 받기 전에 볼 것과 끄는 법 |
+| 03 | [MCP 적용법](/posts/03-apply-mcp/) | 등록 범위, 비밀값, 권한 규칙 표기 |
+| 04 | [Hook 적용법](/posts/04-apply-hook/) | 반드시 막아야 할 때, 그리고 hook 이 고장 났을 때 무엇이 통과하나 |
+| 05 | [서브에이전트 적용법](/posts/05-apply-subagent/) | 도구를 빼서 역할을 나누기. Codex 와 다른 점 |
+| 06 | [슬래시 명령 적용법](/posts/06-apply-slash-command/) | 명령이 Skill 로 합쳐진 뒤에 남은 것 |
+| 07 | [앱설정 적용법](/posts/07-apply-settings/) | 설정 파일의 범위와 우선순위, 바꾼 게 먹었는지 보는 법 |
+| 08 | [Claude Code 와 Codex 같이 쓰기](/posts/08-claude-and-codex/) | 규칙 파일 하나, 파일 단위 분업, 인계와 재검증 |
+| 09 | [남의 하네스와 같은 과제로 겨뤄 보기](/posts/09-harness-bakeoff/) | 같은 과제를 세 세팅으로 돌리고 숨은 시험으로 채점했다 |
+| 10 | [터미널에서 에이전트 여럿 돌리기](/posts/10-agent-multiplexer/) | Orca 에서 herdr 로 옮긴 이유 |
 
 ## 30초 사전
 

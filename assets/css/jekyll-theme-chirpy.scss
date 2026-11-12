@@ -741,6 +741,20 @@ article > header figcaption {
   }
 }
 
+/* 버튼이 본문(.content) 안에 놓일 때(404 페이지). 테마의 본문 링크 규칙
+   `.content a:not(.img-link)` 이 아래 테두리만 밑줄 색으로 바꿔서 되돌린다. */
+.content a.hero-btn:not(.img-link) {
+  border-bottom: 1px solid var(--line-strong);
+
+  &.primary {
+    border-bottom-color: var(--accent);
+  }
+
+  &:hover {
+    border-color: var(--accent);
+  }
+}
+
 /* 6-2. 절 */
 
 .landing-section {
@@ -1126,9 +1140,64 @@ article > header {
 
 /* 탭 페이지(아카이브, 카테고리, 태그, 시리즈 …)의 제목. 테마 기본은 얇은 400 이라
    글 제목과 굵기가 달라 보였다. */
-h1.dynamic-title {
+h1.dynamic-title,
+#page-category > h1,
+#page-tag > h1 {
   font-weight: 800;
   letter-spacing: -0.035em;
+
+  /* 카테고리·태그 상세의 글 수 */
+  .lead {
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+}
+
+/* 7-1-1. 검색 결과 — 카드 격자 (2026-11-12)
+   테마는 두 열을 width 45% + 좌우 margin 으로 만들고, 홀수 개일 때 마지막 칸을 right: 24.3% 로
+   당겨 가운데에 둔다. 카드 테두리를 두르면 그 어긋남이 그대로 보여서 격자로 바꾼다.
+   d-flex 와 px-* 클래스가 !important 라 같은 자리에서만 !important 를 쓴다. */
+#search-results {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
+  gap: 1rem;
+
+  > article {
+    position: static;
+    width: auto;
+    margin: 0 !important;
+    padding: 1.1rem 1.25rem 1rem !important;
+    border: 1px solid var(--line);
+    border-radius: 1rem;
+    background: var(--surface);
+
+    /* 검색 결과 상자도 class="content" 라서 7-2 의 본문 h2 규칙(위 여백 3.2rem, 1.6rem)을 받는다.
+       ID 를 하나 더 얹어 되돌린다. */
+    @at-root #main-wrapper #search-results > article h2 {
+      margin: 0 0 0.35rem;
+      font-size: 1.12rem;
+      line-height: 1.45;
+    }
+
+    h2 a {
+      color: var(--heading-color);
+      font-size: 1.12rem;
+      font-weight: 700;
+      line-height: 1.45;
+      letter-spacing: -0.02em;
+
+      &:hover {
+        color: var(--accent);
+      }
+    }
+
+    > p {
+      margin: 0.4rem 0 0;
+      color: var(--text-muted-color);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+  }
 }
 
 /* 7-2. 소제목 */

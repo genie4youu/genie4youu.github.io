@@ -98,6 +98,7 @@ BOM 이 있으면 그 탭이 통째로 안 만들어진다.
 | `_data/origin/cors.yml` | **`webfonts` 한 줄만** 적는다. 쓰지 않게 된 Lato·Source Sans Pro 대신 코드 글꼴 Nanum Gothic Coding 을 받는다. Jekyll 이 테마 `_data` 와 키 단위로 합치므로(deep merge) 나머지 라이브러리 주소는 테마 값 그대로다 | 🔴 다른 키를 옮겨 적지 않는다. 적으면 그 주소가 테마 업그레이드에서 빠진다 |
 | `assets/img/favicons/*` | 테마 기본 아이콘(Chirpy 로고)이 탭에 떠 있었다. 아바타에서 만들었다 — 탭 크기는 얼굴만 잘라서, 홈 화면용은 아바타 전체. `favicon.svg` 도 바꿔야 한다(브라우저가 SVG 를 먼저 쓴다) | 테마 파일 이름이 바뀌었는지만 본다 |
 | `assets/img/favicons/site.webmanifest` | `theme_color`·`background_color` 두 값만 사이트 색으로 | 나머지 줄을 테마 원본과 대조 |
+| `assets/404.html` | 테마는 영어 제목과 한 줄 안내뿐이었다. 한국어 제목과 홈·시리즈 안내·전체 글 버튼을 붙였다 | 안내 문장은 로케일 값을 그대로 쓰므로 할 일 없음 |
 
 `assets/img/social-preview.jpg`(링크 미리보기)는 테마 파일이 아니라 `_config.yml` 이 가리키는 사이트 파일이다. 2026-11-12 에 정사각형 그림 한 장이던 것을 1200×630 카드(사이트 이름·부제·주제 + 같은 그림)로 바꿨다. 플랫폼이 1.91:1 로 잘라 보여 주는데 정사각형은 위아래가 잘렸다. 편수 같은 숫자는 넣지 않았다 — 손으로 적은 숫자는 조용히 낡는다.
 

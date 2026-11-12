@@ -277,13 +277,30 @@ console.log();
 // 2026-08-25 에 볼트 노트에서 http:// 출처 URL 하나를 그대로 옮겨 담아 배포가 떨어졌다.
 //    (usa.chinadaily.com.cn — https 로 바꾸니 같은 문서가 그대로 열렸다)
 // 여기서 잡으면 push 전에 끝난다. _tabs 도 함께 본다 — htmlproofer 는 사이트 전체를 본다.
+// 🔄 2026-11-12 오탐 수정: 코드 블록(``` · ~~~)과 인라인 코드(`…`) 안은 보지 않는다.
+//    htmlproofer 는 렌더된 <a href> 만 검사하고, 코드 안의 글자는 링크가 되지 않는다.
+//    온톨로지 연재의 RDF 예제가 W3C 이름공간(http://www.w3.org/2001/XMLSchema# 등)을 담는데,
+//    이것은 표준이 정한 식별자라 https 로 바꾸면 틀린 RDF 가 된다. 코드 밖의 http:// 는 지금처럼 전부 잡는다.
 console.log('[11] http:// 외부 링크');
 {
   const LOCAL = /^https?:\/\/(127\.0\.0\.1|0\.0\.0\.0|localhost)/;
+  // 줄 단위로 본다 — 펜스(``` 또는 ~~~, 3개 이상)가 열리면 같은 문자의 펜스가 닫힐 때까지 건너뛰고,
+  // 펜스 밖 줄에서는 인라인 코드 `…` 만 지운다. 정규식 한 번으로 블록을 지우면 경계를 잘못 잡아
+  // 본문까지 지워 진짜 링크를 놓친다(2026-11-12 시험에서 실제로 놓쳤다).
+  const stripCode = (t) => {
+    const out = []; let fence = null;
+    for (const line of t.split(/\r?\n/)) {
+      const m = line.match(/^[ \t]*(`{3,}|~{3,})/);
+      if (fence) { if (m && m[1][0] === fence[0] && m[1].length >= fence.length) fence = null; continue; }
+      if (m) { fence = m[1]; continue; }
+      out.push(line.replace(/`[^`]*`/g, ''));
+    }
+    return out.join('\n');
+  };
   const targets = [...docs, ...walk('_tabs').map((f) => ({ name: path.basename(f), text: fs.readFileSync(f, 'utf8') }))];
   let n = 0;
   for (const d of targets) {
-    for (const m of d.text.matchAll(/http:\/\/[^\s)\]"'>]+/g)) {
+    for (const m of stripCode(d.text).matchAll(/http:\/\/[^\s)\]"'>]+/g)) {
       if (LOCAL.test(m[0])) continue;
       fail(`http:// 링크 (htmlproofer 가 배포를 떨어뜨린다): ${d.name} -> ${m[0]}`);
       n++;

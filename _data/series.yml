@@ -3,7 +3,8 @@
 # 편수는 여기 적지 않는다. landing.html 이 _posts/<dir>/ 안의 글을 직접 센다.
 # 손으로 적으면 글이 늘 때마다 조용히 낡는다.
 #
-# id           : 카드 강조색 키. assets/css/jekyll-theme-chirpy.scss 의 $series-* 와 이름이 같아야 한다.
+# id           : 카드 강조색 키. assets/css/jekyll-theme-chirpy.scss 의 $series-light·$series-dark 두 맵에
+#                같은 이름으로 색이 있어야 한다. 없으면 기본 모브로 나온다. (검사 13)
 # name         : 카드에 보이는 연재 이름. _tabs/series.md 의 절 제목, 그리고 00 목차 글의
 #                제목 "00. <name> — 시리즈 목차" 와 같은 말이어야 한다. (tools/lint-site.mjs 검사 8)
 # dirs         : _posts/ 아래 폴더 이름. 편수를 세는 기준이다.
@@ -156,10 +157,10 @@
   name: Claude Code 세팅
   group: agent
   icon: fa-solid fa-sliders
-  dirs: [ccsetup]
+  dirs: [ccsetup, ccsetup-apply]
   index: /posts/00-ccsetup-series/
   top_category: Claude Code 세팅
-  blurb: 슬래시 명령, 서브에이전트, skill, hook, MCP. 다섯 갈래를 언제 쓰는지 정하고 실제로 붙였다.
+  blurb: 슬래시 명령, 서브에이전트, skill, hook, MCP. 다섯 갈래를 언제 쓰는지 정하고, 붙이고 확인하고 되돌리는 법까지 정리했다.
   resume_note: 슬래시 명령, 서브에이전트, skill, hook, MCP. 무엇이 반복되는가로 갈래를 고른다
 
 - id: orch

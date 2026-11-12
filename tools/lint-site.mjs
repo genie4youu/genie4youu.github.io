@@ -326,9 +326,33 @@ console.log('[12] 시리즈 갈래');
 }
 console.log();
 
+// ── 13. 카드마다 시리즈 색이 있는가 ──────────────────────────
+// 카드 색은 assets/css/jekyll-theme-chirpy.scss 의 $series-light / $series-dark 맵에서
+// 카드 id 로 찾는다. 빠지면 깨지지 않고 그 카드만 조용히 기본 강조색(모브)으로 나온다 —
+// 그래서 사람이 알아채기 어렵다. 새 카드를 만들 때 두 맵에 같이 넣는다 (2026-11-12).
+// 맵에만 있고 카드가 없는 색은 실패로 치지 않는다. 화면에 아무 영향이 없다.
+console.log('[13] 시리즈 색');
+{
+  const scss = fs.readFileSync('assets/css/jekyll-theme-chirpy.scss', 'utf8');
+  const keysOf = (name) => {
+    const body = scss.split(`$series-${name}: (`)[1]?.split(');')[0];
+    return body ? new Set([...body.matchAll(/^\s*'([a-z0-9-]+)'\s*:/gm)].map((m) => m[1])) : null;
+  };
+  let n = 0;
+  for (const name of ['light', 'dark']) {
+    const keys = keysOf(name);
+    if (!keys) { fail(`scss 에서 $series-${name} 맵을 못 찾았다 — 이름이 바뀌었으면 이 검사를 고친다`); n++; continue; }
+    for (const c of cards) {
+      if (!keys.has(c.id)) { fail(`카드 ${c.id} 의 색이 $series-${name} 에 없다 — 기본 모브로 나온다`); n++; }
+    }
+  }
+  if (n === 0) ok(`카드 ${cards.length}장 전부 라이트·다크 색 있음`);
+}
+console.log();
+
 // ── 결과 ─────────────────────────────────────────────────────
 if (bad === 0) {
-  console.log(`통과. 검사 12종 / 포스트 ${docs.length}편 / 위반 0건`);
+  console.log(`통과. 검사 13종 / 포스트 ${docs.length}편 / 위반 0건`);
   process.exit(0);
 }
 console.log(`실패 ${bad}건. 위 줄을 하나씩 읽고 판정한다.`);

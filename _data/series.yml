@@ -172,3 +172,12 @@
   top_category: 에이전트 오케스트레이션
   blurb: State, Transition, 병렬, History. 제어 쪽 어휘로 다중 에이전트 배선을 읽는다.
   resume_note: 팬아웃과 배리어, 스키마 계약, 적대적 검증. 제어 어휘로 다중 에이전트 배선을 읽는다
+- id: git
+  name: Git과 GitHub
+  group: agent
+  icon: fa-solid fa-code-branch
+  dirs: [git-basics, git-github]
+  index: /posts/00-git-series/
+  top_category: Git
+  blurb: 커밋, 브랜치, 합치기, 되돌리기를 연습 저장소에서 돌려 보고, 워크트리로 작업 폴더를 나눈 뒤 GitHub 의 PR 흐름까지 잇는다.
+  resume_note: 브랜치와 워크트리, 원격과 PR 흐름. 에이전트 여럿을 한 저장소에서 나란히 돌리는 바탕

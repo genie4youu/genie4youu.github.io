@@ -13,7 +13,7 @@ order: 1
 
 {%- assign n_comm = 0 -%}{%- assign n_rtos = 0 -%}{%- assign n_mp = 0 -%}
 {%- assign n_sf = 0 -%}{%- assign n_sfl = 0 -%}{%- assign n_adrc = 0 -%}
-{%- assign n_amr = 0 -%}{%- assign n_mcp = 0 -%}{%- assign n_read = 0 -%}{%- assign n_etc = 0 -%}{%- assign n_orch = 0 -%}{%- assign n_cc = 0 -%}{%- assign n_ag = 0 -%}
+{%- assign n_amr = 0 -%}{%- assign n_mcp = 0 -%}{%- assign n_read = 0 -%}{%- assign n_etc = 0 -%}{%- assign n_orch = 0 -%}{%- assign n_cc = 0 -%}{%- assign n_ag = 0 -%}{%- assign n_git = 0 -%}
 {%- for p in site.posts -%}
   {%- comment -%} 🔴 00 목차 글은 세지 않는다 — landing.html 의 카드 편수와 같은 규약이다. {%- endcomment -%}
   {%- if p.categories contains '목차' -%}{%- continue -%}{%- endif -%}
@@ -27,6 +27,7 @@ order: 1
   {%- elsif p.path contains '_posts/mcp/' -%}{%- assign n_mcp = n_mcp | plus: 1 -%}
   {%- elsif p.path contains '_posts/news/' or p.path contains '_posts/papers/' or p.path contains '_posts/trends/' -%}{%- assign n_read = n_read | plus: 1 -%}
   {%- elsif p.path contains '_posts/orch/' -%}{%- assign n_orch = n_orch | plus: 1 -%}
+  {%- elsif p.path contains '_posts/git-basics/' or p.path contains '_posts/git-github/' -%}{%- assign n_git = n_git | plus: 1 -%}
   {%- elsif p.path contains '_posts/ccsetup/' or p.path contains '_posts/ccsetup-apply/' -%}{%- assign n_cc = n_cc | plus: 1 -%}
   {%- elsif p.path contains '_posts/agentic/' -%}{%- assign n_ag = n_ag | plus: 1 -%}
   {%- elsif p.path contains '_posts/etc/' -%}{%- assign n_etc = n_etc | plus: 1 -%}
@@ -171,6 +172,15 @@ order: 1
 
 ⚠️ 대응은 **어휘 수준**이고 의미론까지 같지는 않습니다. Stateflow 의 병렬 상태는 실제로 동시에 돌지 않고, 오케스트레이션의 팬아웃은 실제로 동시에 돕니다. 03편에서 그 선을 긋습니다.
 
+## 🌿 Git과 GitHub — {{ n_git }}편
+
+> [**목차 →**](/posts/00-git-series/) 커밋, 브랜치, 합치기, 되돌리기를 연습 저장소에서 돌려 보고, 워크트리로 작업 폴더를 나눈 뒤 GitHub 의 PR 흐름까지 잇습니다.
+
+| 구간 | 편 | 내용 |
+| --- | --- | --- |
+| [Git 기초](/posts/01-git-layers/) | 01~09 | 저장소와 커밋, 이력, 브랜치, 합치기, 되돌리기, [**워크트리**](/posts/07-git-worktree/), 작업 하나에 브랜치 하나 |
+| [GitHub](/posts/01-github-remote/) | 01~03 | 원격 저장소, GitHub 가 얹는 것, [PR 흐름](/posts/03-github-pr-flow/) |
+
 ## 📄 업계 읽기 — {{ n_read }}편
 
 <!-- 아래 카테고리 주소의 %EC%97%85%EA%B3%84-%EC%9D%BD%EA%B8%B0 는 "업계-읽기" 다.
@@ -232,4 +242,5 @@ order: 1
 | 에이전트가 자꾸 어긋나는데 어디를 고칠지 모르겠다 | [에이전틱 엔지니어링 목차](/posts/00-agentic-series/) |
 | Claude Code 를 어떻게 세팅하는지 보고 싶다 | [Claude Code 세팅 목차](/posts/00-ccsetup-series/) |
 | 에이전트를 여러 개 엮어야 한다 | [에이전트 오케스트레이션 목차](/posts/00-orch-series/) |
+| 에이전트 여럿을 한 저장소에서 돌리려는데 브랜치와 워크트리가 헷갈린다 | [Git과 GitHub 목차](/posts/00-git-series/) |
 | 코드 예제가 보고 싶다 | [stateflow-examples](https://github.com/genie4youu/stateflow-examples) |

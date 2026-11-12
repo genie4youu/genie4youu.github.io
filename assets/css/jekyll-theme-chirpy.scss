@@ -1786,6 +1786,7 @@ $series-light: (
   'agentic': #96504f,
   'ccsetup': #4a6b7a,
   'orch': #5f5a8c,
+  'git': #9a6a3e,
 );
 
 $series-dark: (
@@ -1802,6 +1803,7 @@ $series-dark: (
   'agentic': #e0a09f,
   'ccsetup': #8fb6c4,
   'orch': #a8a2d8,
+  'git': #d8b08a,
 );
 
 @each $name, $color in $series-light {

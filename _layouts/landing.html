@@ -67,8 +67,18 @@ layout: default
       <a class="heading-more" href="{{ '/series/' | relative_url }}">시리즈 안내 <i class="fa-solid fa-angle-right"></i></a>
     </h2>
 
-    <div class="series-grid">
+    {%- comment -%}
+      갈래(_data/series_groups.yml) 순서대로 묶어 그린다 (2026-11-12).
+      카드는 series.yml 의 group 으로 갈래에 들어간다. 갈래 머리에 시리즈 수와 편수를 붙여야 해서
+      카드를 먼저 capture 로 그려 두며 합계를 세고, 그다음 머리와 카드를 함께 내보낸다.
+      🔴 group 이 없거나 틀린 카드는 어느 갈래에도 안 잡혀 사라진다. lint 검사 12가 막는다.
+    {%- endcomment -%}
+    {% for g in site.data.series_groups %}
+      {%- assign g_series = 0 -%}
+      {%- assign g_posts = 0 -%}
+      {%- capture g_cards -%}
       {% for s in site.data.series %}
+        {%- if s.group != g.id -%}{%- continue -%}{%- endif -%}
         {%- comment -%}
           편수는 _posts/<dir>/ 를 직접 센다.
           🔴 00 목차 글은 세지 않는다 (2026-08-24 결정). 세면 카드는 "23편"인데
@@ -110,8 +120,24 @@ layout: default
             {%- endif %}
           </span>
         </a>
+        {%- assign g_series = g_series | plus: 1 -%}
+        {%- assign g_posts = g_posts | plus: count -%}
       {% endfor %}
-    </div>
+      {%- endcapture -%}
+
+      {%- if g_series > 0 %}
+        <div class="series-group">
+          <div class="series-group-head">
+            <span class="series-group-no">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+            <h3 class="series-group-name">{{ g.name }}</h3>
+            <span class="series-group-meta">{{ g_series }}개 시리즈 · {{ g_posts }}편</span>
+          </div>
+          <div class="series-grid">
+            {{ g_cards }}
+          </div>
+        </div>
+      {%- endif %}
+    {% endfor %}
   </section>
 
   <section class="landing-section">

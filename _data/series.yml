@@ -12,6 +12,8 @@
 # top_category : 이 연재 글들이 실제로 쓰는 categories 의 첫 칸(대분류). 링크가 아니라 대응 기록이다.
 #                🔴 name 과 다를 수 있고, 다른 것이 정상이다 — 아래 "이름이 왜 다른가" 참고.
 # resume_note  : _tabs/resume.md 의 블로그 표에 들어갈 한 줄. 그 표는 이 파일을 순회해 만든다.
+# group        : 홈에서 이 카드가 들어갈 갈래. _data/series_groups.yml 의 id 를 적는다 (2026-11-12).
+#                🔴 빠뜨리거나 없는 id 를 적으면 카드가 홈에서 조용히 사라진다. (검사 12)
 #
 # ── 이름이 왜 다른가 (2026-08-25 확정) ──────────────────────────────
 # 대분류(top_category)는 "주제 영역", name 은 "연재 제목"이라 역할이 다르다.
@@ -25,6 +27,7 @@
 
 - id: stateflow
   name: Stateflow
+  group: control
   icon: fa-solid fa-diagram-project
   dirs: [stateflow]
   index: /posts/00-stateflow-series/
@@ -34,6 +37,7 @@
 
 - id: adrc
   name: ADRC
+  group: control
   icon: fa-solid fa-wave-square
   dirs: [adrc]
   index: /posts/00-adrc-series/
@@ -43,6 +47,7 @@
 
 - id: amr
   name: 실내 배송 AMR
+  group: control
   icon: fa-solid fa-robot
   dirs: [amr]
   index: /posts/00-amr-series/
@@ -53,6 +58,7 @@
 
 - id: mcp
   name: MCP와 MATLAB 연결
+  group: agent
   icon: fa-solid fa-plug
   dirs: [mcp]
   index: /posts/00-mcp-series/
@@ -62,6 +68,7 @@
 
 - id: sflayout
   name: Stateflow 레이아웃 자동화
+  group: control
   # ⚠️ fa-vector-square 는 Font Awesome 7 에서 빠졌다. 테마가 FA7 을 불러오므로 쓰면 아이콘 자리가 빈다.
   #    아이콘을 바꿀 때는 FA7 free 에 있는지 확인한다.
   icon: fa-solid fa-object-group
@@ -75,6 +82,7 @@
 
 - id: comm
   name: 로봇 통신
+  group: realtime
   icon: fa-solid fa-network-wired
   # 통신 하나 = 폴더 하나로 나눠 두었다. 카드는 하나지만 편수는 일곱 폴더를 합쳐 센다.
   # 🔴 번호는 폴더(구간)마다 01 부터 다시 시작한다. 연재 전체 통번호가 아니다 — README 참고.
@@ -86,6 +94,7 @@
 
 - id: rtos
   name: RTOS와 실시간
+  group: realtime
   icon: fa-solid fa-stopwatch
   # 이론 / 리눅스 / 윈도우로 나눠 두었다. 카드는 하나지만 편수는 세 폴더를 합쳐 센다.
   dirs: [rtos-theory, rtos-linux, rtos-windows]
@@ -96,6 +105,7 @@
 
 - id: mp
   name: MATLAB과 Simulink 문법
+  group: control
   icon: fa-solid fa-calculator
   dirs: [matlab, simulink, stateflow-syntax]
   index: /posts/00-mp-series/
@@ -105,6 +115,7 @@
 
 - id: reading
   name: 업계 읽기
+  group: reading
   icon: fa-solid fa-newspaper
   dirs: [news, papers, trends]
   # 목차 글이 없다. 흐름 콘텐츠라 시간순으로 읽는 편이 맞아 카테고리로 보낸다.
@@ -115,6 +126,7 @@
 
 - id: break
   name: 쉬어가기
+  group: reading
   icon: fa-solid fa-mug-hot
   # 2026-09-21: 장으로 이어지는 소설은 폴더를 따로 둔다. etc/ 에 이미 00·01·02(2부작)가 있어
   #    같은 폴더에 다른 연재의 00·01 을 넣으면 검사 10(폴더 안 번호 중복)에 걸린다.
@@ -132,6 +144,7 @@
 
 - id: agentic
   name: 에이전틱 엔지니어링
+  group: agent
   icon: fa-solid fa-layer-group
   dirs: [agentic]
   index: /posts/00-agentic-series/
@@ -141,6 +154,7 @@
 
 - id: ccsetup
   name: Claude Code 세팅
+  group: agent
   icon: fa-solid fa-sliders
   dirs: [ccsetup]
   index: /posts/00-ccsetup-series/
@@ -150,6 +164,7 @@
 
 - id: orch
   name: 에이전트 오케스트레이션
+  group: agent
   icon: fa-solid fa-sitemap
   dirs: [orch]
   index: /posts/00-orch-series/

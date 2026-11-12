@@ -1,0 +1,21 @@
+# 홈 랜딩(_layouts/landing.html)에서 시리즈 카드를 묶는 갈래. 위에서부터 이 순서로 나온다. (2026-11-12)
+#
+# 카드가 어느 갈래에 들어가는지는 _data/series.yml 의 각 카드에 적힌 group: 이 정한다.
+# group 값은 이 파일의 id 다. 갈래 안의 카드 순서는 series.yml 의 순서를 따른다.
+#
+# 🔴 group 이 없거나 여기 없는 id 를 적은 카드는 홈에서 조용히 사라진다.
+#    빈 갈래는 제목째로 안 나온다. 둘 다 tools/lint-site.mjs 검사 12가 본다.
+#
+# 편수와 시리즈 수는 여기 적지 않는다. landing.html 이 카드를 그리면서 센다.
+
+- id: control
+  name: 제어와 모델링
+
+- id: realtime
+  name: 통신과 실시간
+
+- id: agent
+  name: AI 에이전트
+
+- id: reading
+  name: 읽을거리

@@ -1,0 +1,138 @@
+{% comment %}
+  테마의 _includes/post-edit.html 을 덮어쓴다 (2026-11-12).
+
+  왜 이 파일인가:
+    글 끝(.post-tail-wrapper)에 "시리즈 위치 상자" 를 넣을 자리가 필요했다. 테마 post.html 은
+    그 자리에서 이 include 하나만 부른다. 원래 하는 일은 "이 글 편집" 링크인데 이 사이트는
+    _config.yml 의 actions.edit_post.enabled 를 꺼 두어 늘 빈 출력이었다.
+    post.html 을 통째로 덮어쓰면 테마를 올릴 때마다 손으로 합쳐야 하므로 이쪽을 택했다.
+    편집 링크 코드는 ②에 원본 그대로 남겨 두었다. 켜면 예전처럼 나온다.
+
+  ① 시리즈 위치 상자
+    _data/series.yml 의 dirs 로 이 글이 속한 시리즈와 폴더(구간)를 찾는다.
+    번호는 폴더(구간)마다 01 부터 다시 시작하므로(README 규칙 6) 위치도 폴더 안에서 센다.
+    번호가 없는 글(뉴스, 단편 …)과 00 목차 글에는 나오지 않는다.
+    "목차" 링크는 그 폴더의 00 글을 먼저 쓰고, 없으면 series.yml 의 index 를 쓴다.
+
+    글 머리의 "시리즈: 목차 | 이전 | 다음" 인용은 본문(볼트 원본)이라 손대지 않는다(README 규칙 4).
+    이 상자는 글을 다 읽은 자리에서 다음 글로 넘어가게 하는 것이라 역할이 겹치지 않는다.
+    모양은 assets/css/jekyll-theme-chirpy.scss §7-9.
+{% endcomment %}
+
+{%- assign sb_series = nil -%}
+{%- assign sb_needle = nil -%}
+{%- for s in site.data.series -%}
+  {%- for d in s.dirs -%}
+    {%- capture _needle %}_posts/{{ d }}/{% endcapture -%}
+    {%- if page.path contains _needle -%}
+      {%- assign sb_series = s -%}
+      {%- assign sb_needle = _needle -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}
+
+{%- assign sb_num = page.slug | split: '-' | first -%}
+{%- assign sb_n = sb_num | plus: 0 -%}
+
+{%- if sb_series and sb_n > 0 and sb_num.size == 2 -%}
+  {%- comment -%} slug 가 "01-…" 처럼 두 자리로 시작하므로 slug 로 정렬하면 번호 순서다 {%- endcomment -%}
+  {%- assign sb_siblings = site.posts | where_exp: 'p', 'p.path contains sb_needle' | sort: 'slug' -%}
+  {%- assign sb_total = 0 -%}
+  {%- assign sb_pos = 0 -%}
+  {%- assign sb_prev = nil -%}
+  {%- assign sb_next = nil -%}
+  {%- assign sb_map = nil -%}
+  {%- assign sb_last = nil -%}
+  {%- assign sb_found = false -%}
+
+  {%- for p in sb_siblings -%}
+    {%- assign pn = p.slug | split: '-' | first -%}
+    {%- if pn == '00' -%}
+      {%- assign sb_map = p -%}
+      {%- continue -%}
+    {%- endif -%}
+    {%- assign pv = pn | plus: 0 -%}
+    {%- if pv == 0 or pn.size != 2 -%}{%- continue -%}{%- endif -%}
+
+    {%- assign sb_total = sb_total | plus: 1 -%}
+    {%- if sb_found and sb_next == nil -%}{%- assign sb_next = p -%}{%- endif -%}
+    {%- if p.url == page.url -%}
+      {%- assign sb_pos = sb_total -%}
+      {%- assign sb_prev = sb_last -%}
+      {%- assign sb_found = true -%}
+    {%- endif -%}
+    {%- assign sb_last = p -%}
+  {%- endfor -%}
+
+  {%- if sb_map -%}
+    {%- assign sb_index = sb_map.url -%}
+  {%- else -%}
+    {%- assign sb_index = sb_series.index -%}
+  {%- endif -%}
+
+  {%- if sb_pos > 0 -%}
+    <nav class="series-box" data-series="{{ sb_series.id }}" aria-label="시리즈 위치">
+      <div class="series-box-head">
+        <span class="series-box-name">
+          {{- sb_series.name -}}
+          {%- if page.categories.size > 1 -%}
+            <span class="series-box-sep" aria-hidden="true">›</span>{{ page.categories.last }}
+          {%- endif -%}
+        </span>
+        <span class="series-box-pos">
+          <span class="series-box-count">{{ sb_pos }} / {{ sb_total }}</span>
+          {%- if sb_index %}
+            <a href="{{ sb_index | relative_url }}">목차</a>
+          {%- endif %}
+        </span>
+      </div>
+
+      <div class="series-box-bar" style="grid-template-columns: repeat({{ sb_total }}, minmax(0, 1fr))" aria-hidden="true">
+        {%- for i in (1..sb_total) -%}
+          <span{% if i < sb_pos %} class="done"{% elsif i == sb_pos %} class="now"{% endif %}></span>
+        {%- endfor -%}
+      </div>
+
+      <div class="series-box-links">
+        {%- if sb_prev %}
+          <a class="series-box-link" href="{{ sb_prev.url | relative_url }}">
+            <small>← 이전 글</small><span>{{ sb_prev.title }}</span>
+          </a>
+        {%- else %}
+          <span class="series-box-link is-empty"><small>← 이전 글</small><span>이 구간의 첫 글입니다</span></span>
+        {%- endif %}
+        {%- if sb_next %}
+          <a class="series-box-link next" href="{{ sb_next.url | relative_url }}">
+            <small>다음 글 →</small><span>{{ sb_next.title }}</span>
+          </a>
+        {%- else %}
+          <span class="series-box-link next is-empty"><small>다음 글 →</small><span>이 구간의 마지막 글입니다</span></span>
+        {%- endif %}
+      </div>
+    </nav>
+  {%- endif -%}
+{%- endif -%}
+
+{%- comment -%} ② "이 글 편집" 링크 — 테마 v7.6.0 원본 그대로 {%- endcomment -%}
+
+{% assign enabled = site.actions.edit_post.enabled %}
+{% assign url = site.actions.edit_post.url %}
+{% assign static_url = site.actions.edit_post.static_url %}
+
+{% unless static_url %}
+  {% assign url = url | append: '/' | append: page.path %}
+{% endunless %}
+
+{% if enabled %}
+  <div class="post-edit">
+    {% assign edit = site.data.locales[include.lang].post.edit %}
+    <a
+      href="{{ url }}"
+      target="_blank"
+      rel="noopener"
+    >
+      <i class="fa fa-pen fa-fw me-1"></i>
+      <span>{{ edit }}</span>
+    </a>
+  </div>
+{% endif %}

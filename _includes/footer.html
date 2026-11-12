@@ -1,0 +1,88 @@
+{% comment %}
+  테마의 _includes/footer.html 을 덮어쓴다 (2026-11-12).
+
+  위 줄(.footer-top)에 사이트 이름·부제와 메뉴를 한 번 더 둔다. 글을 다 읽고 바닥까지 온 사람이
+  위로 올라가지 않고 다른 곳으로 갈 수 있게 하려는 것이다. 메뉴 목록은 사이드바와 같은 데이터
+  (site.tabs, _data/locales 의 tabs 이름)에서 만든다. 손으로 적지 않는다.
+
+  아래 줄(.footer-bottom)은 테마 v7.6.0 원본의 두 문단(저작권, Powered by) 그대로다.
+  테마를 올릴 때는 이 아래 줄만 테마 원본과 대조하면 된다.
+
+  모양은 assets/css/jekyll-theme-chirpy.scss §9. 화면 끝까지 칠하는 짙은 띠도 거기서 그린다.
+{% endcomment %}
+
+{%- comment -%}
+  테마 원본의 class 에 있던 text-muted 는 뺀다. Bootstrap 이 !important 로 회색을 박아서
+  짙은 띠 위 글씨의 대비가 떨어졌다 (2026-11-12 실측).
+{%- endcomment -%}
+<footer aria-label="Site Info" class="site-footer">
+  <div class="footer-top">
+    <a class="footer-brand" href="{{ '/' | relative_url }}">
+      {%- if site.avatar != empty and site.avatar -%}
+        {%- capture avatar_url -%}
+          {% include media-url.html src=site.avatar %}
+        {%- endcapture -%}
+        <img src="{{- avatar_url -}}" width="48" height="48" alt="" loading="lazy">
+      {%- endif -%}
+      <span>
+        <span class="footer-name">{{ site.title }}</span>
+        <span class="footer-sub">{{ site.tagline }}</span>
+      </span>
+    </a>
+
+    <nav class="footer-nav" aria-label="바닥 메뉴">
+      {% for tab in site.tabs %}
+        {% capture tab_name %}{{ tab.url | split: '/' }}{% endcapture %}
+        <a href="{{ tab.url | relative_url }}">
+          {{- site.data.locales[include.lang].tabs[tab_name] | default: tab.title -}}
+        </a>
+      {% endfor %}
+      {% if site.github.username %}
+        <a href="https://github.com/{{ site.github.username }}" rel="me noopener">GitHub</a>
+      {% endif %}
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    </nav>
+  </div>
+
+  <div class="footer-bottom">
+    <p>
+      {{- '©' }}
+      <time>{{ 'now' | date: '%Y' }}</time>
+
+      {% if site.social.links %}
+        <a href="{{ site.social.links[0] }}">{{ site.social.name }}</a>.
+      {% else %}
+        <em class="fst-normal">{{ site.social.name }}</em>.
+      {% endif %}
+
+      {% if site.data.locales[include.lang].copyright.brief %}
+        <span
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="{{ site.data.locales[include.lang].copyright.verbose }}"
+        >
+          {{- site.data.locales[include.lang].copyright.brief -}}
+        </span>
+      {% endif %}
+    </p>
+
+    <p>
+      {%- capture _platform -%}
+        <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
+      {%- endcapture -%}
+
+      {%- capture _theme -%}
+        <a
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="v{{ theme.version }}"
+          href="https://github.com/cotes2020/jekyll-theme-chirpy"
+          target="_blank"
+          rel="noopener"
+        >Chirpy</a>
+      {%- endcapture -%}
+
+      {{ site.data.locales[include.lang].meta | replace: ':PLATFORM', _platform | replace: ':THEME', _theme }}
+    </p>
+  </div>
+</footer>

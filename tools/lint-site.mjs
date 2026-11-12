@@ -293,9 +293,42 @@ console.log('[11] http:// 외부 링크');
 }
 console.log();
 
+// ── 12. 카드가 홈 갈래에 들어가는가 ──────────────────────────
+// 2026-11-12 부터 홈은 카드를 _data/series_groups.yml 의 갈래별로 묶어 그린다.
+// 카드의 group 이 없거나 갈래 파일에 없는 id 면 그 카드는 어느 갈래에도 안 잡혀
+// 홈에서 조용히 사라진다. 빌드도 htmlproofer 도 이걸 못 잡는다 — 깨진 게 아니라 빠진 것이라서.
+// 카드가 하나도 없는 갈래는 제목째 안 나오므로 그것도 본다.
+console.log('[12] 시리즈 갈래');
+{
+  const groups = [];
+  for (const line of fs.readFileSync('_data/series_groups.yml', 'utf8').split(/\r?\n/)) {
+    if (/^\s*#/.test(line) || !line.trim()) continue;
+    const start = line.match(/^-\s+id:\s*(\S+)/);
+    if (start) { groups.push({ id: start[1] }); continue; }
+    const kv = line.match(/^\s+([a-z_]+):\s*(.*)$/);
+    if (kv && groups.length) groups[groups.length - 1][kv[1]] = kv[2].trim();
+  }
+  const ids = new Set();
+  let n = 0;
+  for (const g of groups) {
+    if (ids.has(g.id)) { fail(`series_groups.yml 에 같은 id 가 둘: ${g.id}`); n++; }
+    ids.add(g.id);
+    if (!g.name) { fail(`series_groups.yml 의 ${g.id} 에 name 이 없다`); n++; }
+  }
+  for (const c of cards) {
+    if (!c.group) { fail(`카드 ${c.id} 에 group 이 없다 — 홈에서 사라진다`); n++; continue; }
+    if (!ids.has(c.group)) { fail(`카드 ${c.id} 의 group "${c.group}" 이 series_groups.yml 에 없다 — 홈에서 사라진다`); n++; }
+  }
+  for (const g of groups) {
+    if (!cards.some((c) => c.group === g.id)) { fail(`갈래 ${g.id}(${g.name}) 에 카드가 하나도 없다 — 제목째 안 나온다`); n++; }
+  }
+  if (n === 0) ok(`갈래 ${groups.length}개, 카드 ${cards.length}장 전부 갈래에 들어감`);
+}
+console.log();
+
 // ── 결과 ─────────────────────────────────────────────────────
 if (bad === 0) {
-  console.log(`통과. 검사 11종 / 포스트 ${docs.length}편 / 위반 0건`);
+  console.log(`통과. 검사 12종 / 포스트 ${docs.length}편 / 위반 0건`);
   process.exit(0);
 }
 console.log(`실패 ${bad}건. 위 줄을 하나씩 읽고 판정한다.`);

@@ -53,8 +53,10 @@
 
    2026-11-12 개편의 원칙
      - 내용은 하나도 빼지 않는다. 배치와 모양만 바꾼다.
-     - 테마 레이아웃(_layouts, _includes)을 덮어쓰지 않는다. 사이드바를
-       상단 메뉴로 바꾸는 것도 CSS 로만 한다. 테마를 올려도 깨질 곳이 적다.
+     - 테마 레이아웃(_layouts)은 덮어쓰지 않는다. 사이드바를 상단 메뉴로
+       바꾸는 것도 CSS 로만 한다. 테마를 올려도 깨질 곳이 적다.
+       덮어쓰는 include 는 작은 것 넷뿐이다 — metadata-hook.html(테마가 비워 둔 자리),
+       footer.html, post-edit.html, 그리고 예전부터 비워 둔 read-time.html. 이유는 각 파일 머리에.
      - 색은 바탕·표면·선·글씨 네 층과 강조색 하나로 줄인다.
        시리즈 색은 작은 점과 아이콘에만 쓴다.
 
@@ -768,6 +770,42 @@ article > header figcaption {
   border-block: 1px solid var(--line);
 }
 
+/* 갈래 (_data/series_groups.yml). 번호 · 이름 · 시리즈 수와 편수 */
+.series-group + .series-group {
+  margin-top: 2.75rem;
+}
+
+.series-group-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.series-group-no {
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.series-group-name {
+  margin: 0;
+  color: var(--heading-color);
+  font-size: 1.1rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+
+.series-group-meta {
+  margin-left: auto;
+  color: var(--text-muted-color);
+  font-size: 0.84rem;
+}
+
 /* 열 수를 미디어쿼리로 정하지 않는다. auto-fill + minmax 는 화면이 아니라
    담긴 자리의 폭을 보고 열 수를 정한다. */
 .series-grid {
@@ -1012,10 +1050,11 @@ body:has(#landing) {
     width: 100%;
     max-width: 100%;
     flex: 0 0 100%;
-    padding-inline: 0.75rem;
 
+    /* 본문 열(px-md-4)과 같은 여백. 테마 class 의 ps-2 가 !important 라 같이 쓴다. */
     @media (min-width: 768px) {
-      padding-inline: 1.5rem;
+      padding-left: 1.5rem !important;
+      padding-right: 1.5rem !important;
     }
 
     .access {
@@ -1182,6 +1221,132 @@ h1.dynamic-title {
   }
 }
 
+/* 7-9. 시리즈 위치 상자 — 글 끝 (2026-11-12)
+   마크업은 _includes/post-edit.html. 테마가 글 꼬리 첫 줄(분류 | 편집 링크)에서 그 include 를
+   부르므로 상자도 그 줄 안에 나온다. 줄을 감기게(wrap) 하고 상자를 맨 앞 한 줄 전체로 둔다. */
+
+.post-tail-wrapper > .d-flex:first-child {
+  flex-wrap: wrap;
+}
+
+.series-box {
+  order: -1;
+  flex: 1 0 100%;
+  margin-bottom: 1.25rem;
+  padding: 1.1rem 1.25rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--surface);
+  font-size: 0.95rem;
+}
+
+.series-box-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+}
+
+.series-box-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--heading-color);
+  font-weight: 700;
+
+  &::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--c, var(--accent));
+  }
+}
+
+.series-box-sep {
+  color: var(--text-muted-color);
+  font-weight: 400;
+}
+
+.series-box-pos {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  color: var(--text-muted-color);
+  font-size: 0.85rem;
+
+  a {
+    color: var(--accent);
+    font-weight: 600;
+  }
+}
+
+.series-box-count {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.series-box-bar {
+  display: grid;
+  gap: 4px;
+  margin: 0.85rem 0 1rem;
+
+  span {
+    height: 6px;
+    border-radius: 3px;
+    background: var(--line);
+
+    &.done {
+      background: color-mix(in srgb, var(--c, var(--accent)) 40%, var(--line));
+    }
+
+    &.now {
+      background: var(--c, var(--accent));
+    }
+  }
+}
+
+.series-box-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 0.6rem;
+}
+
+.series-box-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.75rem;
+  background: var(--surface-2);
+
+  small {
+    color: var(--text-muted-color);
+    font-size: 0.75rem;
+  }
+
+  span {
+    color: var(--heading-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  &.next {
+    text-align: right;
+  }
+
+  &.is-empty span {
+    color: var(--text-muted-color);
+    font-weight: 400;
+  }
+}
+
+a.series-box-link:hover span {
+  color: var(--accent);
+}
+
 /* ── 8. 오른쪽 패널 ───────────────────────────────────────────
    최근 업데이트, 인기 태그, 목차를 각각 카드로 묶는다. */
 
@@ -1236,20 +1401,23 @@ h1.dynamic-title {
 }
 
 /* ── 9. 바닥 ──────────────────────────────────────────────────
-   짙은 자두색 띠로 페이지 끝을 잡는다. 바닥은 본문 열(col) 안에 있지만
-   box-shadow + clip-path 로 화면 끝까지 칠한다(6-3 과 같은 방법). */
+   짙은 자두색 띠로 페이지 끝을 잡는다. 마크업은 _includes/footer.html (테마 덮어쓰기).
+     윗줄  사이트 이름·부제 + 메뉴
+     아랫줄 저작권, Powered by (테마 원본 그대로)
+   바닥은 본문 열(col) 안에 있지만 box-shadow + clip-path 로 화면 끝까지 칠한다(6-3 과 같은 방법). */
 
 #tail-wrapper > footer {
   position: relative;
+  display: block;
   height: auto;
-  min-height: 5rem;
   margin-top: 5rem;
-  padding-block: 1.75rem;
+  padding: 0;
   border-top: 0;
   background: #17131d;
   box-shadow: 0 0 0 100vmax #17131d;
   clip-path: inset(0 -100vmax);
   color: rgb(255 255 255 / 68%);
+  font-size: 0.85rem;
 
   a,
   em {
@@ -1259,6 +1427,82 @@ h1.dynamic-title {
   a:hover {
     color: #f2c6de !important;
   }
+
+  p {
+    margin: 0;
+    text-align: left;
+  }
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem 2rem;
+  padding: 3rem 0 2rem;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+
+  img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 0 2px rgb(255 255 255 / 18%);
+  }
+}
+
+.footer-name {
+  display: block;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+
+/* 테마가 바닥의 모든 링크를 굵게(%text-highlight) 하므로 부제와 메뉴는 굵기를 되돌린다. */
+#tail-wrapper > footer .footer-sub {
+  display: block;
+  margin-top: 0.15rem;
+  color: rgb(255 255 255 / 66%);
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.25rem;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.5rem;
+    padding: 0 0.75rem;
+    border-radius: 0.6rem;
+    color: rgb(255 255 255 / 82%) !important;
+    font-size: 0.92rem;
+    font-weight: 500;
+
+    &:hover {
+      background: rgb(255 255 255 / 8%);
+      color: #fff !important;
+    }
+  }
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding: 1.25rem 0 2.25rem;
+  border-top: 1px solid rgb(255 255 255 / 12%);
 }
 
 :root[data-bs-theme='dark'] #tail-wrapper > footer {

@@ -12,6 +12,10 @@ layout: default
 
   편수는 손으로 적지 않는다. 아래에서 _posts/<dir>/ 를 세어 채운다.
   카드 내용을 고치려면 이 파일이 아니라 _data/series.yml 을 고친다.
+
+  2026-11-12 개편: 히어로를 분할형(글 왼쪽, 그림 오른쪽)으로, 카드 머리·꼬리를 다시 짰다.
+  최근 글에 설명을 붙이고 첫 글은 표지 그림과 함께 크게 보인다. 보여주는 내용은 줄지 않았다.
+  모양은 assets/css/jekyll-theme-chirpy.scss 의 §6 에 있다.
 {% endcomment %}
 
 {% include lang.html %}
@@ -20,37 +24,48 @@ layout: default
 
 <div id="landing">
   <section class="landing-hero">
-    <h1>{{ site.title }}</h1>
+    <div class="hero-text">
+      <h1>{{ site.title }}</h1>
 
-    <p class="hero-lead">
-      로봇 제어 소프트웨어를 공부하며 남긴 기록이다. Stateflow 로 FSM 을 설계하고 검증하는 법,
-      ADRC 외란 관측 제어, 실내 배송 AMR 프로젝트, MATLAB 개발환경을 다룬다.
-    </p>
+      <p class="hero-lead">
+        로봇 제어 소프트웨어를 공부하며 남긴 기록이다. Stateflow 로 FSM 을 설계하고 검증하는 법,
+        ADRC 외란 관측 제어, 실내 배송 AMR 프로젝트, MATLAB 개발환경을 다룬다.
+      </p>
 
-    <ul class="hero-stats">
-      <li><strong>{{ site.posts.size }}</strong><span>편</span></li>
-      <li><strong>{{ site.data.series.size }}</strong><span>시리즈</span></li>
-      <li>
-        <strong>{% include datetime.html date=latest.date lang=lang %}</strong>
-        <span>최근 갱신</span>
-      </li>
-    </ul>
+      <ul class="hero-stats">
+        <li><strong>{{ site.posts.size }}</strong><span>편</span></li>
+        <li><strong>{{ site.data.series.size }}</strong><span>시리즈</span></li>
+        <li>
+          <strong>{% include datetime.html date=latest.date lang=lang %}</strong>
+          <span>최근 갱신</span>
+        </li>
+      </ul>
 
-    <div class="hero-actions">
-      <a class="hero-btn primary" href="{{ '/series/' | relative_url }}">
-        <i class="fa-solid fa-layer-group fa-fw"></i> 시리즈 안내
-      </a>
-      <a class="hero-btn" href="{{ '/archives/' | relative_url }}">
-        <i class="fa-solid fa-clock-rotate-left fa-fw"></i> 전체 글
-      </a>
-      <a class="hero-btn" href="https://github.com/{{ site.github.username }}" rel="me noopener">
-        <i class="fa-brands fa-github fa-fw"></i> GitHub
-      </a>
+      <div class="hero-actions">
+        <a class="hero-btn primary" href="{{ '/series/' | relative_url }}">
+          <i class="fa-solid fa-layer-group fa-fw"></i> 시리즈 안내
+        </a>
+        <a class="hero-btn" href="{{ '/archives/' | relative_url }}">
+          <i class="fa-solid fa-clock-rotate-left fa-fw"></i> 전체 글
+        </a>
+        <a class="hero-btn" href="https://github.com/{{ site.github.username }}" rel="me noopener">
+          <i class="fa-brands fa-github fa-fw"></i> GitHub
+        </a>
+      </div>
     </div>
+
+    {%- comment -%}
+      그림은 <img> 가 아니라 CSS 배경이다. <img> 로 두면 테마의 refactor-content 가
+      라이트박스 링크로 감싼다. 파일 경로와 화면 폭별 선택은 scss §6-1 에 있다.
+    {%- endcomment -%}
+    <div class="hero-art" role="img" aria-label="밤 도시가 내다보이는 책상 위의 로봇 팔과 책 더미"></div>
   </section>
 
-  <section class="landing-section">
-    <h2 class="landing-heading">시리즈</h2>
+  <section class="landing-section series-section">
+    <h2 class="landing-heading">
+      시리즈
+      <a class="heading-more" href="{{ '/series/' | relative_url }}">시리즈 안내 <i class="fa-solid fa-angle-right"></i></a>
+    </h2>
 
     <div class="series-grid">
       {% for s in site.data.series %}
@@ -79,15 +94,21 @@ layout: default
         {%- endif -%}
 
         <a class="series-card" data-series="{{ s.id }}" href="{{ target | strip }}">
-          <span class="series-icon"><i class="{{ s.icon }}"></i></span>
-          <span class="series-head">
-            <span class="series-name">{{ s.name }}</span>
+          <span class="series-top">
+            <span class="series-icon"><i class="{{ s.icon }}"></i></span>
             <span class="series-count">{{ count }}편</span>
           </span>
+          <span class="series-name">{{ s.name }}</span>
           <span class="series-blurb">{{ s.blurb }}</span>
-          {%- if s.repo %}
-            <span class="series-repo"><i class="fa-brands fa-github fa-fw"></i> 저장소 공개</span>
-          {%- endif %}
+          <span class="series-foot">
+            <span class="series-more">
+              {%- if s.index -%}목차 보기{%- else -%}카테고리 보기{%- endif %}
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+            {%- if s.repo %}
+              <span class="series-repo"><i class="fa-brands fa-github fa-fw"></i> 저장소 공개</span>
+            {%- endif %}
+          </span>
         </a>
       {% endfor %}
     </div>
@@ -121,13 +142,36 @@ layout: default
           {%- endfor -%}
         {%- endfor -%}
 
+        {%- comment -%}
+          첫 글만 표지를 쓴다(scss §6-4 가 첫 칸을 카드로 그린다). image 는 문자열일 수도,
+          path 를 가진 객체일 수도 있다 — 테마 head.html 과 같은 방식으로 읽는다.
+          표지도 <img> 가 아니라 배경이다(히어로와 같은 이유). 제목 링크와 겹치므로
+          보조기기와 Tab 순서에서는 뺀다.
+        {%- endcomment -%}
+        {%- assign cover = nil -%}
+        {%- if shown == 0 and p.image -%}
+          {%- assign cover = p.image.path | default: p.image -%}
+        {%- endif -%}
+
         <li class="recent-item" data-series="{{ sid }}">
+          {%- if cover %}
+            <a
+              class="recent-cover"
+              href="{{ p.url | relative_url }}"
+              style="background-image: url('{{ cover | relative_url }}')"
+              aria-hidden="true"
+              tabindex="-1"
+            ></a>
+          {%- endif %}
           <a href="{{ p.url | relative_url }}">
-            <span class="recent-title">{{ p.title }}</span>
             <span class="recent-meta">
               <span class="recent-cat">{{ p.categories | join: ', ' }}</span>
               <time>{% include datetime.html date=p.date lang=lang %}</time>
             </span>
+            <span class="recent-title">{{ p.title }}</span>
+            {%- if p.description %}
+              <span class="recent-desc">{{ p.description }}</span>
+            {%- endif %}
           </a>
         </li>
 

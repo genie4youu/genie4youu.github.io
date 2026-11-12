@@ -6,6 +6,9 @@ layout:
   post: 포스트
   category: 카테고리
   tag: 태그
+  # 홈(layout: landing)의 모바일 상단 제목. 없으면 테마가 레이아웃 이름을 대문자로 띄워
+  # "Landing" 이 그대로 나왔다 (2026-11-12 발견).
+  landing: 홈
 
 # The tabs of sidebar
 tabs:

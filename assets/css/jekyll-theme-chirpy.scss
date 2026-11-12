@@ -1,8 +1,29 @@
 ---
 ---
 
+/* 폰트 변수만 넘긴다. 이 블록의 나머지는 테마 원본과 같아야 한다 (아래 머리말 참고). */
 @use 'abstracts/variables' with (
-  $theme: '{{ site.theme_mode }}'
+  $theme: '{{ site.theme_mode }}',
+  $font-family-base: (
+    'Pretendard Variable',
+    Pretendard,
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    'Apple SD Gothic Neo',
+    'Malgun Gothic',
+    sans-serif
+  ),
+  $font-family-heading: (
+    'Pretendard Variable',
+    Pretendard,
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    'Apple SD Gothic Neo',
+    'Malgun Gothic',
+    sans-serif
+  )
 );
 
 /* prettier-ignore */
@@ -13,12 +34,15 @@
 ';
 
 /* ============================================================
-   커스텀 테마 — 2026-08-03 시작, 2026-08-03 개편
+   커스텀 테마 — 2026-08-03 시작, 2026-11-12 전면 개편
    ------------------------------------------------------------
    이 파일은 테마 gem 의 같은 경로(assets/css/jekyll-theme-chirpy.scss)를
-   덮어쓴다. 위쪽 @use 블록은 테마 원본과 동일해야 하므로 건드리지 않는다.
+   덮어쓴다. 맨 위 @use 두 블록은 테마 원본 구조를 따른다.
+   2026-11-12 부터 폰트 변수 두 개를 `with (...)` 로 넘긴다. 둘 다 테마가
+   !default 로 열어둔 변수라 공식 설정 경로다.
 
    되돌리려면 이 파일을 지우면 된다. 테마 기본값으로 돌아간다.
+   2026-11-12 개편 전 모습은 git 기록의 7640a8c 에 있다.
 
    ⚠️ 테마가 쓰는 속성은 data-mode 가 아니라 data-bs-theme 다.
       (jekyll-theme-chirpy v7.6.0 / _sass/base/_base.scss 실측)
@@ -27,116 +51,206 @@
         :root:not([data-bs-theme])         OS 설정을 따름
       셋 다 덮어야 토글과 OS 설정 양쪽에서 색이 적용된다.
 
+   2026-11-12 개편의 원칙
+     - 내용은 하나도 빼지 않는다. 배치와 모양만 바꾼다.
+     - 테마 레이아웃(_layouts, _includes)을 덮어쓰지 않는다. 사이드바를
+       상단 메뉴로 바꾸는 것도 CSS 로만 한다. 테마를 올려도 깨질 곳이 적다.
+     - 색은 바탕·표면·선·글씨 네 층과 강조색 하나로 줄인다.
+       시리즈 색은 작은 점과 아이콘에만 쓴다.
+
    구성
      1. 팔레트
-     2. 한국어 조판
-     3. 포스트 머리 이미지 (테마의 강제 크롭 해제)
-     4. 홈 랜딩
-     5. 시리즈 색
+     2. 글꼴과 한국어 조판
+     3. 상단 메뉴 (데스크톱에서 사이드바를 위로 올린다)
+     4. 배경 장식과 상단 줄
+     5. 포스트 머리 이미지 (테마의 강제 크롭 해제)
+     6. 홈 랜딩
+     7. 글 화면
+     8. 오른쪽 패널
+     9. 바닥
+    10. 시리즈 색
    ============================================================ */
 
-/* ── 1. 팔레트: 연보라 바탕 + 모브 글씨 (2026-08-07 개편) ─────
-   전에는 바탕과 글씨가 모두 모브였고 본문 바탕은 테마 기본값인 순백이었다.
+/* 테마의 lg 분기점. 이 폭부터 사이드바가 화면에 고정된다(그 아래는 햄버거 메뉴). */
+$bp-lg: 850px;
+$bp-xl: 1200px;
+$header-h: 4rem;
 
-   지금은 둘을 나눠 쓴다.
-     바탕·테두리·hover (surface)  연보라   — 페이지, 사이드바, 카드, 표
-     글씨·링크·제목·시리즈 (ink)  모브 그대로
-   차가운 연보라 종이에 따뜻한 모브 잉크로 쓴 모양이 된다.
-   surface 만 옮기고 ink 는 두는 것이 이 개편의 규칙이다. 섞으면 탁해진다.
-   예외는 콜아웃(--prompt-tip-*)이다. 튀라고 있는 것이라 모브로 남겼다.
+/* ── 1. 팔레트 (2026-11-12 개편) ──────────────────────────────
+   전에는 연보라 바탕에 흰 카드를 올렸다. 바탕과 카드의 밝기 차가 4% 남짓이라
+   화면에 높낮이가 없었다. 지금은 층을 넷으로 나눈다.
 
-   원칙: 연한 톤은 바탕에만 쓰고, 링크와 제목은 같은 계열의 진한 톤을 쓴다.
-        연한 색을 링크에 쓰면 밝은 배경에서 대비가 3:1 아래로 떨어진다.
-        아래 링크 색은 연보라 바탕(#f4f1fb)에서 5.81:1, 흰 카드 위에서 6.48:1 이다.
+     바탕 (--main-bg)       거의 흰 연보라. 페이지 전체
+     띠   (--band)          조금 더 진한 연보라. 홈의 시리즈 구역
+     표면 (--surface)       흰색. 카드, 표, 코드 블록
+     선   (--line)          카드 테두리와 구분선
 
-   다른 후보로 바꾸려면 아래 두 믹스인의 값만 교체한다.
-   파일 맨 아래에 라벤더 / 연분홍 값을 주석으로 남겨두었다.
+   글씨는 제목(--heading-color)·본문(--text-color)·보조(--text-muted-color)
+   세 단계다. 강조색은 전과 같은 모브(#7f4f6d)를 링크와 버튼에만 쓴다.
+
+   대비 (실측 2026-11-12)
+     본문 #3d3845 / 바탕 #f9f8fc   11.0:1
+     보조 #6a6474 / 바탕 #f9f8fc    5.6:1
+     링크 #7f4f6d / 흰 카드          6.5:1
+     다크 보조 #9d96a6 / #131117    6.6:1
    ------------------------------------------------------------ */
 
 @mixin palette-light {
+  /* 이 파일에서만 쓰는 토큰 */
+  --surface: #fff;
+  --surface-2: #f4f2f8;
+  --band: #f1edf7;
+  --line: #e8e4ef;
+  --line-strong: #d8d2e2;
+  --accent: #7f4f6d;
+  --accent-ink: #fff;
+  --grid: rgb(80 60 120 / 7%);
+  --glow-2: #6d7fd6;
+  --header-bg: rgb(249 248 252 / 82%);
+  --lift-shadow: 0 24px 48px -28px rgb(40 24 56 / 40%);
+
+  /* 테마 변수 */
+  --main-bg: #f9f8fc;
+  --mask-bg: #c9c3d4;
+  --main-border-color: var(--line);
+  --text-color: #3d3845;
+  --text-muted-color: #6a6474;
+  --heading-color: #1e1a24;
+  --label-color: #5c5666;
+  --blockquote-border-color: var(--line-strong);
+  --blockquote-text-color: #5c5666;
   --link-color: #7f4f6d;
   --link-underline-color: #e6d8e0;
-  --heading-color: #33262e;
-  --text-color: #413941;
-  --text-muted-color: #736874;
-  --main-border-color: #eee9f5;
+  --button-bg: #fff;
+  --btn-border-color: var(--line);
+  --btn-backtotop-color: #7f4f6d;
+  --btn-backtotop-border-color: var(--line);
+  --menu-bg: #fff;
+  --menu-border-color: var(--line);
+  --menu-highlight-bg: #f4f2f8;
 
-  /* 바탕은 연보라, 글씨와 링크는 모브 그대로다 (2026-08-07).
-     테마 기본값은 순백이었다. 아주 옅게만 넣는다 — 바탕에 색이 붙으면
-     본문 대비가 같이 내려가므로 흰색에서 4% 정도만 벗어난다. */
-  --main-bg: #f4f1fb;
+  --site-title-color: #1e1a24;
+  --site-subtitle-color: #6a6474;
+  --sidebar-bg: #f4f1fa;
+  --sidebar-border-color: var(--line);
+  --sidebar-muted-color: #4a4552;
+  --sidebar-active-color: #1e1a24;
+  --sidebar-hover-bg: #ece8f4;
+  --sidebar-btn-bg: transparent;
+  --sidebar-btn-color: #6a6474;
+  --avatar-border-color: #fff;
 
-  --sidebar-bg: #ebe6f7;
-  --sidebar-border-color: #e2dcf1;
-  --sidebar-muted-color: #564c53;
-  --sidebar-active-color: #261c22;
-  --sidebar-hover-bg: #e1d9f3;
-  --site-title-color: #6b606a;
-  --site-subtitle-color: #6f6470;
+  --topbar-bg: rgb(249 248 252 / 82%);
+  --topbar-text-color: #1e1a24;
+  --search-border-color: var(--line);
+  --search-icon-color: #8a8494;
+  --input-focus-border-color: #b9a6b4;
 
-  --card-hover-bg: #e9e2f6;
+  --card-bg: #fff;
+  --card-hover-bg: #f6f3fa;
+  --card-shadow: 0 1px 2px rgb(40 24 56 / 4%), 0 0 0 1px var(--line);
   --toc-highlight: #7f4f6d;
+  --btn-share-color: #8a8494;
   --btn-share-hover-color: #7f4f6d;
   --checkbox-checked-color: #7f4f6d;
+  --tb-odd-bg: #faf9fc;
+  --tb-border-color: var(--line);
 
-  /* 콜아웃은 일부러 모브로 남긴다. 눈에 띄라고 있는 것이라
-     바탕과 같은 계열로 맞추면 존재 이유가 없어진다. */
+  /* 콜아웃 tip 은 일부러 모브로 둔다 (2026-08-07 결정 유지). */
   --prompt-tip-bg: #f6ecf1;
   --prompt-tip-icon-color: #7f4f6d;
 
-  --tb-odd-bg: #f9f7fd;
-  --tb-border-color: #eae5f4;
-  --tag-hover: #e6def4;
-  --search-tag-bg: #f0ecf9;
+  --tag-border: var(--line);
+  --tag-hover: #ece7f5;
+  --search-tag-bg: #f4f2f8;
+  --categories-border: var(--line);
+  --categories-hover-bg: #f4f2f8;
+  --timeline-color: var(--line);
+  --timeline-node-bg: #c9bfd3;
 
-  /* 랜딩 전용 */
-  --landing-hero-bg: #f8f5f7; /* 히어로는 §4-1 에서 그림으로 덮인다. 안 쓰인다 */
-  --landing-card-bg: #fff; /* 연보라 바탕 위의 흰 카드. 이 대비로 카드가 떠 보인다 */
-  --landing-card-border: #e6e0f3;
-  --landing-card-hover-bg: #f8f5fd;
-  --landing-card-shadow: 0 1px 2px rgb(45 38 62 / 5%);
-  --landing-card-shadow-hover: 0 6px 18px rgb(45 38 62 / 9%);
+  --highlight-bg-color: #f7f5fa;
+  --inline-code-bg: rgb(60 40 90 / 6%);
+  --language-border-color: var(--line);
+  --code-header-muted-color: #e2dcec;
+
+  /* 랜딩 */
+  --landing-card-bg: #fff;
+  --landing-card-border: var(--line);
 }
 
 @mixin palette-dark {
-  /* 다크에서도 같은 연보라 계열이되 어두운 쪽 끝을 쓴다. 라이트와 같은
-     밝기를 넣으면 다크 모드가 아니게 되므로, 옮기는 것은 밝기가 아니라
-     색상(hue)이다 — 전에는 모브 쪽으로 기운 #191418 이었다. */
-  --main-bg: #171328;
-  --mask-bg: #413b54;
-  --main-border-color: #2b2442;
+  --surface: #1b1820;
+  --surface-2: #211e27;
+  --band: #18151e;
+  --line: #2c2833;
+  --line-strong: #3b3644;
+  --accent: #d9a8c4;
+  --accent-ink: #18131a;
+  --grid: rgb(255 255 255 / 4%);
+  --glow-2: #5a6bc4;
+  --header-bg: rgb(19 17 23 / 80%);
+  --lift-shadow: 0 24px 48px -28px rgb(0 0 0 / 70%);
 
+  --main-bg: #131117;
+  --mask-bg: #2a2533;
+  --main-border-color: var(--line);
+  --text-color: #cdc7d3;
+  --text-muted-color: #9d96a6;
+  --heading-color: #f0ecf4;
+  --label-color: #b3acbb;
+  --blockquote-border-color: var(--line-strong);
+  --blockquote-text-color: #b3acbb;
   --link-color: #d9a8c4;
-  --heading-color: #d5c9d0;
-  --text-color: #b0a6ac;
+  --link-underline-color: #4a3a45;
+  --button-bg: #1b1820;
+  --btn-border-color: var(--line);
+  --btn-backtotop-color: #d9a8c4;
+  --btn-backtotop-border-color: var(--line);
+  --menu-bg: #1b1820;
+  --menu-border-color: var(--line);
+  --menu-highlight-bg: #252129;
 
-  --sidebar-bg: #1e1934;
-  --sidebar-border-color: #2b2442;
-  --sidebar-muted-color: #928691;
-  --sidebar-active-color: #e2d6dd;
-  --sidebar-hover-bg: #292245;
-  --site-title-color: #7d7178;
-  --site-subtitle-color: #7e7279;
+  --site-title-color: #f0ecf4;
+  --site-subtitle-color: #9d96a6;
+  --sidebar-bg: #17141c;
+  --sidebar-border-color: var(--line);
+  --sidebar-muted-color: #b9b2c1;
+  --sidebar-active-color: #f0ecf4;
+  --sidebar-hover-bg: #26222d;
+  --sidebar-btn-bg: transparent;
+  --sidebar-btn-color: #9d96a6;
+  --avatar-border-color: var(--line);
 
-  --card-bg: #1e1934;
-  --card-hover-bg: #372f52;
+  --topbar-bg: rgb(19 17 23 / 82%);
+  --topbar-text-color: #f0ecf4;
+  --search-border-color: var(--line);
+  --search-icon-color: #8a8494;
+
+  --card-bg: #1b1820;
+  --card-hover-bg: #232029;
+  --card-shadow: 0 0 0 1px var(--line);
   --toc-highlight: #d9a8c4;
+  --btn-share-color: #8a8494;
   --btn-share-hover-color: #d9a8c4;
+  --tb-odd-bg: #18151d;
+  --tb-border-color: var(--line);
 
-  /* 라이트와 같은 이유로 콜아웃은 모브로 남긴다. */
   --prompt-tip-bg: #2e2029;
   --prompt-tip-icon-color: #d9a8c4;
 
-  --tb-odd-bg: #211c38;
-  --tb-border-color: #2b2442;
+  --tag-border: var(--line);
+  --tag-hover: #2a2531;
+  --search-tag-bg: #211e27;
+  --categories-border: var(--line);
+  --categories-hover-bg: #211e27;
+  --timeline-color: var(--line);
+  --timeline-node-bg: #4a4354;
 
-  /* 랜딩 전용 */
-  --landing-hero-bg: #1d181c; /* 히어로는 §4-1 에서 그림으로 덮인다. 안 쓰인다 */
-  --landing-card-bg: #1e1934;
-  --landing-card-border: #302949;
-  --landing-card-hover-bg: #26203f;
-  --landing-card-shadow: none;
-  --landing-card-shadow-hover: 0 6px 18px rgb(0 0 0 / 28%);
+  --highlight-bg-color: #18151d;
+  --language-border-color: var(--line);
+
+  --landing-card-bg: #1b1820;
+  --landing-card-border: var(--line);
 }
 
 :root[data-bs-theme='light'] {
@@ -157,24 +271,27 @@
   }
 }
 
-/* ── 2. 한국어 조판 ───────────────────────────────────────────
-   테마는 영어 기준이라 한국어에서 두 가지가 어긋난다.
+/* ── 2. 글꼴과 한국어 조판 ────────────────────────────────────
+   본문·제목: Pretendard. 폰트 파일은 _includes/metadata-hook.html 이 부른다.
+     테마 기본값(Source Sans Pro, Lato)은 한글 글자가 없어서 한글은 OS 폰트로
+     떨어졌다. 윈도우에서는 'Microsoft Yahei'(중국어 폰트)까지 내려갔다.
+   코드: Nanum Gothic Coding. 한글이 영문의 정확히 두 칸이라
+     본문의 ASCII 시간축 그림(한글이 섞인 것)이 줄이 맞는다.
+     이전 폰트 묶음(SFMono, Consolas …)에는 한글이 없어 그 그림들이 어긋나 있었다.
 
-   (1) 줄바꿈. 브라우저 기본값은 한국어를 글자 단위로 끊어서
-       "실행 순서" 가 "실행 순
-       서" 로 갈라진다. keep-all 이 어절 단위로 끊어준다.
-       대신 긴 URL 이나 코드가 넘칠 수 있어 break-word 를 함께 준다.
-   (2) 행간. 한글은 라틴 문자보다 글자가 빽빽해서 같은 line-height 에서
-       더 답답해 보인다. 본문만 조금 넓힌다.
+   한국어 조판 규칙(2026-08-03)은 그대로다.
+   (1) keep-all: "실행 순서" 가 "실행 순 / 서" 로 갈라지지 않게 어절 단위로 끊는다.
+   (2) 행간: 한글은 빽빽해서 본문만 넓힌다.
    ------------------------------------------------------------ */
 
 body {
   word-break: keep-all;
   overflow-wrap: break-word;
+  text-rendering: optimizelegibility;
 }
 
 #main-wrapper .content {
-  line-height: 1.75;
+  line-height: 1.8;
 }
 
 h1,
@@ -184,7 +301,14 @@ h4,
 h5,
 h6 {
   word-break: keep-all;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: 'Nanum Gothic Coding', D2Coding, ui-monospace, monospace;
 }
 
 /* 코드와 표는 어절 단위로 끊으면 오히려 깨진다. 원래대로 되돌린다. */
@@ -197,7 +321,214 @@ samp,
   word-break: normal;
 }
 
-/* ── 3. 포스트 머리 이미지 ────────────────────────────────────
+/* ── 3. 상단 메뉴 ─────────────────────────────────────────────
+   왼쪽 고정 사이드바가 "Chirpy 템플릿" 처럼 보이는 가장 큰 이유였다.
+   데스크톱에서는 같은 사이드바 요소를 화면 위 한 줄로 눕힌다.
+   마크업은 테마 그대로다(_includes/sidebar.html 를 덮어쓰지 않는다).
+
+     [아바타 제목/부제]                  [홈 시리즈 … 이력서] | [테마 GitHub RSS]
+
+   850px 아래는 테마 원래 동작(햄버거로 여는 왼쪽 서랍)을 그대로 쓴다.
+
+   🔴 테마가 붙여둔 Bootstrap 유틸리티 클래스(flex-column, w-100,
+      flex-grow-1, fst-italic …)는 전부 !important 다. 그것을 되돌리는
+      자리에서만 !important 를 쓴다.
+   ------------------------------------------------------------ */
+
+@media (min-width: $bp-lg) {
+  #sidebar {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 1.5rem;
+    width: 100%;
+    height: $header-h;
+    overflow: visible;
+    z-index: 1030;
+
+    /* 본문 글자의 왼쪽·오른쪽 끝과 맞춘다: 가운데 상자 바깥 여백 + 상자 안 여백(1.5rem)
+       + 본문 열 안 여백(px-md-4 = 1.5rem). 상자 안 여백은 아래 #main-wrapper > .container 에서 고정한다. */
+    padding-inline: calc(max(0px, (100% - #{$bp-xl}) / 2) + 3rem);
+    background: var(--header-bg);
+    -webkit-backdrop-filter: saturate(160%) blur(12px);
+    backdrop-filter: saturate(160%) blur(12px);
+    border-bottom: 1px solid var(--line);
+
+    .profile-wrapper {
+      display: grid;
+      grid-template-columns: auto auto;
+      align-items: center;
+      column-gap: 0.75rem;
+      width: auto;
+      margin: 0;
+      padding: 0;
+      flex: none;
+    }
+
+    #avatar {
+      grid-row: 1 / span 2;
+      width: 2.5rem;
+      height: 2.5rem;
+      box-shadow:
+        0 0 0 2px var(--surface),
+        0 0 0 3px var(--line-strong);
+    }
+
+    .site-title {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 750;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      color: var(--heading-color);
+    }
+
+    .site-subtitle {
+      height: auto;
+      margin: 0;
+      font-size: 0.78rem;
+      line-height: 1.35;
+      font-style: normal !important;
+      word-spacing: normal;
+    }
+
+    nav {
+      flex-grow: 0 !important;
+      width: auto !important;
+      margin-left: auto;
+    }
+
+    ul {
+      flex-wrap: nowrap;
+      gap: 0.125rem;
+      margin: 0;
+
+      li.nav-item {
+        width: auto;
+        padding: 0;
+        opacity: 1;
+
+        &:not(:first-child) {
+          margin-top: 0;
+        }
+
+        a.nav-link {
+          padding: 0.5rem 0.75rem;
+          border-radius: 0.6rem;
+          font-weight: 500;
+          color: var(--sidebar-muted-color);
+
+          i {
+            display: none;
+          }
+
+          span {
+            font-size: 0.92rem;
+            letter-spacing: 0;
+          }
+        }
+
+        &.active .nav-link {
+          font-weight: 650;
+        }
+      }
+    }
+
+    .sidebar-bottom {
+      flex-wrap: nowrap !important;
+      gap: 0.25rem;
+      width: auto !important;
+      margin: 0;
+      padding: 0 0 0 0.75rem;
+      border-left: 1px solid var(--line);
+
+      > a,
+      #mode-toggle {
+        width: 2.25rem;
+        height: 2.25rem;
+        margin: 0;
+        border-radius: 0.6rem;
+        box-shadow: none;
+      }
+
+      .icon-border {
+        display: none;
+      }
+    }
+  }
+
+  #main-wrapper {
+    margin-left: 0;
+    padding-top: $header-h;
+  }
+
+  /* 사이드바가 빠진 만큼 본문 상자를 가운데로 모은다.
+     안 여백은 테마가 폭마다 다르게 준다(px-xxl-5, 1650px 이상 1.75rem, 둘 다 !important).
+     머리 메뉴와 줄을 맞추려고 한 값으로 고정한다. */
+  #main-wrapper > .container {
+    max-width: $bp-xl;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+}
+
+/* 홈 화면에서도 메뉴의 "홈" 을 켠다. 테마는 layout 이 'home' 일 때만 켜는데
+   이 사이트의 홈은 layout: landing 이다. */
+body:has(#landing) #sidebar li.nav-item:first-child .nav-link {
+  color: var(--sidebar-active-color);
+  background-color: var(--sidebar-hover-bg);
+}
+
+/* ── 4. 배경 장식과 상단 줄 ───────────────────────────────────
+   흰 바탕 하나만 있으면 "초보가 만든" 느낌이 난다는 피드백(2026-11-12).
+   화면 위쪽에만 아주 옅은 모눈(제어·엔지니어링 블로그라 설계 도면 느낌)과
+   강조색·남색 빛 두 개를 깔고, 아래로 내려가며 사라지게 한다.
+   본문 글씨 뒤까지 내려오지 않도록 mask 로 지운다.
+   ------------------------------------------------------------ */
+
+#main-wrapper {
+  isolation: isolate;
+}
+
+#main-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 44rem;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 86% 0%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 42%),
+    radial-gradient(circle at 4% 36%, color-mix(in srgb, var(--glow-2) 12%, transparent), transparent 38%),
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size:
+    auto,
+    auto,
+    44px 44px,
+    44px 44px;
+  background-position:
+    0 0,
+    0 0,
+    -1px -1px,
+    -1px -1px;
+  -webkit-mask-image: linear-gradient(#000 35%, transparent);
+  mask-image: linear-gradient(#000 35%, transparent);
+}
+
+/* 상단 줄(브레드크럼 + 검색). 전에는 흰 띠가 연보라 바탕 위에 떠 있었다. */
+#topbar-wrapper {
+  @media (min-width: $bp-lg) {
+    background: transparent;
+  }
+}
+
+#search {
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+/* ── 5. 포스트 머리 이미지 ────────────────────────────────────
    테마는 image: 로 넣은 머리 이미지를 40/21 로 강제하고
    object-fit: cover 로 채운다 (v7.6.0 / _sass/base/_base.scss).
    가로로 넓거나 세로로 긴 그림은 가장자리가 잘려 나간다.
@@ -207,10 +538,7 @@ samp,
 
    그래프와 다이어그램이 머리 이미지로 들어오는 블로그라서
    "보기 좋게 잘라내기" 보다 "다 보이기" 가 맞다. 비율 강제를 푼다.
-
-   목록 카드 썸네일에는 이 규칙을 적용하지 않는다. 거기서는 크기가
-   제각각이면 줄이 흐트러지므로 크롭이 맞다. (현재 랜딩에는 썸네일이
-   없지만 나중에 되살릴 때를 위해 선택자를 header 안으로 한정해 둔다.)
+   선택자를 header 안으로 한정해 목록 카드 썸네일에는 영향이 없다.
    ------------------------------------------------------------ */
 
 article > header .preview-img {
@@ -232,9 +560,9 @@ article > header .preview-img {
     width: auto;
     max-width: 100%;
     height: auto;
+    border-radius: 14px;
 
-    /* 세로로 아주 긴 그림이 첫 화면을 다 먹지 않게 막는다.
-       가로 그림은 max-width 가 먼저 걸리므로 영향이 없다. */
+    /* 세로로 아주 긴 그림이 첫 화면을 다 먹지 않게 막는다. */
     max-height: 32rem;
     aspect-ratio: auto;
     -o-object-fit: contain;
@@ -247,153 +575,112 @@ article > header figcaption {
   font-size: 0.85rem;
 }
 
-/* ── 4. 홈 랜딩 ───────────────────────────────────────────────
+/* ── 6. 홈 랜딩 ───────────────────────────────────────────────
    마크업은 _layouts/landing.html, 내용은 _data/series.yml 에 있다.
    ------------------------------------------------------------ */
 
 #landing {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 
   a {
     text-decoration: none;
+    border-bottom: 0;
   }
 }
 
-/* 4-1. 히어로 ────────────────────────────────────────────────
-   배경 그림 (2026-08-07): assets/img/bg/city-pop-desk.webp
+/* 6-1. 히어로 — 분할형 (2026-11-12)
+   전에는 그림을 배경에 깔고 어두운 막을 덮어 글씨를 올렸다. 그림이 막에 가려
+   잘 안 보였고, 밝은 페이지 안에 검은 상자가 하나 박힌 모양이었다.
+   지금은 글은 왼쪽 바탕 위에, 그림은 오른쪽 카드로 따로 둔다.
+   좁은 화면에서는 위아래로 쌓인다.
 
-   원본은 1672x941 PNG 1.86 MB 였다. 홈 첫 화면에서 바로 받는 그림이라
-   WebP q88 로 줄였다 (204 KB). 3배 확대 대조에서 하늘 그라데이션 밴딩과
-   픽셀 글자 뭉개짐이 없는 것을 확인하고 고른 품질값이다.
-   좁은 화면에는 가로 900px 판(81 KB)을 따로 준다.
+   그림을 <img> 가 아니라 CSS 배경으로 넣는 이유:
+     layout: landing 도 테마의 refactor-content 를 거친다. 거기서 <img> 는
+     라이트박스 링크(<a class="popup">)로 감싸진다. 배경으로 두면 손대지 않는다.
 
-   ⚠️ 히어로 안의 글자색은 팔레트 변수를 쓰지 않고 라이트/다크 양쪽 모두
-      흰색으로 고정한다. 팔레트를 그대로 두면 라이트 모드에서 어두운 글씨가
-      밤 풍경 위에 올라가 안 읽힌다. 이 예외는 히어로 안에서만이다.
-
-   그림과 스크림(어둡게 덮는 막)을 가상 요소 둘로 나눠 얹는다.
-   한 declaration 에 몰면 (라이트/다크) x (좁은/넓은 화면) 네 벌을
-   전부 다시 적어야 한다.
-     ::before  그림   — 화면 폭에 따라 파일이 갈린다
-     ::after   스크림 — 테마에 따라 진하기가 갈린다
-
-   스크림은 왼쪽이 진하고 오른쪽으로 걷힌다. 글씨는 왼쪽에 몰려 있고
-   그림에서 볼거리(로봇팔·책·네온 간판)는 가운데와 오른쪽에 있어 안 겹친다.
-   좁은 화면에서는 글씨가 폭을 다 쓰므로 가로 방향 대신 고르게 덮는다.
-   ------------------------------------------------------------ */
-
-/* ⚠️ 여기서는 `rgb(14 9 22 / $left)` 를 쓰지 않는다. 변수가 들어가면 Sass 가
-      `/` 를 나눗셈으로 읽어 알파가 통째로 사라지고 불투명한 rgb(14, 9, 25) 가
-      나온다. 경고만 뜨고 컴파일은 성공하므로 빌드로는 안 잡힌다.
-      (실측 2026-08-07. 이 파일의 다른 곳처럼 변수가 없는 자리는 슬래시 표기여도 된다.) */
-@mixin hero-scrim($left, $mid, $right) {
-  background: linear-gradient(
-    100deg,
-    rgba(14, 9, 22, $left) 0%,
-    rgba(14, 9, 22, $mid) 46%,
-    rgba(18, 11, 28, $right) 100%
-  );
-}
+   그림 파일 (2026-08-07): 원본 1672x941 PNG 1.86 MB → WebP q88 204 KB.
+   좁은 화면에는 가로 900px 판(81 KB)을 준다. */
 
 .landing-hero {
-  position: relative;
-
-  /* 아래 z-index 가 음수라 이게 없으면 페이지 배경 뒤로 빠져 안 보인다. */
-  isolation: isolate;
-  overflow: hidden;
-
-  /* 그림을 못 받았을 때 남는 바탕. 흰 바탕에 흰 글씨가 되지 않게 어둡게 둔다. */
-  background: #1d1520;
-  border: 1px solid rgb(255 255 255 / 14%);
-  border-radius: 12px;
-  padding: 2rem 1.5rem;
-
-  @media (min-width: 768px) {
-    padding: 2.75rem 2.5rem;
-    min-height: 20rem;
-  }
-
-  /* 그림 */
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -2;
-    background-image: url('/assets/img/bg/city-pop-desk-sm.webp');
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    /* 좁은 화면은 가로로 크게 잘리므로 로봇팔 쪽으로 당겨 둔다. */
-    background-position: 68% 55%;
-
-    @media (min-width: 901px) {
-      background-image: url('/assets/img/bg/city-pop-desk.webp');
-      background-position: 50% 62%;
-    }
-  }
-
-  /* 스크림 */
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: rgb(14 9 22 / 74%);
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  align-items: center;
+  gap: 2rem 3rem;
+  padding: 1.5rem 0 0.5rem;
 
   h1 {
-    color: #fff;
-    font-size: 1.9rem;
-    font-weight: 700;
-    margin: 0 0 0.75rem;
-    text-shadow: 0 1px 4px rgb(0 0 0 / 45%);
-
-    @media (min-width: 768px) {
-      font-size: 2.3rem;
-    }
+    color: var(--heading-color);
+    font-size: clamp(2.2rem, 4.2vw, 3.3rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.12;
+    margin: 0 0 1.1rem;
   }
 
   .hero-lead {
-    color: rgb(255 255 255 / 84%);
-    font-size: 1rem;
-    line-height: 1.8;
+    color: var(--text-color);
+    font-size: 1.06rem;
+    line-height: 1.85;
+    max-width: 32em;
     margin: 0;
-    text-shadow: 0 1px 3px rgb(0 0 0 / 45%);
+  }
+}
 
-    /* 44rem 이면 스크림이 옅어지는 오른쪽까지 글씨가 나가 대비가 떨어진다. */
-    max-width: 34rem;
+.hero-art {
+  margin: 0;
+  aspect-ratio: 16 / 10;
+  border-radius: 1.25rem;
+  border: 1px solid var(--line);
+  box-shadow: var(--lift-shadow);
+  background-color: #1d1520;
+  background-image: url('/assets/img/bg/city-pop-desk-sm.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 55% 60%;
+
+  @media (min-width: 901px) {
+    background-image: url('/assets/img/bg/city-pop-desk.webp');
   }
 }
 
 .hero-stats {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.75rem;
+  row-gap: 0.75rem;
   list-style: none;
   padding: 0;
-  margin: 1.75rem 0 0;
+  margin: 2rem 0 0;
 
   li {
     display: flex;
     flex-direction: column;
     line-height: 1.3;
+    padding: 0 1.6rem;
+    border-left: 1px solid var(--line);
+
+    &:first-child {
+      padding-left: 0;
+      border-left: 0;
+    }
   }
 
   strong {
     color: var(--heading-color);
-    font-size: 1.35rem;
-    font-weight: 700;
+    font-size: 1.6rem;
+    font-weight: 750;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
 
     /* 날짜는 숫자가 길어 같은 크기면 통계 줄이 무너진다. */
     time {
-      font-size: 1.05rem;
+      font-size: 1.25rem;
     }
   }
 
   span {
     color: var(--text-muted-color);
     font-size: 0.8rem;
-    margin-top: 0.15rem;
+    margin-top: 0.2rem;
   }
 }
 
@@ -401,302 +688,360 @@ article > header figcaption {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
-  margin-top: 1.75rem;
+  margin-top: 2rem;
 }
 
 .hero-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--landing-card-border);
-  border-radius: 999px;
-  background: var(--landing-card-bg);
-  color: var(--text-color) !important;
-  font-size: 0.9rem;
+  gap: 0.5rem;
+  min-height: 2.85rem;
+  padding: 0 1.1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 0.7rem;
+  background: var(--surface);
+  color: var(--heading-color) !important;
+  font-size: 0.95rem;
+  font-weight: 600;
   transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease;
+    border-color 0.2s ease,
+    color 0.2s ease,
+    filter 0.2s ease;
 
   &:hover {
-    background: var(--card-hover-bg);
-    border-color: var(--link-color);
+    border-color: var(--accent);
+    color: var(--accent) !important;
   }
 
   &.primary {
-    background: var(--link-color);
-    border-color: var(--link-color);
-    color: #fff !important;
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-ink) !important;
 
     &:hover {
-      opacity: 0.88;
+      color: var(--accent-ink) !important;
+      filter: brightness(1.08);
     }
   }
 }
 
-:root[data-bs-theme='dark'] .hero-btn.primary {
-  color: #1a1418 !important;
-}
-
-:root:not([data-bs-theme]) {
-  @media (prefers-color-scheme: dark) {
-    .hero-btn.primary {
-      color: #1a1418 !important;
-    }
-  }
-}
-
-/* 4-1-1. 그림 위에 올라가는 것들 ─────────────────────────────
-   .hero-stats 와 .hero-btn 은 최상위 선택자로 정의돼 있어 팔레트 색을
-   그대로 받는다. 히어로 안에서만 흰 계열로 덮는다.
-
-   🔴 이 블록을 위로 옮기지 말 것. `.landing-hero .hero-btn.primary` 는
-      바로 위 `:root[data-bs-theme='dark'] .hero-btn.primary` 와 특정도가
-      (0,3,0) 으로 같다. 뒤에 있어서 이기는 것이라 순서가 곧 규칙이다.
-   ------------------------------------------------------------ */
-
-.landing-hero {
-  .hero-stats {
-    strong {
-      color: #fff;
-      text-shadow: 0 1px 3px rgb(0 0 0 / 45%);
-    }
-
-    span {
-      color: rgb(255 255 255 / 68%);
-    }
-  }
-
-  .hero-btn {
-    background: rgb(255 255 255 / 10%);
-    border-color: rgb(255 255 255 / 30%);
-    color: #fff !important;
-
-    /* Safari 는 18 이전까지 접두사만 받는다. 블러가 빠져도 대비는 4.5:1 을
-       넘는 것을 실측했으므로(2026-08-07) 이건 모양 문제이지 가독성 문제는 아니다. */
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
-
-    &:hover {
-      background: rgb(255 255 255 / 20%);
-      border-color: rgb(255 255 255 / 55%);
-    }
-
-    /* 그림 속 네온 분홍에서 가져왔다. 다크 팔레트의 --link-color 와 같은 계열이다. */
-    &.primary {
-      background: #e8b4d0;
-      border-color: #e8b4d0;
-      color: #23161f !important;
-      backdrop-filter: none;
-
-      &:hover {
-        background: #f2c6de;
-        border-color: #f2c6de;
-        opacity: 1;
-      }
-    }
-  }
-}
-
-/* 4-1-2. 스크림 진하기 ───────────────────────────────────────
-   넓은 화면에서만 가로로 걷히는 그라데이션을 쓴다. 좁은 화면은 글씨가
-   폭을 다 쓰므로 4-1 의 고른 막을 그대로 둔다.
-
-   라이트 모드가 더 옅다. 밝은 페이지 안에서 히어로만 어두운 창처럼
-   보이는 것이 이 그림을 넣는 이유다. 다크 모드는 페이지 전체가 이미
-   어두워 그림이 그대로 나오면 혼자 튀므로 조금 더 덮는다.
-   ------------------------------------------------------------ */
-
-@media (min-width: 901px) {
-  .landing-hero::after {
-    @include hero-scrim(0.88, 0.8, 0.42);
-  }
-}
-
-@mixin hero-scrim-dark {
-  .landing-hero::after {
-    background: rgb(14 9 22 / 82%);
-
-    @media (min-width: 901px) {
-      @include hero-scrim(0.93, 0.88, 0.58);
-    }
-  }
-}
-
-:root[data-bs-theme='dark'] {
-  @include hero-scrim-dark;
-}
-
-:root:not([data-bs-theme]) {
-  @media (prefers-color-scheme: dark) {
-    @include hero-scrim-dark;
-  }
-}
-
-/* 4-2. 절 제목 */
+/* 6-2. 절 */
 
 .landing-section {
-  margin-top: 3rem;
+  margin-top: 4.5rem;
 }
 
 .landing-heading {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.5rem 1rem;
   color: var(--heading-color);
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin: 0 0 1.1rem;
-  padding-bottom: 0.6rem;
-  border-bottom: 1px solid var(--main-border-color);
+  font-size: 1.85rem;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  border: 0;
 
   .heading-more {
-    color: var(--text-muted-color) !important;
-    font-size: 0.85rem;
-    font-weight: 400;
+    color: var(--accent) !important;
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0;
     white-space: nowrap;
-
-    &:hover {
-      color: var(--link-color) !important;
-    }
   }
 }
 
-/* 4-3. 시리즈 카드 */
+/* 6-3. 시리즈 — 띠 위의 카드
+   시리즈 구역에만 바탕보다 조금 진한 띠를 화면 끝까지 깐다. 흰 카드가 그 위에 떠 보인다.
+   본문 상자 폭을 벗어나 화면 끝까지 칠하는 방법은 box-shadow 를 넓게 펴고
+   clip-path 로 위아래만 자르는 것이다. 마크업에 감싸는 상자를 더하지 않아도 된다. */
 
-/* 열 수를 미디어쿼리로 정하지 않는다. 화면이 1440px 이어도 사이드바와 오른쪽 패널을
-   빼고 나면 본문 폭은 760px 밖에 안 돼서, 화면 폭으로 3열을 주면 카드가 눌린다.
-   auto-fit + minmax 는 화면이 아니라 담긴 자리의 폭을 보고 열 수를 정한다. */
+.landing-section.series-section {
+  position: relative;
+  padding-block: 3.5rem;
+  background: var(--band);
+  box-shadow: 0 0 0 100vmax var(--band);
+  clip-path: inset(0 -100vmax);
+  border-block: 1px solid var(--line);
+}
+
+/* 열 수를 미디어쿼리로 정하지 않는다. auto-fill + minmax 는 화면이 아니라
+   담긴 자리의 폭을 보고 열 수를 정한다. */
 .series-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-  gap: 0.9rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+  gap: 1rem;
 }
 
 .series-card {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  padding: 1.15rem 1.25rem;
+  gap: 0.7rem;
+  padding: 1.35rem 1.35rem 1rem;
   background: var(--landing-card-bg);
   border: 1px solid var(--landing-card-border);
-  border-left: 3px solid var(--link-color);
-  border-radius: 8px;
-  box-shadow: var(--landing-card-shadow);
+  border-radius: 1rem;
   transition:
-    background-color 0.2s ease,
+    border-color 0.2s ease,
     box-shadow 0.2s ease,
     transform 0.2s ease;
 
   &:hover {
-    background: var(--landing-card-hover-bg);
-    box-shadow: var(--landing-card-shadow-hover);
+    border-color: color-mix(in srgb, var(--c, var(--accent)) 50%, var(--line));
+    box-shadow: 0 14px 30px -18px color-mix(in srgb, var(--c, var(--accent)) 60%, transparent);
     transform: translateY(-2px);
   }
 
-  .series-icon {
-    color: var(--link-color);
-    font-size: 1.15rem;
-    line-height: 1;
-  }
-
-  .series-head {
+  .series-top {
     display: flex;
-    align-items: baseline;
-    gap: 0.5rem;
+    align-items: center;
+    justify-content: space-between;
   }
 
-  .series-name {
-    color: var(--heading-color);
+  .series-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 0.75rem;
+    color: var(--c, var(--accent));
+    background: color-mix(in srgb, var(--c, var(--accent)) 13%, transparent);
     font-size: 1.05rem;
-    font-weight: 700;
   }
 
   .series-count {
     color: var(--text-muted-color);
     font-size: 0.8rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    padding: 0.2rem 0.65rem;
+    border-radius: 999px;
+    background: var(--surface-2);
     white-space: nowrap;
   }
 
+  .series-name {
+    color: var(--heading-color);
+    font-size: 1.15rem;
+    font-weight: 750;
+    letter-spacing: -0.025em;
+    line-height: 1.35;
+  }
+
   .series-blurb {
+    flex: 1;
     color: var(--text-muted-color);
-    font-size: 0.88rem;
-    line-height: 1.65;
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+
+  .series-foot {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.84rem;
+  }
+
+  .series-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--text-color);
+    font-weight: 600;
+
+    i {
+      font-size: 0.75rem;
+      transition: transform 0.2s ease;
+    }
+  }
+
+  &:hover .series-more {
+    color: var(--heading-color);
+
+    i {
+      transform: translateX(2px);
+    }
   }
 
   .series-repo {
-    color: var(--link-color);
-    font-size: 0.78rem;
-    margin-top: 0.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--text-muted-color);
+    font-size: 0.76rem;
+    padding: 0.15rem 0.55rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
   }
 }
 
-/* 4-4. 최근 글 */
+/* 6-4. 최근 글
+   첫 글은 왼쪽에 크게(표지 그림이 있으면 그림과 함께), 나머지는 오른쪽 목록으로.
+   한 줄짜리 목록이던 것에 글 설명(description)을 붙였다. */
 
 .recent-list {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
+  column-gap: 2rem;
+  align-items: start;
 }
 
 .recent-item {
-  border-bottom: 1px solid var(--main-border-color);
-
-  &:last-child {
-    border-bottom: 0;
-  }
-
   > a {
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
-    padding: 0.85rem 0.6rem 0.85rem 1rem;
-    border-radius: 6px;
-    position: relative;
-    transition: background-color 0.2s ease;
-
-    /* 왼쪽 점이 시리즈 색을 나타낸다 */
-    &::before {
-      content: '';
-      position: absolute;
-      left: 0.15rem;
-      top: 1.35rem;
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--link-color);
-    }
-
-    &:hover {
-      background: var(--card-hover-bg);
-    }
+    gap: 0.35rem;
+    padding: 1rem 0.25rem 1.1rem;
+    border-bottom: 1px solid var(--line);
   }
 
   .recent-title {
     color: var(--heading-color);
-    font-size: 0.98rem;
-    font-weight: 600;
+    font-size: 1.02rem;
+    font-weight: 650;
     line-height: 1.5;
+    letter-spacing: -0.015em;
+  }
+
+  > a:hover .recent-title {
+    color: var(--accent);
   }
 
   .recent-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
+    align-items: center;
+    gap: 0.25rem 0.9rem;
     color: var(--text-muted-color);
-    font-size: 0.78rem;
+    font-size: 0.8rem;
   }
 
   .recent-cat {
-    color: var(--link-color);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--text-color);
+    font-weight: 600;
+
+    &::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--c, var(--accent));
+    }
+  }
+
+  .recent-desc {
+    color: var(--text-muted-color);
+    font-size: 0.88rem;
+    line-height: 1.7;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .recent-cover {
+    display: none;
+  }
+
+  /* 첫 글: 카드 */
+  &:first-child {
+    grid-row: span 5;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 1.1rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+
+    .recent-cover {
+      display: block;
+      padding: 0;
+      aspect-ratio: 16 / 9;
+      background-color: var(--surface-2);
+      background-size: cover;
+      background-position: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    > a {
+      padding: 1.25rem 1.4rem 1.5rem;
+      border-bottom: 0;
+      gap: 0.6rem;
+    }
+
+    .recent-title {
+      font-size: 1.35rem;
+      font-weight: 750;
+      letter-spacing: -0.03em;
+      line-height: 1.4;
+    }
+
+    .recent-desc {
+      -webkit-line-clamp: 4;
+      font-size: 0.92rem;
+    }
+  }
+}
+
+/* 6-5. 홈에서는 오른쪽 패널(최근 업데이트·인기 태그)을 맨 아래로 내린다.
+   랜딩이 화면 폭을 다 쓰게 하려는 것이다. 패널 내용은 그대로이고 자리만 바뀐다.
+   테마는 1200px 아래에서 패널을 숨기지만, 홈에서는 아래에 있으니 모든 폭에서 보인다. */
+
+body:has(#landing) {
+  #main-wrapper > .container > .row.flex-grow-1 > main {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+
+  #panel-wrapper {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 100%;
+    padding-inline: 0.75rem;
+
+    @media (min-width: 768px) {
+      padding-inline: 1.5rem;
+    }
+
+    .access {
+      position: static;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+      gap: 1.25rem;
+      margin-top: 3rem;
+
+      > section {
+        margin-top: 0;
+      }
+    }
+  }
+
+  #tail-wrapper {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 100%;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .series-card,
   .hero-btn,
-  .recent-item > a {
+  .series-more i {
     transition: none;
   }
 
@@ -705,10 +1050,241 @@ article > header figcaption {
   }
 }
 
-/* ── 5. 시리즈 색 ─────────────────────────────────────────────
-   시리즈가 여러 개라 이름만으로는 목록에서 구분이 잘 안 된다.
-   (개수를 여기 적으면 시리즈가 늘 때마다 조용히 낡는다. 목록은 _data/series.yml 이 정본이다.)
-   카드 왼쪽 선과 아이콘, 최근 글의 점에 색을 나눠 준다.
+/* ── 7. 글 화면 ───────────────────────────────────────────────
+   글 본문 구조(마크다운)는 그대로 두고 표면만 정리한다.
+   ------------------------------------------------------------ */
+
+/* 7-1. 글 머리 */
+article > header {
+  h1 {
+    font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.28;
+  }
+
+  .post-desc,
+  p.lead {
+    color: var(--text-muted-color);
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+}
+
+/* 탭 페이지(아카이브, 카테고리, 태그, 시리즈 …)의 제목. 테마 기본은 얇은 400 이라
+   글 제목과 굵기가 달라 보였다. */
+h1.dynamic-title {
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+/* 7-2. 소제목 */
+#main-wrapper .content {
+  h2 {
+    font-size: 1.6rem;
+    font-weight: 780;
+    letter-spacing: -0.03em;
+    margin-top: 3.2rem;
+  }
+
+  h3 {
+    font-size: 1.28rem;
+    font-weight: 720;
+    margin-top: 2.2rem;
+  }
+}
+
+/* 7-3. 인용 — 이 블로그는 글 머리의 "기준 출처 · 시리즈 이전/다음" 을
+   인용으로 쓴다. 왼쪽 회색 막대 대신 연한 판으로 둔다. */
+#main-wrapper .content blockquote:not([class^='prompt-']) {
+  border-left: 0;
+  border-radius: 0.9rem;
+  background: var(--surface-2);
+  padding: 0.95rem 1.2rem;
+  color: var(--blockquote-text-color);
+  font-size: 0.94rem;
+  line-height: 1.8;
+
+  > p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* 7-4. 콜아웃 */
+#main-wrapper .content [class^='prompt-'] {
+  border-radius: 0.9rem;
+}
+
+/* 7-5. 표 */
+#main-wrapper .content .table-wrapper {
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: var(--surface);
+
+  > table {
+    margin-bottom: 0;
+
+    thead {
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--line);
+    }
+
+    th {
+      color: var(--heading-color);
+      font-weight: 700;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid var(--line);
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+}
+
+/* 7-6. 코드 블록 */
+#main-wrapper .content div[class^='language-'],
+#main-wrapper .content .highlighter-rouge:not(code) {
+  border-radius: 0.9rem;
+  border: 1px solid var(--line);
+  box-shadow: none;
+}
+
+/* 7-7. 본문 그림 */
+#main-wrapper .content img {
+  border-radius: 0.6rem;
+}
+
+/* 7-8. 글 꼬리 — 이전/다음 글, 더 읽어보기 */
+.post-navigation {
+  .btn {
+    border: 1px solid var(--line);
+    border-radius: 1rem;
+    background: var(--surface);
+
+    &:hover {
+      border-color: var(--accent);
+      background: var(--surface);
+    }
+  }
+}
+
+#related-posts .card {
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  box-shadow: none;
+  background: var(--surface);
+
+  &:hover {
+    border-color: var(--accent);
+  }
+}
+
+/* ── 8. 오른쪽 패널 ───────────────────────────────────────────
+   최근 업데이트, 인기 태그, 목차를 각각 카드로 묶는다. */
+
+#panel-wrapper {
+  /* 목차가 없는 페이지에서는 이 묶음이 sticky 다(테마 top: 2rem). 머리 메뉴 밑으로 숨지 않게 내린다. */
+  .access {
+    top: calc(#{$header-h} + 1rem);
+  }
+
+  .access > section,
+  #toc-wrapper {
+    border: 1px solid var(--line);
+    border-radius: 1rem;
+    background: var(--surface);
+    padding: 1.1rem 1.1rem 0.9rem;
+  }
+
+  .access > section:not(:first-child) {
+    margin-top: 1.25rem;
+  }
+
+  /* 목차는 따라 내려오는(sticky) 카드다. 테마의 top: 0 이면 고정된 머리 메뉴 밑으로 숨는다.
+     테마가 목차 위아래에 까는 흐림 막(::before, ::after, .toc-border-cover)은 페이지 바탕색으로
+     칠해져 있어서 카드 위에서는 테두리를 지운 얼룩이 된다. 걷어내고 카드 안에서 스크롤한다. */
+  #toc-wrapper {
+    top: calc(#{$header-h} + 1rem);
+    max-height: calc(100vh - #{$header-h} - 2rem);
+    margin-top: 1.25rem;
+    border-left: 1px solid var(--line);
+
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  .toc-border-cover {
+    display: none;
+  }
+
+  .panel-heading {
+    font-size: 0.8rem;
+    font-weight: 750;
+    letter-spacing: 0.04em;
+    color: var(--text-muted-color);
+  }
+
+  .post-tag {
+    border: 0;
+    background: var(--surface-2);
+  }
+}
+
+/* ── 9. 바닥 ──────────────────────────────────────────────────
+   짙은 자두색 띠로 페이지 끝을 잡는다. 바닥은 본문 열(col) 안에 있지만
+   box-shadow + clip-path 로 화면 끝까지 칠한다(6-3 과 같은 방법). */
+
+#tail-wrapper > footer {
+  position: relative;
+  height: auto;
+  min-height: 5rem;
+  margin-top: 5rem;
+  padding-block: 1.75rem;
+  border-top: 0;
+  background: #17131d;
+  box-shadow: 0 0 0 100vmax #17131d;
+  clip-path: inset(0 -100vmax);
+  color: rgb(255 255 255 / 68%);
+
+  a,
+  em {
+    color: #fff !important;
+  }
+
+  a:hover {
+    color: #f2c6de !important;
+  }
+}
+
+:root[data-bs-theme='dark'] #tail-wrapper > footer {
+  background: #0d0b10;
+  box-shadow: 0 0 0 100vmax #0d0b10;
+}
+
+:root:not([data-bs-theme]) {
+  @media (prefers-color-scheme: dark) {
+    #tail-wrapper > footer {
+      background: #0d0b10;
+      box-shadow: 0 0 0 100vmax #0d0b10;
+    }
+  }
+}
+
+#back-to-top {
+  border-radius: 0.9rem;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--accent);
+}
+
+/* ── 10. 시리즈 색 ────────────────────────────────────────────
+   시리즈마다 색 하나를 --c 로 넘긴다. 카드 아이콘, 카드 hover 테두리,
+   최근 글의 점이 이 값을 쓴다.
 
    키 이름은 _data/series.yml 의 id 와 같아야 한다.
    색은 모브 팔레트와 같은 계열 안에서 갈랐다. 튀지 않게 채도를 낮췄다.
@@ -725,8 +1301,6 @@ $series-light: (
   'mp': #6f7a4a,
   'reading': #8a6246,
   'break': #99798c,
-
-  // 🕓 대기 중인 카드 3장의 색 (2026-08-21). 카드가 주석 해제될 때 함께 쓰인다.
   'agentic': #96504f,
   'ccsetup': #4a6b7a,
   'orch': #5f5a8c,
@@ -743,88 +1317,31 @@ $series-dark: (
   'mp': #bdc78f,
   'reading': #d0a284,
   'break': #c3a7ba,
-
   'agentic': #e0a09f,
   'ccsetup': #8fb6c4,
   'orch': #a8a2d8,
 );
 
-@mixin series-accent($color) {
-  &.series-card {
-    border-left-color: $color;
-
-    .series-icon {
-      color: $color;
-    }
-  }
-
-  &.recent-item {
-    > a::before {
-      background: $color;
-    }
-
-    .recent-cat {
-      color: $color;
-    }
-  }
-}
-
 @each $name, $color in $series-light {
   :root[data-bs-theme='light'] [data-series='#{$name}'] {
-    @include series-accent($color);
+    --c: #{$color};
   }
 
   :root:not([data-bs-theme]) [data-series='#{$name}'] {
     @media (prefers-color-scheme: light) {
-      @include series-accent($color);
+      --c: #{$color};
     }
   }
 }
 
 @each $name, $color in $series-dark {
   :root[data-bs-theme='dark'] [data-series='#{$name}'] {
-    @include series-accent($color);
+    --c: #{$color};
   }
 
   :root:not([data-bs-theme]) [data-series='#{$name}'] {
     @media (prefers-color-scheme: dark) {
-      @include series-accent($color);
+      --c: #{$color};
     }
   }
 }
-
-/* ============================================================
-   다른 팔레트 후보 (쓰려면 위 믹스인의 값을 이걸로 교체)
-   ------------------------------------------------------------
-   ▸ 라벤더 — 보라 쪽
-     light: --link-color #6d4f9c / --heading-color #2b2540
-            --text-color #3a3646 / --text-muted-color #7b7488
-            --main-border-color #f0eef5
-            --sidebar-bg #f2f0f8 / --sidebar-border-color #e7e3f0
-            --sidebar-muted-color #524c60 / --sidebar-active-color #1e1930
-            --sidebar-hover-bg #e4e0f2
-            --site-title-color #655d78 / --site-subtitle-color #726b82
-            --card-hover-bg #e7e3f2 / --prompt-tip-bg #efeafa
-            --tb-odd-bg #faf9fd / --tb-border-color #eeebf4
-     dark:  --main-bg #16141c / --sidebar-bg #1c1926 / --card-bg #1c1926
-            --link-color #b9a3e8 / --heading-color #cfc9de
-            --text-color #aca6bb / --main-border-color #272232
-            --sidebar-active-color #ddd8ea / --sidebar-hover-bg #262032
-            --prompt-tip-bg #241d33 / --tb-odd-bg #1e1b27
-
-   ▸ 연분홍 — 분홍 쪽
-     light: --link-color #a24f6e / --heading-color #3a2630
-            --text-color #443a3e / --text-muted-color #83757b
-            --main-border-color #f6eef1
-            --sidebar-bg #faf0f3 / --sidebar-border-color #f2e6ea
-            --sidebar-muted-color #594c51 / --sidebar-active-color #2c1c24
-            --sidebar-hover-bg #f2e0e6
-            --site-title-color #6f6066 / --site-subtitle-color #7b6c72
-            --card-hover-bg #f6e6ec / --prompt-tip-bg #fdeef2
-            --tb-odd-bg #fdf9fa / --tb-border-color #f4ecef
-     dark:  --main-bg #1a1417 / --sidebar-bg #221a1e / --card-bg #221a1e
-            --link-color #efa8bd / --heading-color #ddc9d1
-            --text-color #b3a5ab / --main-border-color #2d2428
-            --sidebar-active-color #ead6de / --sidebar-hover-bg #2d2228
-            --prompt-tip-bg #331f28 / --tb-odd-bg #231c20
-   ============================================================ */

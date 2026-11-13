@@ -8,7 +8,7 @@ mermaid: true
 ---
 
 > **기준 출처:** [MathWorks Stateflow Chart Concepts](https://www.mathworks.com/help/stateflow/gs/finite-state-machines.html) · States와 Transitions와 Junctions와 Hierarchy 문서 · Stateflow User's Guide의 Model Finite State Machines / 확인일 2026-08-07
-> **시리즈:** [목차](/posts/00-mp-series/) | 이전 → [Simulink 09. 샘플 시간과 솔버](/posts/09-sample-time-solver/) | 다음 → [02. Chart 속성](/posts/02-sf-chart-properties/)
+> **시리즈:** [목차](/posts/00-mp-series/) | 이전 → [Simulink 11. Variant](/posts/11-simulink-variant/) | 다음 → [02. Chart 속성](/posts/02-sf-chart-properties/)
 
 대상은 Stateflow 차트를 처음 보는 독자다. 예제는 모두 이 글에서 새로 만든 것이고, Stateflow 객체 이름은 영어 원어를 쓴다.
 

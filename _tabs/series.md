@@ -12,7 +12,7 @@ order: 1
 ---
 
 {%- assign n_comm = 0 -%}{%- assign n_rtos = 0 -%}{%- assign n_mp = 0 -%}
-{%- assign n_sf = 0 -%}{%- assign n_sfl = 0 -%}{%- assign n_adrc = 0 -%}
+{%- assign n_sf = 0 -%}{%- assign n_sfl = 0 -%}{%- assign n_adrc = 0 -%}{%- assign n_mm = 0 -%}{%- assign n_ma = 0 -%}
 {%- assign n_amr = 0 -%}{%- assign n_mcp = 0 -%}{%- assign n_read = 0 -%}{%- assign n_etc = 0 -%}{%- assign n_orch = 0 -%}{%- assign n_cc = 0 -%}{%- assign n_ag = 0 -%}{%- assign n_git = 0 -%}{%- assign n_onto = 0 -%}
 {%- for p in site.posts -%}
   {%- comment -%} 🔴 00 목차 글은 세지 않는다 — landing.html 의 카드 편수와 같은 규약이다. {%- endcomment -%}
@@ -23,6 +23,8 @@ order: 1
   {%- elsif p.path contains '_posts/stateflow/' -%}{%- assign n_sf = n_sf | plus: 1 -%}
   {%- elsif p.path contains '_posts/sflayout/' -%}{%- assign n_sfl = n_sfl | plus: 1 -%}
   {%- elsif p.path contains '_posts/adrc/' -%}{%- assign n_adrc = n_adrc | plus: 1 -%}
+  {%- elsif p.path contains '_posts/multimode/' -%}{%- assign n_mm = n_mm | plus: 1 -%}
+  {%- elsif p.path contains '_posts/multi-axis/' -%}{%- assign n_ma = n_ma | plus: 1 -%}
   {%- elsif p.path contains '_posts/amr/' -%}{%- assign n_amr = n_amr | plus: 1 -%}
   {%- elsif p.path contains '_posts/mcp/' -%}{%- assign n_mcp = n_mcp | plus: 1 -%}
   {%- elsif p.path contains '_posts/news/' or p.path contains '_posts/papers/' or p.path contains '_posts/trends/' -%}{%- assign n_read = n_read | plus: 1 -%}
@@ -78,7 +80,7 @@ order: 1
 | 구간 | 편 | 내용 |
 | --- | --- | --- |
 | [MATLAB](/posts/01-matlab-variables-arrays/) | 01~06 | 변수와 배열, 데이터 타입, **형 변환과 포화**, **비트 연산**, 연산자, 내장 함수 |
-| [Simulink](/posts/01-reading-simulink-models/) | 01~09 | 모델 읽는 법, 수학과 논리 블록, 비트 시프트, 신호 라우팅과 Bus, 데이터 타입, 상태 블록과 Data Store, 계층과 조건부 실행, 샘플 타임 |
+| [Simulink](/posts/01-reading-simulink-models/) | 01~11 | 모델 읽는 법, 수학과 논리 블록, 비트 시프트, 신호 라우팅과 Bus, 데이터 타입, 상태 블록과 Data Store, 계층과 조건부 실행, 샘플 타임, **제어기를 조립하는 기제와 Variant** |
 | [Stateflow 문법](/posts/01-sf-chart-elements/) | 01~06 | 구성 요소, Chart 속성, State 와 Action, **Transition 읽는 법**, Data Scope, 시간 연산자 |
 
 ## 📐 Stateflow — {{ n_sf }}편
@@ -113,6 +115,31 @@ order: 1
 | [**부록 — 수식 유도**](/posts/19-adrc-derivation-cancellation-eso/) | 19~21 | 본편이 건너뛴 증명. **한 줄도 안 건너뜁니다** |
 
 원전을 직접 읽은 기록도 있습니다 → [Han 2009](/posts/paper-han2009-pid-to-adrc/), [Herbst & Madoński](/posts/book-adrc-principles-to-practice/)
+
+## 🔀 다중 모드 제어 — {{ n_mm }}편
+
+> [**목차 →**](/posts/00-multimode-series/) 제어기 하나로 안 될 때 여러 개를 두고 갈아타는 구조입니다.
+
+| 부 | 편 | 내용 |
+| --- | --- | --- |
+| [왜와 형식](/posts/01-why-multiple-modes/) | 01~02 | 모드가 생기는 이유, switched system 과 hybrid automaton |
+| [**전환 순간**](/posts/03-bumpless-transfer/) | 03~06 | 무충격 전환, 채터링, 전환 안정성, 적분기 이월과 리셋 |
+| [접촉 작업](/posts/07-hybrid-position-force/) | 07 | 위치제어와 힘제어 |
+| [모드 논리](/posts/08-supervisory-control-des/) | 08~10 | 감독제어와 DES, Stateflow 로 모드 표현, 전환 검증 |
+| [고장 모드](/posts/11-fault-modes-fdir/) | 11 | FDIR 과 안전 상태 |
+
+## 🦾 다축 제어 — {{ n_ma }}편
+
+> [**목차 →**](/posts/00-multiaxis-series/) 축, 루프, 매니퓰레이터, 로봇 여럿을 함께 제어할 때 생기는 결합입니다.
+
+| 부 | 편 | 내용 |
+| --- | --- | --- |
+| [무엇이 여러 개인가](/posts/01-what-is-multiple/) | 01 | 네 층과 결합 네 가지 |
+| [한 로봇 안의 축](/posts/02-mimo-coupling/) | 02~04 | MIMO 커플링, 조인트 독립제어, 캐스케이드 루프 |
+| [**시간과 자원**](/posts/05-axis-synchronization/) | 05~07 | 동기화, 통신이 정하는 상한, 실행시간 예산 |
+| [로봇 여럿](/posts/08-cooperative-manipulators/) | 08~09 | 협조와 내력, 공유 작업공간 |
+| [원격조작](/posts/10-bilateral-teleoperation/) | 10~11 | bilateral teleoperation, single-master multi-slave |
+| [부분 고장](/posts/12-partial-failure-degraded/) | 12 | degraded mode 와 전체 정지 판단 |
 
 ## 🤖 실내 배송 AMR — {{ n_amr }}편
 
@@ -250,6 +277,8 @@ order: 1
 | 제어 주기를 못 지켜서 왔다 | [RTOS 목차](/posts/00-rtos-series/) |
 | 남이 만든 모델을 읽어야 한다 | [MATLAB과 Simulink 문법 목차](/posts/00-mp-series/) |
 | 제어 이론 쪽이 궁금하다 | [ADRC 목차](/posts/00-adrc-series/) |
+| 모드 전환에서 입력이 튀거나 모드가 떨린다 | [다중 모드 제어 목차](/posts/00-multimode-series/) |
+| 축이 늘수록 동기와 주기가 빠듯하다 | [다축 제어 목차](/posts/00-multiaxis-series/) |
 | 실제로 굴러가는 프로젝트가 보고 싶다 | [AMR 목차](/posts/00-amr-series/) |
 | AI 를 MATLAB 에 붙여야 한다 | [MCP와 MATLAB 연결 목차](/posts/00-mcp-series/) |
 | 에이전트가 자꾸 어긋나는데 어디를 고칠지 모르겠다 | [에이전틱 엔지니어링 목차](/posts/00-agentic-series/) |

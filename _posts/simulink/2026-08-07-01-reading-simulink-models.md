@@ -82,10 +82,10 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  S1["1. 최상위 Inport 와 Outport 를 본다, 인터페이스다"] --> S2["2. 큰 Subsystem 을 센다"]
-  S2 --> S3["3. 주 경로 하나를 골라 끝까지 따라간다"]
-  S3 --> S4["4. Data Store 와 Goto/From 을 따로 목록화한다"]
-  S4 --> S5["5. Model Reference 는 별도 파일이라 따로 연다"]
+  ST1["1. 최상위 Inport 와 Outport 를 본다, 인터페이스다"] --> ST2["2. 큰 Subsystem 을 센다"]
+  ST2 --> ST3["3. 주 경로 하나를 골라 끝까지 따라간다"]
+  ST3 --> ST4["4. Data Store 와 Goto/From 을 따로 목록화한다"]
+  ST4 --> ST5["5. Model Reference 는 별도 파일이라 따로 연다"]
 ```
 
 3번에서 모든 가지를 동시에 보지 않는 것이 중요하다. 4번의 두 종류는 선이 없으므로 다이어그램만 봐서는 연결이 보이지 않는다.

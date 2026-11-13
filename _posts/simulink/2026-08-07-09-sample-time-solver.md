@@ -8,7 +8,7 @@ mermaid: true
 ---
 
 > **기준 출처:** [MathWorks What Is Sample Time](https://www.mathworks.com/help/simulink/ug/what-is-sample-time.html) · Types of Sample Time과 Sample Time Colors와 Solver Selection · Rate Transition과 Zero-Order Hold와 Sample Time Math 레퍼런스 / 확인일 2026-08-07
-> **시리즈:** [목차](/posts/00-mp-series/) | 이전 → [08. 계층구조와 조건부 실행](/posts/08-hierarchy-conditional-execution/) | 다음 → [Stateflow 01. Chart 구성 요소](/posts/01-sf-chart-elements/)
+> **시리즈:** [목차](/posts/00-mp-series/) | 이전 → [08. 계층구조와 조건부 실행](/posts/08-hierarchy-conditional-execution/) | 다음 → [10. 제어기를 조립하는 네 가지 기제](/posts/10-simulink-controller-assembly/)
 
 ## 1. 이 글의 범위
 
@@ -45,9 +45,9 @@ get_param(blk, 'CompiledSampleTime')     % 컴파일된 상태에서만 유효�
 ```mermaid
 flowchart TD
   F["빠른 쪽에서 느린 쪽으로"] --> F1["느린 쪽이 읽는 순간 값이 갱신 중일 수 있다"]
-  S["느린 쪽에서 빠른 쪽으로"] --> S1["빠른 쪽이 같은 값을 여러 번 보게 된다"]
+  S["느린 쪽에서 빠른 쪽으로"] --> SA["빠른 쪽이 같은 값을 여러 번 보게 된다"]
   F1 --> R["Rate Transition 이 이 경계를 안전하게 처리한다"]
-  S1 --> R
+  SA --> R
 ```
 
 Rate Transition 블록의 파라미터는 두 개다.

@@ -46,6 +46,26 @@
   blurb: 정확한 모델 없이 외란을 추정해 상쇄하는 제어 기법. 발상에서 출발해 이산화, 튜닝, 수식 유도까지 내려간다.
   resume_note: 확장 상태 관측기, 대역폭 파라미터화, 이산화와 튜닝
 
+- id: multimode
+  name: 다중 모드 제어
+  group: control
+  icon: fa-solid fa-shuffle
+  dirs: [multimode]
+  index: /posts/00-multimode-series/
+  top_category: 제어 이론
+  blurb: 제어기를 여러 개 두고 갈아탈 때 생기는 문제. 무충격 전환, 채터링, 전환 안정성에서 모드 논리의 검증과 고장 모드까지.
+  resume_note: 무충격 전환, 채터링, 전환 안정성, 감독제어, FDIR
+
+- id: multiaxis
+  name: 다축 제어
+  group: control
+  icon: fa-solid fa-diagram-project
+  dirs: [multi-axis]
+  index: /posts/00-multiaxis-series/
+  top_category: 제어 이론
+  blurb: 여러 축과 여러 로봇을 함께 제어할 때 생기는 결합. 커플링, 동기화, 통신과 실행시간 예산, 협조와 원격조작, 부분 고장.
+  resume_note: MIMO 커플링, 동기화, 사이클 예산, 협조, 원격조작, 부분 고장
+
 - id: amr
   name: 실내 배송 AMR
   group: control

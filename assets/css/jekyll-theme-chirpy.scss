@@ -1788,6 +1788,8 @@ $series-light: (
   'orch': #5f5a8c,
   'git': #9a6a3e,
   'ontology': #5b7f6e,
+  'multimode': #a0645a,
+  'multiaxis': #5f8a9c,
 );
 
 $series-dark: (
@@ -1806,6 +1808,8 @@ $series-dark: (
   'orch': #a8a2d8,
   'git': #d8b08a,
   'ontology': #a9cdb9,
+  'multimode': #e0a89e,
+  'multiaxis': #9cc8d8,
 );
 
 @each $name, $color in $series-light {
